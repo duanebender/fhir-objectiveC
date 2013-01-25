@@ -7,7 +7,4 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface FHIR : NSObject
-
-@end
+#import "FHIR/Patient.h"
