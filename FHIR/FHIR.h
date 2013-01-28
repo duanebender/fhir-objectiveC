@@ -7,4 +7,4 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FHIR/Patient.h"
+#import "Patient.h"
