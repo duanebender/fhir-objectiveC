@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
+		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7F016B1D88400D0AFB4 /* FHIR.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
@@ -16,6 +18,7 @@
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
+		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
+		8950B3C716B6DD85007CB8B5 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		8950B3CD16B6DE80007CB8B5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = ../Element.h; sourceTree = "<group>"; };
+		8950B3CE16B6DE80007CB8B5 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = ../Element.m; sourceTree = "<group>"; };
+		898082BD16B71B0A00B21812 /* CodeableConcept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeableConcept.m; sourceTree = "<group>"; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
@@ -55,6 +63,8 @@
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
 		8993D81516B1D9CB00D0AFB4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = ../Patient.h; sourceTree = "<group>"; };
+		89D05CB816B809DE00139BEF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
+		89D05CB916B809DE00139BEF /* Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coding.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,11 @@
 				8993D7EF16B1D88400D0AFB4 /* FHIR.h */,
 				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
 				8993D7F116B1D88400D0AFB4 /* Patient.m */,
+				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
+				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
+				89D05CB816B809DE00139BEF /* Coding.h */,
+				89D05CB916B809DE00139BEF /* Coding.m */,
+				89D05CBC16B80A2C00139BEF /* Primative Types */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -145,6 +160,16 @@
 				8993D80416B1D88500D0AFB4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89D05CBC16B80A2C00139BEF /* Primative Types */ = {
+			isa = PBXGroup;
+			children = (
+				8950B3C716B6DD85007CB8B5 /* Type.h */,
+				8950B3CD16B6DE80007CB8B5 /* Element.h */,
+				8950B3CE16B6DE80007CB8B5 /* Element.m */,
+			);
+			name = "Primative Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */,
+				8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */,
+				898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */,
+				89D05CBA16B809DE00139BEF /* Coding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

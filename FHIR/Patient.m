@@ -16,37 +16,38 @@
     @implementation Animal:Element //could also be @interface Animal (Element):NSObject
     {
 
-        + (CodableConcept)getSpecies
+        + (CodeableConcept)getSpecies
         {
             return self.species;
         }
 
-        + (void)setSpecies:(CodableConcept)value
+        + (void)setSpecies:(CodeableConcept)value
         {
             self.species = value;
         }
 
-        + (CodableConcept)getBreed
+        + (CodeableConcept)getBreed
         {
             return self.breed;
         }
 
-        + (void)setBreed:(CodableConcept)value
+        + (void)setBreed:(CodeableConcept)value
         {
             self.breed = value;
         }
 
-        + (CodableConcept)getGenderStatus
+        + (CodeableConcept)getGenderStatus
         {
             return self.genderStatus;
         }
 
-        + (void)setGenderStatus:(CodableConcept)value
+        + (void)setGenderStatus:(CodeableConcept)value
         {
             self.genderStatus = value;
         }
 
     }
+    @end
     
     + (NSArray)<ResourceReference>getLink //NOT SURE OF PROPER CODE FOR THIS
     {
@@ -98,32 +99,32 @@
         self.provider = value;
     }
     
-    + (CodableConcept)getDiet
+    + (CodeableConcept)getDiet
     {
         return self.diet;
     }
     
-    + (void)setDiet:(CodableConcept *)value
+    + (void)setDiet:(CodeableConcept *)value
     {
         self.diet = value;
     }
     
-    + (CodableConcept)getConfidentiality
+    + (CodeableConcept)getConfidentiality
     {
         return this.confidentiality;
     }
     
-    + (void)setConfidentiality:(CodableConcept *)value
+    + (void)setConfidentiality:(CodeableConcept *)value
     {
         self.confidentiality = value;
     }
     
-    + (CodableConcept)getRecordLocation
+    + (CodeableConcept)getRecordLocation
     {
         return self.recordLocation;
     }
     
-    + (void)setRecordLocation:(CodableConcept *)value
+    + (void)setRecordLocation:(CodeableConcept *)value
     {
         self.recordLocation = value;
     }
@@ -135,6 +136,4 @@
     }
 
 }
-
-
 @end
