@@ -24,7 +24,7 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)test
 {
     STFail(@"Unit tests are not implemented yet in FHIRTests");
 }

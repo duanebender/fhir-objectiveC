@@ -1,5 +1,5 @@
 //
-//  Coding.h
+//  ResourceReference.h
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-29.
@@ -12,13 +12,16 @@
 #import "Code.h"
 #import "String_.h"
 
-//A reference to a code defined by a terminology system
-@interface Coding : Type
+//A reference from one resource to another
 
-- (Uri *)getSystem;
-- (void) setSystem:(Uri *)value;
-- (Code *)getCode;
-- (void)setCode:(Code *)value;
+@interface ResourceReference : Type
+
+- (Code *)getType; 
+- (void)setType:(Code *)value;
+- (Uri *)getId;
+- (void)setId:(Uri *)value;
+- (Uri *)getVersion;
+- (void)setVersion:(Uri *)value;
 - (String_ *)getDisplay;
 - (void)setDisplay:(String_ *)value;
 

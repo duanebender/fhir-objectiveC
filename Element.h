@@ -9,14 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Element : NSObject
-{
-
-@private
-NSString *xmlId;
-
-}
 
 - (NSString *)getXmlId;
-+ (void)setXmlId:(NSString *)xmlId;
+- (void)setXmlId:(NSString *)xmlId;
 
 @end

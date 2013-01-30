@@ -8,29 +8,41 @@
 
 #import "CodeableConcept.h"
 
+//private variables
+@interface CodeableConcept()
+    @property (nonatomic, retain) NSArray *coding; //A reference to a code defined by a terminology system. Contains "coding" objects only.
+    @property (nonatomic, retain) String_ *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
+    @property (nonatomic, retain) NSString *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
+
+@end
+
 @implementation CodeableConcept
 
-    + (NSArray *)getCoding //<Coding>
+//@synthesize coding = _coding;
+//@synthesize text = _text;
+//@synthesize primary = _primary;
+
+    - (NSArray *)getCoding //<Coding>
     {
-        return [coding];
+        return self.coding;
     }
 
-    + (NSString *)getText
+    - (String_ *)getText
     {
         return self.text;
     }
 
-    + (void)setText:(NSString *)value
+    - (void)setText:(String_ *)value
     {
         self.text = value;
     }
 
-    + (NSString *)getPrimary
+    - (NSString *)getPrimary
     {
         return self.primary;
     }
 
-    + (void)setPrimary:(NSString *)value
+    - (void)setPrimary:(NSString *)value
     {
         self.primary = value;
     }
