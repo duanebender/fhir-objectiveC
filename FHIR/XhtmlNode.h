@@ -10,12 +10,12 @@
 
 @interface XhtmlNode : NSObject
 
+#warning - Am unsure of the objective c equivalent to a Java NodeType
 - (NodeType *)getNodeType;
 - (void)setNodeType:(NodeType *)nodeType;
 - (NSString *)getName;
 - (void)setName:(NSString *)name;
-#warning - Am unsure of the objective c equivelent to a Java Map
-- (Map *)getAttributes; //<String, String>?
+- (NSMutableDictionary *)getAttributes; //<String, String>?
 - (NSArray *)getChildNodes;
 - (NSString *)getContent;
 - (void)setContent:(NSString *)content;
