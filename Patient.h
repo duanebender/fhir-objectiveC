@@ -12,22 +12,10 @@
 //A patient is a person or animal that is receiving care
 @interface Patient : Resource
     
-    @interface Animal : Element
-        
-        - (CodeableConcept *)getSpecies; //get species of animal and return
-        - (void)setSpecies:(CodeableConcept *)value; //set species of this instance of animal
-        - (CodeableConcept *)getBreed; //get breed of animal and return
-        - (void)setBreed:(CodeableConcept *)value; //set breed of this instance of animal
-        - (CodeableConcept *)getGenderStatus; //returns gender of the animal
-        - (void)setGenderStatus:(CodeableConcept *)value; //set gender of this instance of animal
-        
-    
-    @end
-    
-    - (NSArray *)link;//method to return array of ResourceReference's
+    - (NSArray *)link;//method to return array of <ResourceReference>'s
     - (BOOL *)getActive; //returns whether the patient is active
     - (void)setActive:(BOOL *)value; //sets the patients active value
-    - (NSArray *)identifier;//method to return array of HumanId's
+    - (NSArray *)identifier;//method to return array of <HumanId>'s
     - (Demographics *)getDetails; //returns details demographics on the patient
     - (void)setDetails:(Demographics *)value; //sets the detail demographics on the patient
     - (Animal *)getAnimal; //returns animal
@@ -43,4 +31,16 @@
     
     - (ResourceType *)getResourceType; //override method
     
+@end
+
+@interface Animal : Element
+
+- (CodeableConcept *)getSpecies; //get species of animal and return
+- (void)setSpecies:(CodeableConcept *)value; //set species of this instance of animal
+- (CodeableConcept *)getBreed; //get breed of animal and return
+- (void)setBreed:(CodeableConcept *)value; //set breed of this instance of animal
+- (CodeableConcept *)getGenderStatus; //returns gender of the animal
+- (void)setGenderStatus:(CodeableConcept *)value; //set gender of this instance of animal
+
+
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Element.h"
 #import "Narrative.h"
+#import "ResourceType.h"
 
 @interface Resource : Element
 
@@ -16,7 +17,6 @@
 - (void)setText:(Narrative *)text; //sets the narrative text
 - (NSArray *)getExtensions; //returns an array of extensions
 
-#warning - below method is absract with no code?
 - (ResourceType *)getResourceType; //returns the resource type
 
 @end

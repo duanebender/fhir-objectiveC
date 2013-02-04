@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
 		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
@@ -22,6 +23,9 @@
 		89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		89B3466B16BAB4A800926131 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466A16BAB4A800926131 /* Identifier.m */; };
 		89B3466F16BABA7E00926131 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466E16BABA7E00926131 /* Period.m */; };
+		89B3467216BABE7500926131 /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467116BABE7500926131 /* Demographics.m */; };
+		89B3467616BACE2100926131 /* HumanName.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467516BACE2100926131 /* HumanName.m */; };
+		89B3467916BAF9C200926131 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467816BAF9C200926131 /* Contact.m */; };
 		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
 		89D05CBF16B8146000139BEF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CBE16B8146000139BEF /* Uri.m */; };
 		89D05CC316B81F9700139BEF /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CC216B81F9700139BEF /* Code.m */; };
@@ -56,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
 		8950B3C716B6DD85007CB8B5 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		8950B3CD16B6DE80007CB8B5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = ../Element.h; sourceTree = "<group>"; };
@@ -83,6 +88,13 @@
 		89B3466A16BAB4A800926131 /* Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identifier.m; sourceTree = "<group>"; };
 		89B3466D16BABA7E00926131 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
 		89B3466E16BABA7E00926131 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
+		89B3467016BABE7500926131 /* Demographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demographics.h; sourceTree = "<group>"; };
+		89B3467116BABE7500926131 /* Demographics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demographics.m; sourceTree = "<group>"; };
+		89B3467316BAC80F00926131 /* ResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceType.h; sourceTree = "<group>"; };
+		89B3467416BACE2100926131 /* HumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanName.h; sourceTree = "<group>"; };
+		89B3467516BACE2100926131 /* HumanName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanName.m; sourceTree = "<group>"; };
+		89B3467716BAF9C200926131 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		89B3467816BAF9C200926131 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		89D05CB816B809DE00139BEF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
 		89D05CB916B809DE00139BEF /* Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coding.m; sourceTree = "<group>"; };
 		89D05CBD16B8146000139BEF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
@@ -106,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */,
 				8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +159,7 @@
 		8993D7E916B1D88400D0AFB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				890AD55316BC176A00FE69E3 /* CoreData.framework */,
 				8993D7EA16B1D88400D0AFB4 /* Foundation.framework */,
 				8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */,
 				8993D7FB16B1D88500D0AFB4 /* UIKit.framework */,
@@ -160,9 +174,11 @@
 				8993D7EF16B1D88400D0AFB4 /* FHIR.h */,
 				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
 				8993D7F116B1D88400D0AFB4 /* Patient.m */,
-				8996827E16B9B28E005DFEC7 /* High Types */,
+				89B3467016BABE7500926131 /* Demographics.h */,
+				89B3467116BABE7500926131 /* Demographics.m */,
+				8996827E16B9B28E005DFEC7 /* Top Level Types */,
 				89D05CC716B82D1000139BEF /* Resource Files */,
-				89D05CBC16B80A2C00139BEF /* Low Types */,
+				89D05CBC16B80A2C00139BEF /* Bottom Level Types */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -195,9 +211,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8996827E16B9B28E005DFEC7 /* High Types */ = {
+		8996827E16B9B28E005DFEC7 /* Top Level Types */ = {
 			isa = PBXGroup;
 			children = (
+				89B3467716BAF9C200926131 /* Contact.h */,
+				89B3467816BAF9C200926131 /* Contact.m */,
+				89B3467416BACE2100926131 /* HumanName.h */,
+				89B3467516BACE2100926131 /* HumanName.m */,
 				8996828016B9C1AE005DFEC7 /* HumanId.h */,
 				8996828116B9C1AE005DFEC7 /* HumanId.m */,
 				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
@@ -205,7 +225,7 @@
 				89D05CB816B809DE00139BEF /* Coding.h */,
 				89D05CB916B809DE00139BEF /* Coding.m */,
 			);
-			name = "High Types";
+			name = "Top Level Types";
 			sourceTree = "<group>";
 		};
 		8996827F16B9B345005DFEC7 /* GUI */ = {
@@ -216,7 +236,7 @@
 			name = GUI;
 			sourceTree = "<group>";
 		};
-		89D05CBC16B80A2C00139BEF /* Low Types */ = {
+		89D05CBC16B80A2C00139BEF /* Bottom Level Types */ = {
 			isa = PBXGroup;
 			children = (
 				89D05CCB16B8314800139BEF /* Narrative.h */,
@@ -233,12 +253,13 @@
 				89D05CC216B81F9700139BEF /* Code.m */,
 				89D05CC016B81F6800139BEF /* Type and Supporting */,
 			);
-			name = "Low Types";
+			name = "Bottom Level Types";
 			sourceTree = "<group>";
 		};
 		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				89B3467316BAC80F00926131 /* ResourceType.h */,
 				8996827B16B96BBC005DFEC7 /* String_.h */,
 				8996827C16B96BBC005DFEC7 /* String_.m */,
 				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
@@ -374,6 +395,9 @@
 				8996828216B9C1AF005DFEC7 /* HumanId.m in Sources */,
 				89B3466B16BAB4A800926131 /* Identifier.m in Sources */,
 				89B3466F16BABA7E00926131 /* Period.m in Sources */,
+				89B3467216BABE7500926131 /* Demographics.m in Sources */,
+				89B3467616BACE2100926131 /* HumanName.m in Sources */,
+				89B3467916BAF9C200926131 /* Contact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

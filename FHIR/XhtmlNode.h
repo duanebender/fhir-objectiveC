@@ -16,7 +16,7 @@
 - (NSString *)getName;
 - (void)setName:(NSString *)name;
 - (NSMutableDictionary *)getAttributes; //<String, String>?
-- (NSArray *)getChildNodes;
+- (NSMutableArray *)getChildNodes;
 - (NSString *)getContent;
 - (void)setContent:(NSString *)content;
 - (XhtmlNode *)addTag:(NSString *)name;

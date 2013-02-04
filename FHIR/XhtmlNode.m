@@ -44,9 +44,9 @@
     self.name = name;
 }
 
-- (Map *)getAttributes
+- (NSMutableDictionary *)getAttributes
 {
-    return attributes;
+    return self.Attributes;
 }
 
 - (NSArray *)getChildNodes

@@ -24,6 +24,7 @@
 
 - (void)setValue:(NSURL *)value
 {
+    //self.uri = [[Uri objectID] URIRepresentation];
     self.uri = value;
 }
 
