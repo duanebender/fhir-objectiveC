@@ -6,18 +6,24 @@
 //  Copyright 2011 US Air Force Academy. All rights reserved.
 //
 
+#warning - Under Development
+/*
+
+
 #import "XMLParser.h"
-#import "person.h";
+#import "Patient.h"
+
+
 
 @implementation XMLParser
-@synthesize personToParse;
-@synthesize people;
+@synthesize patientToParse = _patientToParse;
+@synthesize patients = _patients;
 
 - (XMLParser *) initXMLParser {
 	NSLog(@"Attempting Init");
-	[super init];
+	[super self];
 	// init array of user objects 
-	people = [[NSMutableArray alloc] init];
+	//[[Patient alloc] init];
 	NSLog(@"Init Done");
 	return self;
 }
@@ -26,11 +32,11 @@
 didStartElement:(NSString *)elementName 
   namespaceURI:(NSString *)namespaceURI 
  qualifiedName:(NSString *)qualifiedName 
-	attributes:(NSDictionary *)attributeDict {
+	attributes:(NSDictionary *)attributeDict{
 	NSLog(@"Attmepting 1st method");
-	if ([elementName isEqualToString:@"person"]) {
+	if ([elementName isEqualToString:@"patiwnt"]) {
 		NSLog(@"user element found – create a new instance of User class...");
-		personToParse = [[person alloc] init];
+		patientToParse = [[Patient alloc] init];
 		//We do not have any attributes in the user elements, but if
 		// you do, you can extract them here: 
 		// user.att = [[attributeDict objectForKey:@"<att name>"] ...];
@@ -67,24 +73,26 @@ didStartElement:(NSString *)elementName
 	if ([elementName isEqualToString:@"person"]) {
 		// We are done with user entry – add the parsed user 
 		// object to our user array
-		[people addObject:self.personToParse];
+		[patients addObject:self.patientToParse];
 		// release user object
-		[personToParse release];
-		personToParse= nil;
+		//[patientToParse release];
+		patientToParse= nil;
 	} else {
 		// The parser hit one of the element values. 
 		// This syntax is possible because User object 
 		// property names match the XML user element names  
-		[personToParse setValue:currentElementValue forKey:elementName];
+		[patientToParse setValue:currentElementValue forKey:elementName];
 	}
 	
-	[currentElementValue release];
+	//[currentElementValue release];
 	currentElementValue = nil;
 }
 
 -(NSMutableArray*)getPeople
 {
-	return people;
+	return patients;
 }
 // end of XMLParser.m file
 @end
+ 
+ */

@@ -6,13 +6,15 @@
 //  Copyright 2011 US Air Force Academy. All rights reserved.
 //
 
+#warning - update for GUI Later
+
 #import <UIKit/UIKit.h>
 #import "XMLParser.h"
-#import "person.h"
+#import "Patient.h"
 
 @interface RootViewController : UITableViewController {
-	NSMutableArray *personArray;
+	NSMutableArray *patientArray;
 }
 
-@property(nonatomic, retain) NSMutableArray *personArray;
+@property(nonatomic, retain) NSMutableArray *patientArray;
 @end

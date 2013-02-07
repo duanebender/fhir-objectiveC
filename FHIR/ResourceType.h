@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Adam Sippel. All rights reserved.
 //
 
-typedef enum
+typedef enum ResourceType
 {
     Provenance,
     Device,
@@ -24,14 +24,14 @@ typedef enum
     LabReport,
     Conformance,
     XdsEntry,
-    Document,
+    ResourceDocument,
     Message,
     Profile,
     Observation,
     Immunization,
     Problem,
     OrderResponse,
-    Patient,
+    ResourcePatient,
     XdsFolder,
     Medication,
     Specimen,

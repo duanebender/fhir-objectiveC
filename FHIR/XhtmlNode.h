@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NodeType.h"
 
 @interface XhtmlNode : NSObject
 
-#warning - Am unsure of the objective c equivalent to a Java NodeType
-- (NodeType *)getNodeType;
-- (void)setNodeType:(NodeType *)nodeType;
+- (NSString *)getNodeType; //NodeType value
+- (void)setNodeType:(NSString *)nodeType; //set NodeType value
 - (NSString *)getName;
 - (void)setName:(NSString *)name;
 - (NSMutableDictionary *)getAttributes; //<String, String>?

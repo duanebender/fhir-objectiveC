@@ -11,7 +11,6 @@
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
 		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
-		8993D7F016B1D88400D0AFB4 /* FHIR.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
 		8993D7FC16B1D88500D0AFB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7FB16B1D88500D0AFB4 /* UIKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
@@ -20,12 +19,16 @@
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		8996827D16B96BBC005DFEC7 /* String_.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996827C16B96BBC005DFEC7 /* String_.m */; };
 		8996828216B9C1AF005DFEC7 /* HumanId.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996828116B9C1AE005DFEC7 /* HumanId.m */; };
-		89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		89B3466B16BAB4A800926131 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466A16BAB4A800926131 /* Identifier.m */; };
 		89B3466F16BABA7E00926131 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466E16BABA7E00926131 /* Period.m */; };
 		89B3467216BABE7500926131 /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467116BABE7500926131 /* Demographics.m */; };
 		89B3467616BACE2100926131 /* HumanName.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467516BACE2100926131 /* HumanName.m */; };
 		89B3467916BAF9C200926131 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467816BAF9C200926131 /* Contact.m */; };
+		89B9B7F416C14CF8006DEC84 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7EE16C14CF8006DEC84 /* RootViewController.m */; };
+		89B9B7F616C14CF8006DEC84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7F216C14CF8006DEC84 /* XMLParser.m */; };
+		89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */; };
+		89CB21A916C2908C006A7497 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21A816C2908C006A7497 /* JSONModel.m */; };
+		89CB21AD16C29952006A7497 /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21AC16C29952006A7497 /* NodeType.m */; };
 		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
 		89D05CBF16B8146000139BEF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CBE16B8146000139BEF /* Uri.m */; };
 		89D05CC316B81F9700139BEF /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CC216B81F9700139BEF /* Code.m */; };
@@ -53,7 +56,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				8993D7F016B1D88400D0AFB4 /* FHIR.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +71,6 @@
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
-		8993D7EF16B1D88400D0AFB4 /* FHIR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
 		8993D7F116B1D88400D0AFB4 /* Patient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -95,6 +96,16 @@
 		89B3467516BACE2100926131 /* HumanName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanName.m; sourceTree = "<group>"; };
 		89B3467716BAF9C200926131 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		89B3467816BAF9C200926131 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		89B9B7ED16C14CF8006DEC84 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		89B9B7EE16C14CF8006DEC84 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		89B9B7F116C14CF8006DEC84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		89B9B7F216C14CF8006DEC84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		89B9B7FA16C17BBB006DEC84 /* GenerateXMLFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateXMLFormat.h; sourceTree = "<group>"; };
+		89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateXMLFormat.m; sourceTree = "<group>"; };
+		89CB21A716C2908C006A7497 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		89CB21A816C2908C006A7497 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		89CB21AA16C292E7006A7497 /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
+		89CB21AC16C29952006A7497 /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
 		89D05CB816B809DE00139BEF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
 		89D05CB916B809DE00139BEF /* Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coding.m; sourceTree = "<group>"; };
 		89D05CBD16B8146000139BEF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
@@ -170,8 +181,9 @@
 		8993D7EC16B1D88400D0AFB4 /* FHIR */ = {
 			isa = PBXGroup;
 			children = (
+				89CB21A516C29066006A7497 /* JSON */,
+				89B9B7E916C14CC8006DEC84 /* XML */,
 				8996827F16B9B345005DFEC7 /* GUI */,
-				8993D7EF16B1D88400D0AFB4 /* FHIR.h */,
 				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
 				8993D7F116B1D88400D0AFB4 /* Patient.m */,
 				89B3467016BABE7500926131 /* Demographics.h */,
@@ -231,9 +243,31 @@
 		8996827F16B9B345005DFEC7 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				89B9B7ED16C14CF8006DEC84 /* RootViewController.h */,
+				89B9B7EE16C14CF8006DEC84 /* RootViewController.m */,
 				8996827616B95BCF005DFEC7 /* iPhoneStoryboard.storyboard */,
 			);
 			name = GUI;
+			sourceTree = "<group>";
+		};
+		89B9B7E916C14CC8006DEC84 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				89B9B7F116C14CF8006DEC84 /* XMLParser.h */,
+				89B9B7F216C14CF8006DEC84 /* XMLParser.m */,
+				89B9B7FA16C17BBB006DEC84 /* GenerateXMLFormat.h */,
+				89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
+		89CB21A516C29066006A7497 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				89CB21A716C2908C006A7497 /* JSONModel.h */,
+				89CB21A816C2908C006A7497 /* JSONModel.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		89D05CBC16B80A2C00139BEF /* Bottom Level Types */ = {
@@ -259,6 +293,8 @@
 		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				89CB21AA16C292E7006A7497 /* NodeType.h */,
+				89CB21AC16C29952006A7497 /* NodeType.m */,
 				89B3467316BAC80F00926131 /* ResourceType.h */,
 				8996827B16B96BBC005DFEC7 /* String_.h */,
 				8996827C16B96BBC005DFEC7 /* String_.m */,
@@ -380,7 +416,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */,
 				8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */,
 				898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */,
 				89D05CBA16B809DE00139BEF /* Coding.m in Sources */,
@@ -398,6 +433,9 @@
 				89B3467216BABE7500926131 /* Demographics.m in Sources */,
 				89B3467616BACE2100926131 /* HumanName.m in Sources */,
 				89B3467916BAF9C200926131 /* Contact.m in Sources */,
+				89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */,
+				89CB21A916C2908C006A7497 /* JSONModel.m in Sources */,
+				89CB21AD16C29952006A7497 /* NodeType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +444,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */,
+				89B9B7F416C14CF8006DEC84 /* RootViewController.m in Sources */,
+				89B9B7F616C14CF8006DEC84 /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@
 #warning - not fully implemented, check line below
 //public static final String NBSP = Character.toString((char)0xa0);
 
-@property (nonatomic, retain) NodeType *nodeType; //decides node type
+@property (nonatomic) NodeType *node; //decides node type
 @property (nonatomic, retain) NSString *name; //name variable
 @property (nonatomic, retain) NSMutableDictionary *Attributes;
 //@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
@@ -24,14 +24,16 @@
 
 @implementation XhtmlNode
 
-- (NodeType *)getNodeType
+@synthesize childNodes = _childNodes;
+
+- (NSString *)getNodeType
 {
-    return self.nodeType;
+    return self.node.nodeType;
 }
 
-- (void)setNodeType:(NodeType *)nodeType
+- (void)setNodeType:(NSString *)nodeType
 {
-    self.nodeType = nodeType;
+    self.node.nodeType = nodeType;
 }
 
 - (NSString *)getName
@@ -61,7 +63,7 @@
 
 - (void)setContent:(NSString *)content
 {
-    if (!(self.nodeType != NodeType.Text || self.nodeType != NodeType.Comment))
+    if (!(self.node.nodeType != @"Test" || self.node.nodeType != @"Comment"))
     {
         [NSException raise:@"Wrong Node Type" format:@"Wrong Node Type"];
     }
@@ -70,85 +72,85 @@
 
 - (XhtmlNode *)addTag:(NSString *)name
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
-        [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.nodeType.toString];
+        [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.node.nodeType];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Element];
+    [node setNodeType:@"Element"];
     [node setName:name];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addTag:(NSInteger *)index:(NSString *)name
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
-        [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.nodeType.toString];
+        [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.node.nodeType];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Element];
+    [node setNodeType:@"Element"];
     [node setName:name];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addComment:(NSString *)content
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Comment];
+    [node setNodeType:@"Comment"];
     [node setContent:content];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addDocType:(NSString *)content
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.DocType];
+    [node setNodeType:@"DocType"]; //document instead of DocType?
     [node setContent:content];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addInstruction:(NSString *)content
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Instruction];
+    [node setNodeType:@"Instruction"]; //Instruction is a type?
     [node setContent:content];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addText:(NSString *)content
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Text];
+    [node setNodeType:@"Text"];
     [node setContent:content];
-    [childNodes addObject:node];
+    [_childNodes addObject:node];
     return node;
 }
 
 - (XhtmlNode *)addText:(NSInteger *)index :(NSString *)content
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -157,28 +159,30 @@
         [NSException raise:@"Content" format:@"Content cannot be null."];
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
-    [node setNodeType:NodeType.Text];
+    [node setNodeType:@"Text"];
     [node setContent:content];
-#warning - not sure if next line is proper
-    [childNodes addObject:node atIndex:index];
+    [_childNodes addObject:node]; //atIndex:index];
     return node;
 }
 
+#warning - below function purpose unknown
+/*
 - (BOOL *)allChildrenAreText
 {
     BOOL res = TRUE;
-    for (XhtmlNode* n in childNodes)
+    for (XhtmlNode* n in _childNodes)
     {
         res = res && n.getNodeType == NodeType.Text;
     }
     return res;
 }
+ */
 
 - (XhtmlNode *)getElement:(NSString *)name
 {
-    for (XhtmlNode* n in childNodes)
+    for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == NodeType.Element && [self.name caseInsensitiveCompare:(n.getName))
+        if (n.getNodeType == @"Element" && [self.name caseInsensitiveCompare:(n.getName)])
         {
             return n;
         }
@@ -188,25 +192,25 @@
                                                   
 - (NSString *)allText
 {
-#warning - Add stringbuilder instead of NSString below
-    NSString *tempString = [[NSString alloc]init];
-    for (XhtmlNode* n in childNodes)
+    NSMutableString *tempString = [[NSMutableString alloc]init];
+    for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == NodeType.Text)
+        if (n.getNodeType == @"Text")
         {
-            tempString += n.getContent;
+            [tempString appendString:n.getContent];
         }
-        else if (n.getNodeType == NodeType.Element)
+        else if (n.getNodeType == @"Element")
         {
-            tempstring += n.allText;
+            [tempString appendString:n.allText];
         }
-        return tempString.toString;
+        
     }
+    return tempString;
 }
                                                   
 - (void)attribute:(NSString *)name :(NSString *)value
 {
-    if (!(self.nodeType == NodeType.Element || self.nodeType == NodeType.Document))
+    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type."];
     }
@@ -218,20 +222,17 @@
     {
         [NSException raise:@"Value" format:@"Value is Null"];
     }
-#warning - not sure what the below function is for...
-    [Attributes setObject:value forKey:name];
+    [self.Attributes setObject:value forKey:name];
 }
                                                   
 - (NSString *)getAttribute:(NSString *)name
 {
-#warning - not sure if below function is proper...
-    return [Attributes objectForKey:name];
+    return [self.Attributes objectForKey:name];
 }
                                                   
 - (void)setAttribute:(NSString *)name :(NSString *)value
 {
-#warning - not sure if below function is proper...
-    [Attributes setObject:value forKey:name];
+    [self.Attributes setObject:value forKey:name];
 }
 
 @end

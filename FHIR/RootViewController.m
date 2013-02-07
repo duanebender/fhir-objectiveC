@@ -6,11 +6,13 @@
 //  Copyright 2011 US Air Force Academy. All rights reserved.
 //
 
+#warning - update for GUI later
+
 #import "RootViewController.h"
 
 
 @implementation RootViewController
-@synthesize personArray;
+@synthesize patientArray;
 
 
 #pragma mark -
@@ -67,7 +69,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //return 0;
-	return [personArray count];
+	return [patientArray count];
 }
 
 
@@ -78,11 +80,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
 	// Configure the cell.
-	cell.text = [[personArray objectAtIndex:indexPath.row] getFirstName];
+	cell.text = [[patientArray objectAtIndex:indexPath.row] getFirstName];
 
     return cell;
 }
@@ -90,9 +92,9 @@
 
 -(void)doParse
 {
-	[personArray removeAllObjects];
+	[patientArray removeAllObjects];
 	//NEED TO GET XML DOCUMENT INTO NSData OBJECT!!!
-	NSURL *theURL = [[NSURL alloc] initWithString:@"http://192.168.2.157/people.xml"];
+	NSURL *theURL = [[NSURL alloc] initWithString:@"http://serverip/patient.xml"];
 	// create and init NSXMLParser object
 	NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithContentsOfURL:theURL];
 	// create and init our delegate
@@ -104,7 +106,7 @@
 	// test the result
 	if (success) {
 		NSLog(@"success");
-		personArray = [parser getPeople];
+		patientArray = [parser getPatient];
 		[self.tableView reloadData];
 	} else {
 		NSLog(@"fail");
@@ -182,10 +184,11 @@
     // For example: self.myOutlet = nil;
 }
 
-
+/*
 - (void)dealloc {
     [super dealloc];
 }
+ */
 
 
 @end
