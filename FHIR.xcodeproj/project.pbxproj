@@ -111,7 +111,6 @@
 		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
 		C9F4FC4716C6BF33003817CD /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
 		C9F4FC4816C6BF33003817CD /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
-		C9F4FC4916C6BF33003817CD /* NodeType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType1.h; sourceTree = "<group>"; };
 		C9F4FC5016C6BF33003817CD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		C9F4FC5116C6BF33003817CD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,7 +221,6 @@
 			children = (
 				C9F4FC4716C6BF33003817CD /* NodeType.h */,
 				C9F4FC4816C6BF33003817CD /* NodeType.m */,
-				C9F4FC4916C6BF33003817CD /* NodeType1.h */,
 				89B3467716BAF9C200926131 /* Contact.h */,
 				89B3467816BAF9C200926131 /* Contact.m */,
 				89B3467416BACE2100926131 /* HumanName.h */,
@@ -512,6 +510,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FHIR/FHIR-Prefix.pch";
 				INFOPLIST_FILE = "FHIRTests/FHIRTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -527,6 +526,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FHIR/FHIR-Prefix.pch";
 				INFOPLIST_FILE = "FHIRTests/FHIRTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

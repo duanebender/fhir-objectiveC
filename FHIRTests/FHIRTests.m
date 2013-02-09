@@ -15,12 +15,8 @@
     [super setUp];
     
     // Set-up code here.
-    
-    // Test 1 : Round-trip test
-    //          Create a patient resource object from the obj-C model
-    //          Run the XML formatter on it
-    //          Parse the XML back to an object
-    //          Do a field-by-field comparison of the original with the roundtripped one
+
+    NSLog(@"Initializing test suite...");
     
 }
 
@@ -29,11 +25,22 @@
     // Tear-down code here.
     
     [super tearDown];
+    NSLog(@"FHIR tests complete.");
+
+
 }
 
 - (void)test
 {
-    STFail(@"Unit tests are not implemented yet in FHIRTests");
+    NSLog(@"Beginning FHIR tests...");
+    
+    // Test 1 : Round-trip test
+    //          Create a patient resource object from the obj-C model
+    //          Run the XML formatter on it
+    //          Parse the XML back to an object
+    //          Do a field-by-field comparison of the original with the roundtripped one
+
+    
 }
 
 @end

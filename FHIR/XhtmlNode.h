@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NodeType.h"
 
 
 @interface XhtmlNode : NSObject

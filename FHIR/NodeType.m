@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Adam Sippel. All rights reserved.
 //
 
-#import "NodeType1.h"
+#import "NodeType.h"
 
-@implementation NodeType1
+@implementation NodeType
 
 @end

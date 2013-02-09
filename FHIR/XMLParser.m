@@ -1,5 +1,4 @@
 #import "XMLParser.h"
-#import "person.h";
 
 @implementation XMLParser
 @synthesize personToParse;
@@ -7,10 +6,10 @@
 
 - (XMLParser *) initXMLParser {
 	NSLog(@"Attempting Init");
-	[super init];
+	self = [super init];
 	// init array of user objects 
-	people = [[NSMutableArray alloc] init];
-	NSLog(@"Init Done");
+//	people = [[NSMutableArray alloc] init];
+	//NSLog(@"Init Done");
 	return self;
 }
 
@@ -22,7 +21,7 @@ didStartElement:(NSString *)elementName
 	NSLog(@"Attmepting 1st method");
 	if ([elementName isEqualToString:@"person"]) {
 		NSLog(@"user element found – create a new instance of User class...");
-		personToParse = [[person alloc] init];
+//		personToParse = [[person alloc] init];
 		//We do not have any attributes in the user elements, but if
 		// you do, you can extract them here: 
 		// user.att = [[attributeDict objectForKey:@"<att name>"] ...];
@@ -61,16 +60,16 @@ didStartElement:(NSString *)elementName
 		// object to our user array
 		[people addObject:self.personToParse];
 		// release user object
-		[personToParse release];
+		//[personToParse release];
 		personToParse= nil;
 	} else {
 		// The parser hit one of the element values. 
 		// This syntax is possible because User object 
 		// property names match the XML user element names  
-		[personToParse setValue:currentElementValue forKey:elementName];
+		//[personToParse setValue:currentElementValue forKey:elementName];
 	}
 	
-	[currentElementValue release];
+	//[currentElementValue release];
 	currentElementValue = nil;
 }
 

@@ -58,7 +58,7 @@
 {
     return self.content;
 }
-
+/*
 - (void)setContent:(NSString *)content
 {
     if (!(self.nodeType != NodeType.Text || self.nodeType != NodeType.Comment))
@@ -119,6 +119,7 @@
     [childNodes addObject:node];
     return node;
 }
+
 
 - (XhtmlNode *)addInstruction:(NSString *)content
 {
@@ -234,4 +235,6 @@
     [Attributes setObject:value forKey:name];
 }
 
+*/
 @end
+
