@@ -13,7 +13,16 @@
 
 @synthesize active;
 
+-(id)init
+{
+    self = [super init];
+    if(self){
+        // initialize fields
+    }
+    return self;
     
+}
+
     - (NSArray *)getLink
     {
         return self.link;

@@ -78,7 +78,6 @@
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
 		8993D81516B1D9CB00D0AFB4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = ../Patient.h; sourceTree = "<group>"; };
-		8996827616B95BCF005DFEC7 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		8996827B16B96BBC005DFEC7 /* String_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String_.h; sourceTree = "<group>"; };
 		8996827C16B96BBC005DFEC7 /* String_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = String_.m; sourceTree = "<group>"; };
 		8996828016B9C1AE005DFEC7 /* HumanId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanId.h; sourceTree = "<group>"; };
@@ -178,7 +177,7 @@
 				C9F4FC3C16C6BC53003817CD /* Models */,
 				C9F4FC3F16C6BDDD003817CD /* Connectors */,
 				C9F4FC3E16C6BC6A003817CD /* Formatters */,
-				8996827F16B9B345005DFEC7 /* GUI */,
+				C908B5E116C6FB9F00CD98DE /* Utilities */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -211,12 +210,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8996827F16B9B345005DFEC7 /* GUI */ = {
+		C908B5E116C6FB9F00CD98DE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8996827616B95BCF005DFEC7 /* iPhoneStoryboard.storyboard */,
 			);
-			name = GUI;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		C9F4FC3C16C6BC53003817CD /* Models */ = {

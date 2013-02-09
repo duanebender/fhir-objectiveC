@@ -18,6 +18,8 @@
 
 }
 
+-(id)init;
+
 - (NSArray *)link;//method to return array of <ResourceReference>'s
 
 - (Boolean *)getActive; //returns whether the patient is active
