@@ -15,6 +15,13 @@
     [super setUp];
     
     // Set-up code here.
+    
+    // Test 1 : Round-trip test
+    //          Create a patient resource object from the obj-C model
+    //          Run the XML formatter on it
+    //          Parse the XML back to an object
+    //          Do a field-by-field comparison of the original with the roundtripped one
+    
 }
 
 - (void)tearDown

@@ -170,15 +170,11 @@
 		8993D7EC16B1D88400D0AFB4 /* FHIR */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4FC3F16C6BDDD003817CD /* Connectors */,
+				C9F4FC3E16C6BC6A003817CD /* Formatters */,
+				C9F4FC3C16C6BC53003817CD /* Models */,
 				8996827F16B9B345005DFEC7 /* GUI */,
 				8993D7EF16B1D88400D0AFB4 /* FHIR.h */,
-				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
-				8993D7F116B1D88400D0AFB4 /* Patient.m */,
-				89B3467016BABE7500926131 /* Demographics.h */,
-				89B3467116BABE7500926131 /* Demographics.m */,
-				8996827E16B9B28E005DFEC7 /* Top Level Types */,
-				89D05CC716B82D1000139BEF /* Resource Files */,
-				89D05CBC16B80A2C00139BEF /* Bottom Level Types */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -211,23 +207,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8996827E16B9B28E005DFEC7 /* Top Level Types */ = {
-			isa = PBXGroup;
-			children = (
-				89B3467716BAF9C200926131 /* Contact.h */,
-				89B3467816BAF9C200926131 /* Contact.m */,
-				89B3467416BACE2100926131 /* HumanName.h */,
-				89B3467516BACE2100926131 /* HumanName.m */,
-				8996828016B9C1AE005DFEC7 /* HumanId.h */,
-				8996828116B9C1AE005DFEC7 /* HumanId.m */,
-				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
-				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
-				89D05CB816B809DE00139BEF /* Coding.h */,
-				89D05CB916B809DE00139BEF /* Coding.m */,
-			);
-			name = "Top Level Types";
-			sourceTree = "<group>";
-		};
 		8996827F16B9B345005DFEC7 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,9 +215,13 @@
 			name = GUI;
 			sourceTree = "<group>";
 		};
-		89D05CBC16B80A2C00139BEF /* Bottom Level Types */ = {
+		C9F4FC3C16C6BC53003817CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				89B3467716BAF9C200926131 /* Contact.h */,
+				89B3467816BAF9C200926131 /* Contact.m */,
+				89B3467416BACE2100926131 /* HumanName.h */,
+				89D05CC416B8279800139BEF /* ResourceReference.h */,
 				89D05CCB16B8314800139BEF /* Narrative.h */,
 				89D05CCC16B8314800139BEF /* Narrative.m */,
 				89D05CD116B86A7A00139BEF /* XhtmlNode.h */,
@@ -251,14 +234,16 @@
 				89D05CBE16B8146000139BEF /* Uri.m */,
 				89D05CC116B81F9700139BEF /* Code.h */,
 				89D05CC216B81F9700139BEF /* Code.m */,
-				89D05CC016B81F6800139BEF /* Type and Supporting */,
-			);
-			name = "Bottom Level Types";
-			sourceTree = "<group>";
-		};
-		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
-			isa = PBXGroup;
-			children = (
+				89D05CC516B8279800139BEF /* ResourceReference.m */,
+				89D05CC816B82D2D00139BEF /* Resource.h */,
+				89D05CC916B82D2D00139BEF /* Resource.m */,
+				89B3467516BACE2100926131 /* HumanName.m */,
+				8996828016B9C1AE005DFEC7 /* HumanId.h */,
+				8996828116B9C1AE005DFEC7 /* HumanId.m */,
+				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
+				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
+				89D05CB816B809DE00139BEF /* Coding.h */,
+				89D05CB916B809DE00139BEF /* Coding.m */,
 				89B3467316BAC80F00926131 /* ResourceType.h */,
 				8996827B16B96BBC005DFEC7 /* String_.h */,
 				8996827C16B96BBC005DFEC7 /* String_.m */,
@@ -267,19 +252,26 @@
 				8950B3C716B6DD85007CB8B5 /* Type.h */,
 				8950B3CD16B6DE80007CB8B5 /* Element.h */,
 				8950B3CE16B6DE80007CB8B5 /* Element.m */,
+				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
+				8993D7F116B1D88400D0AFB4 /* Patient.m */,
+				89B3467016BABE7500926131 /* Demographics.h */,
+				89B3467116BABE7500926131 /* Demographics.m */,
 			);
-			name = "Type and Supporting";
+			name = Models;
 			sourceTree = "<group>";
 		};
-		89D05CC716B82D1000139BEF /* Resource Files */ = {
+		C9F4FC3E16C6BC6A003817CD /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				89D05CC416B8279800139BEF /* ResourceReference.h */,
-				89D05CC516B8279800139BEF /* ResourceReference.m */,
-				89D05CC816B82D2D00139BEF /* Resource.h */,
-				89D05CC916B82D2D00139BEF /* Resource.m */,
 			);
-			name = "Resource Files";
+			name = Formatters;
+			sourceTree = "<group>";
+		};
+		C9F4FC3F16C6BDDD003817CD /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Connectors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
