@@ -9,10 +9,7 @@
 #import "Patient.h"
 
 
-
-
-
-@implementation Patient : Resource //could also be @interface Patient (Resource):NSObject
+@implementation Patient //could also be @interface Patient (Resource):NSObject
 
     
     - (NSArray *)getLink

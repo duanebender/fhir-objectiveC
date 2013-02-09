@@ -11,7 +11,9 @@
 #import "Narrative.h"
 #import "ResourceType.h"
 
-@interface Resource : Element
+@interface Resource : Element {
+    
+}
 
 - (Narrative *)getText; //returns the narrative text
 - (void)setText:(Narrative *)text; //sets the narrative text
