@@ -9,6 +9,7 @@
 #import "FHIRTests.h"
 #import "Patient.h"
 
+
 @implementation FHIRTests
 
 - (void)setUp
@@ -41,7 +42,7 @@
     //          Parse the XML back to an object
     //          Do a field-by-field comparison of the original with the roundtripped one
     
-    Patient *patient = [[Patient alloc] init];
+    //Patient *patient = [[Patient alloc] init];
     //patient.active = Boolean.true;
     
     

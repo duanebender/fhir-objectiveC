@@ -9,7 +9,7 @@
 #import "Animal.h"
 
 
-@implementation Animal:Element //could also be @interface Animal (Element):NSObject
+@implementation Animal  //could also be @interface Animal (Element):NSObject
 
 
 - (CodeableConcept *)getSpecies

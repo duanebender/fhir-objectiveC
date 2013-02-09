@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Element.h"
+#import "Resource.h"
 #import "CodeableConcept.h"
 
-@interface Animal : Element {
+@interface Animal : Resource {
 
 
 }
