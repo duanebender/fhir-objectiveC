@@ -7,6 +7,7 @@
 //
 
 #import "FHIRTests.h"
+#import "Patient.h"
 
 @implementation FHIRTests
 
@@ -39,6 +40,8 @@
     //          Run the XML formatter on it
     //          Parse the XML back to an object
     //          Do a field-by-field comparison of the original with the roundtripped one
+    
+    
 
     
 }

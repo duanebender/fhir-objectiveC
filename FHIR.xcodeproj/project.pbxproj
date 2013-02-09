@@ -34,6 +34,7 @@
 		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
 		C9F4FC5616C6BF33003817CD /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4FC4816C6BF33003817CD /* NodeType.m */; };
 		C9F4FC5A16C6BF33003817CD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4FC5116C6BF33003817CD /* XMLParser.m */; };
+		C9F4FC5F16C6D3BB003817CD /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4FC5E16C6D3BB003817CD /* Animal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		C9F4FC4816C6BF33003817CD /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
 		C9F4FC5016C6BF33003817CD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		C9F4FC5116C6BF33003817CD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		C9F4FC5D16C6D3BB003817CD /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
+		C9F4FC5E16C6D3BB003817CD /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +175,9 @@
 		8993D7EC16B1D88400D0AFB4 /* FHIR */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4FC3C16C6BC53003817CD /* Models */,
 				C9F4FC3F16C6BDDD003817CD /* Connectors */,
 				C9F4FC3E16C6BC6A003817CD /* Formatters */,
-				C9F4FC3C16C6BC53003817CD /* Models */,
 				8996827F16B9B345005DFEC7 /* GUI */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
@@ -219,46 +222,48 @@
 		C9F4FC3C16C6BC53003817CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C9F4FC4716C6BF33003817CD /* NodeType.h */,
-				C9F4FC4816C6BF33003817CD /* NodeType.m */,
-				89B3467716BAF9C200926131 /* Contact.h */,
-				89B3467816BAF9C200926131 /* Contact.m */,
-				89B3467416BACE2100926131 /* HumanName.h */,
-				89D05CC416B8279800139BEF /* ResourceReference.h */,
-				89D05CCB16B8314800139BEF /* Narrative.h */,
-				89D05CCC16B8314800139BEF /* Narrative.m */,
-				89D05CD116B86A7A00139BEF /* XhtmlNode.h */,
-				89D05CD216B86A7A00139BEF /* XhtmlNode.m */,
-				89B3466916BAB4A800926131 /* Identifier.h */,
-				89B3466A16BAB4A800926131 /* Identifier.m */,
-				89B3466D16BABA7E00926131 /* Period.h */,
-				89B3466E16BABA7E00926131 /* Period.m */,
-				89D05CBD16B8146000139BEF /* Uri.h */,
-				89D05CBE16B8146000139BEF /* Uri.m */,
+				C9F4FC5D16C6D3BB003817CD /* Animal.h */,
+				C9F4FC5E16C6D3BB003817CD /* Animal.m */,
+				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
+				89D05CCF16B866AF00139BEF /* Base64Binary.m */,
 				89D05CC116B81F9700139BEF /* Code.h */,
 				89D05CC216B81F9700139BEF /* Code.m */,
-				89D05CC516B8279800139BEF /* ResourceReference.m */,
-				89D05CC816B82D2D00139BEF /* Resource.h */,
-				89D05CC916B82D2D00139BEF /* Resource.m */,
-				89B3467516BACE2100926131 /* HumanName.m */,
-				8996828016B9C1AE005DFEC7 /* HumanId.h */,
-				8996828116B9C1AE005DFEC7 /* HumanId.m */,
 				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
 				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
 				89D05CB816B809DE00139BEF /* Coding.h */,
 				89D05CB916B809DE00139BEF /* Coding.m */,
+				89B3467716BAF9C200926131 /* Contact.h */,
+				89B3467816BAF9C200926131 /* Contact.m */,
+				89B3467016BABE7500926131 /* Demographics.h */,
+				89B3467116BABE7500926131 /* Demographics.m */,
+				8950B3CD16B6DE80007CB8B5 /* Element.h */,
+				8950B3CE16B6DE80007CB8B5 /* Element.m */,
+				8996828016B9C1AE005DFEC7 /* HumanId.h */,
+				8996828116B9C1AE005DFEC7 /* HumanId.m */,
+				89B3467416BACE2100926131 /* HumanName.h */,
+				89B3467516BACE2100926131 /* HumanName.m */,
+				89B3466916BAB4A800926131 /* Identifier.h */,
+				89B3466A16BAB4A800926131 /* Identifier.m */,
+				89D05CCB16B8314800139BEF /* Narrative.h */,
+				89D05CCC16B8314800139BEF /* Narrative.m */,
+				C9F4FC4716C6BF33003817CD /* NodeType.h */,
+				C9F4FC4816C6BF33003817CD /* NodeType.m */,
+				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
+				8993D7F116B1D88400D0AFB4 /* Patient.m */,
+				89B3466D16BABA7E00926131 /* Period.h */,
+				89B3466E16BABA7E00926131 /* Period.m */,
+				89D05CC816B82D2D00139BEF /* Resource.h */,
+				89D05CC916B82D2D00139BEF /* Resource.m */,
+				89D05CC416B8279800139BEF /* ResourceReference.h */,
+				89D05CC516B8279800139BEF /* ResourceReference.m */,
 				89B3467316BAC80F00926131 /* ResourceType.h */,
 				8996827B16B96BBC005DFEC7 /* String_.h */,
 				8996827C16B96BBC005DFEC7 /* String_.m */,
-				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
-				89D05CCF16B866AF00139BEF /* Base64Binary.m */,
 				8950B3C716B6DD85007CB8B5 /* Type.h */,
-				8950B3CD16B6DE80007CB8B5 /* Element.h */,
-				8950B3CE16B6DE80007CB8B5 /* Element.m */,
-				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
-				8993D7F116B1D88400D0AFB4 /* Patient.m */,
-				89B3467016BABE7500926131 /* Demographics.h */,
-				89B3467116BABE7500926131 /* Demographics.m */,
+				89D05CBD16B8146000139BEF /* Uri.h */,
+				89D05CBE16B8146000139BEF /* Uri.m */,
+				89D05CD116B86A7A00139BEF /* XhtmlNode.h */,
+				89D05CD216B86A7A00139BEF /* XhtmlNode.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				89B3467916BAF9C200926131 /* Contact.m in Sources */,
 				C9F4FC5616C6BF33003817CD /* NodeType.m in Sources */,
 				C9F4FC5A16C6BF33003817CD /* XMLParser.m in Sources */,
+				C9F4FC5F16C6D3BB003817CD /* Animal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
