@@ -11,7 +11,6 @@
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
 		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
-		8993D7F016B1D88400D0AFB4 /* FHIR.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
 		8993D7FC16B1D88500D0AFB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7FB16B1D88500D0AFB4 /* UIKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
@@ -20,7 +19,6 @@
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		8996827D16B96BBC005DFEC7 /* String_.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996827C16B96BBC005DFEC7 /* String_.m */; };
 		8996828216B9C1AF005DFEC7 /* HumanId.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996828116B9C1AE005DFEC7 /* HumanId.m */; };
-		89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */ = {isa = PBXBuildFile; fileRef = 8993D7EF16B1D88400D0AFB4 /* FHIR.h */; };
 		89B3466B16BAB4A800926131 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466A16BAB4A800926131 /* Identifier.m */; };
 		89B3466F16BABA7E00926131 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466E16BABA7E00926131 /* Period.m */; };
 		89B3467216BABE7500926131 /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467116BABE7500926131 /* Demographics.m */; };
@@ -34,6 +32,8 @@
 		89D05CCD16B8314800139BEF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCC16B8314800139BEF /* Narrative.m */; };
 		89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCF16B866AF00139BEF /* Base64Binary.m */; };
 		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
+		C9F4FC5616C6BF33003817CD /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4FC4816C6BF33003817CD /* NodeType.m */; };
+		C9F4FC5A16C6BF33003817CD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4FC5116C6BF33003817CD /* XMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				8993D7F016B1D88400D0AFB4 /* FHIR.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +68,6 @@
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
-		8993D7EF16B1D88400D0AFB4 /* FHIR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
 		8993D7F116B1D88400D0AFB4 /* Patient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -111,6 +109,11 @@
 		89D05CCF16B866AF00139BEF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
 		89D05CD116B86A7A00139BEF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
 		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
+		C9F4FC4716C6BF33003817CD /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
+		C9F4FC4816C6BF33003817CD /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
+		C9F4FC4916C6BF33003817CD /* NodeType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType1.h; sourceTree = "<group>"; };
+		C9F4FC5016C6BF33003817CD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		C9F4FC5116C6BF33003817CD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +177,6 @@
 				C9F4FC3E16C6BC6A003817CD /* Formatters */,
 				C9F4FC3C16C6BC53003817CD /* Models */,
 				8996827F16B9B345005DFEC7 /* GUI */,
-				8993D7EF16B1D88400D0AFB4 /* FHIR.h */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -218,6 +220,9 @@
 		C9F4FC3C16C6BC53003817CD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4FC4716C6BF33003817CD /* NodeType.h */,
+				C9F4FC4816C6BF33003817CD /* NodeType.m */,
+				C9F4FC4916C6BF33003817CD /* NodeType1.h */,
 				89B3467716BAF9C200926131 /* Contact.h */,
 				89B3467816BAF9C200926131 /* Contact.m */,
 				89B3467416BACE2100926131 /* HumanName.h */,
@@ -263,6 +268,8 @@
 		C9F4FC3E16C6BC6A003817CD /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
+				C9F4FC5016C6BF33003817CD /* XMLParser.h */,
+				C9F4FC5116C6BF33003817CD /* XMLParser.m */,
 			);
 			name = Formatters;
 			sourceTree = "<group>";
@@ -372,7 +379,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B27A9616B2C37E00C1D5A1 /* FHIR.h in Sources */,
 				8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */,
 				898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */,
 				89D05CBA16B809DE00139BEF /* Coding.m in Sources */,
@@ -390,6 +396,8 @@
 				89B3467216BABE7500926131 /* Demographics.m in Sources */,
 				89B3467616BACE2100926131 /* HumanName.m in Sources */,
 				89B3467916BAF9C200926131 /* Contact.m in Sources */,
+				C9F4FC5616C6BF33003817CD /* NodeType.m in Sources */,
+				C9F4FC5A16C6BF33003817CD /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

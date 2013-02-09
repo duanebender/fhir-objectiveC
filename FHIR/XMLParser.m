@@ -1,11 +1,3 @@
-//
-//  XMLParser.m
-//  PopulationFromXMLTest
-//
-//  Created by Geoffrey Pamerleau on 4/11/11.
-//  Copyright 2011 US Air Force Academy. All rights reserved.
-//
-
 #import "XMLParser.h"
 #import "person.h";
 
