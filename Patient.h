@@ -42,7 +42,7 @@
 
 - (CodeableConcept *)getRecordLocation; //returns location of the patients records
 - (void)setRecordLocation:(CodeableConcept *)value; //sets the location of the records
-- (ResourceType *)getResourceType; //override method
+//- (ResourceType *)getResourceType; //override method
     
 @property (nonatomic, retain) NSArray *link; //THIS ARRAY IS FILLED WITH "ResourceReference" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
 @property (nonatomic,readwrite) Boolean *active; //Whether the patient record is in use, or has been removed from active use

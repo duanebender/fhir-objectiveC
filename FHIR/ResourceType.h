@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 Adam Sippel. All rights reserved.
 //
 
-typedef enum
-{
+// problem with scope of enum declaration - commenting for now
+/*
+typedef enum Resources {
     Provenance,
     Device,
     Order,
@@ -42,4 +43,5 @@ typedef enum
     Substance,
     AnatomicalLocation,
     InterestOfCare
-}ResourceType;
+} ResourceType;
+*/

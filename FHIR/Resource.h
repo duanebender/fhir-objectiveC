@@ -19,6 +19,6 @@
 - (void)setText:(Narrative *)text; //sets the narrative text
 - (NSArray *)getExtensions; //returns an array of extensions
 
-- (ResourceType *)getResourceType; //returns the resource type
+//- (ResourceType *)getResourceType; //returns the resource type
 
 @end

@@ -11,6 +11,8 @@
 
 @implementation Patient //could also be @interface Patient (Resource):NSObject
 
+@synthesize active;
+
     
     - (NSArray *)getLink
     {
