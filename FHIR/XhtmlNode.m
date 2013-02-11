@@ -3,24 +3,12 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-29.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import "XhtmlNode.h"
 
-@interface XhtmlNode()
-
-#warning - not fully implemented, check line below
-//public static final String NBSP = Character.toString((char)0xa0);
-
-@property (nonatomic) NodeType *node; //decides node type
-@property (nonatomic, retain) NSString *name; //name variable
-@property (nonatomic, retain) NSMutableDictionary *Attributes;
-//@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
-@property (nonatomic, retain) NSMutableArray *childNodes; //array of XhtmlNodes
-@property (nonatomic, retain) NSString *content; //content of this XhtmlNode
-
-@end
+#define NBSP = [NSString withFormat:"%c", 0xa0]
 
 @implementation XhtmlNode
 

@@ -3,34 +3,24 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-31.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import "Contact.h"
 
-@interface Contact()
-{
-    ContactSystem system;
-    ContactUse use;
-}
-
-@property (nonatomic) ContactSystem *system; //What kind of contact this is - what communications system is required to make use of the contact
-@property (nonatomic) ContactUse *use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
-@property (nonatomic, retain) String_ *value; //Identifies the context for the address
-@property (nonatomic, retain) Period *period; //Time period when the contact was/is in use
-
-@end
-
 @implementation Contact
 
-- (ContactSystem *)fromCodeSystem:(NSString *)codeString
+@synthesize system = _system;
+@synthesize use = _use;
+
+- (NSInteger)fromCodeSystem:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return NULL;
+    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
     else if ([codeString caseInsensitiveCompare:@"phone"] == TRUE) return phone;
     else if ([codeString caseInsensitiveCompare:@"fax"] == TRUE) return fax;
     else if ([codeString caseInsensitiveCompare:@"email"] == TRUE) return email;
     else if ([codeString caseInsensitiveCompare:@"url"] == TRUE) return url;
-    else [NSException raise:@"Unknown Narrative Status" format:@"code %@", codeString];
+    else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
 };
 
 - (NSString *)toCodeSystem
@@ -55,15 +45,15 @@
     }
 }
 
-- (ContactUse *)fromCodeUse:(NSString *)codeString
+- (NSInteger)fromCodeUse:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return NULL;
+    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
     else if ([codeString caseInsensitiveCompare:@"home"] == TRUE) return home;
     else if ([codeString caseInsensitiveCompare:@"work"] == TRUE) return work;
     else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return temp;
     else if ([codeString caseInsensitiveCompare:@"old"] == TRUE) return old;
     else if ([codeString caseInsensitiveCompare:@"mobile"] == TRUE) return mobile;
-    else [NSException raise:@"Unknown Narrative Status" format:@"code %@", codeString];
+    else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
 };
 
 - (NSString *)toCodeUse

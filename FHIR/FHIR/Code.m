@@ -8,6 +8,12 @@
 
 #import "Code.h"
 
+@interface Code()
+
+@property (nonatomic, retain) NSString *codeText;
+
+@end
+
 @implementation Code
 
 - (NSString *)getValue

@@ -1,9 +1,8 @@
 //
 // JsonModel.h
 //
-#warning - currently being worked on
 //
-/*
+
 #import <Foundation/Foundation.h>
 #import "JSONKit.h"
 
@@ -138,4 +137,3 @@
 @end
 
 //JsonModel.h End
-*/

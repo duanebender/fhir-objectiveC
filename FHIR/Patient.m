@@ -1,158 +1,112 @@
 //
-//  FHIR.m
+//  Patient.m
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-24.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import "Patient.h"
 
-@interface Animal()
+@implementation Patient:Resource 
 
-@property (nonatomic, retain) CodeableConcept *species; //Identifies the high level categorization of the kind of animal
-@property (nonatomic, retain) CodeableConcept *breed; //Identifies the detailed categorization of the kind of animal.
-@property (nonatomic, retain) CodeableConcept *genderStatus; //Indicates the current state of the animal's reproductive organs
+@synthesize patientDictionary = _patientDictionary;
 
-@end
+- (FHIRResourceDictionary *)getPatientResourceDictionary
+{
+    return _patientDictionary;
+}
 
-@interface Patient()
-
-@property (nonatomic, retain) NSArray link; //THIS ARRAY IS FILLED WITH "ResourceReference" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
-@property (nonatomic, retain) BOOL *active; //Whether the patient record is in use, or has been removed from active use
-@property (nonatomic, retain) NSArray *identifier; //THIS ARRAY IS FILLED WITH "HumanId" OBJECTS ONLY.. An identifier that applies to this person as a patient
-@property (nonatomic, retain) Demographics *details; //Patient Demographic details
-@property (nonatomic, retain) Animal *animal; //This element has a value if the patient is an animal
-@property (nonatomic, retain) ResourceReference *provider; //The provider for whom this is a patient record
-@property (nonatomic, retain) CodeableConcept *diet; //Dietary restrictions for the patient
-@property (nonatomic, retain) CodeableConcept *confidentiality; //Confidentiality of the patient records
-@property (nonatomic, retain) CodeableConcept *recordLocation; //The location of the paper record for the patient, if there is one
-
-@end
-
-@implementation Patient:Resource //could also be @interface Patient (Resource):NSObject
+- (void)setPatientDictionary:(FHIRResourceDictionary *)patientDictionary
+{
+    _patientDictionary = patientDictionary;
+}
 
 
-    @implementation Animal:Element //could also be @interface Animal (Element):NSObject
-    
+- (NSArray *)getLink
+{
+    return self.link;
+}
 
-        - (CodeableConcept *)getSpecies
-        {
-            return self.species;
-        }
+- (BOOL *)getActive
+{
+    return self.active;
+}
 
-        - (void)setSpecies:(CodeableConcept *)value
-        {
-            self.species = value;
-        }
+- (void)setActive:(BOOL *)value
+{
+    self.active = value;
+}
 
-        - (CodeableConcept *)getBreed
-        {
-            return self.breed;
-        }
+- (NSArray *)getIdentifier
+{
+    return self.identifier;
+}
 
-        - (void)setBreed:(CodeableConcept *)value
-        {
-            self.breed = value;
-        }
+- (Demographics *)getDetails
+{
+    return self.details;
+}
 
-        - (CodeableConcept *)getGenderStatus
-        {
-            return self.genderStatus;
-        }
+- (void)setDetails:(Demographics *)value
+{
+    self.details = value;
+}
 
-        - (void)setGenderStatus:(CodeableConcept *)value
-        {
-            self.genderStatus = value;
-        }
+- (Animal *)getAnimal
+{
+    return self.animal;
+}
 
-    
-    @end
-    
-    - (NSArray *)getLink
-    {
-        return self.link;
-    }
-    
-    - (BOOL *)getActive
-    {
-        return self.active;
-    }
-    
-    - (void)setActive:(BOOL *)value
-    {
-        self.active = value;
-    }
-    
-    - (NSArray *)getIdentifier
-    {
-        return self.identifier;
-    }
-    
-    - (Demographics *)getDetails
-    {
-        return self.details;
-    }
-    
-    - (void)setDetails:(Demographics *)value
-    {
-        self.details = value;
-    }
-    
-    - (Animal *)getAnimal
-    {
-        return self.animal;
-    }
-    
-    - (void)setAnimal:(Animal *)value
-    {
-        self.animal = value;
-    }
-    
-    - (ResourceReference *)getProvider
-    {
-        retrun self.provider;
-    }
-    
-    - (void)setProvider:(ResourceReference *)value
-    {
-        self.provider = value;
-    }
-    
-    - (CodeableConcept *)getDiet
-    {
-        return self.diet;
-    }
-    
-    - (void)setDiet:(CodeableConcept *)value
-    {
-        self.diet = value;
-    }
-    
-    - (CodeableConcept *)getConfidentiality
-    {
-        return this.confidentiality;
-    }
-    
-    - (void)setConfidentiality:(CodeableConcept *)value
-    {
-        self.confidentiality = value;
-    }
-    
-    - (CodeableConcept *)getRecordLocation
-    {
-        return self.recordLocation;
-    }
-    
-    - (void)setRecordLocation:(CodeableConcept *)value
-    {
-        self.recordLocation = value;
-    }
-    
-    //override method
-    - (ResourceType *)getResourceType
-    {
-        return ResourceType.Patient;
-    }
+- (void)setAnimal:(Animal *)value
+{
+    self.animal = value;
+}
+
+- (ResourceReference *)getProvider
+{
+    return self.provider;
+}
+
+- (void)setProvider:(ResourceReference *)value
+{
+    self.provider = value;
+}
+
+- (CodeableConcept *)getDiet
+{
+    return self.diet;
+}
+
+- (void)setDiet:(CodeableConcept *)value
+{
+    self.diet = value;
+}
+
+- (CodeableConcept *)getConfidentiality
+{
+    return self.confidentiality;
+}
+
+- (void)setConfidentiality:(CodeableConcept *)value
+{
+    self.confidentiality = value;
+}
+
+- (CodeableConcept *)getRecordLocation
+{
+    return self.recordLocation;
+}
+
+- (void)setRecordLocation:(CodeableConcept *)value
+{
+    self.recordLocation = value;
+}
+
+//override method
+- (NSInteger)getResourceType
+{
+    return PatientType;
+}
 
 @end

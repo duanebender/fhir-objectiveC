@@ -3,7 +3,7 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-29.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -32,5 +32,12 @@
 - (void)attribute:(NSString *)name:(NSString *)value;
 - (NSString *)getAttribute:(NSString *)name;
 - (void)setAttribute:(NSString *)name:(NSString *)value;
+
+@property (nonatomic) NodeType *node; //decides node type
+@property (nonatomic, retain) NSString *name; //name variable
+@property (nonatomic, retain) NSMutableDictionary *Attributes;
+//@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
+@property (nonatomic, retain) NSMutableArray *childNodes; //array of XhtmlNodes
+@property (nonatomic, retain) NSString *content; //content of this XhtmlNode
 
 @end

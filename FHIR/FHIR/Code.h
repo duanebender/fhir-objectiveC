@@ -14,6 +14,4 @@
 - (NSString *)getValue; //get the code string
 - (void)setValue:(NSString *)value; //set the code string
 
-@property (nonatomic, retain) NSString *codeText;
-
 @end

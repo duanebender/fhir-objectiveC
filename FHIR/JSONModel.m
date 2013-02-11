@@ -1,9 +1,8 @@
 //
 // JsonModel.m
 //
-#warning - currently being worked on
 //
-/*
+
 #import "JsonModel.h"
 
 
@@ -286,4 +285,4 @@
 @end
 
 //JsonModel.m End
- */
+

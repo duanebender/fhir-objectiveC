@@ -3,7 +3,7 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-30.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 /**
@@ -25,6 +25,14 @@ typedef enum
 }IdentifierUse;
 
 @interface HumanId : Type
+{
+    IdentifierUse use;
+}
+@property (nonatomic) IdentifierUse *use; //Identifies the use for this identifier, if known
+@property (nonatomic, retain) String_ *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
+@property (nonatomic,retain) Identifier *identifier; //The identifier itself
+@property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
+@property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier
 
 - (IdentifierUse *)getUse;
 - (void)setUse:(IdentifierUse *)value;

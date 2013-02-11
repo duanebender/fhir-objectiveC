@@ -3,31 +3,18 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-31.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import "HumanName.h"
 
-@interface HumanName()
-{
-    NameUse use; //Identifies the purpose for this name
-}
-
-@property (nonatomic) NameUse *use;
-@property (nonatomic, retain) String_ *text; //a full text representation of the name
-@property (nonatomic, retain) NSMutableArray *family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
-@property (nonatomic, retain) NSMutableArray *given; //Given name. NOTE: Not to be called "first name" since given names do not always come first.
-@property (nonatomic, retain) NSMutableArray *prefix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name
-@property (nonatomic, retain) NSMutableArray *suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name
-@property (nonatomic, retain) Period *period; //Indicates the period of time when this name was valid for the named person.
-
-@end
-
 @implementation HumanName
 
-- (NameUse *)fromCode:(NSString *)codeString
+@synthesize use = _use;
+
+- (NSInteger)fromCode:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return NULL;
+    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
     else if ([codeString caseInsensitiveCompare:@"usual"] == TRUE) return usual;
     else if ([codeString caseInsensitiveCompare:@"official"] == TRUE) return official;
     else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return temp;

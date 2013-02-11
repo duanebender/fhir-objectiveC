@@ -3,7 +3,7 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-02-06.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 /*
 typedef enum NodeTypeValue

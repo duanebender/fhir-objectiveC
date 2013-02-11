@@ -24,9 +24,9 @@
     [super tearDown];
 }
 
-- (void)test
+- (void)testResourceDictionary
 {
-    STFail(@"Unit tests are not implemented yet in FHIRTests");
+
 }
 
 @end

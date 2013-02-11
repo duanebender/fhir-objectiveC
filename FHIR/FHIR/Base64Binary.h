@@ -3,7 +3,7 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-29.
-//  Copyright (c) 2013 Mohawk College. All rights reserved.
+//  Copyright (c) 2013 Adam Sippel. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,8 +13,5 @@
 
 - (Byte *)getValue;
 - (void)setValue:(Byte *)value;
-
-#warning - Should be an array of Bytes?
-@property (nonatomic) Byte *byteArray;
 
 @end

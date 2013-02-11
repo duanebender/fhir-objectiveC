@@ -3,7 +3,7 @@
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-29.
-//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,5 +18,8 @@
 - (NSArray *)getExtensions; //returns an array of extensions
 
 - (ResourceType *)getResourceType; //returns the resource type
+
+@property (nonatomic, retain) NSArray *extensions; //an array of extension objects
+@property (nonatomic, retain) Narrative *text;
 
 @end
