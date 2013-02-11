@@ -7,6 +7,8 @@
 //
 
 #import "FHIRTests.h"
+#import "Patient.h"
+
 
 @implementation FHIRTests
 
@@ -15,6 +17,9 @@
     [super setUp];
     
     // Set-up code here.
+
+    NSLog(@"Initializing test suite...");
+    
 }
 
 - (void)tearDown
@@ -22,11 +27,30 @@
     // Tear-down code here.
     
     [super tearDown];
+    NSLog(@"FHIR tests complete.");
+
+
 }
 
-- (void)testResourceDictionary
+- (void)test
 {
+    NSLog(@"Beginning FHIR tests...");
+    
+    // Test 1 : Round-trip test
+    //          Create a patient resource object from the obj-C model
+    //          Run the XML formatter on it
+    //          Parse the XML back to an object
+    //          Do a field-by-field comparison of the original with the roundtripped one
+    
+    //Patient *patient = [[Patient alloc] init];
+    //patient.active = Boolean.true;
+    
+    
+    
+    
+    
 
+    
 }
 
 @end
