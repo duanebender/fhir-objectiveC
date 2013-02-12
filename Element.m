@@ -10,14 +10,6 @@
 
 @implementation Element
 
-    - (NSString *)getXmlId
-    {
-        return self.xmlId;
-    }
-
-    - (void) setXmlId:(NSString *)xmlId
-    {
-        self.xmlId = xmlId;
-    }
+@synthesize xmlId = _xmlId;
 
 @end

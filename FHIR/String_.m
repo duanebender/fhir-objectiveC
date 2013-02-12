@@ -10,14 +10,6 @@
 
 @implementation String_
 
-- (NSString *)getValue
-{
-    return self.value;
-}
-
-- (void)setValue:(NSString *)value
-{
-    self.value = value;
-}
+@synthesize value = _value;
 
 @end

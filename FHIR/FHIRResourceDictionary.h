@@ -10,15 +10,10 @@
 
 @interface FHIRResourceDictionary : NSObject
 
-@property (nonatomic, retain) NSDictionary *dataForResource;
-@property (nonatomic, retain) NSString *resourceName;
-@property (nonatomic, retain) NSString *resourceType;
+@property (nonatomic, retain) NSDictionary *dataForResource; //distionary of resources
+@property (nonatomic, retain) NSString *resourceName; //name of resource dictionary
+@property (nonatomic, retain) NSString *resourceType; //type of resource the dictionary itself is
 
-- (id)dataForKey:(NSString *)key;
 - (void)setDataForKey:(NSString *)key Data:(id)data;
-- (NSString *)getResourceName;
-- (void)setResourceName:(NSString *)resourceName;
-- (NSString *)getResourceType;
-- (void)setResourceType:(NSString *)resourceType;
 
 @end

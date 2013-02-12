@@ -13,11 +13,6 @@
 
 @interface Identifier : Type
 
-- (Uri *)getSystem; //return identity of the system
-- (void)setSystem:(Uri *)value; //set identity of the system
-- (String_ *)getId; //get the system id
-- (void)setId:(String_ *)value; //set the system id
-
 @property (nonatomic, retain) Uri *system; //Establishes the namespace in which set of possible id values is unique.
 @property (nonatomic, retain) String_ *idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
 

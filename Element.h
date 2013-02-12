@@ -10,9 +10,6 @@
 
 @interface Element : NSObject
 
-- (NSString *)getXmlId;
-- (void)setXmlId:(NSString *)xmlId;
-
 @property (nonatomic, retain) NSString *xmlId;
 
 @end

@@ -10,16 +10,18 @@
 
 @implementation Contact
 
-@synthesize system = _system;
-@synthesize use = _use;
+@synthesize system = _system; //What kind of contact this is - what communications system is required to make use of the contact
+@synthesize use = _use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+@synthesize value = _value; //Identifies the context for the address
+@synthesize period = _period; //Time period when the contact was/is in use
 
 - (NSInteger)fromCodeSystem:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"phone"] == TRUE) return phone;
-    else if ([codeString caseInsensitiveCompare:@"fax"] == TRUE) return fax;
-    else if ([codeString caseInsensitiveCompare:@"email"] == TRUE) return email;
-    else if ([codeString caseInsensitiveCompare:@"url"] == TRUE) return url;
+    else if ([codeString caseInsensitiveCompare:@"phone"] == TRUE) return ContactSystemPhone;
+    else if ([codeString caseInsensitiveCompare:@"fax"] == TRUE) return ContactSystemFax;
+    else if ([codeString caseInsensitiveCompare:@"email"] == TRUE) return ContactSystemEmail;
+    else if ([codeString caseInsensitiveCompare:@"url"] == TRUE) return ContactSystemUrl;
     else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
 };
 
@@ -27,16 +29,16 @@
 {
     switch (system)
     {
-        case phone:
+        case ContactSystemPhone:
             return @"phone";
             break;
-        case fax:
+        case ContactSystemFax:
             return @"fax";
             break;
-        case email:
+        case ContactSystemEmail:
             return @"email";
             break;
-        case url:
+        case ContactSystemUrl:
             return @"url";
             break;
             
@@ -48,11 +50,11 @@
 - (NSInteger)fromCodeUse:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"home"] == TRUE) return home;
-    else if ([codeString caseInsensitiveCompare:@"work"] == TRUE) return work;
-    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return temp;
-    else if ([codeString caseInsensitiveCompare:@"old"] == TRUE) return old;
-    else if ([codeString caseInsensitiveCompare:@"mobile"] == TRUE) return mobile;
+    else if ([codeString caseInsensitiveCompare:@"home"] == TRUE) return ContactUseHome;
+    else if ([codeString caseInsensitiveCompare:@"work"] == TRUE) return ContactUseWork;
+    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return ContactUseTemp;
+    else if ([codeString caseInsensitiveCompare:@"old"] == TRUE) return ContactUseOld;
+    else if ([codeString caseInsensitiveCompare:@"mobile"] == TRUE) return ContactUseMobile;
     else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
 };
 
@@ -60,65 +62,25 @@
 {
     switch (use)
     {
-        case home:
+        case ContactUseHome:
             return @"home";
             break;
-        case work:
+        case ContactUseWork:
             return @"work";
             break;
-        case temp:
+        case ContactUseTemp:
             return @"temp";
             break;
-        case old:
+        case ContactUseOld:
             return @"old";
             break;
-        case mobile:
+        case ContactUseMobile:
             return @"mobile";
             break;
             
         default:
             return @"?";
     }
-}
-
-- (ContactSystem *)getSystem
-{
-    return self.system;
-}
-
-- (void)setSystem:(ContactSystem *)value
-{
-    self.system = value;
-}
-
-- (String_ *)getValue
-{
-    return self.value;
-}
-
-- (void)setValue:(String_ *)value
-{
-    self.value = value;
-}
-
-- (ContactUse *)getUse
-{
-    return self.use;
-}
-
-- (void)setUse:(ContactUse *)value
-{
-    self.use = value;
-}
-
-- (Period *)getPeriod
-{
-    return self.period;
-}
-
-- (void)setPeriod:(Period *)value
-{
-    self.period = value;
 }
 
 @end

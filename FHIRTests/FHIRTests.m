@@ -45,7 +45,11 @@
     //Patient *patient = [[Patient alloc] init];
     //patient.active = Boolean.true;
     
-    
+    //variable test
+    Patient *patient = [[Patient alloc] init];
+    patient.active = YES;
+    NSLog(@"Active Status of Patient: %@", ([patient active])? @"YES" : @"NO");
+    STAssertTrue(patient.active == NO, @"BOOL Should be YES");
     
     
     

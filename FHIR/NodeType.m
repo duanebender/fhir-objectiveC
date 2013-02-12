@@ -18,47 +18,7 @@
 @synthesize descriptionShort = _descriptionShort;
 @synthesize nodeType = _nodeType;
 
-- (NSString *)getAuthor
-{
-    return self.author;
-}
-
-- (void)setAuthor:(NSString *)authorName
-{
-    self.author = authorName;
-}
-
 //getfield and getfields methods may not be neeed as in the java variant
-
-- (NSString *)getLongDescription
-{
-    return self.descriptionLong;
-}
-
-- (void)setLongDescription:(NSString *)text;
-{
-    self.descriptionLong = text;
-}
-
-- (NSString *)getShortDescription
-{
-    return self.descriptionShort;
-}
-
-- (void)setShortDescription:(NSString *)text
-{
-    self.descriptionShort = text;
-}
-
-- (NSString *)getName
-{
-    return self.name;
-}
-
-- (void)setName:(NSString *)name
-{
-    self.name = name;
-}
 
 - (NSString *)getAllKnownNodeTypes
 {
@@ -71,11 +31,6 @@
     }
     
     return tempListOfNodes;
-}
-
-- (NSString *)getType
-{
-    return self.nodeType;
 }
 
 - (void)setType:(NSString *)typeOfNode

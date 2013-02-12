@@ -10,13 +10,17 @@
 
 @implementation Narrative
 
+@synthesize status = _status; //The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
+@synthesize div = _div; //The actual narrative content, a stripped down version of XHTML
+@synthesize image = _image; //array of images referred to directly in the xhtml
+
 - (NSInteger)fromCode:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"generated"] == TRUE) return generated;
-    else if ([codeString caseInsensitiveCompare:@"extensions"] == TRUE) return extensions;
-    else if ([codeString caseInsensitiveCompare:@"additional"] == TRUE) return additional;
-    else if ([codeString caseInsensitiveCompare:@"empty"] == TRUE) return empty;
+    else if ([codeString caseInsensitiveCompare:@"generated"] == TRUE) return NarrativeStatusGenerated;
+    else if ([codeString caseInsensitiveCompare:@"extensions"] == TRUE) return NarrativeStatusExtensions;
+    else if ([codeString caseInsensitiveCompare:@"additional"] == TRUE) return NarrativeStatusAdditional;
+    else if ([codeString caseInsensitiveCompare:@"empty"] == TRUE) return NarrativeStatusEmpty;
     else [NSException raise:@"Unknown Narrative Status" format:@"code %@", codeString];
 };
 
@@ -24,47 +28,22 @@
 {
     switch (narrativeStatus)
     {
-        case generated:
+        case NarrativeStatusGenerated:
             return @"generated";
             break;
-        case extensions:
+        case NarrativeStatusExtensions:
             return @"generated";
             break;
-        case additional:
+        case NarrativeStatusAdditional:
             return @"generated";
             break;
-        case empty:
+        case NarrativeStatusEmpty:
             return @"generated";
             break;
             
         default:
             return @"?";
     }
-}
-
-- (NarrativeStatus *)getStatus
-{
-    return self.status;
-}
-
-- (void)setStatus:(NarrativeStatus *)value
-{
-    self.status = value;
-}
-
-- (XhtmlNode *)getDiv
-{
-    return self.div;
-}
-
-- (void)setDiv:(XhtmlNode *)value
-{
-    self.div = value;
-}
-
-- (NSArray *)getImage
-{
-    return self.image;
 }
 
 @end

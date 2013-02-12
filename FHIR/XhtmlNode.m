@@ -12,7 +12,12 @@
 
 @implementation XhtmlNode
 
-@synthesize childNodes = _childNodes;
+@synthesize childNodes = _childNodes; //array of XhtmlNodes
+@synthesize node = _node; //decides node type
+@synthesize name = _name; //name variable
+@synthesize Attributes = _Attributes;
+//@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
+@synthesize content = _content; //content of this XhtmlNode
 
 - (NSString *)getNodeType
 {
@@ -24,31 +29,6 @@
     self.node.nodeType = nodeType;
 }
 
-- (NSString *)getName
-{
-    return self.name;
-}
-
-- (void)setName:(NSString *)name
-{
-    self.name = name;
-}
-
-- (NSMutableDictionary *)getAttributes
-{
-    return self.Attributes;
-}
-
-- (NSArray *)getChildNodes
-{
-    return self.childNodes;
-}
-
-- (NSString *)getContent
-{
-    return self.content;
-}
-/*
 - (void)setContent:(NSString *)content
 {
     if (!(self.node.nodeType != @"Test" || self.node.nodeType != @"Comment"))
@@ -171,7 +151,7 @@
 {
     for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == @"Element" && [self.name caseInsensitiveCompare:(n.getName)])
+        if (n.getNodeType == @"Element" && [self.name caseInsensitiveCompare:(n.name)])
         {
             return n;
         }
@@ -186,7 +166,7 @@
     {
         if (n.getNodeType == @"Text")
         {
-            [tempString appendString:n.getContent];
+            [tempString appendString:n.name];
         }
         else if (n.getNodeType == @"Element")
         {
@@ -224,6 +204,5 @@
     [self.Attributes setObject:value forKey:name];
 }
 
-*/
 @end
 

@@ -11,9 +11,6 @@
 
 @interface String_ : Type
 
-- (NSString *)getValue;
-- (void)setValue:(NSString *)value;
-
 @property (nonatomic, retain) NSString *value; //contains the value of a string
 
 @end

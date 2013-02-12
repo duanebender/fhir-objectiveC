@@ -11,17 +11,10 @@
 #import "Narrative.h"
 #import "ResourceType.h"
 
-@interface Resource : Element {
-    
-}
-
-- (Narrative *)getText; //returns the narrative text
-- (void)setText:(Narrative *)text; //sets the narrative text
-- (NSArray *)getExtensions; //returns an array of extensions
-
-//- (ResourceType *)getResourceType; //returns the resource type
+@interface Resource : Element
 
 @property (nonatomic, retain) NSArray *extensions; //an array of extension objects
-@property (nonatomic, retain) Narrative *text;
+@property (nonatomic, retain) Narrative *text; //contents of resource
+@property (nonatomic) ResourceType *resourceType; //type designation of resource
 
 @end

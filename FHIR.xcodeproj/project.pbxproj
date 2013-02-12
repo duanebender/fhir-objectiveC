@@ -285,10 +285,6 @@
 				89B3466A16BAB4A800926131 /* Identifier.m */,
 				89B3466D16BABA7E00926131 /* Period.h */,
 				89B3466E16BABA7E00926131 /* Period.m */,
-				89D05CBD16B8146000139BEF /* Uri.h */,
-				89D05CBE16B8146000139BEF /* Uri.m */,
-				89D05CC116B81F9700139BEF /* Code.h */,
-				89D05CC216B81F9700139BEF /* Code.m */,
 				89D05CC016B81F6800139BEF /* Type and Supporting */,
 			);
 			name = "Bottom Level Types";
@@ -297,6 +293,10 @@
 		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				89D05CBD16B8146000139BEF /* Uri.h */,
+				89D05CBE16B8146000139BEF /* Uri.m */,
+				89D05CC116B81F9700139BEF /* Code.h */,
+				89D05CC216B81F9700139BEF /* Code.m */,
 				89CB21AA16C292E7006A7497 /* NodeType.h */,
 				89CB21AC16C29952006A7497 /* NodeType.m */,
 				89B3467316BAC80F00926131 /* ResourceType.h */,

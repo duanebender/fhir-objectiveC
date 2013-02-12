@@ -2,7 +2,8 @@
 // JsonModel.h
 //
 //
-
+#warning - Model is in the works atm
+/*
 #import <Foundation/Foundation.h>
 #import "JSONKit.h"
 
@@ -135,5 +136,7 @@
 - (id) initWithDictionary:(NSDictionary*)dictionary;
 
 @end
+ 
+ */
 
 //JsonModel.h End

@@ -13,11 +13,6 @@
 
 @interface Period : Type
 
-- (NSDate *)getStart; //get starting date
-- (void)setStart:(NSDate *)value; //set starting date
-- (NSDate *)getEnd; //get ending date
-- (void)setEnd:(NSDate *)value; //set ending date
-
 @property (nonatomic, retain) NSDate *start; //The start of the period. The boundary is inclusive.
 @property (nonatomic, retain) NSDate *end; //The end of the period. If the high is missing, it means that the period is ongoing
 

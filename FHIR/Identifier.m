@@ -10,24 +10,7 @@
 
 @implementation Identifier
 
-- (Uri *)getSystem
-{
-    return self.system;
-}
-
-- (void)setSystem:(Uri *)value
-{
-    self.system = value;
-}
-
-- (String_ *)getId
-{
-    return self.idNumber;
-}
-
-- (void)setId:(String_ *)value
-{
-    self.idNumber = value;
-}
+@synthesize system = _system; //Establishes the namespace in which set of possible id values is unique.
+@synthesize idNumber = _idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
 
 @end

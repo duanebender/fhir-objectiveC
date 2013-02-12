@@ -11,10 +11,7 @@
 
 @interface Base64Binary : Type
 
-- (Byte *)getValue;
-- (void)setValue:(Byte *)value;
-
 #warning - Should be an array of Bytes?
-@property (nonatomic) Byte *byteArray;
+@property (nonatomic) Byte *byte;
 
 @end

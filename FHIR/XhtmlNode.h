@@ -13,11 +13,6 @@
 
 - (NSString *)getNodeType; //NodeType value
 - (void)setNodeType:(NSString *)nodeType; //set NodeType value
-- (NSString *)getName;
-- (void)setName:(NSString *)name;
-- (NSMutableDictionary *)getAttributes; //<String, String>?
-- (NSMutableArray *)getChildNodes;
-- (NSString *)getContent;
 - (void)setContent:(NSString *)content;
 - (XhtmlNode *)addTag:(NSString *)name;
 - (XhtmlNode *)addTag:(NSInteger *)index:(NSString *)name;

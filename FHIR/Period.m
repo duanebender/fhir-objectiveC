@@ -10,24 +10,7 @@
 
 @implementation Period
 
-- (NSDate *)getStart
-{
-    return self.start;
-}
-
-- (void)setStart:(NSDate *)value
-{
-    self.start = value;
-}
-
-- (NSDate *)getEnd
-{
-    return self.end;
-}
-
-- (void)setEnd:(NSDate *)value
-{
-    self.end = value;
-}
+@synthesize start = _start; //The start of the period. The boundary is inclusive.
+@synthesize end = _end; //The end of the period. If the high is missing, it means that the period is ongoing
 
 @end

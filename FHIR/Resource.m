@@ -12,20 +12,6 @@
 
 @synthesize extensions = _extensions;
 @synthesize text = _text;
-
-- (Narrative *)getText
-{
-    return self.text;
-}
-
-- (void)setText:(Narrative *)text
-{
-    self.text = text;
-}
-
-- (NSArray *)getExtensions
-{
-    return self.extensions;
-}
+@synthesize resourceType = _resourceType;
 
 @end

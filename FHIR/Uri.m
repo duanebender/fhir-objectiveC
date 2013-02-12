@@ -10,15 +10,6 @@
 
 @implementation Uri
 
-- (NSURL *)getValue
-{
-    return self.uri;
-}
-
-- (void)setValue:(NSURL *)value
-{
-    //self.uri = [[Uri objectID] URIRepresentation];
-    self.uri = value;
-}
+@synthesize uri = _uri;
 
 @end

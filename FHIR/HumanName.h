@@ -27,17 +27,6 @@ typedef enum
     NameUse use; //Identifies the purpose for this name
 }
 
-- (NameUse *)getUse;
-- (void)setUse:(NameUse *)value;
-- (String_ *)getText;
-- (void)setText:(String_ *)value;
-- (NSMutableArray *)getFamily; //returns an array of String_ <String_>
-- (NSMutableArray *)getGiven; //returns an array of String_ <String_>
-- (NSMutableArray *)getPrefix; //returns an array of String_ <String_>
-- (NSMutableArray *)getSuffix; //returns an array of String_ <String_>
-- (Period *)getPeriod;
-- (void)setPeriod:(Period *)value;
-
 @property (nonatomic) NameUse *use;
 @property (nonatomic, retain) String_ *text; //a full text representation of the name
 @property (nonatomic, retain) NSMutableArray *family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.

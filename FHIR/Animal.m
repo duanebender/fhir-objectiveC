@@ -11,35 +11,9 @@
 
 @implementation Animal:Element //could also be @interface Animal (Element):NSObject
 
-- (CodeableConcept *)getSpecies
-{
-    return self.species;
-}
-
-- (void)setSpecies:(CodeableConcept *)value
-{
-    self.species = value;
-}
-
-- (CodeableConcept *)getBreed
-{
-    return self.breed;
-}
-
-- (void)setBreed:(CodeableConcept *)value
-{
-    self.breed = value;
-}
-
-- (CodeableConcept *)getGenderStatus
-{
-    return self.genderStatus;
-}
-
-- (void)setGenderStatus:(CodeableConcept *)value
-{
-    self.genderStatus = value;
-}
+@synthesize species = _species; //Identifies the high level categorization of the kind of animal
+@synthesize breed = _breed; //Identifies the detailed categorization of the kind of animal.
+@synthesize genderStatus = _genderStatus; //Indicates the current state of the animal's reproductive organs
 
 
 @end

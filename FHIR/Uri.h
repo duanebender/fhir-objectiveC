@@ -13,9 +13,6 @@
 
 @interface Uri : Type
 
-- (NSURL *)getValue; //return the uri text string
-- (void)setValue:(NSURL *)value; //set the uri string
-
 @property (nonatomic, weak) NSURL *uri;
 
 @end

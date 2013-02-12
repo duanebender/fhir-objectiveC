@@ -10,14 +10,6 @@
 
 @implementation Base64Binary
 
-- (Byte *)getValue
-{
-    return self.byteArray;
-}
-
-- (void)setValue:(Byte *)value
-{
-    self.byteArray = value;
-}
+@synthesize byte = _byte;
 
 @end

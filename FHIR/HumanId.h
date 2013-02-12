@@ -34,15 +34,4 @@ typedef enum
 @property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
 @property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier
 
-- (IdentifierUse *)getUse;
-- (void)setUse:(IdentifierUse *)value;
-- (String_ *)getLabel;
-- (void)setLabel:(String_ *)value;
-- (Identifier *)getIdentifier;
-- (void)setIdentifier:(Identifier *)value;
-- (Period *)getPeriod;
-- (void)setPeriod:(Period *)value;
-- (ResourceReference *)getAssigner;
-- (void)setAssigner:(ResourceReference *)value;
-
 @end

@@ -10,7 +10,11 @@
 
 @implementation HumanId
 
-@synthesize use = _use;
+@synthesize use = _use; //Identifies the use for this identifier, if known
+@synthesize label = _label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
+@synthesize identifier = _identifier; //The identifier itself
+@synthesize period = _period; //Time period during which identifier was valid for use
+@synthesize assigner = _assigner; //Organisation that issued/manages the identifier
 
 - (NSInteger)fromCode:(NSString *)codeString
 {
@@ -38,56 +42,6 @@
         default:
             return @"?";
     }
-}
-
-- (IdentifierUse *)getUse
-{
-    return self.use;
-}
-
-- (void)setUse:(IdentifierUse *)value
-{
-    self.use = value;
-}
-
-- (String_ *)getLabel
-{
-    return self.label;
-}
-
-- (void)setLabel:(String_ *)value
-{
-    self.label = value;
-}
-
-- (Identifier *)getIdentifier
-{
-    return self.identifier;
-}
-
-- (void)setIdentifier:(Identifier *)value
-{
-    self.identifier = value;
-}
-
-- (Period *)getPeriod
-{
-    return self.period;
-}
-
-- (void)setPeriod:(Period *)value
-{
-    self.period = value;
-}
-
-- (ResourceReference *)getAssigner
-{
-    return self.assigner;
-}
-
-- (void)setAssigner:(ResourceReference *)value
-{
-    self.assigner = value;
 }
 
 @end

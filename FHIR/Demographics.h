@@ -17,19 +17,6 @@
 
 @interface Demographics : Type
 
-- (NSMutableArray *)getName; //return an array of names <HumanName>
-- (NSMutableArray *)getTelecom; //return an array of contacts <contact>
-- (Coding *)getGender;
-- (void)setGender:(Coding *)value;
-- (NSDate *)getBirthDate;
-- (void)setBirthDate:(NSDate *)value;
-- (BOOL *)getDeceased;
-- (void)setDeceased:(BOOL *)value;
-- (NSMutableArray *)getAddress; //return an array of addresses <address>
-- (CodeableConcept *)getMaritalStatus;
-- (void)setMaritalStatus:(CodeableConcept *)value;
-- (NSMutableArray *)getLanguage; //return an array of languages <language>
-
 @property (nonatomic, retain) NSMutableArray *name; //A name associated with the individual.
 @property (nonatomic, retain) NSMutableArray *telecom; //A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
 @property (nonatomic, retain) Coding *gender; //Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes

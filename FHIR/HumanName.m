@@ -11,6 +11,12 @@
 @implementation HumanName
 
 @synthesize use = _use;
+@synthesize text = _text; //a full text representation of the name
+@synthesize family = _family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
+@synthesize given = _given; //Given name. NOTE: Not to be called "first name" since given names do not always come first.
+@synthesize prefix = _prefix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name
+@synthesize suffix = _suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name
+@synthesize period = _period; //Indicates the period of time when this name was valid for the named person.
 
 - (NSInteger)fromCode:(NSString *)codeString
 {
@@ -54,56 +60,6 @@
         default:
             return @"?";
     }
-}
-
-- (NameUse *)getUse
-{
-    return self.use;
-}
-
-- (void)setUse:(NameUse *)value
-{
-    self.use = value;
-}
-
-- (String_ *)getText
-{
-    return self.text;
-}
-
-- (void)setText:(String_ *)value
-{
-    self.text = value;
-}
-
-- (NSMutableArray *)getFamily
-{
-    return self.family;
-}
-
-- (NSMutableArray *)getGiven
-{
-    return self.given;
-}
-
-- (NSMutableArray *)getPrefix
-{
-    return self.prefix;
-}
-
-- (NSMutableArray *)getSuffix
-{
-    return self.suffix;
-}
-
-- (Period *)getPeriod
-{
-    return self.period;
-}
-
-- (void)setPeriod:(Period *)value
-{
-    self.period = value;
 }
 
 @end

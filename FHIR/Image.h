@@ -12,11 +12,6 @@
 
 @interface Image : Element
 
-- (Code *)getMimeType;
-- (void)setMimeType:(Code *)value;
-- (Base64Binary *)getContent;
-- (void)setContent:(Base64Binary *)value;
-
 @property (nonatomic, retain) Code *mimeType;
 @property (nonatomic, retain) Base64Binary *content;
 
