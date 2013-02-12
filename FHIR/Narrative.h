@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Element.h"
 #import "Code.h"
-#import "Base64Binary.h"
 #import "XhtmlNode.h"
 
 typedef enum NarrativeStatus

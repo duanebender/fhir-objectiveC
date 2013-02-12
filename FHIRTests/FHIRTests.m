@@ -8,6 +8,7 @@
 
 #import "FHIRTests.h"
 #import "Patient.h"
+#import "Coding.h"
 
 
 @implementation FHIRTests
@@ -45,14 +46,35 @@
     //Patient *patient = [[Patient alloc] init];
     //patient.active = Boolean.true;
     
-    //variable test
     Patient *patient = [[Patient alloc] init];
+    
+    //activestatus test
     patient.active = YES;
     NSLog(@"Active Status of Patient: %@", ([patient active])? @"YES" : @"NO");
-    STAssertTrue(patient.active == NO, @"BOOL Should be YES");
+    STAssertTrue(patient.active == YES, @"BOOL Should be YES");
+    STAssertTrue(patient.active == NO, @"BOOL Should be YES, this test should fail.");
     
+    //test resoourcetype
+    STAssertTrue(patient.getResourceType == ResourceTypePatient, @"Should be true.");
+    STAssertTrue(patient.getResourceType == ResourceTypeAdmission, @"Should fail, patient should be of patient type.");
     
+    //test maritalstatus
+    patient.details.maritalStatus.text.value = @"Single";
+    STAssertTrue(patient.details.maritalStatus.text.value == @"Married", @"Should be single.");
     
+    //test animal
+    Coding *patientCode = [[Coding alloc] init];
+    patientCode.code.codeText = @"This is code apparently";
+    [patient.animal.breed.coding addObject:patientCode];
+    Coding *testableValue = [patient.animal.breed.coding objectAtIndex:0];
+    STAssertTrue(testableValue.code.codeText == @"This is code apparently" , @"This should pass.");
+    
+#warning - commented code causes linker errors...not sure why atm
+    //ResourceReference *resource = [[ResourceReference alloc] init];
+    //HumanId *human1 = [[HumanId alloc] init];
+    //human1.period.start = [NSDate date];
+    //[patient.identifier addObject:human1];
+    //STAssertTrue(human1.period.start == [NSDate date], @"Dates should match.");
 
     
 }

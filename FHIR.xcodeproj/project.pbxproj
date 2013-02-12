@@ -11,13 +11,13 @@
 		89000E3916C93126007E911D /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3816C93126007E911D /* Language.m */; };
 		89000E3C16C939A4007E911D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3B16C939A4007E911D /* Image.m */; };
 		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
+		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
 		89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF016C400850096E52F /* FHIRResourceDictionary.m */; };
 		89667AF516C42AE90096E52F /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF416C42AE70096E52F /* Patient.m */; };
 		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
-		8993D7FC16B1D88500D0AFB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7FB16B1D88500D0AFB4 /* UIKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D80016B1D88500D0AFB4 /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7E716B1D88400D0AFB4 /* libFHIR.a */; };
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
@@ -73,6 +73,7 @@
 		89000E3A16C939A3007E911D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		89000E3B16C939A4007E911D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
 		8950B3C716B6DD85007CB8B5 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		8950B3CD16B6DE80007CB8B5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = ../Element.h; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		8993D7FB16B1D88500D0AFB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8993D80316B1D88500D0AFB4 /* FHIRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FHIRTests-Info.plist"; sourceTree = "<group>"; };
 		8993D80516B1D88500D0AFB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
@@ -138,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */,
 				890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */,
 				8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */,
 			);
@@ -148,7 +149,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */,
-				8993D7FC16B1D88500D0AFB4 /* UIKit.framework in Frameworks */,
 				8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */,
 				8993D80016B1D88500D0AFB4 /* libFHIR.a in Frameworks */,
 			);
@@ -179,10 +179,10 @@
 		8993D7E916B1D88400D0AFB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89436D4E16CA965E004563E4 /* UIKit.framework */,
 				890AD55316BC176A00FE69E3 /* CoreData.framework */,
 				8993D7EA16B1D88400D0AFB4 /* Foundation.framework */,
 				8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */,
-				8993D7FB16B1D88500D0AFB4 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

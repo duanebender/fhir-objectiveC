@@ -5,16 +5,6 @@
 //  Created by Adam Sippel on 2013-02-06.
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
-/*
-typedef enum NodeTypeValue
-{
-    Text,
-    Comment,
-    NodeElement,
-    Document
-}NodeTypeValue;
- */
- 
 
 
 @interface NodeType : NSObject

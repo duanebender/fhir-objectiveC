@@ -11,17 +11,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Type.h"
-#import "String_.h"
 #import "ResourceReference.h"
 #import "Identifier.h"
 #import "Period.h"
 
-typedef enum
+typedef enum IdentifierUse
 {
-    usual, // the identifier recommended for display and use in real-world interactions
-    official, // the identifier considered to be most trusted for the identification of this item
-    temp //A temporary identifier
+    IdentifierUseUusual, // the identifier recommended for display and use in real-world interactions
+    IdentifierUseOfficial, // the identifier considered to be most trusted for the identification of this item
+    IdentifierUseTemp //A temporary identifier
 }IdentifierUse;
 
 @interface HumanId : Type

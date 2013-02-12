@@ -19,9 +19,9 @@
 - (NSInteger)fromCode:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"usual"] == TRUE) return usual;
-    else if ([codeString caseInsensitiveCompare:@"official"] == TRUE) return official;
-    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return temp;
+    else if ([codeString caseInsensitiveCompare:@"usual"] == TRUE) return IdentifierUseUusual;
+    else if ([codeString caseInsensitiveCompare:@"official"] == TRUE) return IdentifierUseOfficial;
+    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return IdentifierUseTemp;
     else [NSException raise:@"Unknown Identifier" format:@"code %@", codeString];
 };
 
@@ -29,13 +29,13 @@
 {
     switch (use)
     {
-        case usual:
+        case IdentifierUseUusual:
             return @"usual";
             break;
-        case official:
+        case IdentifierUseOfficial:
             return @"official";
             break;
-        case temp:
+        case IdentifierUseTemp:
             return @"temp";
             break;
             

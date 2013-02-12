@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Element.h"
 #import "Narrative.h"
 #import "ResourceType.h"
 

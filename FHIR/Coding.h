@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Type.h"
 #import "Uri.h"
 #import "Code.h"
 #import "String_.h"

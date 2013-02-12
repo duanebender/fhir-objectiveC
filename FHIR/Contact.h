@@ -9,7 +9,6 @@
 //All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
 
 #import <Foundation/Foundation.h>
-#import "Type.h"
 #import "String_.h"
 #import "Period.h"
 
