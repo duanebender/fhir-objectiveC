@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "String_.h"
+#import "String.h"
 #import "Period.h"
 
 typedef enum
@@ -27,7 +27,7 @@ typedef enum
 }
 
 @property (nonatomic) NameUse *use;
-@property (nonatomic, retain) String_ *text; //a full text representation of the name
+@property (nonatomic, retain) String *text; //a full text representation of the name
 @property (nonatomic, retain) NSMutableArray *family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father. Array of NSStrings
 @property (nonatomic, retain) NSMutableArray *given; //Given name. NOTE: Not to be called "first name" since given names do not always come first. Array of NSStrings
 @property (nonatomic, retain) NSMutableArray *prefix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name. Array of NSStrings

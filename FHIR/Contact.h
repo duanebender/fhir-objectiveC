@@ -9,7 +9,7 @@
 //All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
 
 #import <Foundation/Foundation.h>
-#import "String_.h"
+#import "String.h"
 #import "Period.h"
 
 typedef enum ContactSystem
@@ -39,7 +39,7 @@ typedef enum ContactUse
 
 @property (nonatomic) ContactSystem *system; //What kind of contact this is - what communications system is required to make use of the contact
 @property (nonatomic) ContactUse *use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
-@property (nonatomic, retain) String_ *value; //Identifies the context for the address
+@property (nonatomic, retain) String *value; //Identifies the context for the address
 @property (nonatomic, retain) Period *period; //Time period when the contact was/is in use
 
 @end

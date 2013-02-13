@@ -14,4 +14,14 @@
 @synthesize text = _text;
 @synthesize resourceType = _resourceType;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _extensions = [[NSMutableArray alloc] init];
+        _text = [[Narrative alloc] init];
+    }
+    return self;
+}
+
 @end

@@ -15,9 +15,20 @@
 @synthesize childNodes = _childNodes; //array of XhtmlNodes
 @synthesize node = _node; //decides node type
 @synthesize name = _name; //name variable
-@synthesize Attributes = _Attributes;
+@synthesize attributes = _attributes;
 //@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
 @synthesize content = _content; //content of this XhtmlNode
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _node = [[NodeType alloc] init];
+        _attributes = [[NSMutableDictionary alloc] init];
+        _childNodes = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 - (NSString *)getNodeType
 {
@@ -191,17 +202,17 @@
     {
         [NSException raise:@"Value" format:@"Value is Null"];
     }
-    [self.Attributes setObject:value forKey:name];
+    [self.attributes setObject:value forKey:name];
 }
                                                   
 - (NSString *)getAttribute:(NSString *)name
 {
-    return [self.Attributes objectForKey:name];
+    return [self.attributes objectForKey:name];
 }
                                                   
 - (void)setAttribute:(NSString *)name :(NSString *)value
 {
-    [self.Attributes setObject:value forKey:name];
+    [self.attributes setObject:value forKey:name];
 }
 
 @end

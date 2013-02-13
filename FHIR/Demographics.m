@@ -19,4 +19,18 @@
 @synthesize maritalStatus = _maritalStatus; //This field contains a patient's marital (civil) status.
 @synthesize language = _language; //A language spoken by the person, with proficiency
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _name = [[NSMutableArray alloc] init];
+        _telecom = [[NSMutableArray alloc] init];
+        _gender = [[Coding alloc] init];
+        _address = [[NSMutableArray alloc] init];
+        _maritalStatus = [[CodeableConcept alloc] init];
+        _language = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 @end

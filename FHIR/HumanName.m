@@ -18,6 +18,20 @@
 @synthesize suffix = _suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name
 @synthesize period = _period; //Indicates the period of time when this name was valid for the named person.
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _text = [[String alloc] init];
+        _family = [[NSMutableArray alloc] init];
+        _given = [[NSMutableArray alloc] init];
+        _prefix = [[NSMutableArray alloc] init];
+        _suffix = [[NSMutableArray alloc] init];
+        _period = [[Period alloc] init];
+    }
+    return self;
+}
+
 - (NSInteger)fromCode:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;

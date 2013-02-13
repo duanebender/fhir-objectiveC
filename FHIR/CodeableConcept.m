@@ -14,4 +14,15 @@
 @synthesize text = _text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
 @synthesize primary = _primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _coding = [[NSMutableArray alloc] init];
+        _text = [[String alloc] init];
+        _primary = [[String alloc] init];
+    }
+    return self;
+}
+
 @end

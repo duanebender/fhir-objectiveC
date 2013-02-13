@@ -15,6 +15,16 @@
 @synthesize value = _value; //Identifies the context for the address
 @synthesize period = _period; //Time period when the contact was/is in use
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _value = [[String alloc] init];
+        _period = [[Period alloc] init];
+    }
+    return self;
+}
+
 - (NSInteger)fromCodeSystem:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;

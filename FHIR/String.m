@@ -1,14 +1,14 @@
 //
-//  String_.m
+//  String.m
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-30.
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#import "String_.h"
+#import "String.h"
 
-@implementation String_
+@implementation String
 
 @synthesize value = _value;
 

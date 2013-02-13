@@ -13,4 +13,14 @@
 @synthesize system = _system; //Establishes the namespace in which set of possible id values is unique.
 @synthesize idNumber = _idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _system = [[Uri alloc] init];
+        _idNumber = [[String alloc] init];
+    }
+    return self;
+}
+
 @end

@@ -15,5 +15,15 @@
 @synthesize breed = _breed; //Identifies the detailed categorization of the kind of animal.
 @synthesize genderStatus = _genderStatus; //Indicates the current state of the animal's reproductive organs
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _species = [[CodeableConcept alloc] init];
+        _breed = [[CodeableConcept alloc] init];
+        _genderStatus = [[CodeableConcept alloc] init];
+    }
+    return self;
+}
 
 @end

@@ -13,4 +13,14 @@
 @synthesize mimeType = _mimeType;
 @synthesize content = _content;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _mimeType = [[Code alloc] init];
+        _content = [[Base64Binary alloc] init];
+    }
+    return self;
+}
+
 @end

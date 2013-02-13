@@ -14,6 +14,16 @@
 @synthesize div = _div; //The actual narrative content, a stripped down version of XHTML
 @synthesize image = _image; //array of images referred to directly in the xhtml
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _div = [[XhtmlNode alloc] init];
+        _image = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (NSInteger)fromCode:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;

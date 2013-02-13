@@ -15,4 +15,15 @@
 @synthesize proficiencyLevel = _proficiencyLevel; //A code that describes how well the language is spoken
 @synthesize preference = _preference; //Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _language = [[CodeableConcept alloc] init];
+        _mode = [[CodeableConcept alloc] init];
+        _proficiencyLevel = [[CodeableConcept alloc] init];
+    }
+    return self;
+}
+
 @end

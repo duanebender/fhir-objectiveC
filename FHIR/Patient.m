@@ -19,7 +19,24 @@
 @synthesize provider = _provider; //The provider for whom this is a patient record
 @synthesize diet = _diet; //Dietary restrictions for the patient
 @synthesize confidentiality = _confidentiality; //Confidentiality of the patient records
-@synthesize recordLocation = recordLocation; //The location of the paper record for the patient, if there is one
+@synthesize recordLocation = _recordLocation; //The location of the paper record for the patient, if there is one
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _patientDictionary = [[FHIRResourceDictionary alloc] init];
+        _link = [[NSMutableArray alloc] init];
+        _identifier = [[NSMutableArray alloc] init];
+        _details = [[Demographics alloc] init];
+        _animal = [[Animal alloc] init];
+        _provider = [[ResourceReference alloc] init];
+        _diet = [[CodeableConcept alloc] init];
+        _confidentiality = [[CodeableConcept alloc] init];
+        _recordLocation = [[CodeableConcept alloc] init];
+    }
+    return self;
+}
 
 //override method
 - (NSInteger)getResourceType

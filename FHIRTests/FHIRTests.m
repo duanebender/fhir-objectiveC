@@ -52,29 +52,43 @@
     patient.active = YES;
     NSLog(@"Active Status of Patient: %@", ([patient active])? @"YES" : @"NO");
     STAssertTrue(patient.active == YES, @"BOOL Should be YES"); //should pass
-    STAssertTrue(patient.active == NO, @"BOOL Should be YES, this test should fail."); //should fail
+    STAssertFalse(patient.active == NO, @"BOOL Should be YES"); //should pass
     
     //test resoourcetype
     STAssertTrue(patient.getResourceType == ResourceTypePatient, @"Should be true."); //should pass
-    STAssertTrue(patient.getResourceType == ResourceTypeAdmission, @"Should fail, patient should be of patient type."); //should fail
+    STAssertFalse(patient.getResourceType == ResourceTypeAdmission, @"Should be false"); //should pass
     
     //test maritalstatus
-    patient.details.maritalStatus.text.value = @"Single";
-    STAssertTrue(patient.details.maritalStatus.text.value == @"Married", @"Should be single."); //should fail
+//    patient.details.maritalStatus.text.value = @"Single";
+    [patient.details.maritalStatus.text setValue:@"Single"];
+    
+    
+    
+    //NSLog(@"Active Status of Patient: %@", patient.details.maritalStatus.text.value);
+    STAssertEqualObjects(patient.details.maritalStatus.text.value, @"Single", @"Should be single."); //should pass
     
     //test animal
-    Coding *patientCode = [[Coding alloc] init];
-    patientCode.code.codeText = @"This is code apparently";
-    [patient.animal.breed.coding addObject:patientCode];
-    Coding *testableValue = [patient.animal.breed.coding objectAtIndex:1];
-    STAssertTrue([testableValue.code.codeText caseInsensitiveCompare:@"This is code apparently"], @"This should pass."); //should pass
+    [patient.animal.breed.coding addObject:@"This is code?"];
+    STAssertEqualObjects([patient.animal.breed.coding objectAtIndex:0], @"This is code?", @"This should pass."); //should pass
+    
+    //test name demographic array
+    [patient.details.name addObject:@"Sir Sparkles"];
+    STAssertEqualObjects([patient.details.name objectAtIndex:0], @"Sir Sparkles", @"This should pass."); //should pass
     
     //identifier testing
     HumanId *human1 = [[HumanId alloc] init];
     human1.period.start = [NSDate date];
     [patient.identifier addObject:human1];
-    STAssertTrue(human1.period.start == [NSDate date], @"Dates should match."); //should pass
-
+    STAssertEqualObjects([patient.identifier objectAtIndex:0], human1, @"Should Match Values.");
+    STAssertEqualObjects(human1.period.start, [NSDate date], @"Dates should match."); //date are same, maybe this STAssertEqualObjects doesn't work for dates
+    
+    //Test codeableconcept NSString
+    patient.animal.breed.primary.value = @"Pie";
+    STAssertEqualObjects(patient.animal.breed.primary.value, @"Pie", @"Should Match Values."); //should pass
+    
+    
+    //display contents of any object
+    NSLog(@"TestObject ***************** %@",[patient.identifier objectAtIndex:0]);
     
 }
 

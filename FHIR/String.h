@@ -1,5 +1,5 @@
 //
-//  String_.h
+//  String.h
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-01-30.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Type.h"
 
-@interface String_ : Type
+@interface String : Type
 
 @property (nonatomic, retain) NSString *value; //contains the value of a string
 

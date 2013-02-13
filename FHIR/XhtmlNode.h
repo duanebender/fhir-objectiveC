@@ -30,7 +30,7 @@
 
 @property (nonatomic) NodeType *node; //decides node type
 @property (nonatomic, retain) NSString *name; //name variable
-@property (nonatomic, retain) NSMutableDictionary *Attributes;
+@property (nonatomic, retain) NSMutableDictionary *attributes;
 //@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
 @property (nonatomic, retain) NSMutableArray *childNodes; //array of XhtmlNodes
 @property (nonatomic, retain) NSString *content; //content of this XhtmlNode

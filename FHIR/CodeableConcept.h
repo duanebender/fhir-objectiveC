@@ -13,8 +13,8 @@
 @interface CodeableConcept : Type
 
 @property (nonatomic, retain) NSMutableArray *coding; //A reference to a code defined by a terminology system. Contains "coding" objects only.
-@property (nonatomic, retain) String_ *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
-@property (nonatomic, retain) NSString *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
+@property (nonatomic, retain) String *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
+@property (nonatomic, retain) String *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
 
 @end
 

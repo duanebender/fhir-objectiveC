@@ -15,4 +15,16 @@
 @synthesize version = _version; //A literal URL that resolves to the location of a particular version of the resource. The URL may be relative or absolute. Relative Ids contain the logical version id of the resource.
 @synthesize display = _display; //Plain text narrative that identifies the resource in addition to the resource reference
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _type = [[Code alloc] init];
+        _uriId = [[Uri alloc] init];
+        _version = [[Uri alloc] init];
+        _display = [[String alloc] init];
+    }
+    return self;
+}
+
 @end

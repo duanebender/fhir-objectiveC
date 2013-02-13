@@ -16,6 +16,18 @@
 @synthesize period = _period; //Time period during which identifier was valid for use
 @synthesize assigner = _assigner; //Organisation that issued/manages the identifier
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _label = [[String alloc] init];
+        _identifier = [[Identifier alloc] init];
+        _period = [[Period alloc] init];
+        _assigner = [[ResourceReference alloc] init];
+    }
+    return self;
+}
+
 - (NSInteger)fromCode:(NSString *)codeString
 {
     if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;

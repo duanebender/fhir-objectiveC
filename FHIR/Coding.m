@@ -14,4 +14,15 @@
 @synthesize code = _code; //A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system
 @synthesize display = _display; //A representation of the meaning of the code in the system, following the rules laid out by the system.
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _system = [[Uri alloc] init];
+        _code = [[Code alloc] init];
+        _display = [[String alloc] init];
+    }
+    return self;
+}
+
 @end

@@ -12,7 +12,7 @@
 
 @interface Resource : Element
 
-@property (nonatomic, retain) NSArray *extensions; //an array of extension objects
+@property (nonatomic, retain) NSMutableArray *extensions; //an array of extension objects
 @property (nonatomic, retain) Narrative *text; //contents of resource
 @property (nonatomic) ResourceType *resourceType; //type designation of resource
 
