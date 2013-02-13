@@ -10,6 +10,12 @@
 
 @implementation Code
 
-@synthesize codeText = _codeText;
+@synthesize value = _value;
+
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *codeDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_value, @"value", nil];
+    return codeDictionary;
+}
 
 @end

@@ -9,19 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "Demographics.h"
 #import "ResourceReference.h"
-#import "FHIRResourceDictionary.h"
 #import "Animal.h"
 #import "HumanId.h"
+#import "bool.h"
 
 //A patient is a person or animal that is receiving care
 
 @interface Patient : Resource
     
 - (NSInteger)getResourceType; //override method. Returns integer of specified type, in this case Patient
+- (NSDictionary *)generateAndReturnPatientResourceDictionary; //returns a dictionary of all resources from patient in a dictionary format
 
 @property (nonatomic, retain) FHIRResourceDictionary *patientDictionary;
 @property (nonatomic) NSMutableArray *link; //THIS ARRAY IS FILLED WITH "ResourceReference" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
-@property (nonatomic) BOOL active; //Whether the patient record is in use, or has been removed from active use
+@property (nonatomic, retain) Bool *active; //Whether the patient record is in use, or has been removed from active use
 @property (nonatomic, retain) NSMutableArray *identifier; //THIS ARRAY IS FILLED WITH "HumanId" OBJECTS ONLY.. An identifier that applies to this person as a patient
 @property (nonatomic, retain) Demographics *details; //Patient Demographic details
 @property (nonatomic, retain) Animal *animal; //This element has a value if the patient is an animal

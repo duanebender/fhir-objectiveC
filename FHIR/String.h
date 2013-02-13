@@ -13,4 +13,6 @@
 
 @property (nonatomic, retain) NSString *value; //contains the value of a string
 
+- (NSDictionary *)generateAndReturnDictionary; //returns ready to be formatted
+
 @end

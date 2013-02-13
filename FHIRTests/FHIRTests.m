@@ -8,7 +8,7 @@
 
 #import "FHIRTests.h"
 #import "Patient.h"
-#import "Coding.h"
+#import "TestingJSON.h"
 
 
 @implementation FHIRTests
@@ -49,10 +49,10 @@
     Patient *patient = [[Patient alloc] init];
     
     //activestatus test
-    patient.active = YES;
+    patient.active.value = YES;
     NSLog(@"Active Status of Patient: %@", ([patient active])? @"YES" : @"NO");
-    STAssertTrue(patient.active == YES, @"BOOL Should be YES"); //should pass
-    STAssertFalse(patient.active == NO, @"BOOL Should be YES"); //should pass
+    STAssertTrue(patient.active.value == YES, @"BOOL Should be YES"); //should pass
+    STAssertFalse(patient.active.value == NO, @"BOOL Should be YES"); //should pass
     
     //test resoourcetype
     STAssertTrue(patient.getResourceType == ResourceTypePatient, @"Should be true."); //should pass
@@ -86,10 +86,57 @@
     patient.animal.breed.primary.value = @"Pie";
     STAssertEqualObjects(patient.animal.breed.primary.value, @"Pie", @"Should Match Values."); //should pass
     
+    //Test ResourceReference Uri
+    patient.provider.version.uri = [NSURL URLWithString:@"http://www.google.ca"];
+    STAssertEqualObjects(patient.provider.version.uri, [NSURL URLWithString:@"http://www.google.ca"], @"Should both be google url.");
     
     //display contents of any object
-    NSLog(@"TestObject ***************** %@",[patient.identifier objectAtIndex:0]);
+    //NSLog(@"TestObject ***************** %@",patient.provider.version.uri);
     
+}
+
+- (void)testJSON
+{
+    NSLog(@"Beginning FHIRJSON tests...");
+    
+    //code in here
+    Patient *patientJson = [[Patient alloc] init];
+    
+    ResourceReference *resource1 = [[ResourceReference alloc] init];
+    resource1.display.value = @"Hat";
+    resource1.uriId.uri = [NSURL URLWithString:@"http://www.google.ca"];
+    resource1.version.uri = [NSURL URLWithString:@"version1"];
+    resource1.type.value = @"Code1";
+    NSLog(@"Made it here A");
+    FHIRResourceDictionary *temp = [resource1 generateAndReturnResourceReferenceDictionary];
+    NSLog(@"Made it here B");
+    [patientJson.link addObject:temp.dataForResource];
+    
+    ResourceReference *resource2 = [[ResourceReference alloc] init];
+    resource2.display.value = @"Tie";
+    resource2.uriId.uri = [NSURL URLWithString:@"http://www.yahoo.ca"];
+    resource2.version.uri = [NSURL URLWithString:@"version2"];
+    resource2.type.value = @"Code2";
+    FHIRResourceDictionary *temp2 = [resource2 generateAndReturnResourceReferenceDictionary];
+    [patientJson.link addObject:temp2.dataForResource];
+    
+    patientJson.active.value = YES;
+    
+    
+    TestingJSON *json = [[TestingJSON alloc] init];
+    NSDictionary *tempDictionary = [[NSDictionary alloc] init];
+
+    tempDictionary = [patientJson generateAndReturnPatientResourceDictionary];
+    [json generateJsonString:tempDictionary];
+    
+    NSLog(@"TestJson ***************** %@", json.jsonString);
+}
+
+- (void)testXML
+{
+    NSLog(@"Beginning FHIRXML tests...");
+    
+    //code in here
 }
 
 @end

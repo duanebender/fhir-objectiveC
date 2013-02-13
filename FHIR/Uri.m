@@ -12,4 +12,10 @@
 
 @synthesize uri = _uri;
 
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[_uri absoluteString], @"value", nil];
+    return stringDictionary;
+}
+
 @end

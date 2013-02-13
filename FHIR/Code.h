@@ -11,6 +11,8 @@
 
 @interface Code : Type
 
-@property (nonatomic, retain) NSString *codeText;
+@property (nonatomic, retain) NSString *value;
+
+- (NSDictionary *)generateAndReturnDictionary; //returns ready to be formatted
 
 @end

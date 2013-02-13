@@ -27,6 +27,7 @@
     if (self) {
         _patientDictionary = [[FHIRResourceDictionary alloc] init];
         _link = [[NSMutableArray alloc] init];
+        _active = [[Bool alloc] init];
         _identifier = [[NSMutableArray alloc] init];
         _details = [[Demographics alloc] init];
         _animal = [[Animal alloc] init];
@@ -42,6 +43,25 @@
 - (NSInteger)getResourceType
 {
     return ResourceTypePatient;
+}
+
+- (NSDictionary *)generateAndReturnPatientResourceDictionary
+{
+    _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           _link, @"link",
+                                           [_active generateAndReturnDictionary], @"active",
+                                           _identifier, @"identifier",
+                                           //_details, @"details",
+                                           //_animal, @"animal",
+                                           //_provider, @"provider",
+                                           //_diet, @"diet",
+                                           //_confidentiality, @"confidentiality",
+                                           //_recordLocation, @"recordLocation",
+                                           nil];
+    
+    FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
+    returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];
+    return returnable.dataForResource;
 }
 
 @end

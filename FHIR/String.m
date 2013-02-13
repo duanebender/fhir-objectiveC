@@ -12,4 +12,10 @@
 
 @synthesize value = _value;
 
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_value, @"value", nil];
+    return stringDictionary;
+}
+
 @end

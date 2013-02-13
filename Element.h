@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FHIRResourceDictionary.h"
 
 @interface Element : NSObject
 

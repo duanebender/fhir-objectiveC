@@ -12,12 +12,5 @@
 
 @synthesize dataForResource = _dataForResource;
 @synthesize resourceName = _resourceName;
-@synthesize resourceType = _resourceType;
-
-
-- (void)setDataForKey:(NSString *)key Data:(id)data
-{
-    [_dataForResource setValue:data forKey:key];
-}
 
 @end

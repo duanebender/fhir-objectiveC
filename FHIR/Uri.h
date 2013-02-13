@@ -15,4 +15,6 @@
 
 @property (nonatomic, weak) NSURL *uri;
 
+- (NSDictionary *)generateAndReturnDictionary; //returns ready for formatting
+
 @end

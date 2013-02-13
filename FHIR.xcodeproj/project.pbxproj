@@ -42,6 +42,8 @@
 		89D05CCD16B8314800139BEF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCC16B8314800139BEF /* Narrative.m */; };
 		89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCF16B866AF00139BEF /* Base64Binary.m */; };
 		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
+		89DD76B916CBED0B00962C66 /* TestingJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76B816CBED0B00962C66 /* TestingJSON.m */; };
+		89DD76BC16CC28C500962C66 /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76BB16CC28C300962C66 /* Bool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,10 @@
 		89D05CCF16B866AF00139BEF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
 		89D05CD116B86A7A00139BEF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
 		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
+		89DD76B716CBED0B00962C66 /* TestingJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingJSON.h; sourceTree = "<group>"; };
+		89DD76B816CBED0B00962C66 /* TestingJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingJSON.m; sourceTree = "<group>"; };
+		89DD76BA16CC28C200962C66 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
+		89DD76BB16CC28C300962C66 /* Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,8 @@
 		89CB21A516C29066006A7497 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				89DD76B716CBED0B00962C66 /* TestingJSON.h */,
+				89DD76B816CBED0B00962C66 /* TestingJSON.m */,
 				89CB21A716C2908C006A7497 /* JSONModel.h */,
 				89CB21A816C2908C006A7497 /* JSONModel.m */,
 			);
@@ -294,6 +302,8 @@
 		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				89DD76BA16CC28C200962C66 /* Bool.h */,
+				89DD76BB16CC28C300962C66 /* Bool.m */,
 				89D05CBD16B8146000139BEF /* Uri.h */,
 				89D05CBE16B8146000139BEF /* Uri.m */,
 				89D05CC116B81F9700139BEF /* Code.h */,
@@ -373,7 +383,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Adam Sippel";
+				ORGANIZATIONNAME = "Mohawk College";
 			};
 			buildConfigurationList = 8993D7E116B1D88400D0AFB4 /* Build configuration list for PBXProject "FHIR" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -451,6 +461,8 @@
 				89000E3916C93126007E911D /* Language.m in Sources */,
 				89000E3C16C939A4007E911D /* Image.m in Sources */,
 				89436D6216CAA9E4004563E4 /* Type.m in Sources */,
+				89DD76B916CBED0B00962C66 /* TestingJSON.m in Sources */,
+				89DD76BC16CC28C500962C66 /* Bool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
