@@ -8,7 +8,7 @@
 
 #import "NodeType.h"
 
-#define nodeTypes [NSArray arrayWithObjects: @"Test", @"Comment", @"NodeElement", @"Document", nil] //array of all node types, edit if new node Types arrise
+#define nodeTypes [NSArray arrayWithObjects: @"Test", @"Comment", @"Element", @"Document", nil] //array of all node types, edit if new node Types arrise
 
 @implementation NodeType
 

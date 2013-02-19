@@ -51,12 +51,12 @@
                                            _link, @"link",
                                            [_active generateAndReturnDictionary], @"active",
                                            _identifier, @"identifier",
-                                           //_details, @"details",
-                                           //_animal, @"animal",
-                                           //_provider, @"provider",
-                                           //_diet, @"diet",
-                                           //_confidentiality, @"confidentiality",
-                                           //_recordLocation, @"recordLocation",
+                                           [_details generateAndReturnDemographicsDictionary], @"details",
+                                           [_animal generateAndReturnAnimalDictionary], @"animal",
+                                           [_provider generateAndReturnResourceReferenceDictionary], @"provider",
+                                           [_diet generateAndReturnCodeableConceptDictionary], @"diet",
+                                           [_confidentiality generateAndReturnCodeableConceptDictionary], @"confidentiality",
+                                           [_recordLocation generateAndReturnCodeableConceptDictionary], @"recordLocation",
                                            nil];
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];

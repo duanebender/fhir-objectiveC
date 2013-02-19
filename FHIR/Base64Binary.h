@@ -11,7 +11,7 @@
 
 @interface Base64Binary : Type
 
-#warning - Should be an array of Bytes?
+#warning - Should be an array of Bytes? Base 64 is usually an encoder?
 @property (nonatomic) Byte *byte;
 
 @end

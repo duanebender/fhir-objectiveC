@@ -16,6 +16,7 @@
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
 		89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF016C400850096E52F /* FHIRResourceDictionary.m */; };
 		89667AF516C42AE90096E52F /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF416C42AE70096E52F /* Patient.m */; };
+		89733C2216CD7EBC00038F71 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 89733C2116CD7EBB00038F71 /* Address.m */; };
 		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
@@ -85,6 +86,8 @@
 		89667AEF16C400850096E52F /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceDictionary.h; sourceTree = "<group>"; };
 		89667AF016C400850096E52F /* FHIRResourceDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHIRResourceDictionary.m; sourceTree = "<group>"; };
 		89667AF416C42AE70096E52F /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		89733C2016CD7EBB00038F71 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		89733C2116CD7EBB00038F71 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		898082BD16B71B0A00B21812 /* CodeableConcept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeableConcept.m; sourceTree = "<group>"; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -253,8 +256,8 @@
 				8996828116B9C1AE005DFEC7 /* HumanId.m */,
 				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
 				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
-				89D05CB816B809DE00139BEF /* Coding.h */,
-				89D05CB916B809DE00139BEF /* Coding.m */,
+				89733C2016CD7EBB00038F71 /* Address.h */,
+				89733C2116CD7EBB00038F71 /* Address.m */,
 			);
 			name = "Top Level Types";
 			sourceTree = "<group>";
@@ -284,6 +287,8 @@
 		89D05CBC16B80A2C00139BEF /* Bottom Level Types */ = {
 			isa = PBXGroup;
 			children = (
+				89D05CB816B809DE00139BEF /* Coding.h */,
+				89D05CB916B809DE00139BEF /* Coding.m */,
 				89D05CCB16B8314800139BEF /* Narrative.h */,
 				89D05CCC16B8314800139BEF /* Narrative.m */,
 				89000E3A16C939A3007E911D /* Image.h */,
@@ -463,6 +468,7 @@
 				89436D6216CAA9E4004563E4 /* Type.m in Sources */,
 				89DD76B916CBED0B00962C66 /* TestingJSON.m in Sources */,
 				89DD76BC16CC28C500962C66 /* Bool.m in Sources */,
+				89733C2216CD7EBC00038F71 /* Address.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

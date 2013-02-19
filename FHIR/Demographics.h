@@ -12,16 +12,21 @@
 
 #import <Foundation/Foundation.h>
 #import "CodeableConcept.h"
+#import "Bool.h"
 
 @interface Demographics : Type
+
+@property (nonatomic, retain) FHIRResourceDictionary *demographicsDictionary; //dictionary of resources in Demographics
 
 @property (nonatomic, retain) NSMutableArray *name; //A name associated with the individual. Array of "HumanName" in case name has changed over time.
 @property (nonatomic, retain) NSMutableArray *telecom; //A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted. Array of "Contact" in case multiple forms of contact. 
 @property (nonatomic, retain) Coding *gender; //Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes
 @property (nonatomic, retain) NSDate *birthDate; //The birth date for the individual, to the degre of precision now
-@property (nonatomic) BOOL *deceased; //Indicates if the individual is deceased or not
-@property (nonatomic, retain) NSMutableArray *address; //One or more addresses for the individual
+@property (nonatomic) Bool *deceased; //Indicates if the individual is deceased or not
+@property (nonatomic, retain) NSMutableArray *address; //One or more addresses for the individual. An array of Addresses.
 @property (nonatomic, retain) CodeableConcept *maritalStatus; //This field contains a patient's marital (civil) status.
 @property (nonatomic, retain) NSMutableArray *language; //A language spoken by the person, with proficiency. Array contains Languages only
+
+- (NSDictionary *)generateAndReturnDemographicsDictionary; //returns dictionary ready to format
 
 @end

@@ -12,20 +12,24 @@
 
 @implementation XhtmlNode
 
+@synthesize xhtmlNodeDictionary = _xhtmlNodeDictionary;
+
 @synthesize childNodes = _childNodes; //array of XhtmlNodes
 @synthesize node = _node; //decides node type
 @synthesize name = _name; //name variable
-@synthesize attributes = _attributes;
-//@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
+@synthesize attributes = _attributes; //@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
 @synthesize content = _content; //content of this XhtmlNode
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        _xhtmlNodeDictionary = [[FHIRResourceDictionary alloc] init];
         _node = [[NodeType alloc] init];
+        _name = [[String alloc] init];
         _attributes = [[NSMutableDictionary alloc] init];
         _childNodes = [[NSMutableArray alloc] init];
+        _content = [[String alloc] init];
     }
     return self;
 }
@@ -40,13 +44,13 @@
     self.node.nodeType = nodeType;
 }
 
-- (void)setContent:(NSString *)content
+- (void)setValueContent:(NSString *)content
 {
     if (!(self.node.nodeType != @"Test" || self.node.nodeType != @"Comment"))
     {
         [NSException raise:@"Wrong Node Type" format:@"Wrong Node Type"];
     }
-    self.content = content;
+    self.content.value = content;
 }
 
 - (XhtmlNode *)addTag:(NSString *)name
@@ -57,7 +61,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Element"];
-    [node setName:name];
+    node.name.value = name;
     [_childNodes addObject:node];
     return node;
 }
@@ -70,7 +74,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Element"];
-    [node setName:name];
+    node.name.value = name;
     [_childNodes addObject:node];
     return node;
 }
@@ -83,7 +87,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Comment"];
-    [node setContent:content];
+    node.content.value = content;
     [_childNodes addObject:node];
     return node;
 }
@@ -96,7 +100,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"DocType"]; //document instead of DocType?
-    [node setContent:content];
+    node.content.value = content;
     [_childNodes addObject:node];
     return node;
 }
@@ -110,7 +114,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Instruction"]; //Instruction is a type?
-    [node setContent:content];
+    node.content.value = content;
     [_childNodes addObject:node];
     return node;
 }
@@ -123,7 +127,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Text"];
-    [node setContent:content];
+    node.content.value = content;
     [_childNodes addObject:node];
     return node;
 }
@@ -140,7 +144,7 @@
     }
     XhtmlNode *node = [[XhtmlNode alloc] init];
     [node setNodeType:@"Text"];
-    [node setContent:content];
+    node.content.value = content;
     [_childNodes addObject:node]; //atIndex:index];
     return node;
 }
@@ -162,7 +166,7 @@
 {
     for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == @"Element" && [self.name caseInsensitiveCompare:(n.name)])
+        if (n.getNodeType == @"Element" && [self.name.value caseInsensitiveCompare:(n.name.value)])
         {
             return n;
         }
@@ -177,7 +181,7 @@
     {
         if (n.getNodeType == @"Text")
         {
-            [tempString appendString:n.name];
+            [tempString appendString:n.name.value];
         }
         else if (n.getNodeType == @"Element")
         {
@@ -213,6 +217,19 @@
 - (void)setAttribute:(NSString *)name :(NSString *)value
 {
     [self.attributes setObject:value forKey:name];
+}
+
+- (NSDictionary *)generateAndReturnXhtmlNodeDictionary
+{
+    _xhtmlNodeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            //_node, @"node",
+                                            [_name generateAndReturnDictionary], @"name",
+                                            _attributes, @"attributes",
+                                            _childNodes, @"childnode",
+                                            [_content generateAndReturnDictionary], @"content",
+                                            nil];
+    _xhtmlNodeDictionary.resourceName = @"XhtmlNode";
+    return _xhtmlNodeDictionary.dataForResource;
 }
 
 @end

@@ -30,7 +30,7 @@
     return self;
 }
 
-- (FHIRResourceDictionary *)generateAndReturnResourceReferenceDictionary
+- (NSDictionary *)generateAndReturnResourceReferenceDictionary
 {
     _resourceReferenceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [_type generateAndReturnDictionary], @"type",
@@ -38,8 +38,8 @@
                                           [_version generateAndReturnDictionary], @"version",
                                           [_display generateAndReturnDictionary], @"display",
                                           nil];
-    
-    return _resourceReferenceDictionary;
+    _resourceReferenceDictionary.resourceName = @"ResourceReference";
+    return _resourceReferenceDictionary.dataForResource;
 }
 
 @end

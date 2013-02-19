@@ -10,6 +10,8 @@
 
 @implementation Image
 
+@synthesize imageDictionary = _imageDictionary;
+
 @synthesize mimeType = _mimeType;
 @synthesize content = _content;
 
@@ -17,10 +19,21 @@
 {
     self = [super init];
     if (self) {
+        _imageDictionary = [[FHIRResourceDictionary alloc] init];
         _mimeType = [[Code alloc] init];
         _content = [[Base64Binary alloc] init];
     }
     return self;
+}
+
+- (NSDictionary *)generateAndReturnImageDictionary
+{
+    _imageDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [_mimeType generateAndReturnDictionary], @"type",
+                                            //[_content generateAndReturnDictionary], @"content",
+                                            nil];
+    _imageDictionary.resourceName = @"Image";
+    return _imageDictionary.dataForResource;
 }
 
 @end

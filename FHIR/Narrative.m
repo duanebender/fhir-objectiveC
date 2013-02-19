@@ -18,25 +18,25 @@
 {
     self = [super init];
     if (self) {
+        _narrativeDictionary = [[FHIRResourceDictionary alloc] init];
         _div = [[XhtmlNode alloc] init];
         _image = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (NSInteger)fromCode:(NSString *)codeString
+- (void)setValueNarrative:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"generated"] == TRUE) return NarrativeStatusGenerated;
-    else if ([codeString caseInsensitiveCompare:@"extensions"] == TRUE) return NarrativeStatusExtensions;
-    else if ([codeString caseInsensitiveCompare:@"additional"] == TRUE) return NarrativeStatusAdditional;
-    else if ([codeString caseInsensitiveCompare:@"empty"] == TRUE) return NarrativeStatusEmpty;
-    else [NSException raise:@"Unknown Narrative Status" format:@"code %@", codeString];
+    if ([codeString caseInsensitiveCompare:@"generated"]) self.status = NarrativeStatusGenerated;
+    else if ([codeString caseInsensitiveCompare:@"extensions"]) self.status = NarrativeStatusExtensions;
+    else if ([codeString caseInsensitiveCompare:@"additional"]) self.status = NarrativeStatusAdditional;
+    else if ([codeString caseInsensitiveCompare:@"empty"]) self.status = NarrativeStatusEmpty;
+    else self.status = 0;
 };
 
-- (NSString *)toCode
+- (NSString *)returnStringNarrative
 {
-    switch (narrativeStatus)
+    switch (self.status)
     {
         case NarrativeStatusGenerated:
             return @"generated";
@@ -54,6 +54,17 @@
         default:
             return @"?";
     }
+}
+
+- (NSDictionary *)generateAndReturnResourceReferenceDictionary
+{
+    _narrativeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [self returnStringNarrative], @"status",
+                                                    [_div generateAndReturnXhtmlNodeDictionary], @"div",
+                                                    _image, @"image", //array of images only
+                                                    nil];
+    _narrativeDictionary.resourceName = @"Narrative";
+    return _narrativeDictionary.dataForResource;
 }
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation Contact
 
+@synthesize contactDictionary = _contactDictionary;
+
 @synthesize system = _system; //What kind of contact this is - what communications system is required to make use of the contact
 @synthesize use = _use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
 @synthesize value = _value; //Identifies the context for the address
@@ -19,25 +21,25 @@
 {
     self = [super init];
     if (self) {
+        _contactDictionary = [[FHIRResourceDictionary alloc] init];
         _value = [[String alloc] init];
         _period = [[Period alloc] init];
     }
     return self;
 }
 
-- (NSInteger)fromCodeSystem:(NSString *)codeString
+- (void)setValueSystem:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"phone"] == TRUE) return ContactSystemPhone;
-    else if ([codeString caseInsensitiveCompare:@"fax"] == TRUE) return ContactSystemFax;
-    else if ([codeString caseInsensitiveCompare:@"email"] == TRUE) return ContactSystemEmail;
-    else if ([codeString caseInsensitiveCompare:@"url"] == TRUE) return ContactSystemUrl;
-    else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
+    if ([codeString caseInsensitiveCompare:@"phone"]) self.system = ContactSystemPhone;
+    else if ([codeString caseInsensitiveCompare:@"fax"]) self.system = ContactSystemFax;
+    else if ([codeString caseInsensitiveCompare:@"email"]) self.system = ContactSystemEmail;
+    else if ([codeString caseInsensitiveCompare:@"url"]) self.system = ContactSystemUrl;
+    else self.system = 0;
 };
 
-- (NSString *)toCodeSystem
+- (NSString *)returnStringSystem
 {
-    switch (system)
+    switch (self.system)
     {
         case ContactSystemPhone:
             return @"phone";
@@ -57,20 +59,19 @@
     }
 }
 
-- (NSInteger)fromCodeUse:(NSString *)codeString
+- (void)getValueUse:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"home"] == TRUE) return ContactUseHome;
-    else if ([codeString caseInsensitiveCompare:@"work"] == TRUE) return ContactUseWork;
-    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return ContactUseTemp;
-    else if ([codeString caseInsensitiveCompare:@"old"] == TRUE) return ContactUseOld;
-    else if ([codeString caseInsensitiveCompare:@"mobile"] == TRUE) return ContactUseMobile;
-    else [NSException raise:@"Unknown CodeSystem Status" format:@"code %@", codeString];
+    if ([codeString caseInsensitiveCompare:@"home"]) self.use = ContactUseHome;
+    else if ([codeString caseInsensitiveCompare:@"work"]) self.use = ContactUseWork;
+    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = ContactUseTemp;
+    else if ([codeString caseInsensitiveCompare:@"old"]) self.use = ContactUseOld;
+    else if ([codeString caseInsensitiveCompare:@"mobile"]) self.use = ContactUseMobile;
+    else self.use = 0;
 };
 
-- (NSString *)toCodeUse
+- (NSString *)returnStringUse
 {
-    switch (use)
+    switch (self.use)
     {
         case ContactUseHome:
             return @"home";
@@ -91,6 +92,18 @@
         default:
             return @"?";
     }
+}
+
+- (NSDictionary *)generateAndReturnContactDictionary
+{
+    _contactDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [self returnStringSystem], @"system",
+                                            [self returnStringUse], @"use",
+                                            [_value generateAndReturnDictionary], @"value",
+                                            [_period generateAndReturnDictionary], @"prefix",
+                                            nil];
+    _contactDictionary.resourceName = @"Contact";
+    return _contactDictionary.dataForResource;
 }
 
 @end

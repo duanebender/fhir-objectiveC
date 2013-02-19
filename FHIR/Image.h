@@ -12,6 +12,8 @@
 
 @interface Image : Element
 
+@property (nonatomic, retain) FHIRResourceDictionary *imageDictionary;
+
 @property (nonatomic, retain) Code *mimeType;
 @property (nonatomic, retain) Base64Binary *content;
 

@@ -15,4 +15,6 @@
 @property (nonatomic, retain) Uri *system; //Establishes the namespace in which set of possible id values is unique.
 @property (nonatomic, retain) String *idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
 
+- (NSDictionary *)generateAndReturnDictionary; //returns dicitionary of resources ready for formatting
+
 @end

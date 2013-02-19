@@ -10,6 +10,8 @@
 
 @implementation HumanName
 
+@synthesize humanNameDictionary = _humanNameDictionary;
+
 @synthesize use = _use;
 @synthesize text = _text; //a full text representation of the name
 @synthesize family = _family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
@@ -22,6 +24,7 @@
 {
     self = [super init];
     if (self) {
+        _humanNameDictionary = [[FHIRResourceDictionary alloc] init];
         _text = [[String alloc] init];
         _family = [[NSMutableArray alloc] init];
         _given = [[NSMutableArray alloc] init];
@@ -32,22 +35,21 @@
     return self;
 }
 
-- (NSInteger)fromCode:(NSString *)codeString
+- (void)setValueUse:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"usual"] == TRUE) return usual;
-    else if ([codeString caseInsensitiveCompare:@"official"] == TRUE) return official;
-    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return temp;
-    else if ([codeString caseInsensitiveCompare:@"nickname"] == TRUE) return nickname;
-    else if ([codeString caseInsensitiveCompare:@"annonymous"] == TRUE) return annonymous;
-    else if ([codeString caseInsensitiveCompare:@"old"] == TRUE) return old;
-    else if ([codeString caseInsensitiveCompare:@"maiden"] == TRUE) return maiden;
-    else [NSException raise:@"Unknown Narrative Status" format:@"code %@", codeString];
+    if ([codeString caseInsensitiveCompare:@"usual"]) self.use = usual;
+    else if ([codeString caseInsensitiveCompare:@"official"]) self.use = official;
+    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = temp;
+    else if ([codeString caseInsensitiveCompare:@"nickname"]) self.use = nickname;
+    else if ([codeString caseInsensitiveCompare:@"annonymous"]) self.use = annonymous;
+    else if ([codeString caseInsensitiveCompare:@"old"]) self.use = old;
+    else if ([codeString caseInsensitiveCompare:@"maiden"]) self.use = maiden;
+    else self.use = 0;
 };
 
-- (NSString *)toCode
+- (NSString *)returnStringUse
 {
-    switch (use)
+    switch (self.use)
     {
         case usual:
             return @"usual";
@@ -74,6 +76,20 @@
         default:
             return @"?";
     }
+}
+
+- (NSDictionary *)generateAndReturnHumanNameDictionary
+{
+    _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [_text generateAndReturnDictionary], @"text",
+                                          _family, @"family",
+                                          _given, @"given",
+                                          _prefix, @"prefix",
+                                          _suffix, @"suffix",
+                                          [_period generateAndReturnDictionary], @"period",
+                                          nil];
+    _humanNameDictionary.resourceName = @"HumanName";
+    return _humanNameDictionary.dataForResource;
 }
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation CodeableConcept
 
+@synthesize codeableConceptDictionary = _codeableConceptDictionary;
+
 @synthesize coding = _coding; //A reference to a code defined by a terminology system. Contains "coding" objects only.
 @synthesize text = _text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
 @synthesize primary = _primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
@@ -18,11 +20,23 @@
 {
     self = [super init];
     if (self) {
+        _codeableConceptDictionary = [[FHIRResourceDictionary alloc] init];
         _coding = [[NSMutableArray alloc] init];
         _text = [[String alloc] init];
         _primary = [[String alloc] init];
     }
     return self;
+}
+
+- (NSDictionary *)generateAndReturnCodeableConceptDictionary
+{
+    _codeableConceptDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           _coding, @"coding",
+                                           [_text generateAndReturnDictionary], @"text",
+                                           [_primary generateAndReturnDictionary], @"primary",
+                                           nil];
+    _codeableConceptDictionary.resourceName = @"CodeableConcept";
+    return _codeableConceptDictionary.dataForResource;
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @implementation Animal:Element //could also be @interface Animal (Element):NSObject
 
+@synthesize animalDictionary = _animalDictionary;
+
 @synthesize species = _species; //Identifies the high level categorization of the kind of animal
 @synthesize breed = _breed; //Identifies the detailed categorization of the kind of animal.
 @synthesize genderStatus = _genderStatus; //Indicates the current state of the animal's reproductive organs
@@ -24,6 +26,17 @@
         _genderStatus = [[CodeableConcept alloc] init];
     }
     return self;
+}
+
+- (NSDictionary *)generateAndReturnAnimalDictionary
+{
+    _animalDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [_species generateAndReturnCodeableConceptDictionary], @"species",
+                                               [_breed generateAndReturnCodeableConceptDictionary], @"breed",
+                                               [_genderStatus generateAndReturnCodeableConceptDictionary], @"genderStatus",
+                                               nil];
+    _animalDictionary.resourceName = @"Animal";
+    return _animalDictionary.dataForResource;
 }
 
 @end

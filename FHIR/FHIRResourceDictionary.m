@@ -13,4 +13,15 @@
 @synthesize dataForResource = _dataForResource;
 @synthesize resourceName = _resourceName;
 
+- (void)cleanAndCheck
+{
+    for (NSString *key in self.dataForResource)
+    {
+        if ([self.dataForResource objectForKey:key] == nil)
+        {
+            [self.dataForResource setValue:@"nil" forKey:key];
+        }
+    }
+}
+
 @end

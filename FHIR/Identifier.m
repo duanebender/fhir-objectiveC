@@ -23,4 +23,13 @@
     return self;
 }
 
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *identifierDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                      [_system generateAndReturnDictionary], @"system",
+                                      [_idNumber generateAndReturnDictionary], @"id",
+                                      nil];
+    return identifierDictionary;
+}
+
 @end

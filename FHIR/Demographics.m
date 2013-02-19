@@ -10,6 +10,8 @@
 
 @implementation Demographics
 
+@synthesize demographicsDictionary = _demographicsDictionary;
+
 @synthesize name = _name; //A name associated with the individual.
 @synthesize telecom = _telecom; //A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
 @synthesize gender = _gender; //Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes
@@ -23,14 +25,31 @@
 {
     self = [super init];
     if (self) {
+        _demographicsDictionary = [[FHIRResourceDictionary alloc] init];
         _name = [[NSMutableArray alloc] init];
         _telecom = [[NSMutableArray alloc] init];
         _gender = [[Coding alloc] init];
+        _deceased = [[Bool alloc] init];
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[CodeableConcept alloc] init];
         _language = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (NSDictionary *)generateAndReturnDemographicsDictionary
+{
+    _demographicsDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               _name, @"name", //humannames only
+                                               _telecom, @"telecom", //contacts only
+                                               [_gender generateAndReturnCodingDictionary], @"gender",
+                                               [_deceased generateAndReturnDictionary], @"deceased",
+                                               _address, @"address", //addresses only
+                                               [_maritalStatus generateAndReturnCodeableConceptDictionary], @"maritalStatus",
+                                               _language, @"language", //languages only
+                                               nil];
+    _demographicsDictionary.resourceName = @"Demographics";
+    return _demographicsDictionary.dataForResource;
 }
 
 @end

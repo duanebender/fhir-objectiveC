@@ -10,6 +10,8 @@
 
 @implementation HumanId
 
+@synthesize humanIdDictionary = _humanIdDictionary;
+
 @synthesize use = _use; //Identifies the use for this identifier, if known
 @synthesize label = _label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
 @synthesize identifier = _identifier; //The identifier itself
@@ -20,6 +22,7 @@
 {
     self = [super init];
     if (self) {
+        _humanIdDictionary = [[FHIRResourceDictionary alloc] init];
         _label = [[String alloc] init];
         _identifier = [[Identifier alloc] init];
         _period = [[Period alloc] init];
@@ -28,20 +31,20 @@
     return self;
 }
 
-- (NSInteger)fromCode:(NSString *)codeString
+- (void)setValueUse:(NSString *)codeString
 {
-    if (codeString == NULL || [codeString caseInsensitiveCompare:@""] == TRUE) return 0;
-    else if ([codeString caseInsensitiveCompare:@"usual"] == TRUE) return IdentifierUseUusual;
-    else if ([codeString caseInsensitiveCompare:@"official"] == TRUE) return IdentifierUseOfficial;
-    else if ([codeString caseInsensitiveCompare:@"temp"] == TRUE) return IdentifierUseTemp;
-    else [NSException raise:@"Unknown Identifier" format:@"code %@", codeString];
+    if ([codeString caseInsensitiveCompare:@"usual"]) self.use = IdentifierUseUsual;
+    else if ([codeString caseInsensitiveCompare:@"official"]) self.use = IdentifierUseOfficial;
+    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
+    else self.use = 0;
+    
 };
 
-- (NSString *)toCode
+- (NSString *)returnStringUse
 {
-    switch (use)
+    switch (self.use)
     {
-        case IdentifierUseUusual:
+        case IdentifierUseUsual:
             return @"usual";
             break;
         case IdentifierUseOfficial:
@@ -54,6 +57,19 @@
         default:
             return @"?";
     }
+}
+
+- (NSDictionary *)generateAndReturnHumanIdDictionary
+{
+    _humanIdDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [_label generateAndReturnDictionary], @"label",
+                                                    [_identifier generateAndReturnDictionary], @"id",
+                                                    [_period generateAndReturnDictionary], @"period",
+                                                    [_assigner generateAndReturnResourceReferenceDictionary], @"assigner",
+                                                    [self returnStringUse], @"use",
+                                                    nil];
+    _humanIdDictionary.resourceName = @"HumanId";
+    return _humanIdDictionary.dataForResource;
 }
 
 @end

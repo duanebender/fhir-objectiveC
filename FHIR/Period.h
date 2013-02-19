@@ -16,4 +16,6 @@
 @property (nonatomic, retain) NSDate *start; //The start of the period. The boundary is inclusive.
 @property (nonatomic, retain) NSDate *end; //The end of the period. If the high is missing, it means that the period is ongoing
 
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready for formatting
+
 @end
