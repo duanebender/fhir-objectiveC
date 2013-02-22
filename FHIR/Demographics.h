@@ -13,6 +13,10 @@
 #import <Foundation/Foundation.h>
 #import "CodeableConcept.h"
 #import "Bool.h"
+#import "HumanName.h"
+#import "Contact.h"
+#import "Address.h"
+#import "Language.h"
 
 @interface Demographics : Type
 
@@ -28,5 +32,6 @@
 @property (nonatomic, retain) NSMutableArray *language; //A language spoken by the person, with proficiency. Array contains Languages only
 
 - (NSDictionary *)generateAndReturnDemographicsDictionary; //returns dictionary ready to format
+- (void)demographicsParser:(NSDictionary *)dictionary; //set demographics from dictionary
 
 @end

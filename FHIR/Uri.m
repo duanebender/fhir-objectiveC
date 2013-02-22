@@ -18,4 +18,9 @@
     return stringDictionary;
 }
 
+- (void)setValueURI:(NSDictionary *)dictionary
+{
+    _uri = [dictionary objectForKey:@"value"];
+}
+
 @end

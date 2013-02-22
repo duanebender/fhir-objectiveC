@@ -72,4 +72,13 @@
     return _humanIdDictionary.dataForResource;
 }
 
+- (void)humanIdParser:(NSDictionary *)dictionary
+{
+    [_label setValueString:[dictionary objectForKey:@"label"]];
+    [_identifier identifierParser:[dictionary objectForKey:@"id"]];
+    [_period periodParser:[dictionary objectForKey:@"period"]];
+    [_assigner resourceReferenceParser:[dictionary objectForKey:@"assigner"]];
+    [self setValueUse:[dictionary objectForKey:@"use"]];
+}
+
 @end

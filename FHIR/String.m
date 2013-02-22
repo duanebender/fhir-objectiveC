@@ -18,4 +18,9 @@
     return stringDictionary;
 }
 
+- (void)setValueString:(NSDictionary *)dictionary
+{
+    _value = [dictionary objectForKey:@"value"];
+}
+
 @end

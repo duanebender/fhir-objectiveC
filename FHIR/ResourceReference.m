@@ -42,4 +42,12 @@
     return _resourceReferenceDictionary.dataForResource;
 }
 
+- (void)resourceReferenceParser:(NSDictionary *)dictionary
+{
+    [_type setValueCode:[dictionary objectForKey:@"type"]];
+    [_uriId setValueURI:[dictionary objectForKey:@"id"]];
+    [_version setValueURI:[dictionary objectForKey:@"version"]];
+    [_display setValueString:[dictionary objectForKey:@"display"]];
+}
+
 @end

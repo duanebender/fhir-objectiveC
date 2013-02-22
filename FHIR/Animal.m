@@ -39,4 +39,11 @@
     return _animalDictionary.dataForResource;
 }
 
+- (void)animalParser:(NSDictionary *)dictionary
+{
+    [_species codeableConceptParser:[dictionary objectForKey:@"species"]];
+    [_breed codeableConceptParser:[dictionary objectForKey:@"breed"]];
+    [_genderStatus codeableConceptParser:[dictionary objectForKey:@"genderStatus"]];
+}
+
 @end

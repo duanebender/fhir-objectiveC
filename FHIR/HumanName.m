@@ -81,6 +81,7 @@
 - (NSDictionary *)generateAndReturnHumanNameDictionary
 {
     _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [self returnStringUse], @"use",
                                           [_text generateAndReturnDictionary], @"text",
                                           _family, @"family",
                                           _given, @"given",
@@ -90,6 +91,58 @@
                                           nil];
     _humanNameDictionary.resourceName = @"HumanName";
     return _humanNameDictionary.dataForResource;
+}
+
+- (void)humanNameParser:(NSDictionary *)dictionary
+{
+    [self setValueUse:[dictionary objectForKey:@"use"]];
+    [_text setValueString:[dictionary objectForKey:@"text"]];
+    
+    //_family
+    NSArray *famiArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"family"]];
+    _family = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [famiArray count]; i++)
+    {
+        String *tempS1 = [[String alloc] init];
+        [tempS1 setValueString:[famiArray objectAtIndex:i]];
+        [_family addObject:tempS1];
+        //NSLog(@"%@", _family);
+    }
+    
+    //_given
+    NSArray *giveArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"family"]];
+    _given = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [giveArray count]; i++)
+    {
+        String *tempS2 = [[String alloc] init];
+        [tempS2 setValueString:[famiArray objectAtIndex:i]];
+        [_given addObject:tempS2];
+        //NSLog(@"%@", _given);
+    }
+    
+    //_prefix
+    NSArray *prefArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"prefix"]];
+    _prefix = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [prefArray count]; i++)
+    {
+        String *tempS3 = [[String alloc] init];
+        [tempS3 setValueString:[prefArray objectAtIndex:i]];
+        [_prefix addObject:tempS3];
+        //NSLog(@"%@", _prefix);
+    }
+    
+    //_suffix
+    NSArray *suffArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"suffix"]];
+    _suffix = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [suffArray count]; i++)
+    {
+        String *tempS4 = [[String alloc] init];
+        [tempS4 setValueString:[suffArray objectAtIndex:i]];
+        [_suffix addObject:tempS4];
+        //NSLog(@"%@", _suffix);
+    }
+    
+    [_period periodParser:[dictionary objectForKey:@"period"]];
 }
 
 @end

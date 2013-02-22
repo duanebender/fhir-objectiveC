@@ -39,4 +39,11 @@
     return _codingDictionary.dataForResource;
 }
 
+- (void)codingParser:(NSDictionary *)dictionary
+{
+    [_system setValueURI:[dictionary objectForKey:@"system"]];
+    [_code setValueCode:[dictionary objectForKey:@"code"]];
+    [_display setValueString:[dictionary objectForKey:@"display"]];
+}
+
 @end

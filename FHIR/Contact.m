@@ -59,7 +59,7 @@
     }
 }
 
-- (void)getValueUse:(NSString *)codeString
+- (void)setValueUse:(NSString *)codeString
 {
     if ([codeString caseInsensitiveCompare:@"home"]) self.use = ContactUseHome;
     else if ([codeString caseInsensitiveCompare:@"work"]) self.use = ContactUseWork;
@@ -100,10 +100,18 @@
                                             [self returnStringSystem], @"system",
                                             [self returnStringUse], @"use",
                                             [_value generateAndReturnDictionary], @"value",
-                                            [_period generateAndReturnDictionary], @"prefix",
+                                            [_period generateAndReturnDictionary], @"period",
                                             nil];
     _contactDictionary.resourceName = @"Contact";
     return _contactDictionary.dataForResource;
+}
+
+- (void)contactParser:(NSDictionary *)dictionary
+{
+    [self setValueSystem:[dictionary objectForKey:@"system"]];
+    [self setValueUse:[dictionary objectForKey:@"use"]];
+    [_value setValueString:[dictionary objectForKey:@"value"]];
+    [_period periodParser:[dictionary objectForKey:@"period"]];
 }
 
 @end

@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSDate *end; //The end of the period. If the high is missing, it means that the period is ongoing
 
 - (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready for formatting
+- (void)periodParser:(NSDictionary *)dictionary; //set period from dictionary
 
 @end

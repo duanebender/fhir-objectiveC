@@ -38,5 +38,6 @@ typedef enum AddressUse
 - (NSString *)returnStringUse; //get AddressUse as a String
 
 - (NSDictionary *)generateAndReturnAddressDictionary; //returns resource ready to be formatted
+- (void)addressParser:(NSDictionary *)dictionary; //set address from dictionary
 
 @end

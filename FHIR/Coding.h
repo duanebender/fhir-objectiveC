@@ -21,5 +21,6 @@
 @property (nonatomic, retain) String *display; //A representation of the meaning of the code in the system, following the rules laid out by the system.
 
 - (NSDictionary *)generateAndReturnCodingDictionary; //return dicitonary ready for formatting
+- (void)codingParser:(NSDictionary *)dictionary; //sets coding from dictionary
 
 @end

@@ -9,7 +9,7 @@
 
 typedef enum ResourceType
 {
-    ResourceTypeProvenance,
+    ResourceTypeProvenance = 1,
     ResourceTypeDevice,
     ResourceTypeOrder,
     ResourceTypeOrganization,

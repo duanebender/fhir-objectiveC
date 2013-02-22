@@ -24,4 +24,13 @@
     return periodDictionary;
 }
 
+- (void)periodParser:(NSDictionary *)dictionary
+{
+    NSDictionary *startDict = [dictionary objectForKey:@"start"];
+    _start = [startDict objectForKey:@"value"]; //may need to be converted from string to date
+    
+    NSDictionary *endDict = [dictionary objectForKey:@"end"];
+    _end = [endDict objectForKey:@"value"]; //may need to be converted from string to date
+}
+
 @end

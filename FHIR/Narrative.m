@@ -67,4 +67,11 @@
     return _narrativeDictionary.dataForResource;
 }
 
+- (void)narrativeParser:(NSDictionary *)dictionary
+{
+    [self setValueNarrative:[dictionary objectForKey:@"status"]];
+    //_div XHTML node
+    //_image
+}
+
 @end

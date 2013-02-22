@@ -36,5 +36,6 @@ typedef enum IdentifierUse
 - (NSString *)returnStringUse; //get IdentifierUse as a String
 
 - (NSDictionary *)generateAndReturnHumanIdDictionary; //returns resource ready to be formatted
+- (void)humanIdParser:(NSDictionary *)dictionary; //set humanid from dictionary
 
 @end

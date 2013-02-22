@@ -222,7 +222,7 @@
 - (NSDictionary *)generateAndReturnXhtmlNodeDictionary
 {
     _xhtmlNodeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            //_node, @"node",
+                                            [_node generateAndReturnDictionary], @"node",
                                             [_name generateAndReturnDictionary], @"name",
                                             _attributes, @"attributes",
                                             _childNodes, @"childnode",
@@ -230,6 +230,15 @@
                                             nil];
     _xhtmlNodeDictionary.resourceName = @"XhtmlNode";
     return _xhtmlNodeDictionary.dataForResource;
+}
+
+- (void)xhtmlNodeParser:(NSDictionary *)dictionary
+{
+    [_node nodeTypeParser:[dictionary objectForKey:@"node"]];
+    [_name setValueString:[dictionary objectForKey:@"name"]];
+    //_attributes
+    //_childNodes
+    [_content setValueString:[dictionary objectForKey:@"content"]];
 }
 
 @end

@@ -91,4 +91,39 @@
     return _addressDictionary.dataForResource;
 }
 
+- (void)addressParser:(NSDictionary *)dictionary
+{
+    [self setValueUse:[dictionary objectForKey:@"use"]];
+    [_text setValueString:[dictionary objectForKey:@"text"]];
+    
+    //_part
+    NSArray *partArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"part"]];
+    _part = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [partArray count]; i++)
+    {
+        String *tempS1 = [[String alloc] init];
+        [tempS1 setValueString:[partArray objectAtIndex:i]];
+        [_part addObject:tempS1];
+        //NSLog(@"%@", _part);
+    }
+    
+    //_line
+    NSArray *lineArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"line"]];
+    _line = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [lineArray count]; i++)
+    {
+        String *tempS2 = [[String alloc] init];
+        [tempS2 setValueString:[lineArray objectAtIndex:i]];
+        [_line addObject:tempS2];
+        //NSLog(@"%@", _line);
+    }
+    
+    [_city setValueString:[dictionary objectForKey:@"city"]];
+    [_state setValueString:[dictionary objectForKey:@"state"]];
+    [_zip setValueString:[dictionary objectForKey:@"zip"]];
+    [_country setValueString:[dictionary objectForKey:@"country"]];
+    [_dpid setValueString:[dictionary objectForKey:@"dpid"]];
+    [_period periodParser:[dictionary objectForKey:@"period"]];
+}
+
 @end

@@ -20,5 +20,7 @@
 
 - (NSDictionary *)generateAndReturnCodeableConceptDictionary; //returns dictionary ready for formatting
 
+- (void)codeableConceptParser:(NSDictionary *)dictionary; //parses codeableconcept from dictionary
+
 @end
 

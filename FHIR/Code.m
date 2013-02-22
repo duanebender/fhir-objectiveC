@@ -18,4 +18,9 @@
     return codeDictionary;
 }
 
+- (void)setValueCode:(NSDictionary *)dictionary
+{
+    _value = [dictionary objectForKey:@"value"];
+}
+
 @end

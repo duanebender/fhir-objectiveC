@@ -15,5 +15,6 @@
 @property (nonatomic) NSString *original;
 
 - (NSDictionary *)generateAndReturnDictionary; //returns bool ready to be formatted
+- (void)setValueBool:(NSDictionary *)dictionary; //sets the bool from dictionary
 
 @end

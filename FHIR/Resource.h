@@ -18,8 +18,9 @@
 @property (nonatomic, retain) Narrative *text; //contents of resource
 @property (nonatomic) NSInteger resourceType; //type designation of resource
 
-- (void)setResouceTypeValue:(NSInteger)resourceType; //set the type of resource being used
+- (void)setResouceTypeValue:(NSString *)codeString; //set the type of resource being used
 
 - (NSDictionary *)generateAndReturnResourceDictionary; //returns all resources for resource ready to be formatted
+- (void)resourceParser:(NSDictionary *)dictionary; //set resource from dictionary
 
 @end

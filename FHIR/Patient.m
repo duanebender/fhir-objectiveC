@@ -45,7 +45,7 @@
     return ResourceTypePatient;
 }
 
-- (NSDictionary *)generateAndReturnPatientResourceDictionary
+- (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            _link, @"link",
@@ -61,7 +61,45 @@
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];
-    return returnable.dataForResource;
+    returnable.resourceName = @"Patient";
+    return returnable;
+}
+
+- (void)patientParser:(NSDictionary *)dictionary
+{
+    NSDictionary *patient = [dictionary objectForKey:@"Patient"];
+    NSLog(@"%@", patient);
+    
+    //_link
+    NSArray *linkArray = [[NSArray alloc] initWithArray:[patient objectForKey:@"link"]];
+    _link = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [linkArray count]; i++)
+    {
+        ResourceReference *tempRR = [[ResourceReference alloc] init];
+        [tempRR resourceReferenceParser:[linkArray objectAtIndex:i]];
+        [_link addObject:tempRR];
+        //NSLog(@"%@", _link);
+    }
+    
+    [_active setValueBool:[patient objectForKey:@"active"]];
+    
+    //_identifier
+    NSArray *identifierArray = [[NSArray alloc] initWithArray:[patient objectForKey:@"identifier"]];
+    _identifier = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [identifierArray count]; i++)
+    {
+        HumanId *tempHI = [[HumanId alloc] init];
+        [tempHI humanIdParser:[identifierArray objectAtIndex:i]];
+        [_identifier addObject:tempHI];
+        //NSLog(@"%@", _identifier);
+    }
+    
+    [_details demographicsParser:[patient objectForKey:@"details"]];
+    [_animal animalParser:[patient objectForKey:@"animal"]];
+    [_provider resourceReferenceParser:[patient objectForKey:@"provider"]];
+    [_diet codeableConceptParser:[patient objectForKey:@"diet"]];
+    [_confidentiality codeableConceptParser:[patient objectForKey:@"confidentiality"]];
+    [_recordLocation codeableConceptParser:[patient objectForKey:@"recordLocation"]];
 }
 
 @end

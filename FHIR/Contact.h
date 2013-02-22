@@ -46,5 +46,6 @@ typedef enum ContactUse
 - (NSString *)returnStringUse; //get ContactUse as a String
 
 - (NSDictionary *)generateAndReturnContactDictionary; //returns resource ready to be formatted
+- (void)contactParser:(NSDictionary *)dictionary; //sets contact based on dictionary
 
 @end

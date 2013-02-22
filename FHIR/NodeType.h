@@ -18,4 +18,7 @@
 - (NSString *)getAllKnownNodeTypes;
 - (void)setType:(NSString *)typeOfNode;
 
+- (NSDictionary *)generateAndReturnDictionary; //returns a dictionary ready for formatting
+- (void)nodeTypeParser:(NSDictionary *)dictionary; //set nodetype from dictionary
+
 @end

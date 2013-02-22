@@ -30,5 +30,6 @@ typedef enum NarrativeStatus
 - (NSString *)returnStringNarrative; //get IdentifierUse as a String
 
 - (NSDictionary *)generateAndReturnNarrativeDictionary; //returns resource ready to be formatted
+- (void)narrativeParser:(NSDictionary *)dictionary; //sets narrative from dictionary
 
 @end

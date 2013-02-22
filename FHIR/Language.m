@@ -42,4 +42,12 @@
     return _languageDictionary.dataForResource;
 }
 
+- (void)languageParser:(NSDictionary *)dictionary
+{
+    [_language codeableConceptParser:[dictionary objectForKey:@"language"]];
+    [_mode codeableConceptParser:[dictionary objectForKey:@"mode"]];
+    [_proficiencyLevel codeableConceptParser:[dictionary objectForKey:@"proficiency"]];
+    [_preference setValueBool:[dictionary objectForKey:@"preference"]];
+}
+
 @end

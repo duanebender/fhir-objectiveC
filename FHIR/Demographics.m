@@ -43,6 +43,7 @@
                                                _name, @"name", //humannames only
                                                _telecom, @"telecom", //contacts only
                                                [_gender generateAndReturnCodingDictionary], @"gender",
+                                               [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
                                                _address, @"address", //addresses only
                                                [_maritalStatus generateAndReturnCodeableConceptDictionary], @"maritalStatus",
@@ -50,6 +51,59 @@
                                                nil];
     _demographicsDictionary.resourceName = @"Demographics";
     return _demographicsDictionary.dataForResource;
+}
+
+- (void)demographicsParser:(NSDictionary *)dictionary
+{
+    //_name
+    NSArray *nameArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"name"]];
+    _name = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [nameArray count]; i++)
+    {
+        HumanName *tempHN = [[HumanName alloc] init];
+        [tempHN humanNameParser:[nameArray objectAtIndex:i]];
+        [_name addObject:tempHN];
+        NSLog(@"%@", _name);
+    }
+    
+    //_telecom
+    NSArray *teleArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"telecom"]];
+    _telecom = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [teleArray count]; i++)
+    {
+        Contact *tempCT = [[Contact alloc] init];
+        [tempCT contactParser:[teleArray objectAtIndex:i]];
+        [_telecom addObject:tempCT];
+        NSLog(@"%@", _telecom);
+    }
+    
+    [_gender codingParser:[dictionary objectForKey:@"gender"]];
+    _birthDate = [dictionary objectForKey:@"birthDate"]; //may need to be converted from string to NSDate
+    [_deceased setValueBool:[dictionary objectForKey:@"deceased"]];
+    
+    //_address
+    NSArray *addrArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"address"]];
+    _address = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [addrArray count]; i++)
+    {
+        Address *tempAD = [[Address alloc] init];
+        [tempAD addressParser:[addrArray objectAtIndex:i]];
+        [_address addObject:tempAD];
+        NSLog(@"%@", _address);
+    }
+    
+    [_maritalStatus codeableConceptParser:[dictionary objectForKey:@"maritalStatus"]];
+    
+    //_languages
+    NSArray *langArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"language"]];
+    _language = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [langArray count]; i++)
+    {
+        Language *tempLA = [[Language alloc] init];
+        [tempLA languageParser:[langArray objectAtIndex:i]];
+        [_language addObject:tempLA];
+        NSLog(@"%@", _language);
+    }
 }
 
 @end

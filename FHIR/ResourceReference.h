@@ -23,5 +23,6 @@
 @property (nonatomic, retain) String *display; //Plain text narrative that identifies the resource in addition to the resource reference
 
 - (NSDictionary *)generateAndReturnResourceReferenceDictionary; //returns the dictionary of resources
+- (void)resourceReferenceParser:(NSDictionary *)dictionary; //set resourcereference from dictionary
 
 @end

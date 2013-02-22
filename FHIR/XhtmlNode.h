@@ -24,7 +24,7 @@
 - (XhtmlNode *)addInstruction:(NSString *)content;
 - (XhtmlNode *)addText:(NSString *)content;
 - (XhtmlNode *)addText:(NSInteger *)index:(NSString *)content;
-- (BOOL *)allChildrenAreText;
+//- (BOOL *)allChildrenAreText;
 - (XhtmlNode *)getElement:(NSString *)name;
 - (NSString *)allText;
 - (void)attribute:(NSString *)name:(NSString *)value;
@@ -40,5 +40,6 @@
 @property (nonatomic, retain) String *content; //content of this XhtmlNode
 
 - (NSDictionary *)generateAndReturnXhtmlNodeDictionary; //returns resources of xhtmlnode ready to be formatted
+- (void)xhtmlNodeParser:(NSDictionary *)dictionary; //set xhtmlnode from dictionary
 
 @end

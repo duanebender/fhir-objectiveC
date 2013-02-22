@@ -36,4 +36,10 @@
     return _imageDictionary.dataForResource;
 }
 
+- (void)imageParser:(NSDictionary *)dictionary
+{
+    [_mimeType setValueCode:[dictionary objectForKey:@"type"]];
+    //_content
+}
+
 @end

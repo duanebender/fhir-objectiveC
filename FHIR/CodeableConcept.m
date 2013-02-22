@@ -39,4 +39,21 @@
     return _codeableConceptDictionary.dataForResource;
 }
 
+- (void)codeableConceptParser:(NSDictionary *)dictionary
+{
+    //coding
+    NSArray *codeArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"coding"]];
+    _coding = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [codeArray count]; i++)
+    {
+        Coding *tempCS = [[Coding alloc] init];
+        [tempCS codingParser:[codeArray objectAtIndex:i]];
+        [_coding addObject:tempCS];
+        //NSLog(@"%@", _coding);
+    }
+    
+    [_text setValueString:[dictionary objectForKey:@"text"]];
+    [_primary setValueString:[dictionary objectForKey:@"primary"]];
+}
+
 @end

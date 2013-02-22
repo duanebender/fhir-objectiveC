@@ -8,8 +8,9 @@
 
 #import "FHIRTests.h"
 #import "Patient.h"
-#import "TestingJSON.h"
+#import "DictToJSON.h"
 #import "HumanName.h"
+#import "JSONToDict.h"
 
 
 @implementation FHIRTests
@@ -154,14 +155,18 @@
     name1.period.start = [NSDate date];
     [patientJson.details.name addObject:[name1 generateAndReturnHumanNameDictionary]];
     
+    
+    
     //test JSON
-    TestingJSON *json = [[TestingJSON alloc] init];
-    NSDictionary *tempDictionary = [[NSDictionary alloc] init];
+    DictToJSON *json = [[DictToJSON alloc] init];
+    FHIRResourceDictionary *tempDictionary = [[FHIRResourceDictionary alloc] init];
 
     tempDictionary = [patientJson generateAndReturnPatientResourceDictionary];
     [json generateJsonString:tempDictionary];
     
-    NSLog(@"TestJson ***************** %@", json.jsonString);
+    //return back to patient
+    JSONToDict *jsonDict = [[JSONToDict alloc] init];
+    [jsonDict convertJsonToDictionary:@"Patient"];
 }
 
 - (void)testXML

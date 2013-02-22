@@ -19,4 +19,16 @@
     return boolDictionary;
 }
 
+- (void)setValueBool:(NSDictionary *)dictionary
+{
+    if ([[dictionary objectForKey:@"value"] caseInsensitiveCompare:@"true"])
+    {
+        _value = true;
+    }
+    else
+    {
+        _value = false;
+    }
+}
+
 @end

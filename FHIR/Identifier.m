@@ -32,4 +32,10 @@
     return identifierDictionary;
 }
 
+- (void)identifierParser:(NSDictionary *)dictionary
+{
+    [_system setValueURI:[dictionary objectForKey:@"system"]];
+    [_idNumber setValueString:[dictionary objectForKey:@"id"]];
+}
+
 @end

@@ -18,7 +18,9 @@
 @interface Patient : Resource
     
 - (NSInteger)getResourceType; //override method. Returns integer of specified type, in this case Patient
-- (NSDictionary *)generateAndReturnPatientResourceDictionary; //returns a dictionary of all resources from patient in a dictionary format
+- (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary; //returns a dictionary of all resources from patient in a dictionary format
+
+- (void)patientParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into patient
 
 @property (nonatomic, retain) FHIRResourceDictionary *patientDictionary;
 @property (nonatomic) NSMutableArray *link; //THIS ARRAY IS FILLED WITH "ResourceReference" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.

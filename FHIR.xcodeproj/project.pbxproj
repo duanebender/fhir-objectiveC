@@ -33,7 +33,7 @@
 		89B3467916BAF9C200926131 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467816BAF9C200926131 /* Contact.m */; };
 		89B9B7F616C14CF8006DEC84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7F216C14CF8006DEC84 /* XMLParser.m */; };
 		89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */; };
-		89CB21A916C2908C006A7497 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21A816C2908C006A7497 /* JSONModel.m */; };
+		89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA63B716D3FB8800766718 /* JSONToDict.m */; };
 		89CB21AD16C29952006A7497 /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21AC16C29952006A7497 /* NodeType.m */; };
 		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
 		89D05CBF16B8146000139BEF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CBE16B8146000139BEF /* Uri.m */; };
@@ -43,7 +43,7 @@
 		89D05CCD16B8314800139BEF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCC16B8314800139BEF /* Narrative.m */; };
 		89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCF16B866AF00139BEF /* Base64Binary.m */; };
 		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
-		89DD76B916CBED0B00962C66 /* TestingJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76B816CBED0B00962C66 /* TestingJSON.m */; };
+		89DD76B916CBED0B00962C66 /* DictToJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76B816CBED0B00962C66 /* DictToJSON.m */; };
 		89DD76BC16CC28C500962C66 /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76BB16CC28C300962C66 /* Bool.m */; };
 /* End PBXBuildFile section */
 
@@ -118,8 +118,8 @@
 		89B9B7F216C14CF8006DEC84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		89B9B7FA16C17BBB006DEC84 /* GenerateXMLFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateXMLFormat.h; sourceTree = "<group>"; };
 		89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateXMLFormat.m; sourceTree = "<group>"; };
-		89CB21A716C2908C006A7497 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
-		89CB21A816C2908C006A7497 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		89CA63B616D3FB8800766718 /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
+		89CA63B716D3FB8800766718 /* JSONToDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONToDict.m; sourceTree = "<group>"; };
 		89CB21AA16C292E7006A7497 /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
 		89CB21AC16C29952006A7497 /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
 		89D05CB816B809DE00139BEF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		89D05CCF16B866AF00139BEF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
 		89D05CD116B86A7A00139BEF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
 		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
-		89DD76B716CBED0B00962C66 /* TestingJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingJSON.h; sourceTree = "<group>"; };
-		89DD76B816CBED0B00962C66 /* TestingJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingJSON.m; sourceTree = "<group>"; };
+		89DD76B716CBED0B00962C66 /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
+		89DD76B816CBED0B00962C66 /* DictToJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictToJSON.m; sourceTree = "<group>"; };
 		89DD76BA16CC28C200962C66 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
 		89DD76BB16CC28C300962C66 /* Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,10 +276,10 @@
 		89CB21A516C29066006A7497 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				89DD76B716CBED0B00962C66 /* TestingJSON.h */,
-				89DD76B816CBED0B00962C66 /* TestingJSON.m */,
-				89CB21A716C2908C006A7497 /* JSONModel.h */,
-				89CB21A816C2908C006A7497 /* JSONModel.m */,
+				89DD76B716CBED0B00962C66 /* DictToJSON.h */,
+				89DD76B816CBED0B00962C66 /* DictToJSON.m */,
+				89CA63B616D3FB8800766718 /* JSONToDict.h */,
+				89CA63B716D3FB8800766718 /* JSONToDict.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -458,7 +458,6 @@
 				89B3467616BACE2100926131 /* HumanName.m in Sources */,
 				89B3467916BAF9C200926131 /* Contact.m in Sources */,
 				89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */,
-				89CB21A916C2908C006A7497 /* JSONModel.m in Sources */,
 				89CB21AD16C29952006A7497 /* NodeType.m in Sources */,
 				89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */,
 				89667AF516C42AE90096E52F /* Patient.m in Sources */,
@@ -466,9 +465,10 @@
 				89000E3916C93126007E911D /* Language.m in Sources */,
 				89000E3C16C939A4007E911D /* Image.m in Sources */,
 				89436D6216CAA9E4004563E4 /* Type.m in Sources */,
-				89DD76B916CBED0B00962C66 /* TestingJSON.m in Sources */,
+				89DD76B916CBED0B00962C66 /* DictToJSON.m in Sources */,
 				89DD76BC16CC28C500962C66 /* Bool.m in Sources */,
 				89733C2216CD7EBC00038F71 /* Address.m in Sources */,
+				89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

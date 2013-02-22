@@ -56,4 +56,25 @@
     }
 }
 
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *nodeDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                  _author, @"author",
+                                                  _name, @"name",
+                                                  _descriptionLong, @"longDescription",
+                                                  _descriptionShort, @"shortDescription",
+                                                  _nodeType, @"type",
+                                                  nil];
+    return nodeDictionary;
+}
+
+- (void)nodeTypeParser:(NSDictionary *)dictionary
+{
+    _author = [dictionary objectForKey:@"author"];
+    _name = [dictionary objectForKey:@"name"];
+    _descriptionLong = [dictionary objectForKey:@"longDescription"];
+    _descriptionShort = [dictionary objectForKey:@"shortDescription"];
+    _nodeType = [dictionary objectForKey:@"type"];
+}
+
 @end
