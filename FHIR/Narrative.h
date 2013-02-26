@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Code.h"
 #import "XhtmlNode.h"
+#import "Image.h"
 
 typedef enum NarrativeStatus
 {

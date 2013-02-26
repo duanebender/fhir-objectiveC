@@ -236,8 +236,20 @@
 {
     [_node nodeTypeParser:[dictionary objectForKey:@"node"]];
     [_name setValueString:[dictionary objectForKey:@"name"]];
-    //_attributes
+    _attributes = [[NSMutableDictionary alloc] initWithDictionary:[dictionary objectForKey:@"attributes"]];
+    //NSLog(@"%@", _attributes);
+    
     //_childNodes
+    NSArray *nodeArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"childnode"]];
+    _childNodes = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [nodeArray count]; i++)
+    {
+        XhtmlNode *tempN1 = [[XhtmlNode alloc] init];
+        [tempN1 xhtmlNodeParser:[nodeArray objectAtIndex:i]];
+        [_childNodes addObject:tempN1];
+        //NSLog(@"%@", _childNodes);
+    }
+    
     [_content setValueString:[dictionary objectForKey:@"content"]];
 }
 

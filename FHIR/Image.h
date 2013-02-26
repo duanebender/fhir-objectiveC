@@ -10,6 +10,8 @@
 #import "Code.h"
 #import "Base64Binary.h"
 
+#warning - content not fixed in .m
+
 @interface Image : Element
 
 @property (nonatomic, retain) FHIRResourceDictionary *imageDictionary;

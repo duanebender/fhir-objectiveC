@@ -11,6 +11,7 @@
 		89000E3916C93126007E911D /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3816C93126007E911D /* Language.m */; };
 		89000E3C16C939A4007E911D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3B16C939A4007E911D /* Image.m */; };
 		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
+		893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7AD116DCF0C8009E45B5 /* Extension.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		89436D6216CAA9E4004563E4 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 89436D6116CAA9E4004563E4 /* Type.m */; };
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
@@ -31,8 +32,6 @@
 		89B3467216BABE7500926131 /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467116BABE7500926131 /* Demographics.m */; };
 		89B3467616BACE2100926131 /* HumanName.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467516BACE2100926131 /* HumanName.m */; };
 		89B3467916BAF9C200926131 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467816BAF9C200926131 /* Contact.m */; };
-		89B9B7F616C14CF8006DEC84 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7F216C14CF8006DEC84 /* XMLParser.m */; };
-		89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */; };
 		89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA63B716D3FB8800766718 /* JSONToDict.m */; };
 		89CB21AD16C29952006A7497 /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21AC16C29952006A7497 /* NodeType.m */; };
 		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
@@ -77,6 +76,8 @@
 		89000E3A16C939A3007E911D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		89000E3B16C939A4007E911D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		893D7AD016DCF0C8009E45B5 /* Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
+		893D7AD116DCF0C8009E45B5 /* Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89436D6116CAA9E4004563E4 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
 		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
@@ -114,10 +115,6 @@
 		89B3467516BACE2100926131 /* HumanName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanName.m; sourceTree = "<group>"; };
 		89B3467716BAF9C200926131 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		89B3467816BAF9C200926131 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		89B9B7F116C14CF8006DEC84 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
-		89B9B7F216C14CF8006DEC84 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		89B9B7FA16C17BBB006DEC84 /* GenerateXMLFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateXMLFormat.h; sourceTree = "<group>"; };
-		89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateXMLFormat.m; sourceTree = "<group>"; };
 		89CA63B616D3FB8800766718 /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
 		89CA63B716D3FB8800766718 /* JSONToDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONToDict.m; sourceTree = "<group>"; };
 		89CB21AA16C292E7006A7497 /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
@@ -202,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				89CB21A516C29066006A7497 /* JSON */,
-				89B9B7E916C14CC8006DEC84 /* XML */,
 				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
 				89667AF416C42AE70096E52F /* Patient.m */,
 				89000E3416C92D2F007E911D /* Animal.h */,
@@ -262,17 +258,6 @@
 			name = "Top Level Types";
 			sourceTree = "<group>";
 		};
-		89B9B7E916C14CC8006DEC84 /* XML */ = {
-			isa = PBXGroup;
-			children = (
-				89B9B7F116C14CF8006DEC84 /* XMLParser.h */,
-				89B9B7F216C14CF8006DEC84 /* XMLParser.m */,
-				89B9B7FA16C17BBB006DEC84 /* GenerateXMLFormat.h */,
-				89B9B7FB16C17BBB006DEC84 /* GenerateXMLFormat.m */,
-			);
-			name = XML;
-			sourceTree = "<group>";
-		};
 		89CB21A516C29066006A7497 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +284,8 @@
 				89B3466A16BAB4A800926131 /* Identifier.m */,
 				89B3466D16BABA7E00926131 /* Period.h */,
 				89B3466E16BABA7E00926131 /* Period.m */,
+				893D7AD016DCF0C8009E45B5 /* Extension.h */,
+				893D7AD116DCF0C8009E45B5 /* Extension.m */,
 				89D05CC016B81F6800139BEF /* Type and Supporting */,
 			);
 			name = "Bottom Level Types";
@@ -457,7 +444,6 @@
 				89B3467216BABE7500926131 /* Demographics.m in Sources */,
 				89B3467616BACE2100926131 /* HumanName.m in Sources */,
 				89B3467916BAF9C200926131 /* Contact.m in Sources */,
-				89B9B7FC16C17BBB006DEC84 /* GenerateXMLFormat.m in Sources */,
 				89CB21AD16C29952006A7497 /* NodeType.m in Sources */,
 				89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */,
 				89667AF516C42AE90096E52F /* Patient.m in Sources */,
@@ -469,6 +455,7 @@
 				89DD76BC16CC28C500962C66 /* Bool.m in Sources */,
 				89733C2216CD7EBC00038F71 /* Address.m in Sources */,
 				89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */,
+				893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +464,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */,
-				89B9B7F616C14CF8006DEC84 /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

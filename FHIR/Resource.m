@@ -198,18 +198,17 @@
     return _resourceDictionary.dataForResource;
 }
 
-- (void)resourceParser:(NSDictionary *)dictionary
+- (void)extensionParser:(NSDictionary *)dictionary
 {
     //_extensions
     NSArray *extArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extensions"]];
     _extensions = [[NSMutableArray alloc] init];
     for (int i = 0; i < [extArray count]; i++)
     {
-#warning fix
-        shitfuckingcrap! *tempS2 = [[String alloc] init];
-        [tempS2 setValueString:[lineArray objectAtIndex:i]];
-        [_line addObject:tempS2];
-        //NSLog(@"%@", _line);
+        Extension *tempS1 = [[Extension alloc] init];
+        [tempS1 extensionParser:[extArray objectAtIndex:i]];
+        [_extensions addObject:tempS1];
+        //NSLog(@"%@", _extensions);
     }
     
     [_text narrativeParser:[dictionary objectForKey:@"text"]];

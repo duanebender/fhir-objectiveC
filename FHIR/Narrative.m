@@ -70,8 +70,18 @@
 - (void)narrativeParser:(NSDictionary *)dictionary
 {
     [self setValueNarrative:[dictionary objectForKey:@"status"]];
-    //_div XHTML node
+    [_div xhtmlNodeParser:[dictionary objectForKey:@"div"]];
+    
     //_image
+    NSArray *imgArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"image"]];
+    _image = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [imgArray count]; i++)
+    {
+        Image *tempS1 = [[Image alloc] init];
+        [tempS1 imageParser:[imgArray objectAtIndex:i]];
+        [_image addObject:tempS1];
+        //NSLog(@"%@", _image);
+    }
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Narrative.h"
 #import "ResourceType.h"
+#import "Extension.h"
 
 @interface Resource : Element
 

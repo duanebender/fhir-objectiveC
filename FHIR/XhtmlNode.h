@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#warning - not finished converstion to dictionary
-
 #import <Foundation/Foundation.h>
 #import "NodeType.h"
 #import "String.h"
