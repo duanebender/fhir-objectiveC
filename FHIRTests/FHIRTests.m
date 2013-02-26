@@ -11,6 +11,8 @@
 #import "DictToJSON.h"
 #import "HumanName.h"
 #import "JSONToDict.h"
+#import "Base64Encoder.h"
+#import "Base64Decoder.h"
 
 
 @implementation FHIRTests
@@ -169,11 +171,15 @@
     [jsonDict convertJsonToDictionary:@"Patient"];
 }
 
-- (void)testXML
+- (void)testBase64
 {
-    NSLog(@"Beginning FHIRXML tests...");
+    NSLog(@"Beginning Base64 tests...");
     
     //code in here
+    NSData *image = [[NSData alloc] initWithContentsOfFile:@"/Users/adamsippel/Pictures/IMG_0001.JPG"];
+    NSString *encodedString = [Base64Encoder base64StringFromData:image length:0];
+    NSData *decodedFile = [Base64Decoder base64DataFromString:encodedString];
+    //NSLog(@"%@", decodedFile); //works but will lag your computer if trying to view the NSLog becaue of the massive string length
 }
 
 @end

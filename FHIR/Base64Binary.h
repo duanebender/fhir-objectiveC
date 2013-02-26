@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Type.h"
+#import "Base64Encoder.h"
+#import "Base64Decoder.h"
 
 @interface Base64Binary : Type
 
 #warning - Should be an array of Bytes? Base 64 is usually an encoder?
-@property (nonatomic) Byte *byte;
+@property (nonatomic) NSData *data;
+
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary of base64 encoded binary for formatting
+- (void)setValueBase64BinaryData:(NSDictionary *)dictionary; //sets data in base64Binary from encoded string in a dictionary
 
 @end

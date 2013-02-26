@@ -30,7 +30,7 @@
 {
     _imageDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                             [_mimeType generateAndReturnDictionary], @"type",
-                                            //[_content generateAndReturnDictionary], @"content",
+                                            [_content generateAndReturnDictionary], @"content",
                                             nil];
     _imageDictionary.resourceName = @"Image";
     return _imageDictionary.dataForResource;
@@ -39,7 +39,7 @@
 - (void)imageParser:(NSDictionary *)dictionary
 {
     [_mimeType setValueCode:[dictionary objectForKey:@"type"]];
-    //_content
+    [_content setValueBase64BinaryData:[dictionary objectForKey:@"content"]];
 }
 
 @end

@@ -12,6 +12,7 @@
 		89000E3C16C939A4007E911D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3B16C939A4007E911D /* Image.m */; };
 		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
 		893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7AD116DCF0C8009E45B5 /* Extension.m */; };
+		893D7AD716DD37A0009E45B5 /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7AD616DD37A0009E45B5 /* Base64Encoder.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		89436D6216CAA9E4004563E4 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 89436D6116CAA9E4004563E4 /* Type.m */; };
 		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
@@ -42,6 +43,7 @@
 		89D05CCD16B8314800139BEF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCC16B8314800139BEF /* Narrative.m */; };
 		89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCF16B866AF00139BEF /* Base64Binary.m */; };
 		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
+		89D9B0DC16DD446300F1DA7A /* Base64Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */; };
 		89DD76B916CBED0B00962C66 /* DictToJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76B816CBED0B00962C66 /* DictToJSON.m */; };
 		89DD76BC16CC28C500962C66 /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76BB16CC28C300962C66 /* Bool.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		893D7AD016DCF0C8009E45B5 /* Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
 		893D7AD116DCF0C8009E45B5 /* Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
+		893D7AD516DD37A0009E45B5 /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
+		893D7AD616DD37A0009E45B5 /* Base64Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Encoder.m; sourceTree = "<group>"; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89436D6116CAA9E4004563E4 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
 		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		89D05CCF16B866AF00139BEF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
 		89D05CD116B86A7A00139BEF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
 		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
+		89D9B0DA16DD446300F1DA7A /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Decoder.h; sourceTree = "<group>"; };
+		89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Decoder.m; sourceTree = "<group>"; };
 		89DD76B716CBED0B00962C66 /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
 		89DD76B816CBED0B00962C66 /* DictToJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictToJSON.m; sourceTree = "<group>"; };
 		89DD76BA16CC28C200962C66 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
@@ -165,6 +171,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		893D7AD416DD368D009E45B5 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
+				89D05CCF16B866AF00139BEF /* Base64Binary.m */,
+				893D7AD516DD37A0009E45B5 /* Base64Encoder.h */,
+				893D7AD616DD37A0009E45B5 /* Base64Encoder.m */,
+				89D9B0DA16DD446300F1DA7A /* Base64Decoder.h */,
+				89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		8993D7DC16B1D88400D0AFB4 = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +313,7 @@
 		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				893D7AD416DD368D009E45B5 /* Base64 */,
 				89DD76BA16CC28C200962C66 /* Bool.h */,
 				89DD76BB16CC28C300962C66 /* Bool.m */,
 				89D05CBD16B8146000139BEF /* Uri.h */,
@@ -305,8 +325,6 @@
 				89B3467316BAC80F00926131 /* ResourceType.h */,
 				8996827B16B96BBC005DFEC7 /* String.h */,
 				8996827C16B96BBC005DFEC7 /* String.m */,
-				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
-				89D05CCF16B866AF00139BEF /* Base64Binary.m */,
 				8950B3C716B6DD85007CB8B5 /* Type.h */,
 				89436D6116CAA9E4004563E4 /* Type.m */,
 				8950B3CD16B6DE80007CB8B5 /* Element.h */,
@@ -456,6 +474,8 @@
 				89733C2216CD7EBC00038F71 /* Address.m in Sources */,
 				89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */,
 				893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */,
+				893D7AD716DD37A0009E45B5 /* Base64Encoder.m in Sources */,
+				89D9B0DC16DD446300F1DA7A /* Base64Decoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

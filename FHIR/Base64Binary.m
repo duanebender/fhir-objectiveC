@@ -8,8 +8,30 @@
 
 #import "Base64Binary.h"
 
+#define LENGTH 0 //encoded string length int
+
 @implementation Base64Binary
 
-@synthesize byte = _byte;
+@synthesize data = _data;
+
+- (NSString *)getBase64BinaryDataAsEncodedString
+{
+    NSString *encodedString = [[NSString alloc] init];
+    
+    encodedString = [Base64Encoder base64StringFromData:_data length:LENGTH];
+    
+    return encodedString;
+}
+
+- (NSDictionary *)generateAndReturnDictionary
+{
+    NSDictionary *base64Dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[self getBase64BinaryDataAsEncodedString], @"value", nil];
+    return base64Dictionary;
+}
+
+- (void)setValueBase64BinaryData:(NSDictionary *)dictionary
+{
+    _data = [Base64Decoder base64DataFromString:[dictionary objectForKey:@"value"]];
+}
 
 @end
