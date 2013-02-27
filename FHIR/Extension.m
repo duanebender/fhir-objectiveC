@@ -34,7 +34,7 @@
     _extensionDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            [_uri generateAndReturnDictionary], @"uri",
                                            [_mustUnderstand generateAndReturnDictionary], @"mustUnderstand",
-                                           //[_value], @"value",
+                                           _value.xmlId, @"value",
                                            _list, @"list",
                                            nil];
     _extensionDictionary.resourceName = @"Extension";
@@ -45,7 +45,10 @@
 {
     [_uri setValueURI:[dictionary objectForKey:@"uri"]];
     [_mustUnderstand setValueBool:[dictionary objectForKey:@"mustUnderstand"]];
+    
     //_value
+    _value = [[Type alloc] init];
+    _value.xmlId = [dictionary objectForKey:@"value"];
     
     //_list
     NSArray *listArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extensions"]];

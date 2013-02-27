@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#warning - This code is a URL not yet a URI
-
 #import <Foundation/Foundation.h>
 #import "Type.h"
 

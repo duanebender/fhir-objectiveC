@@ -13,7 +13,6 @@
 
 @interface Base64Binary : Type
 
-#warning - Should be an array of Bytes? Base 64 is usually an encoder?
 @property (nonatomic) NSData *data;
 
 - (NSDictionary *)generateAndReturnDictionary; //returns dictionary of base64 encoded binary for formatting

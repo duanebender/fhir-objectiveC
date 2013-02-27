@@ -5,7 +5,6 @@
 //  Created by Adam Sippel on 2013-02-26.
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
-#warning - value is not finished in .m
 
 #import <Foundation/Foundation.h>
 #import "Element.h"
