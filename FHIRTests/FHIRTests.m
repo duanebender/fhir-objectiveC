@@ -169,6 +169,15 @@
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
     [jsonDict convertJsonToDictionary:@"Patient"];
+    NSLog(@"%@", jsonDict);
+    
+    //take new dictionary and make a new file
+    DictToJSON *json2 = [[DictToJSON alloc] init];
+    FHIRResourceDictionary *tempDictionary2 = [[FHIRResourceDictionary alloc] init];
+    
+    tempDictionary2 = [ generateAndReturnPatientResourceDictionary];
+    [json generateJsonString:tempDictionary];
+    
 }
 
 - (void)testBase64

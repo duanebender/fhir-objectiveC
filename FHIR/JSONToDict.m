@@ -18,10 +18,10 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[urlString stringByAppendingString:@".json"]];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:@"/Users/adamsippel/Patient.json"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:@"/Users/adamsippel/Desktop/patient.json"];
     if (fileExists)
     {
-        NSData *fileContent = [[NSData alloc] initWithContentsOfFile:@"/Users/adamsippel/Patient.json"];
+        NSData *fileContent = [[NSData alloc] initWithContentsOfFile:@"/Users/adamsippel/Desktop/patient.json"];
         NSError *error;
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];
         _incomingResourceType = urlString;
@@ -42,6 +42,7 @@
     {
         Patient *patient = [[Patient alloc] init];
         [patient patientParser:jsonDict];
+        NSLog(@"%@", jsonDict);
     }
 }
 

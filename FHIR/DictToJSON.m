@@ -7,7 +7,6 @@
 //
 
 #import "DictToJSON.h"
-#import "Patient.h"
 
 @implementation DictToJSON
 

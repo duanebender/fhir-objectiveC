@@ -21,7 +21,9 @@
 
 - (void)setValueBool:(NSDictionary *)dictionary
 {
-    if ([[dictionary objectForKey:@"value"] caseInsensitiveCompare:@"true"])
+    _original = [dictionary objectForKey:@"value"];
+    BOOL tempBool = [_original boolValue];
+    if (tempBool)
     {
         _value = true;
     }

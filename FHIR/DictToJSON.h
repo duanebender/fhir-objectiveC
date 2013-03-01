@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FHIRResourceDictionary.h"
+#import "Patient.h"
 
 @interface DictToJSON : NSObject
 
