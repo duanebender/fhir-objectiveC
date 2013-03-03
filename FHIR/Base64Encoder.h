@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Base64Encoder
+@interface Base64Encoder : NSObject
 
 + (NSString *)base64StringFromData:(NSData *)data length:(int)length;
 

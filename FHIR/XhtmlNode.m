@@ -46,7 +46,7 @@
 
 - (void)setValueContent:(NSString *)content
 {
-    if (!(self.node.nodeType != @"Test" || self.node.nodeType != @"Comment"))
+    if (!(![self.node.nodeType isEqual: @"Test"] || ![self.node.nodeType isEqual: @"Comment"]))
     {
         [NSException raise:@"Wrong Node Type" format:@"Wrong Node Type"];
     }
@@ -55,7 +55,7 @@
 
 - (XhtmlNode *)addTag:(NSString *)name
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.node.nodeType];
     }
@@ -66,9 +66,9 @@
     return node;
 }
 
-- (XhtmlNode *)addTag:(NSInteger *)index:(NSString *)name
+- (XhtmlNode *)addTag:(NSInteger *)index :(NSString *)name
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Wrong Node Type" format:@"Node Type is %@", self.node.nodeType];
     }
@@ -81,7 +81,7 @@
 
 - (XhtmlNode *)addComment:(NSString *)content
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -94,7 +94,7 @@
 
 - (XhtmlNode *)addDocType:(NSString *)content
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -108,7 +108,7 @@
 
 - (XhtmlNode *)addInstruction:(NSString *)content
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -121,7 +121,7 @@
 
 - (XhtmlNode *)addText:(NSString *)content
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -134,7 +134,7 @@
 
 - (XhtmlNode *)addText:(NSInteger *)index :(NSString *)content
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type"];
     }
@@ -166,7 +166,7 @@
 {
     for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == @"Element" && [self.name.value caseInsensitiveCompare:(n.name.value)])
+        if ([n.getNodeType isEqual: @"Element"] && [self.name.value caseInsensitiveCompare:(n.name.value)])
         {
             return n;
         }
@@ -179,11 +179,11 @@
     NSMutableString *tempString = [[NSMutableString alloc]init];
     for (XhtmlNode* n in _childNodes)
     {
-        if (n.getNodeType == @"Text")
+        if ([n.getNodeType isEqual: @"Text"])
         {
             [tempString appendString:n.name.value];
         }
-        else if (n.getNodeType == @"Element")
+        else if ([n.getNodeType isEqual: @"Element"])
         {
             [tempString appendString:n.allText];
         }
@@ -194,7 +194,7 @@
                                                   
 - (void)attribute:(NSString *)name :(NSString *)value
 {
-    if (!(self.node.nodeType == @"Element" || self.node.nodeType == @"Document"))
+    if (!([self.node.nodeType isEqual: @"Element"] || [self.node.nodeType isEqual: @"Document"]))
     {
         [NSException raise:@"Node" format:@"Wrong Node Type."];
     }

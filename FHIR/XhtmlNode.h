@@ -16,18 +16,18 @@
 - (void)setNodeType:(NSString *)nodeType; //set NodeType value
 - (void)setValueContent:(NSString *)content;
 - (XhtmlNode *)addTag:(NSString *)name;
-- (XhtmlNode *)addTag:(NSInteger *)index:(NSString *)name;
+- (XhtmlNode *)addTag:(NSInteger *)index :(NSString *)name;
 - (XhtmlNode *)addComment:(NSString *)content;
 - (XhtmlNode *)addDocType:(NSString *)content;
 - (XhtmlNode *)addInstruction:(NSString *)content;
 - (XhtmlNode *)addText:(NSString *)content;
-- (XhtmlNode *)addText:(NSInteger *)index:(NSString *)content;
+- (XhtmlNode *)addText:(NSInteger *)index :(NSString *)content;
 //- (BOOL *)allChildrenAreText;
 - (XhtmlNode *)getElement:(NSString *)name;
 - (NSString *)allText;
-- (void)attribute:(NSString *)name:(NSString *)value;
+- (void)attribute:(NSString *)name :(NSString *)value;
 - (NSString *)getAttribute:(NSString *)name;
-- (void)setAttribute:(NSString *)name:(NSString *)value;
+- (void)setAttribute:(NSString *)name :(NSString *)value;
 
 @property (nonatomic, retain) FHIRResourceDictionary *xhtmlNodeDictionary; //contains all the reources for the xhtmlnode
 

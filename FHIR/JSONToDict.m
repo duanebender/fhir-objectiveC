@@ -38,7 +38,7 @@
 
 - (void)createLocalizedObject:(NSDictionary *)jsonDict
 {
-    if (_incomingResourceType == @"Patient")
+    if ([_incomingResourceType isEqual: @"Patient"])
     {
         Patient *patient = [[Patient alloc] init];
         [patient patientParser:jsonDict];

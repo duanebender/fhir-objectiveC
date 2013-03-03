@@ -10,7 +10,7 @@
 
 @class NSString;
 
-@interface Base64Decoder
+@interface Base64Decoder : NSObject
 
 + (NSData *)base64DataFromString:(NSString *)string;
 
