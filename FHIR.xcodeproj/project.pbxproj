@@ -7,45 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89000E3616C92D2F007E911D /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3516C92D2F007E911D /* Animal.m */; };
-		89000E3916C93126007E911D /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3816C93126007E911D /* Language.m */; };
-		89000E3C16C939A4007E911D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 89000E3B16C939A4007E911D /* Image.m */; };
 		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
-		893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7AD116DCF0C8009E45B5 /* Extension.m */; };
-		893D7AD716DD37A0009E45B5 /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7AD616DD37A0009E45B5 /* Base64Encoder.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
-		89436D6216CAA9E4004563E4 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 89436D6116CAA9E4004563E4 /* Type.m */; };
-		8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 8950B3CE16B6DE80007CB8B5 /* Element.m */; };
-		89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF016C400850096E52F /* FHIRResourceDictionary.m */; };
-		89667AF516C42AE90096E52F /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 89667AF416C42AE70096E52F /* Patient.m */; };
-		89733C2216CD7EBC00038F71 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 89733C2116CD7EBB00038F71 /* Address.m */; };
-		898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 898082BD16B71B0A00B21812 /* CodeableConcept.m */; };
+		8946228916E7DB080040E6EF /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228616E7DB080040E6EF /* XMLReader.m */; };
+		8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228816E7DB080040E6EF /* XMLToDict.m */; };
+		8946228F16E7DBEB0040E6EF /* DictToJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228C16E7DBEB0040E6EF /* DictToJSON.m */; };
+		8946229016E7DBEB0040E6EF /* JSONToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228E16E7DBEB0040E6EF /* JSONToDict.m */; };
+		894622A216E7DDF70040E6EF /* FHIRResourceDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946229D16E7DDF70040E6EF /* FHIRResourceDictionary.m */; };
+		894622A316E7DDF70040E6EF /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946229F16E7DDF70040E6EF /* Resource.m */; };
+		894622A416E7DDF70040E6EF /* ResourceReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A116E7DDF70040E6EF /* ResourceReference.m */; };
+		894622A916E7DFFF0040E6EF /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A616E7DFFF0040E6EF /* Animal.m */; };
+		894622AA16E7DFFF0040E6EF /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A816E7DFFF0040E6EF /* Patient.m */; };
+		894622AF16E7E0510040E6EF /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622AE16E7E0510040E6EF /* Demographics.m */; };
+		894622B916E7E22A0040E6EF /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622B216E7E22A0040E6EF /* Address.m */; };
+		894622BA16E7E22A0040E6EF /* CodeableConcept.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622B416E7E22A0040E6EF /* CodeableConcept.m */; };
+		894622BB16E7E22A0040E6EF /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622B616E7E22A0040E6EF /* Contact.m */; };
+		894622BC16E7E22A0040E6EF /* HumanName.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622B816E7E22A0040E6EF /* HumanName.m */; };
+		894622CB16E7E5980040E6EF /* HumanId.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622C416E7E5980040E6EF /* HumanId.m */; };
+		894622CC16E7E5980040E6EF /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622C616E7E5980040E6EF /* Identifier.m */; };
+		894622CD16E7E5980040E6EF /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622C816E7E5980040E6EF /* Image.m */; };
+		894622CE16E7E5980040E6EF /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622CA16E7E5980040E6EF /* Language.m */; };
+		894622D716E7E5B60040E6EF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622D016E7E5B60040E6EF /* Coding.m */; };
+		894622D816E7E5B60040E6EF /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622D216E7E5B60040E6EF /* NodeType.m */; };
+		894622D916E7E5B60040E6EF /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622D416E7E5B60040E6EF /* Period.m */; };
+		894622DA16E7E5B60040E6EF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622D616E7E5B60040E6EF /* XhtmlNode.m */; };
+		894622E916E7E6020040E6EF /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622DE16E7E6020040E6EF /* Bool.m */; };
+		894622EA16E7E6020040E6EF /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E016E7E6020040E6EF /* Code.m */; };
+		894622EB16E7E6020040E6EF /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E216E7E6020040E6EF /* Element.m */; };
+		894622EC16E7E6020040E6EF /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E416E7E6020040E6EF /* String.m */; };
+		894622ED16E7E6020040E6EF /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E616E7E6020040E6EF /* Type.m */; };
+		894622EE16E7E6020040E6EF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E816E7E6020040E6EF /* Uri.m */; };
+		894622F616E7E6170040E6EF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F116E7E6170040E6EF /* Base64Binary.m */; };
+		894622F716E7E6170040E6EF /* Base64Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F316E7E6170040E6EF /* Base64Decoder.m */; };
+		894622F816E7E6170040E6EF /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F516E7E6170040E6EF /* Base64Encoder.m */; };
+		894622FE16E7E63C0040E6EF /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FB16E7E63C0040E6EF /* Extension.m */; };
+		894622FF16E7E63C0040E6EF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FD16E7E63C0040E6EF /* Narrative.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D80016B1D88500D0AFB4 /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7E716B1D88400D0AFB4 /* libFHIR.a */; };
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
-		8996827D16B96BBC005DFEC7 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996827C16B96BBC005DFEC7 /* String.m */; };
-		8996828216B9C1AF005DFEC7 /* HumanId.m in Sources */ = {isa = PBXBuildFile; fileRef = 8996828116B9C1AE005DFEC7 /* HumanId.m */; };
-		89B3466B16BAB4A800926131 /* Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466A16BAB4A800926131 /* Identifier.m */; };
-		89B3466F16BABA7E00926131 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3466E16BABA7E00926131 /* Period.m */; };
-		89B3467216BABE7500926131 /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467116BABE7500926131 /* Demographics.m */; };
-		89B3467616BACE2100926131 /* HumanName.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467516BACE2100926131 /* HumanName.m */; };
-		89B3467916BAF9C200926131 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3467816BAF9C200926131 /* Contact.m */; };
-		89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CA63B716D3FB8800766718 /* JSONToDict.m */; };
-		89CB21AD16C29952006A7497 /* NodeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB21AC16C29952006A7497 /* NodeType.m */; };
-		89D05CBA16B809DE00139BEF /* Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CB916B809DE00139BEF /* Coding.m */; };
-		89D05CBF16B8146000139BEF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CBE16B8146000139BEF /* Uri.m */; };
-		89D05CC316B81F9700139BEF /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CC216B81F9700139BEF /* Code.m */; };
-		89D05CC616B8279800139BEF /* ResourceReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CC516B8279800139BEF /* ResourceReference.m */; };
-		89D05CCA16B82D2D00139BEF /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CC916B82D2D00139BEF /* Resource.m */; };
-		89D05CCD16B8314800139BEF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCC16B8314800139BEF /* Narrative.m */; };
-		89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CCF16B866AF00139BEF /* Base64Binary.m */; };
-		89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D05CD216B86A7A00139BEF /* XhtmlNode.m */; };
-		89D9B0DC16DD446300F1DA7A /* Base64Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */; };
-		89DD76B916CBED0B00962C66 /* DictToJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76B816CBED0B00962C66 /* DictToJSON.m */; };
-		89DD76BC16CC28C500962C66 /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DD76BB16CC28C300962C66 /* Bool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,80 +73,83 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		89000E3416C92D2F007E911D /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
-		89000E3516C92D2F007E911D /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
-		89000E3716C93126007E911D /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
-		89000E3816C93126007E911D /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
-		89000E3A16C939A3007E911D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		89000E3B16C939A4007E911D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		893D7AD016DCF0C8009E45B5 /* Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
-		893D7AD116DCF0C8009E45B5 /* Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Extension.m; sourceTree = "<group>"; };
-		893D7AD516DD37A0009E45B5 /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
-		893D7AD616DD37A0009E45B5 /* Base64Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Encoder.m; sourceTree = "<group>"; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		89436D6116CAA9E4004563E4 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
-		8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
-		8950B3C716B6DD85007CB8B5 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
-		8950B3CD16B6DE80007CB8B5 /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = ../Element.h; sourceTree = "<group>"; };
-		8950B3CE16B6DE80007CB8B5 /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = ../Element.m; sourceTree = "<group>"; };
-		89667AEF16C400850096E52F /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceDictionary.h; sourceTree = "<group>"; };
-		89667AF016C400850096E52F /* FHIRResourceDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHIRResourceDictionary.m; sourceTree = "<group>"; };
-		89667AF416C42AE70096E52F /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
-		89733C2016CD7EBB00038F71 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
-		89733C2116CD7EBB00038F71 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
-		898082BD16B71B0A00B21812 /* CodeableConcept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeableConcept.m; sourceTree = "<group>"; };
+		8946228516E7DB080040E6EF /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = XML/XMLReader.h; sourceTree = SOURCE_ROOT; };
+		8946228616E7DB080040E6EF /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = XML/XMLReader.m; sourceTree = SOURCE_ROOT; };
+		8946228716E7DB080040E6EF /* XMLToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLToDict.h; path = XML/XMLToDict.h; sourceTree = SOURCE_ROOT; };
+		8946228816E7DB080040E6EF /* XMLToDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLToDict.m; path = XML/XMLToDict.m; sourceTree = SOURCE_ROOT; };
+		8946228B16E7DBEB0040E6EF /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictToJSON.h; path = JSON/DictToJSON.h; sourceTree = SOURCE_ROOT; };
+		8946228C16E7DBEB0040E6EF /* DictToJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictToJSON.m; path = JSON/DictToJSON.m; sourceTree = SOURCE_ROOT; };
+		8946228D16E7DBEB0040E6EF /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONToDict.h; path = JSON/JSONToDict.h; sourceTree = SOURCE_ROOT; };
+		8946228E16E7DBEB0040E6EF /* JSONToDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONToDict.m; path = JSON/JSONToDict.m; sourceTree = SOURCE_ROOT; };
+		8946229C16E7DDF70040E6EF /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRResourceDictionary.h; path = "Resource Files/FHIRResourceDictionary.h"; sourceTree = SOURCE_ROOT; };
+		8946229D16E7DDF70040E6EF /* FHIRResourceDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRResourceDictionary.m; path = "Resource Files/FHIRResourceDictionary.m"; sourceTree = SOURCE_ROOT; };
+		8946229E16E7DDF70040E6EF /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resource.h; path = "Resource Files/Resource.h"; sourceTree = SOURCE_ROOT; };
+		8946229F16E7DDF70040E6EF /* Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Resource.m; path = "Resource Files/Resource.m"; sourceTree = SOURCE_ROOT; };
+		894622A016E7DDF70040E6EF /* ResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceReference.h; path = "Resource Files/ResourceReference.h"; sourceTree = SOURCE_ROOT; };
+		894622A116E7DDF70040E6EF /* ResourceReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResourceReference.m; path = "Resource Files/ResourceReference.m"; sourceTree = SOURCE_ROOT; };
+		894622A516E7DFFF0040E6EF /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animal.h; path = Classes/Animal.h; sourceTree = SOURCE_ROOT; };
+		894622A616E7DFFF0040E6EF /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animal.m; path = Classes/Animal.m; sourceTree = SOURCE_ROOT; };
+		894622A716E7DFFF0040E6EF /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Classes/Patient.h; sourceTree = SOURCE_ROOT; };
+		894622A816E7DFFF0040E6EF /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Classes/Patient.m; sourceTree = SOURCE_ROOT; };
+		894622AD16E7E0510040E6EF /* Demographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Demographics.h; path = Subclasses/Demographics.h; sourceTree = SOURCE_ROOT; };
+		894622AE16E7E0510040E6EF /* Demographics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Demographics.m; path = Subclasses/Demographics.m; sourceTree = SOURCE_ROOT; };
+		894622B116E7E22A0040E6EF /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = "Data Types/Address.h"; sourceTree = SOURCE_ROOT; };
+		894622B216E7E22A0040E6EF /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Address.m; path = "Data Types/Address.m"; sourceTree = SOURCE_ROOT; };
+		894622B316E7E22A0040E6EF /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CodeableConcept.h; path = "Data Types/CodeableConcept.h"; sourceTree = SOURCE_ROOT; };
+		894622B416E7E22A0040E6EF /* CodeableConcept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CodeableConcept.m; path = "Data Types/CodeableConcept.m"; sourceTree = SOURCE_ROOT; };
+		894622B516E7E22A0040E6EF /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = "Data Types/Contact.h"; sourceTree = SOURCE_ROOT; };
+		894622B616E7E22A0040E6EF /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = "Data Types/Contact.m"; sourceTree = SOURCE_ROOT; };
+		894622B716E7E22A0040E6EF /* HumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HumanName.h; path = "Data Types/HumanName.h"; sourceTree = SOURCE_ROOT; };
+		894622B816E7E22A0040E6EF /* HumanName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HumanName.m; path = "Data Types/HumanName.m"; sourceTree = SOURCE_ROOT; };
+		894622C316E7E5980040E6EF /* HumanId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HumanId.h; path = Subclasses/HumanId.h; sourceTree = SOURCE_ROOT; };
+		894622C416E7E5980040E6EF /* HumanId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HumanId.m; path = Subclasses/HumanId.m; sourceTree = SOURCE_ROOT; };
+		894622C516E7E5980040E6EF /* Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Identifier.h; path = Subclasses/Identifier.h; sourceTree = SOURCE_ROOT; };
+		894622C616E7E5980040E6EF /* Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Identifier.m; path = Subclasses/Identifier.m; sourceTree = SOURCE_ROOT; };
+		894622C716E7E5980040E6EF /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = Subclasses/Image.h; sourceTree = SOURCE_ROOT; };
+		894622C816E7E5980040E6EF /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = Subclasses/Image.m; sourceTree = SOURCE_ROOT; };
+		894622C916E7E5980040E6EF /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Language.h; path = Subclasses/Language.h; sourceTree = SOURCE_ROOT; };
+		894622CA16E7E5980040E6EF /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Language.m; path = Subclasses/Language.m; sourceTree = SOURCE_ROOT; };
+		894622CF16E7E5B60040E6EF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coding.h; path = "Data Types/Coding.h"; sourceTree = SOURCE_ROOT; };
+		894622D016E7E5B60040E6EF /* Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coding.m; path = "Data Types/Coding.m"; sourceTree = SOURCE_ROOT; };
+		894622D116E7E5B60040E6EF /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NodeType.h; path = "Data Types/NodeType.h"; sourceTree = SOURCE_ROOT; };
+		894622D216E7E5B60040E6EF /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NodeType.m; path = "Data Types/NodeType.m"; sourceTree = SOURCE_ROOT; };
+		894622D316E7E5B60040E6EF /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Period.h; path = "Data Types/Period.h"; sourceTree = SOURCE_ROOT; };
+		894622D416E7E5B60040E6EF /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Period.m; path = "Data Types/Period.m"; sourceTree = SOURCE_ROOT; };
+		894622D516E7E5B60040E6EF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XhtmlNode.h; path = "Data Types/XhtmlNode.h"; sourceTree = SOURCE_ROOT; };
+		894622D616E7E5B60040E6EF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XhtmlNode.m; path = "Data Types/XhtmlNode.m"; sourceTree = SOURCE_ROOT; };
+		894622DD16E7E6020040E6EF /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bool.h; path = "Primative Types/Bool.h"; sourceTree = SOURCE_ROOT; };
+		894622DE16E7E6020040E6EF /* Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bool.m; path = "Primative Types/Bool.m"; sourceTree = SOURCE_ROOT; };
+		894622DF16E7E6020040E6EF /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Code.h; path = "Primative Types/Code.h"; sourceTree = SOURCE_ROOT; };
+		894622E016E7E6020040E6EF /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Code.m; path = "Primative Types/Code.m"; sourceTree = SOURCE_ROOT; };
+		894622E116E7E6020040E6EF /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = "Primative Types/Element.h"; sourceTree = SOURCE_ROOT; };
+		894622E216E7E6020040E6EF /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = "Primative Types/Element.m"; sourceTree = SOURCE_ROOT; };
+		894622E316E7E6020040E6EF /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = String.h; path = "Primative Types/String.h"; sourceTree = SOURCE_ROOT; };
+		894622E416E7E6020040E6EF /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = String.m; path = "Primative Types/String.m"; sourceTree = SOURCE_ROOT; };
+		894622E516E7E6020040E6EF /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = "Primative Types/Type.h"; sourceTree = SOURCE_ROOT; };
+		894622E616E7E6020040E6EF /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Type.m; path = "Primative Types/Type.m"; sourceTree = SOURCE_ROOT; };
+		894622E716E7E6020040E6EF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Uri.h; path = "Primative Types/Uri.h"; sourceTree = SOURCE_ROOT; };
+		894622E816E7E6020040E6EF /* Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Uri.m; path = "Primative Types/Uri.m"; sourceTree = SOURCE_ROOT; };
+		894622F016E7E6170040E6EF /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64Binary.h; path = "Primative Types/Base64/Base64Binary.h"; sourceTree = SOURCE_ROOT; };
+		894622F116E7E6170040E6EF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64Binary.m; path = "Primative Types/Base64/Base64Binary.m"; sourceTree = SOURCE_ROOT; };
+		894622F216E7E6170040E6EF /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64Decoder.h; path = "Primative Types/Base64/Base64Decoder.h"; sourceTree = SOURCE_ROOT; };
+		894622F316E7E6170040E6EF /* Base64Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64Decoder.m; path = "Primative Types/Base64/Base64Decoder.m"; sourceTree = SOURCE_ROOT; };
+		894622F416E7E6170040E6EF /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64Encoder.h; path = "Primative Types/Base64/Base64Encoder.h"; sourceTree = SOURCE_ROOT; };
+		894622F516E7E6170040E6EF /* Base64Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64Encoder.m; path = "Primative Types/Base64/Base64Encoder.m"; sourceTree = SOURCE_ROOT; };
+		894622FA16E7E63C0040E6EF /* Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Extension.h; path = "Other Types/Extension.h"; sourceTree = SOURCE_ROOT; };
+		894622FB16E7E63C0040E6EF /* Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Extension.m; path = "Other Types/Extension.m"; sourceTree = SOURCE_ROOT; };
+		894622FC16E7E63C0040E6EF /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Narrative.h; path = "Other Types/Narrative.h"; sourceTree = SOURCE_ROOT; };
+		894622FD16E7E63C0040E6EF /* Narrative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Narrative.m; path = "Other Types/Narrative.m"; sourceTree = SOURCE_ROOT; };
+		8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8993D80316B1D88500D0AFB4 /* FHIRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FHIRTests-Info.plist"; sourceTree = "<group>"; };
 		8993D80516B1D88500D0AFB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
-		8993D81516B1D9CB00D0AFB4 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = ../Patient.h; sourceTree = "<group>"; };
-		8996827B16B96BBC005DFEC7 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
-		8996827C16B96BBC005DFEC7 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = String.m; sourceTree = "<group>"; };
-		8996828016B9C1AE005DFEC7 /* HumanId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanId.h; sourceTree = "<group>"; };
-		8996828116B9C1AE005DFEC7 /* HumanId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanId.m; sourceTree = "<group>"; };
-		89B3466916BAB4A800926131 /* Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identifier.h; sourceTree = "<group>"; };
-		89B3466A16BAB4A800926131 /* Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identifier.m; sourceTree = "<group>"; };
-		89B3466D16BABA7E00926131 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
-		89B3466E16BABA7E00926131 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
-		89B3467016BABE7500926131 /* Demographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demographics.h; sourceTree = "<group>"; };
-		89B3467116BABE7500926131 /* Demographics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demographics.m; sourceTree = "<group>"; };
-		89B3467316BAC80F00926131 /* ResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceType.h; sourceTree = "<group>"; };
-		89B3467416BACE2100926131 /* HumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanName.h; sourceTree = "<group>"; };
-		89B3467516BACE2100926131 /* HumanName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanName.m; sourceTree = "<group>"; };
-		89B3467716BAF9C200926131 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		89B3467816BAF9C200926131 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		89CA63B616D3FB8800766718 /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
-		89CA63B716D3FB8800766718 /* JSONToDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONToDict.m; sourceTree = "<group>"; };
-		89CB21AA16C292E7006A7497 /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
-		89CB21AC16C29952006A7497 /* NodeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeType.m; sourceTree = "<group>"; };
-		89D05CB816B809DE00139BEF /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
-		89D05CB916B809DE00139BEF /* Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coding.m; sourceTree = "<group>"; };
-		89D05CBD16B8146000139BEF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
-		89D05CBE16B8146000139BEF /* Uri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uri.m; sourceTree = "<group>"; };
-		89D05CC116B81F9700139BEF /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Code.h; sourceTree = "<group>"; };
-		89D05CC216B81F9700139BEF /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Code.m; sourceTree = "<group>"; };
-		89D05CC416B8279800139BEF /* ResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceReference.h; sourceTree = "<group>"; };
-		89D05CC516B8279800139BEF /* ResourceReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceReference.m; sourceTree = "<group>"; };
-		89D05CC816B82D2D00139BEF /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
-		89D05CC916B82D2D00139BEF /* Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resource.m; sourceTree = "<group>"; };
-		89D05CCB16B8314800139BEF /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Narrative.h; sourceTree = "<group>"; };
-		89D05CCC16B8314800139BEF /* Narrative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Narrative.m; sourceTree = "<group>"; };
-		89D05CCE16B866AF00139BEF /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Binary.h; sourceTree = "<group>"; };
-		89D05CCF16B866AF00139BEF /* Base64Binary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Binary.m; sourceTree = "<group>"; };
-		89D05CD116B86A7A00139BEF /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
-		89D05CD216B86A7A00139BEF /* XhtmlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XhtmlNode.m; sourceTree = "<group>"; };
-		89D9B0DA16DD446300F1DA7A /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Decoder.h; sourceTree = "<group>"; };
-		89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Decoder.m; sourceTree = "<group>"; };
-		89DD76B716CBED0B00962C66 /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
-		89DD76B816CBED0B00962C66 /* DictToJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictToJSON.m; sourceTree = "<group>"; };
-		89DD76BA16CC28C200962C66 /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
-		89DD76BB16CC28C300962C66 /* Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,17 +176,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		893D7AD416DD368D009E45B5 /* Base64 */ = {
+		894622AB16E7E0080040E6EF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				89D05CCE16B866AF00139BEF /* Base64Binary.h */,
-				89D05CCF16B866AF00139BEF /* Base64Binary.m */,
-				893D7AD516DD37A0009E45B5 /* Base64Encoder.h */,
-				893D7AD616DD37A0009E45B5 /* Base64Encoder.m */,
-				89D9B0DA16DD446300F1DA7A /* Base64Decoder.h */,
-				89D9B0DB16DD446300F1DA7A /* Base64Decoder.m */,
+				894622A516E7DFFF0040E6EF /* Animal.h */,
+				894622A616E7DFFF0040E6EF /* Animal.m */,
+				894622A716E7DFFF0040E6EF /* Patient.h */,
+				894622A816E7DFFF0040E6EF /* Patient.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		894622AC16E7E0230040E6EF /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				894622AD16E7E0510040E6EF /* Demographics.h */,
+				894622AE16E7E0510040E6EF /* Demographics.m */,
+				894622C316E7E5980040E6EF /* HumanId.h */,
+				894622C416E7E5980040E6EF /* HumanId.m */,
+				894622C516E7E5980040E6EF /* Identifier.h */,
+				894622C616E7E5980040E6EF /* Identifier.m */,
+				894622C716E7E5980040E6EF /* Image.h */,
+				894622C816E7E5980040E6EF /* Image.m */,
+				894622C916E7E5980040E6EF /* Language.h */,
+				894622CA16E7E5980040E6EF /* Language.m */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		894622B016E7E1EA0040E6EF /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				894622B116E7E22A0040E6EF /* Address.h */,
+				894622B216E7E22A0040E6EF /* Address.m */,
+				894622B316E7E22A0040E6EF /* CodeableConcept.h */,
+				894622B416E7E22A0040E6EF /* CodeableConcept.m */,
+				894622B516E7E22A0040E6EF /* Contact.h */,
+				894622B616E7E22A0040E6EF /* Contact.m */,
+				894622B716E7E22A0040E6EF /* HumanName.h */,
+				894622B816E7E22A0040E6EF /* HumanName.m */,
+				894622CF16E7E5B60040E6EF /* Coding.h */,
+				894622D016E7E5B60040E6EF /* Coding.m */,
+				894622D116E7E5B60040E6EF /* NodeType.h */,
+				894622D216E7E5B60040E6EF /* NodeType.m */,
+				894622D316E7E5B60040E6EF /* Period.h */,
+				894622D416E7E5B60040E6EF /* Period.m */,
+				894622D516E7E5B60040E6EF /* XhtmlNode.h */,
+				894622D616E7E5B60040E6EF /* XhtmlNode.m */,
+			);
+			name = "Data Types";
+			sourceTree = "<group>";
+		};
+		894622DC16E7E5DD0040E6EF /* Primative Types */ = {
+			isa = PBXGroup;
+			children = (
+				894622EF16E7E60A0040E6EF /* Base64 */,
+				894622DD16E7E6020040E6EF /* Bool.h */,
+				894622DE16E7E6020040E6EF /* Bool.m */,
+				894622DF16E7E6020040E6EF /* Code.h */,
+				894622E016E7E6020040E6EF /* Code.m */,
+				894622E116E7E6020040E6EF /* Element.h */,
+				894622E216E7E6020040E6EF /* Element.m */,
+				894622E316E7E6020040E6EF /* String.h */,
+				894622E416E7E6020040E6EF /* String.m */,
+				894622E516E7E6020040E6EF /* Type.h */,
+				894622E616E7E6020040E6EF /* Type.m */,
+				894622E716E7E6020040E6EF /* Uri.h */,
+				894622E816E7E6020040E6EF /* Uri.m */,
+			);
+			name = "Primative Types";
+			sourceTree = "<group>";
+		};
+		894622EF16E7E60A0040E6EF /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				894622F016E7E6170040E6EF /* Base64Binary.h */,
+				894622F116E7E6170040E6EF /* Base64Binary.m */,
+				894622F216E7E6170040E6EF /* Base64Decoder.h */,
+				894622F316E7E6170040E6EF /* Base64Decoder.m */,
+				894622F416E7E6170040E6EF /* Base64Encoder.h */,
+				894622F516E7E6170040E6EF /* Base64Encoder.m */,
 			);
 			name = Base64;
+			sourceTree = "<group>";
+		};
+		894622F916E7E6290040E6EF /* Other Types */ = {
+			isa = PBXGroup;
+			children = (
+				894622FA16E7E63C0040E6EF /* Extension.h */,
+				894622FB16E7E63C0040E6EF /* Extension.m */,
+				894622FC16E7E63C0040E6EF /* Narrative.h */,
+				894622FD16E7E63C0040E6EF /* Narrative.m */,
+			);
+			name = "Other Types";
+			sourceTree = "<group>";
+		};
+		8975C29F16E505B0000CB985 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				8946228516E7DB080040E6EF /* XMLReader.h */,
+				8946228616E7DB080040E6EF /* XMLReader.m */,
+				8946228716E7DB080040E6EF /* XMLToDict.h */,
+				8946228816E7DB080040E6EF /* XMLToDict.m */,
+			);
+			name = XML;
 			sourceTree = "<group>";
 		};
 		8993D7DC16B1D88400D0AFB4 = {
@@ -217,15 +315,14 @@
 		8993D7EC16B1D88400D0AFB4 /* FHIR */ = {
 			isa = PBXGroup;
 			children = (
+				8975C29F16E505B0000CB985 /* XML */,
 				89CB21A516C29066006A7497 /* JSON */,
-				8993D81516B1D9CB00D0AFB4 /* Patient.h */,
-				89667AF416C42AE70096E52F /* Patient.m */,
-				89000E3416C92D2F007E911D /* Animal.h */,
-				89000E3516C92D2F007E911D /* Animal.m */,
-				89B3467016BABE7500926131 /* Demographics.h */,
-				89B3467116BABE7500926131 /* Demographics.m */,
-				8996827E16B9B28E005DFEC7 /* Top Level Types */,
+				894622AB16E7E0080040E6EF /* Classes */,
+				894622AC16E7E0230040E6EF /* Subclasses */,
+				894622B016E7E1EA0040E6EF /* Data Types */,
 				89D05CC716B82D1000139BEF /* Resource Files */,
+				894622DC16E7E5DD0040E6EF /* Primative Types */,
+				894622F916E7E6290040E6EF /* Other Types */,
 				8993D7ED16B1D88400D0AFB4 /* Supporting Files */,
 			);
 			path = FHIR;
@@ -234,7 +331,7 @@
 		8993D7ED16B1D88400D0AFB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8993D7EE16B1D88400D0AFB4 /* FHIR-Prefix.pch */,
+				8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -258,91 +355,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8996827E16B9B28E005DFEC7 /* Top Level Types */ = {
-			isa = PBXGroup;
-			children = (
-				89000E3716C93126007E911D /* Language.h */,
-				89000E3816C93126007E911D /* Language.m */,
-				89B3467716BAF9C200926131 /* Contact.h */,
-				89B3467816BAF9C200926131 /* Contact.m */,
-				89B3467416BACE2100926131 /* HumanName.h */,
-				89B3467516BACE2100926131 /* HumanName.m */,
-				8996828016B9C1AE005DFEC7 /* HumanId.h */,
-				8996828116B9C1AE005DFEC7 /* HumanId.m */,
-				8950B3C316B6D9D1007CB8B5 /* CodeableConcept.h */,
-				898082BD16B71B0A00B21812 /* CodeableConcept.m */,
-				89733C2016CD7EBB00038F71 /* Address.h */,
-				89733C2116CD7EBB00038F71 /* Address.m */,
-			);
-			name = "Top Level Types";
-			sourceTree = "<group>";
-		};
 		89CB21A516C29066006A7497 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				89DD76B716CBED0B00962C66 /* DictToJSON.h */,
-				89DD76B816CBED0B00962C66 /* DictToJSON.m */,
-				89CA63B616D3FB8800766718 /* JSONToDict.h */,
-				89CA63B716D3FB8800766718 /* JSONToDict.m */,
+				8946228B16E7DBEB0040E6EF /* DictToJSON.h */,
+				8946228C16E7DBEB0040E6EF /* DictToJSON.m */,
+				8946228D16E7DBEB0040E6EF /* JSONToDict.h */,
+				8946228E16E7DBEB0040E6EF /* JSONToDict.m */,
 			);
 			name = JSON;
-			sourceTree = "<group>";
-		};
-		89D05CBC16B80A2C00139BEF /* Bottom Level Types */ = {
-			isa = PBXGroup;
-			children = (
-				89D05CB816B809DE00139BEF /* Coding.h */,
-				89D05CB916B809DE00139BEF /* Coding.m */,
-				89D05CCB16B8314800139BEF /* Narrative.h */,
-				89D05CCC16B8314800139BEF /* Narrative.m */,
-				89000E3A16C939A3007E911D /* Image.h */,
-				89000E3B16C939A4007E911D /* Image.m */,
-				89D05CD116B86A7A00139BEF /* XhtmlNode.h */,
-				89D05CD216B86A7A00139BEF /* XhtmlNode.m */,
-				89B3466916BAB4A800926131 /* Identifier.h */,
-				89B3466A16BAB4A800926131 /* Identifier.m */,
-				89B3466D16BABA7E00926131 /* Period.h */,
-				89B3466E16BABA7E00926131 /* Period.m */,
-				893D7AD016DCF0C8009E45B5 /* Extension.h */,
-				893D7AD116DCF0C8009E45B5 /* Extension.m */,
-				89D05CC016B81F6800139BEF /* Type and Supporting */,
-			);
-			name = "Bottom Level Types";
-			sourceTree = "<group>";
-		};
-		89D05CC016B81F6800139BEF /* Type and Supporting */ = {
-			isa = PBXGroup;
-			children = (
-				893D7AD416DD368D009E45B5 /* Base64 */,
-				89DD76BA16CC28C200962C66 /* Bool.h */,
-				89DD76BB16CC28C300962C66 /* Bool.m */,
-				89D05CBD16B8146000139BEF /* Uri.h */,
-				89D05CBE16B8146000139BEF /* Uri.m */,
-				89D05CC116B81F9700139BEF /* Code.h */,
-				89D05CC216B81F9700139BEF /* Code.m */,
-				89CB21AA16C292E7006A7497 /* NodeType.h */,
-				89CB21AC16C29952006A7497 /* NodeType.m */,
-				89B3467316BAC80F00926131 /* ResourceType.h */,
-				8996827B16B96BBC005DFEC7 /* String.h */,
-				8996827C16B96BBC005DFEC7 /* String.m */,
-				8950B3C716B6DD85007CB8B5 /* Type.h */,
-				89436D6116CAA9E4004563E4 /* Type.m */,
-				8950B3CD16B6DE80007CB8B5 /* Element.h */,
-				8950B3CE16B6DE80007CB8B5 /* Element.m */,
-			);
-			name = "Type and Supporting";
 			sourceTree = "<group>";
 		};
 		89D05CC716B82D1000139BEF /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
-				89667AEF16C400850096E52F /* FHIRResourceDictionary.h */,
-				89667AF016C400850096E52F /* FHIRResourceDictionary.m */,
-				89D05CC416B8279800139BEF /* ResourceReference.h */,
-				89D05CC516B8279800139BEF /* ResourceReference.m */,
-				89D05CC816B82D2D00139BEF /* Resource.h */,
-				89D05CC916B82D2D00139BEF /* Resource.m */,
-				89D05CBC16B80A2C00139BEF /* Bottom Level Types */,
+				8946229C16E7DDF70040E6EF /* FHIRResourceDictionary.h */,
+				8946229D16E7DDF70040E6EF /* FHIRResourceDictionary.m */,
+				8946229E16E7DDF70040E6EF /* Resource.h */,
+				8946229F16E7DDF70040E6EF /* Resource.m */,
+				894622A016E7DDF70040E6EF /* ResourceReference.h */,
+				894622A116E7DDF70040E6EF /* ResourceReference.m */,
 			);
 			name = "Resource Files";
 			sourceTree = "<group>";
@@ -445,37 +477,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8950B3CF16B6DE80007CB8B5 /* Element.m in Sources */,
-				898082BE16B71B0A00B21812 /* CodeableConcept.m in Sources */,
-				89D05CBA16B809DE00139BEF /* Coding.m in Sources */,
-				89D05CBF16B8146000139BEF /* Uri.m in Sources */,
-				89D05CC316B81F9700139BEF /* Code.m in Sources */,
-				89D05CC616B8279800139BEF /* ResourceReference.m in Sources */,
-				89D05CCA16B82D2D00139BEF /* Resource.m in Sources */,
-				89D05CCD16B8314800139BEF /* Narrative.m in Sources */,
-				89D05CD016B866AF00139BEF /* Base64Binary.m in Sources */,
-				89D05CD316B86A7A00139BEF /* XhtmlNode.m in Sources */,
-				8996827D16B96BBC005DFEC7 /* String.m in Sources */,
-				8996828216B9C1AF005DFEC7 /* HumanId.m in Sources */,
-				89B3466B16BAB4A800926131 /* Identifier.m in Sources */,
-				89B3466F16BABA7E00926131 /* Period.m in Sources */,
-				89B3467216BABE7500926131 /* Demographics.m in Sources */,
-				89B3467616BACE2100926131 /* HumanName.m in Sources */,
-				89B3467916BAF9C200926131 /* Contact.m in Sources */,
-				89CB21AD16C29952006A7497 /* NodeType.m in Sources */,
-				89667AF116C400850096E52F /* FHIRResourceDictionary.m in Sources */,
-				89667AF516C42AE90096E52F /* Patient.m in Sources */,
-				89000E3616C92D2F007E911D /* Animal.m in Sources */,
-				89000E3916C93126007E911D /* Language.m in Sources */,
-				89000E3C16C939A4007E911D /* Image.m in Sources */,
-				89436D6216CAA9E4004563E4 /* Type.m in Sources */,
-				89DD76B916CBED0B00962C66 /* DictToJSON.m in Sources */,
-				89DD76BC16CC28C500962C66 /* Bool.m in Sources */,
-				89733C2216CD7EBC00038F71 /* Address.m in Sources */,
-				89CA63B816D3FB8800766718 /* JSONToDict.m in Sources */,
-				893D7AD216DCF0C8009E45B5 /* Extension.m in Sources */,
-				893D7AD716DD37A0009E45B5 /* Base64Encoder.m in Sources */,
-				89D9B0DC16DD446300F1DA7A /* Base64Decoder.m in Sources */,
+				8946228916E7DB080040E6EF /* XMLReader.m in Sources */,
+				8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */,
+				8946228F16E7DBEB0040E6EF /* DictToJSON.m in Sources */,
+				8946229016E7DBEB0040E6EF /* JSONToDict.m in Sources */,
+				894622A216E7DDF70040E6EF /* FHIRResourceDictionary.m in Sources */,
+				894622A316E7DDF70040E6EF /* Resource.m in Sources */,
+				894622A416E7DDF70040E6EF /* ResourceReference.m in Sources */,
+				894622A916E7DFFF0040E6EF /* Animal.m in Sources */,
+				894622AA16E7DFFF0040E6EF /* Patient.m in Sources */,
+				894622AF16E7E0510040E6EF /* Demographics.m in Sources */,
+				894622B916E7E22A0040E6EF /* Address.m in Sources */,
+				894622BA16E7E22A0040E6EF /* CodeableConcept.m in Sources */,
+				894622BB16E7E22A0040E6EF /* Contact.m in Sources */,
+				894622BC16E7E22A0040E6EF /* HumanName.m in Sources */,
+				894622CB16E7E5980040E6EF /* HumanId.m in Sources */,
+				894622CC16E7E5980040E6EF /* Identifier.m in Sources */,
+				894622CD16E7E5980040E6EF /* Image.m in Sources */,
+				894622CE16E7E5980040E6EF /* Language.m in Sources */,
+				894622D716E7E5B60040E6EF /* Coding.m in Sources */,
+				894622D816E7E5B60040E6EF /* NodeType.m in Sources */,
+				894622D916E7E5B60040E6EF /* Period.m in Sources */,
+				894622DA16E7E5B60040E6EF /* XhtmlNode.m in Sources */,
+				894622E916E7E6020040E6EF /* Bool.m in Sources */,
+				894622EA16E7E6020040E6EF /* Code.m in Sources */,
+				894622EB16E7E6020040E6EF /* Element.m in Sources */,
+				894622EC16E7E6020040E6EF /* String.m in Sources */,
+				894622ED16E7E6020040E6EF /* Type.m in Sources */,
+				894622EE16E7E6020040E6EF /* Uri.m in Sources */,
+				894622F616E7E6170040E6EF /* Base64Binary.m in Sources */,
+				894622F716E7E6170040E6EF /* Base64Decoder.m in Sources */,
+				894622F816E7E6170040E6EF /* Base64Encoder.m in Sources */,
+				894622FE16E7E63C0040E6EF /* Extension.m in Sources */,
+				894622FF16E7E63C0040E6EF /* Narrative.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

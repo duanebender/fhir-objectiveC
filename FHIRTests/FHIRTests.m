@@ -13,6 +13,7 @@
 #import "JSONToDict.h"
 #import "Base64Encoder.h"
 #import "Base64Decoder.h"
+#import "XMLToDict.h"
 
 
 @implementation FHIRTests
@@ -165,30 +166,29 @@
 
     tempDictionary = [patientJson generateAndReturnPatientResourceDictionary];
     [json generateJsonString:tempDictionary];
-    
+     
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
-    [jsonDict convertJsonToDictionary:@"Patient"];
+    [jsonDict convertJsonToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=json" resourcetype:@"Patient"];
     NSLog(@"%@", jsonDict);
     
     //take new dictionary and make a new file
-    DictToJSON *json2 = [[DictToJSON alloc] init];
-    FHIRResourceDictionary *tempDictionary2 = [[FHIRResourceDictionary alloc] init];
+    //DictToJSON *json2 = [[DictToJSON alloc] init];
+    //FHIRResourceDictionary *tempDictionary2 = [[FHIRResourceDictionary alloc] init];
     
     //tempDictionary2 = [ generateAndReturnPatientResourceDictionary];
     //[json generateJsonString:tempDictionary];
     
 }
 
-- (void)testBase64
+- (void)testXML
 {
-    NSLog(@"Beginning Base64 tests...");
+    NSLog(@"Beginning FHIRXML tests...");
     
     //code in here
-    NSData *image = [[NSData alloc] initWithContentsOfFile:@"/Users/adamsippel/Pictures/IMG_0001.JPG"];
-    NSString *encodedString = [Base64Encoder base64StringFromData:image length:0];
-    NSData *decodedFile = [Base64Decoder base64DataFromString:encodedString];
-    //NSLog(@"%@", decodedFile); //works but will lag your computer if trying to view the NSLog becaue of the massive string length
+    XMLToDict *xmlDict = [[XMLToDict alloc] init];
+    [xmlDict convertXmlToDictionary:@"Patient"];
+    NSLog(@"%@", xmlDict);
 }
 
 @end
