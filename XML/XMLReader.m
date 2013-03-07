@@ -8,7 +8,7 @@
 
 #import "XMLReader.h"
 
-NSString *const kXMLReaderTextNodeKey = @"text";
+NSString *const kXMLReaderTextNodeKey = @"value";
 
 @interface XMLReader (Internal)
 
@@ -123,12 +123,22 @@ NSString *const kXMLReaderTextNodeKey = @"text";
     NSMutableDictionary *dictInProgress = [dictionaryStack lastObject];
     
     // Set the text property
-    if ([textInProgress length] > 0)
+    //check if text exists, if there is more than just spaces, and if it is within a div container.
+    if ([textInProgress length] > 0 && ([dictInProgress objectForKey:@"div"]))
     {
-        //[dictInProgress setObject:textInProgress forKey:kXMLReaderTextNodeKey];
-
+        //remove all spaces
+        NSArray *words = [textInProgress componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceCharacterSet]];
+        NSString* nospacestring = [words componentsJoinedByString:@""];
+        
+        //remove all new line markers
+        NSArray *content = [nospacestring componentsSeparatedByString:@"\n"];
+        NSString *finalString = [content componentsJoinedByString:@""];
+        
+        //add to dictionary final edited string
+        [dictInProgress setObject:finalString forKey:kXMLReaderTextNodeKey];
+        NSLog(@"%@", textInProgress);
+        
         // Reset the text
-        //[textInProgress release];
         textInProgress = [[NSMutableString alloc] init];
     }
     
