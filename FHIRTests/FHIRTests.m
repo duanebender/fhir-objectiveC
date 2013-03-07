@@ -169,7 +169,7 @@
      
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
-    [jsonDict convertJsonToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=json" resourcetype:@"Patient"];
+    [jsonDict convertJsonToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=json" resourceType:@"Patient"];
     NSLog(@"%@", jsonDict);
     
     //take new dictionary and make a new file
@@ -187,7 +187,7 @@
     
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
-    [xmlDict convertXmlToDictionary:@"Patient"];
+    [xmlDict convertXmlToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=xml" resourceType:@"Patient"];
     NSLog(@"%@", xmlDict);
 }
 

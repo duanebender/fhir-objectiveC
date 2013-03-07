@@ -12,18 +12,19 @@
 
 @synthesize incomingResourceType = _incomingResourceType;
 
-- (void)convertJsonToDictionary:(NSString *)urlString resourcetype:(NSString *)resourceType
+- (void)convertJsonToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
 {
     /*
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
      */
     NSURL *url = [NSURL URLWithString:urlString];
-    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil]; //[documentsDirectory stringByAppendingPathComponent:[urlString stringByAppendingString:@".json"]];
+    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
+    //[documentsDirectory stringByAppendingPathComponent:[urlString stringByAppendingString:@".json"]];
     //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
     if (jsonString)
     {
-                NSLog(@"Exists");
+        NSLog(@"Exists");
         NSData *fileContent = [[NSData alloc] initWithContentsOfURL:url];
         NSError *error;
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];

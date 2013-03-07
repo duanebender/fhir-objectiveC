@@ -13,6 +13,6 @@
 
 @property (nonatomic) NSString *incomingResourceType;
 
-- (void)convertJsonToDictionary:(NSString *)urlString resourcetype:(NSString *)resourceType;
+- (void)convertJsonToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType;
 
 @end

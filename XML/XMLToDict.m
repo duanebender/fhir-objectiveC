@@ -13,35 +13,31 @@
 @synthesize incomingResourceType = _incomingResourceType;
 
 #warning - Fix this code!!!
-- (void)convertXmlToDictionary:(NSString *)urlString
+- (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
 {
-    NSString *str = [@"<?xml pie ?> apple  <? pie?> toe" mutableCopy];
+    //NSString *filePath = @"/Users/adamsippel/Desktop/patient.xml";
+    //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
     
-    str = [self stringByStrippingXMLHeader:str];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *xmlString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
     
-    NSLog(@"%@",str);
-    
-    NSString *filePath = @"/Users/adamsippel/Desktop/patient.xml";
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
-    if (fileExists)
+    if (xmlString)
     {
         NSLog(@"Exists");
-        NSString *xmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+        //NSString *xmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         NSError *error;
         xmlString = [self stringByStrippingXMLHeader:xmlString];
-        NSLog(@"%@",xmlString);
+        //NSLog(@"%@",xmlString);
         
-        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLString:xmlString error:error]; //error here <--
-        _incomingResourceType = urlString;
-        NSLog(@"%@", xmlDictionary);
+        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLString:xmlString error:error];
+        _incomingResourceType = resourceType;
+        //NSLog(@"%@", xmlDictionary);
         [self createLocalizedObject:xmlDictionary];
     }
     else
     {
-        NSLog(@"File does not exist at: %@", filePath);
+        NSLog(@"File does not exist at: %@", urlString);
     }
-    
-    
     
 }
 
@@ -51,8 +47,7 @@
     {
         Patient *patient = [[Patient alloc] init];
         [patient patientParser:xmlDict];
-        NSLog(@"Here?");
-        NSLog(@"%@", patient);
+        //NSLog(@"%@", patient);
     }
 }
 

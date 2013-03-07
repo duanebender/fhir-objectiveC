@@ -14,6 +14,6 @@
 
 @property (nonatomic) NSString *incomingResourceType;
 
-- (void)convertXmlToDictionary:(NSString *)urlString;
+- (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType;
 
 @end

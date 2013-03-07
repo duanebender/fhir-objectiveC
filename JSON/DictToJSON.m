@@ -24,9 +24,8 @@
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[fileName stringByAppendingString:@".json"]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager createFileAtPath:@"/Users/adamsippel/Patient.json" contents:encodedData attributes:nil];
+    [fileManager createFileAtPath:@"/Users/adamsippel/Desktop/Patient.json" contents:encodedData attributes:nil];
     //[_jsonString writeToFile:filePath atomically:YES encoding: NSUTF8StringEncoding error: NULL];
-    
     
 }
 

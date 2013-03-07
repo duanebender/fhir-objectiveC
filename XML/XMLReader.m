@@ -1,5 +1,6 @@
 //
 //  XMLReader.m
+//  FHIR
 //
 //  Created by Adam Sippel on 2013-03-04.
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
@@ -124,7 +125,7 @@ NSString *const kXMLReaderTextNodeKey = @"text";
     // Set the text property
     if ([textInProgress length] > 0)
     {
-        [dictInProgress setObject:textInProgress forKey:kXMLReaderTextNodeKey];
+        //[dictInProgress setObject:textInProgress forKey:kXMLReaderTextNodeKey];
 
         // Reset the text
         //[textInProgress release];
