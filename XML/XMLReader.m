@@ -136,7 +136,7 @@ NSString *const kXMLReaderTextNodeKey = @"value";
         
         //add to dictionary final edited string
         [dictInProgress setObject:finalString forKey:kXMLReaderTextNodeKey];
-        NSLog(@"%@", textInProgress);
+        //NSLog(@"%@", textInProgress);
         
         // Reset the text
         textInProgress = [[NSMutableString alloc] init];
