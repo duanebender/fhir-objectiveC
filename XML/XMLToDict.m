@@ -12,7 +12,7 @@
 
 @synthesize incomingResourceType = _incomingResourceType;
 
-#warning - Fix this code!!!
+
 - (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
 {
     //NSString *filePath = @"/Users/adamsippel/Desktop/patient.xml";
@@ -45,8 +45,8 @@
 {
     if ([_incomingResourceType isEqual: @"Patient"])
     {
-        Patient *patient = [[Patient alloc] init];
-        [patient patientParser:xmlDict];
+        _patient = [[Patient alloc] init];
+        [_patient patientParser:xmlDict];
         //NSLog(@"%@", patient);
     }
 }

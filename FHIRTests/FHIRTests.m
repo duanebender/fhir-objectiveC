@@ -14,6 +14,7 @@
 #import "Base64Encoder.h"
 #import "Base64Decoder.h"
 #import "XMLToDict.h"
+#import "DictToXML.h"
 
 
 @implementation FHIRTests
@@ -165,7 +166,7 @@
     FHIRResourceDictionary *tempDictionary = [[FHIRResourceDictionary alloc] init];
 
     tempDictionary = [patientJson generateAndReturnPatientResourceDictionary];
-    [json generateJsonString:tempDictionary];
+    [json generateJsonString:tempDictionary urlPath:@"/Users/adamsippel/Desktop/Patient.json"];
      
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
@@ -189,6 +190,12 @@
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
     [xmlDict convertXmlToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=xml" resourceType:@"Patient"];
     NSLog(@"%@", xmlDict);
+    
+    DictToXML *xml = [[DictToXML alloc] init];
+    FHIRResourceDictionary *tempDict = [[FHIRResourceDictionary alloc] init];
+    tempDict = [xmlDict.patient generateAndReturnPatientResourceDictionary];
+    NSLog(@"%@",xmlDict.patient);
+    [xml generateXmlString:tempDict urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
 }
 
 @end
