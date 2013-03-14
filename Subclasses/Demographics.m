@@ -62,8 +62,8 @@
     {
         HumanName *tempHN = [[HumanName alloc] init];
         [tempHN humanNameParser:[nameArray objectAtIndex:i]];
-        [_name addObject:tempHN];
-        NSLog(@"%@", _name);
+        [_name addObject:[tempHN generateAndReturnHumanNameDictionary]];
+        //NSLog(@"%@", _name);
     }
     
     //_telecom
@@ -73,8 +73,8 @@
     {
         Contact *tempCT = [[Contact alloc] init];
         [tempCT contactParser:[teleArray objectAtIndex:i]];
-        [_telecom addObject:tempCT];
-        NSLog(@"%@", _telecom);
+        [_telecom addObject:[tempCT generateAndReturnContactDictionary]];
+        //NSLog(@"%@", _telecom);
     }
     
     [_gender codingParser:[dictionary objectForKey:@"gender"]];
@@ -88,8 +88,8 @@
     {
         Address *tempAD = [[Address alloc] init];
         [tempAD addressParser:[addrArray objectAtIndex:i]];
-        [_address addObject:tempAD];
-        NSLog(@"%@", _address);
+        [_address addObject:[tempAD generateAndReturnAddressDictionary]];
+        //NSLog(@"%@", _address);
     }
     
     [_maritalStatus codeableConceptParser:[dictionary objectForKey:@"maritalStatus"]];
@@ -101,8 +101,8 @@
     {
         Language *tempLA = [[Language alloc] init];
         [tempLA languageParser:[langArray objectAtIndex:i]];
-        [_language addObject:tempLA];
-        NSLog(@"%@", _language);
+        [_language addObject:[tempLA generateAndReturnLanguageDictionary]];
+        //NSLog(@"%@", _language);
     }
 }
 

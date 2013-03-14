@@ -19,11 +19,12 @@
                                                                  format: NSPropertyListXMLFormat_v1_0
                                                        errorDescription: &error];
     
-    NSString *xmlString = [[NSString alloc] initWithData: xmlData encoding: NSUTF8StringEncoding];
+    _xmlString = [[NSString alloc] initWithData: xmlData encoding: NSUTF8StringEncoding];
+    NSLog(@"XMLSTRING HERE *************** %@", _xmlString);
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager createFileAtPath:urlString contents:xmlData attributes:nil];
-    [xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
     //[_jsonString writeToFile:filePath atomically:YES encoding: NSUTF8StringEncoding error: NULL];
 }
 

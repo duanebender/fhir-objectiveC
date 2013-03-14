@@ -24,11 +24,12 @@ typedef enum NarrativeStatus
 @property (nonatomic, retain) FHIRResourceDictionary *narrativeDictionary;
 
 @property (nonatomic) NSInteger status; //The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
+@property (nonatomic, retain) String *statusSV; //string value of status
 @property (nonatomic, retain) XhtmlNode *div; //The actual narrative content, a stripped down version of XHTML
 @property (nonatomic, retain) NSMutableArray *image; //array of images referred to directly in the xhtml
 
-- (void)setValueNarrative:(NSString *)codeString; //set IdentifierUse Using a string
-- (NSString *)returnStringNarrative; //get IdentifierUse as a String
+//- (void)setValueNarrative:(NSString *)codeString; //set IdentifierUse Using a string
+//- (NSString *)returnStringNarrative; //get IdentifierUse as a String
 
 - (NSDictionary *)generateAndReturnNarrativeDictionary; //returns resource ready to be formatted
 - (void)narrativeParser:(NSDictionary *)dictionary; //sets narrative from dictionary

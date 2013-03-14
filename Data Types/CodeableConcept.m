@@ -48,7 +48,7 @@
     {
         Coding *tempCS = [[Coding alloc] init];
         [tempCS codingParser:[codeArray objectAtIndex:i]];
-        [_coding addObject:tempCS];
+        [_coding addObject:[tempCS generateAndReturnCodingDictionary]];
         //NSLog(@"%@", _coding);
     }
     

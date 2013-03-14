@@ -11,6 +11,7 @@
 @implementation XMLToDict
 
 @synthesize incomingResourceType = _incomingResourceType;
+@synthesize patient = _patient;
 
 
 - (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
@@ -43,11 +44,12 @@
 
 - (void)createLocalizedObject:(NSDictionary *)xmlDict
 {
-    if ([_incomingResourceType isEqual: @"Patient"])
+    if ([xmlDict objectForKey:@"Patient"])//([_incomingResourceType caseInsensitiveCompare:@"Patient"])
     {
         _patient = [[Patient alloc] init];
+        NSLog(@"Here I made it.");
         [_patient patientParser:xmlDict];
-        //NSLog(@"%@", patient);
+        NSLog(@"patientXML ************** %@", _patient);
     }
 }
 

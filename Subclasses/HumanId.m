@@ -13,6 +13,7 @@
 @synthesize humanIdDictionary = _humanIdDictionary;
 
 @synthesize use = _use; //Identifies the use for this identifier, if known
+@synthesize useSV = _useSV; //use string value of integer
 @synthesize label = _label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
 @synthesize identifier = _identifier; //The identifier itself
 @synthesize period = _period; //Time period during which identifier was valid for use
@@ -27,35 +28,38 @@
         _identifier = [[Identifier alloc] init];
         _period = [[Period alloc] init];
         _assigner = [[ResourceReference alloc] init];
+        _useSV = [[String alloc] init];
     }
     return self;
 }
 
-- (void)setValueUse:(NSString *)codeString
+- (void)setValueUse:(NSDictionary *)useDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"usual"]) self.use = IdentifierUseUsual;
-    else if ([codeString caseInsensitiveCompare:@"official"]) self.use = IdentifierUseOfficial;
-    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
+    [_useSV setValueString:useDictionary];
+    
+    if ([_useSV.value caseInsensitiveCompare:@"usual"]) self.use = IdentifierUseUsual;
+    else if ([_useSV.value caseInsensitiveCompare:@"official"]) self.use = IdentifierUseOfficial;
+    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
     else self.use = 0;
     
 };
 
-- (NSString *)returnStringUse
+- (NSDictionary *)returnStringUse
 {
     switch (self.use)
     {
         case IdentifierUseUsual:
-            return @"usual";
+            return [_useSV generateAndReturnDictionary];
             break;
         case IdentifierUseOfficial:
-            return @"official";
+            return [_useSV generateAndReturnDictionary];
             break;
         case IdentifierUseTemp:
-            return @"temp";
+            return [_useSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 
@@ -79,6 +83,7 @@
     [_period periodParser:[dictionary objectForKey:@"period"]];
     [_assigner resourceReferenceParser:[dictionary objectForKey:@"assigner"]];
     [self setValueUse:[dictionary objectForKey:@"use"]];
+
 }
 
 @end

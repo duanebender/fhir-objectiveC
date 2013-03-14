@@ -13,7 +13,6 @@
 @interface DictToJSON : NSObject
 
 @property (nonatomic, retain) NSString *jsonString;
-@property (nonatomic, retain) Patient *patient;
 
 - (void)generateJsonString:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString;
 

@@ -14,7 +14,7 @@
 
 - (NSDictionary *)generateAndReturnDictionary
 {
-    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[_uri absoluteString], @"value", nil];
+    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_uri, @"value", nil];
     return stringDictionary;
 }
 

@@ -27,13 +27,14 @@ typedef enum IdentifierUse
 @property (nonatomic, retain) FHIRResourceDictionary *humanIdDictionary; //dictionary of all HumanId resources
 
 @property (nonatomic) NSInteger use; //Identifies the use for this identifier, if known
+@property (nonatomic, retain) String *useSV; //use value parser value
 @property (nonatomic, retain) String *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
 @property (nonatomic,retain) Identifier *identifier; //The identifier itself
 @property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
 @property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier
 
-- (void)setValueUse:(NSString *)codeString; //set IdentifierUse Using a string
-- (NSString *)returnStringUse; //get IdentifierUse as a String
+//- (void)setValueUse:(NSString *)codeString; //set IdentifierUse Using a string
+//- (NSString *)returnStringUse; //get IdentifierUse as a String
 
 - (NSDictionary *)generateAndReturnHumanIdDictionary; //returns resource ready to be formatted
 - (void)humanIdParser:(NSDictionary *)dictionary; //set humanid from dictionary

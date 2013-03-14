@@ -13,7 +13,9 @@
 @synthesize contactDictionary = _contactDictionary;
 
 @synthesize system = _system; //What kind of contact this is - what communications system is required to make use of the contact
+@synthesize systemSV = _systemSV; //string for system
 @synthesize use = _use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+@synthesize useSV = _useSV; //string for use
 @synthesize value = _value; //Identifies the context for the address
 @synthesize period = _period; //Time period when the contact was/is in use
 
@@ -24,73 +26,79 @@
         _contactDictionary = [[FHIRResourceDictionary alloc] init];
         _value = [[String alloc] init];
         _period = [[Period alloc] init];
+        _systemSV = [[String alloc] init];
+        _useSV = [[String alloc] init];
     }
     return self;
 }
 
-- (void)setValueSystem:(NSString *)codeString
+- (void)setValueSystem:(NSDictionary *)systemDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"phone"]) self.system = ContactSystemPhone;
-    else if ([codeString caseInsensitiveCompare:@"fax"]) self.system = ContactSystemFax;
-    else if ([codeString caseInsensitiveCompare:@"email"]) self.system = ContactSystemEmail;
-    else if ([codeString caseInsensitiveCompare:@"url"]) self.system = ContactSystemUrl;
+    [_systemSV setValueString:systemDictionary];
+    
+    if ([_systemSV.value caseInsensitiveCompare:@"phone"]) self.system = ContactSystemPhone;
+    else if ([_systemSV.value caseInsensitiveCompare:@"fax"]) self.system = ContactSystemFax;
+    else if ([_systemSV.value caseInsensitiveCompare:@"email"]) self.system = ContactSystemEmail;
+    else if ([_systemSV.value caseInsensitiveCompare:@"url"]) self.system = ContactSystemUrl;
     else self.system = 0;
 };
 
-- (NSString *)returnStringSystem
+- (NSDictionary *)returnStringSystem
 {
     switch (self.system)
     {
         case ContactSystemPhone:
-            return @"phone";
+            return [_systemSV generateAndReturnDictionary];
             break;
         case ContactSystemFax:
-            return @"fax";
+            return [_systemSV generateAndReturnDictionary];
             break;
         case ContactSystemEmail:
-            return @"email";
+            return [_systemSV generateAndReturnDictionary];
             break;
         case ContactSystemUrl:
-            return @"url";
+            return [_systemSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 
-- (void)setValueUse:(NSString *)codeString
+- (void)setValueUse:(NSDictionary *)useDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"home"]) self.use = ContactUseHome;
-    else if ([codeString caseInsensitiveCompare:@"work"]) self.use = ContactUseWork;
-    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = ContactUseTemp;
-    else if ([codeString caseInsensitiveCompare:@"old"]) self.use = ContactUseOld;
-    else if ([codeString caseInsensitiveCompare:@"mobile"]) self.use = ContactUseMobile;
+    [_useSV setValueString:useDictionary];
+    
+    if ([_useSV.value caseInsensitiveCompare:@"home"]) self.use = ContactUseHome;
+    else if ([_useSV.value caseInsensitiveCompare:@"work"]) self.use = ContactUseWork;
+    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = ContactUseTemp;
+    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = ContactUseOld;
+    else if ([_useSV.value caseInsensitiveCompare:@"mobile"]) self.use = ContactUseMobile;
     else self.use = 0;
 };
 
-- (NSString *)returnStringUse
+- (NSDictionary *)returnStringUse
 {
     switch (self.use)
     {
         case ContactUseHome:
-            return @"home";
+            return [_useSV generateAndReturnDictionary];
             break;
         case ContactUseWork:
-            return @"work";
+            return [_useSV generateAndReturnDictionary];
             break;
         case ContactUseTemp:
-            return @"temp";
+            return [_useSV generateAndReturnDictionary];
             break;
         case ContactUseOld:
-            return @"old";
+            return [_useSV generateAndReturnDictionary];
             break;
         case ContactUseMobile:
-            return @"mobile";
+            return [_useSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 

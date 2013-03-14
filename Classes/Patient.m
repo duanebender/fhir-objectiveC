@@ -20,6 +20,7 @@
 @synthesize diet = _diet; //Dietary restrictions for the patient
 @synthesize confidentiality = _confidentiality; //Confidentiality of the patient records
 @synthesize recordLocation = _recordLocation; //The location of the paper record for the patient, if there is one
+@synthesize genText = _genText;
 
 - (id)init
 {
@@ -35,6 +36,7 @@
         _diet = [[CodeableConcept alloc] init];
         _confidentiality = [[CodeableConcept alloc] init];
         _recordLocation = [[CodeableConcept alloc] init];
+        _genText = [[Text alloc] init];
     }
     return self;
 }
@@ -57,6 +59,7 @@
                                            [_diet generateAndReturnCodeableConceptDictionary], @"diet",
                                            [_confidentiality generateAndReturnCodeableConceptDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnCodeableConceptDictionary], @"recordLocation",
+                                           [_genText generateAndReturnTextDictionary], @"text", //holds extra generated text
                                            nil];
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
@@ -67,39 +70,42 @@
 
 - (void)patientParser:(NSDictionary *)dictionary
 {
-    NSDictionary *patient = [dictionary objectForKey:@"Patient"];
-    NSLog(@"%@", patient);
+    NSDictionary *patientDict = [dictionary objectForKey:@"Patient"];
+    //NSLog(@"%@", patient);
     
     //_link
-    NSArray *linkArray = [[NSArray alloc] initWithArray:[patient objectForKey:@"link"]];
+    NSArray *linkArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"link"]];
     _link = [[NSMutableArray alloc] init];
     for (int i = 0; i < [linkArray count]; i++)
     {
         ResourceReference *tempRR = [[ResourceReference alloc] init];
         [tempRR resourceReferenceParser:[linkArray objectAtIndex:i]];
-        [_link addObject:tempRR];
+        [_link addObject:[tempRR generateAndReturnResourceReferenceDictionary]];
         //NSLog(@"%@", _link);
     }
     
-    [_active setValueBool:[patient objectForKey:@"active"]];
+    [_active setValueBool:[patientDict objectForKey:@"active"]];
     
     //_identifier
-    NSArray *identifierArray = [[NSArray alloc] initWithArray:[patient objectForKey:@"identifier"]];
+    NSArray *identifierArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"identifier"]];
     _identifier = [[NSMutableArray alloc] init];
     for (int i = 0; i < [identifierArray count]; i++)
     {
         HumanId *tempHI = [[HumanId alloc] init];
-        [tempHI humanIdParser:[identifierArray objectAtIndex:i]];
-        [_identifier addObject:tempHI];
+        [tempHI humanIdParser:[identifierArray objectAtIndex:i]]; 
+        [_identifier addObject:[tempHI generateAndReturnHumanIdDictionary]];
         //NSLog(@"%@", _identifier);
     }
     
-    [_details demographicsParser:[patient objectForKey:@"details"]];
-    [_animal animalParser:[patient objectForKey:@"animal"]];
-    [_provider resourceReferenceParser:[patient objectForKey:@"provider"]];
-    [_diet codeableConceptParser:[patient objectForKey:@"diet"]];
-    [_confidentiality codeableConceptParser:[patient objectForKey:@"confidentiality"]];
-    [_recordLocation codeableConceptParser:[patient objectForKey:@"recordLocation"]];
+    [_details demographicsParser:[patientDict objectForKey:@"details"]];
+    [_animal animalParser:[patientDict objectForKey:@"animal"]];
+    [_provider resourceReferenceParser:[patientDict objectForKey:@"provider"]];
+    [_diet codeableConceptParser:[patientDict objectForKey:@"diet"]];
+    [_confidentiality codeableConceptParser:[patientDict objectForKey:@"confidentiality"]];
+    [_recordLocation codeableConceptParser:[patientDict objectForKey:@"recordLocation"]];
+    
+    [_genText textParser:[patientDict objectForKey:@"text"]];
+    
 }
 
 @end

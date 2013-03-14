@@ -11,7 +11,6 @@
 @implementation DictToJSON
 
 @synthesize jsonString = _jsonString;
-@synthesize patient = _patient;
 
 - (void)generateJsonString:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString
 {
@@ -21,7 +20,7 @@
     NSData *encodedData = [NSJSONSerialization dataWithJSONObject:json.dataForResource options:NSJSONWritingPrettyPrinted error:nil];
     //_jsonString = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
     
-    NSString *fileName = json.resourceName;
+    //NSString *fileName = json.resourceName;
     //NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[fileName stringByAppendingString:@".json"]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];

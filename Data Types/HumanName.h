@@ -26,15 +26,13 @@ typedef enum
 @property (nonatomic, retain) FHIRResourceDictionary *humanNameDictionary; //resources for human name
 
 @property (nonatomic) NSInteger use;
+@property (nonatomic, retain) String *useSV; //string equivelent of use
 @property (nonatomic, retain) String *text; //a full text representation of the name
 @property (nonatomic, retain) NSMutableArray *family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father. Array of Strings
 @property (nonatomic, retain) NSMutableArray *given; //Given name. NOTE: Not to be called "first name" since given names do not always come first. Array of Strings
 @property (nonatomic, retain) NSMutableArray *prefix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name. Array of Strings
 @property (nonatomic, retain) NSMutableArray *suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name. Array of Strings
 @property (nonatomic, retain) Period *period; //Indicates the period of time when this name was valid for the named person.
-
-- (void)setValueUse:(NSString *)codeString; //set IdentifierUse Using a string
-- (NSString *)returnStringUse; //get IdentifierUse as a String
 
 - (NSDictionary *)generateAndReturnHumanNameDictionary; //returns resource ready to be formatted
 - (void)humanNameParser:(NSDictionary *)dictionary; //set humanname from dictionary

@@ -42,6 +42,7 @@
 		894622F816E7E6170040E6EF /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F516E7E6170040E6EF /* Base64Encoder.m */; };
 		894622FE16E7E63C0040E6EF /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FB16E7E63C0040E6EF /* Extension.m */; };
 		894622FF16E7E63C0040E6EF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FD16E7E63C0040E6EF /* Narrative.m */; };
+		897CF6C116F0EE0200442A03 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 897CF6C016F0EE0200442A03 /* Text.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
@@ -143,6 +144,8 @@
 		894622FC16E7E63C0040E6EF /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Narrative.h; path = "Other Types/Narrative.h"; sourceTree = SOURCE_ROOT; };
 		894622FD16E7E63C0040E6EF /* Narrative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Narrative.m; path = "Other Types/Narrative.m"; sourceTree = SOURCE_ROOT; };
 		8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
+		897CF6BF16F0EE0200442A03 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = "Other Types/Text.h"; sourceTree = SOURCE_ROOT; };
+		897CF6C016F0EE0200442A03 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = "Other Types/Text.m"; sourceTree = SOURCE_ROOT; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +273,8 @@
 				894622FB16E7E63C0040E6EF /* Extension.m */,
 				894622FC16E7E63C0040E6EF /* Narrative.h */,
 				894622FD16E7E63C0040E6EF /* Narrative.m */,
+				897CF6BF16F0EE0200442A03 /* Text.h */,
+				897CF6C016F0EE0200442A03 /* Text.m */,
 			);
 			name = "Other Types";
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				894622FE16E7E63C0040E6EF /* Extension.m in Sources */,
 				894622FF16E7E63C0040E6EF /* Narrative.m in Sources */,
 				89F9145816EE28E00024DF3E /* DictToXML.m in Sources */,
+				897CF6C116F0EE0200442A03 /* Text.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

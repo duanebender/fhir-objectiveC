@@ -13,6 +13,7 @@
 @synthesize humanNameDictionary = _humanNameDictionary;
 
 @synthesize use = _use;
+@synthesize useSV = _useSV; //string version of use
 @synthesize text = _text; //a full text representation of the name
 @synthesize family = _family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
 @synthesize given = _given; //Given name. NOTE: Not to be called "first name" since given names do not always come first.
@@ -31,50 +32,53 @@
         _prefix = [[NSMutableArray alloc] init];
         _suffix = [[NSMutableArray alloc] init];
         _period = [[Period alloc] init];
+        _useSV = [[String alloc] init];
     }
     return self;
 }
 
-- (void)setValueUse:(NSString *)codeString
+- (void)setValueUse:(NSDictionary *)useDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"usual"]) self.use = usual;
-    else if ([codeString caseInsensitiveCompare:@"official"]) self.use = official;
-    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = temp;
-    else if ([codeString caseInsensitiveCompare:@"nickname"]) self.use = nickname;
-    else if ([codeString caseInsensitiveCompare:@"annonymous"]) self.use = annonymous;
-    else if ([codeString caseInsensitiveCompare:@"old"]) self.use = old;
-    else if ([codeString caseInsensitiveCompare:@"maiden"]) self.use = maiden;
+    [_useSV setValueString:useDictionary];
+    
+    if ([_useSV.value caseInsensitiveCompare:@"usual"]) self.use = usual;
+    else if ([_useSV.value caseInsensitiveCompare:@"official"]) self.use = official;
+    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = temp;
+    else if ([_useSV.value caseInsensitiveCompare:@"nickname"]) self.use = nickname;
+    else if ([_useSV.value caseInsensitiveCompare:@"annonymous"]) self.use = annonymous;
+    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = old;
+    else if ([_useSV.value caseInsensitiveCompare:@"maiden"]) self.use = maiden;
     else self.use = 0;
 };
 
-- (NSString *)returnStringUse
+- (NSDictionary *)returnStringUse
 {
     switch (self.use)
     {
         case usual:
-            return @"usual";
+            return [_useSV generateAndReturnDictionary];
             break;
         case official:
-            return @"official";
+            return [_useSV generateAndReturnDictionary];
             break;
         case temp:
-            return @"temp";
+            return [_useSV generateAndReturnDictionary];
             break;
         case nickname:
-            return @"nickname";
+            return [_useSV generateAndReturnDictionary];
             break;
         case annonymous:
-            return @"annonymous";
+            return [_useSV generateAndReturnDictionary];
             break;
         case old:
-            return @"old";
+            return [_useSV generateAndReturnDictionary];
             break;
         case maiden:
-            return @"maiden";
+            return [_useSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 
@@ -105,7 +109,7 @@
     {
         String *tempS1 = [[String alloc] init];
         [tempS1 setValueString:[famiArray objectAtIndex:i]];
-        [_family addObject:tempS1];
+        [_family addObject:[tempS1 generateAndReturnDictionary]];
         //NSLog(@"%@", _family);
     }
     
@@ -116,7 +120,7 @@
     {
         String *tempS2 = [[String alloc] init];
         [tempS2 setValueString:[famiArray objectAtIndex:i]];
-        [_given addObject:tempS2];
+        [_given addObject:[tempS2 generateAndReturnDictionary]];
         //NSLog(@"%@", _given);
     }
     
@@ -127,7 +131,7 @@
     {
         String *tempS3 = [[String alloc] init];
         [tempS3 setValueString:[prefArray objectAtIndex:i]];
-        [_prefix addObject:tempS3];
+        [_prefix addObject:[tempS3 generateAndReturnDictionary]];
         //NSLog(@"%@", _prefix);
     }
     
@@ -138,11 +142,12 @@
     {
         String *tempS4 = [[String alloc] init];
         [tempS4 setValueString:[suffArray objectAtIndex:i]];
-        [_suffix addObject:tempS4];
+        [_suffix addObject:[tempS4 generateAndReturnDictionary]];
         //NSLog(@"%@", _suffix);
     }
-    
+
     [_period periodParser:[dictionary objectForKey:@"period"]];
+
 }
 
 @end

@@ -11,7 +11,8 @@
 #import "ResourceReference.h"
 #import "Animal.h"
 #import "HumanId.h"
-#import "bool.h"
+#import "Bool.h"
+#import "Text.h"
 
 //A patient is a person or animal that is receiving care
 
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) CodeableConcept *diet; //Dietary restrictions for the patient
 @property (nonatomic, retain) CodeableConcept *confidentiality; //Confidentiality of the patient records
 @property (nonatomic, retain) CodeableConcept *recordLocation; //The location of the paper record for the patient, if there is one
+@property (nonatomic, retain) Text *genText; //text holder for extra generated text
     
 @end
 

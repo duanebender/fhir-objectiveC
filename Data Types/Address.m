@@ -13,6 +13,7 @@
 @synthesize addressDictionary = _addressDictionary; //dictionary of all resources for address
 
 @synthesize use = _use; //Identifies the intended purpose of this address
+@synthesize useSV = _useSV; //string equivelent of use
 @synthesize text = _text; //a full text representation of the address
 @synthesize part = _part; //Part of an address line. Contains Strings only.
 @synthesize line = _line; //A line of an address (typically used for street names & numbers, unit details, delivery hints, etc.). Contains String's only.
@@ -37,39 +38,42 @@
         _country = [[String alloc] init];
         _dpid = [[String alloc] init];
         _period = [[Period alloc] init];
+        _useSV = [[String alloc] init];
     }
     return self;
 }
 
-- (void)setValueUse:(NSString *)codeString
+- (void)setValueUse:(NSDictionary *)useDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"home"]) self.use = AddressUseHome;
-    else if ([codeString caseInsensitiveCompare:@"work"]) self.use = AddressUseWork;
-    else if ([codeString caseInsensitiveCompare:@"temp"]) self.use = AddressUseTemp;
-    else if ([codeString caseInsensitiveCompare:@"old"]) self.use = AddressUseOld;
+    [_useSV setValueString:useDictionary];
+    
+    if ([_useSV.value caseInsensitiveCompare:@"home"]) self.use = AddressUseHome;
+    else if ([_useSV.value caseInsensitiveCompare:@"work"]) self.use = AddressUseWork;
+    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = AddressUseTemp;
+    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = AddressUseOld;
     else self.use = 0;
     
 };
 
-- (NSString *)returnStringUse
+- (NSDictionary *)returnStringUse
 {
     switch (self.use)
     {
         case AddressUseHome:
-            return @"home";
+            return [_useSV generateAndReturnDictionary];
             break;
         case AddressUseWork:
-            return @"work";
+            return [_useSV generateAndReturnDictionary];
             break;
         case AddressUseTemp:
-            return @"temp";
+            return [_useSV generateAndReturnDictionary];
             break;
         case AddressUseOld:
-            return @"old";
+            return [_useSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 
@@ -103,7 +107,7 @@
     {
         String *tempS1 = [[String alloc] init];
         [tempS1 setValueString:[partArray objectAtIndex:i]];
-        [_part addObject:tempS1];
+        [_part addObject:[tempS1 generateAndReturnDictionary]];
         //NSLog(@"%@", _part);
     }
     
@@ -114,7 +118,7 @@
     {
         String *tempS2 = [[String alloc] init];
         [tempS2 setValueString:[lineArray objectAtIndex:i]];
-        [_line addObject:tempS2];
+        [_line addObject:[tempS2 generateAndReturnDictionary]];
         //NSLog(@"%@", _line);
     }
     

@@ -36,14 +36,17 @@ typedef enum ContactUse
 @property (nonatomic, retain) FHIRResourceDictionary *contactDictionary; //holds all resources for contact
 
 @property (nonatomic) NSInteger system; //What kind of contact this is - what communications system is required to make use of the contact
+@property (nonatomic, retain) String *systemSV; //string value of system
 @property (nonatomic) NSInteger use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+@property (nonatomic, retain) String *useSV; //String value of use
+
 @property (nonatomic, retain) String *value; //Identifies the context for the address
 @property (nonatomic, retain) Period *period; //Time period when the contact was/is in use
 
-- (void)setValueSystem:(NSString *)codeString; //set ContactSystem Using a string
-- (NSString *)returnStringSystem; //get ContactSystem as a String
-- (void)setValueUse:(NSString *)codeString; //set ContactUse Using a string
-- (NSString *)returnStringUse; //get ContactUse as a String
+//- (void)setValueSystem:(NSString *)codeString; //set ContactSystem Using a string
+//- (NSString *)returnStringSystem; //get ContactSystem as a String
+//- (void)setValueUse:(NSString *)codeString; //set ContactUse Using a string
+//- (NSString *)returnStringUse; //get ContactUse as a String
 
 - (NSDictionary *)generateAndReturnContactDictionary; //returns resource ready to be formatted
 - (void)contactParser:(NSDictionary *)dictionary; //sets contact based on dictionary

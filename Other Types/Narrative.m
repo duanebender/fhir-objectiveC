@@ -11,6 +11,7 @@
 @implementation Narrative
 
 @synthesize status = _status; //The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
+@synthesize statusSV = _statusSV; //string value of status
 @synthesize div = _div; //The actual narrative content, a stripped down version of XHTML
 @synthesize image = _image; //array of images referred to directly in the xhtml
 
@@ -25,34 +26,36 @@
     return self;
 }
 
-- (void)setValueNarrative:(NSString *)codeString
+- (void)setValueNarrative:(NSDictionary *)statusDictionary
 {
-    if ([codeString caseInsensitiveCompare:@"generated"]) self.status = NarrativeStatusGenerated;
-    else if ([codeString caseInsensitiveCompare:@"extensions"]) self.status = NarrativeStatusExtensions;
-    else if ([codeString caseInsensitiveCompare:@"additional"]) self.status = NarrativeStatusAdditional;
-    else if ([codeString caseInsensitiveCompare:@"empty"]) self.status = NarrativeStatusEmpty;
+    [_statusSV setValueString:statusDictionary];
+    
+    if ([_statusSV.value caseInsensitiveCompare:@"generated"]) self.status = NarrativeStatusGenerated;
+    else if ([_statusSV.value caseInsensitiveCompare:@"extensions"]) self.status = NarrativeStatusExtensions;
+    else if ([_statusSV.value caseInsensitiveCompare:@"additional"]) self.status = NarrativeStatusAdditional;
+    else if ([_statusSV.value caseInsensitiveCompare:@"empty"]) self.status = NarrativeStatusEmpty;
     else self.status = 0;
 };
 
-- (NSString *)returnStringNarrative
+- (NSDictionary *)returnStringNarrative
 {
     switch (self.status)
     {
         case NarrativeStatusGenerated:
-            return @"generated";
+            return [_statusSV generateAndReturnDictionary];
             break;
         case NarrativeStatusExtensions:
-            return @"generated";
+            return [_statusSV generateAndReturnDictionary];
             break;
         case NarrativeStatusAdditional:
-            return @"generated";
+            return [_statusSV generateAndReturnDictionary];
             break;
         case NarrativeStatusEmpty:
-            return @"generated";
+            return [_statusSV generateAndReturnDictionary];
             break;
             
         default:
-            return @"?";
+            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
     }
 }
 

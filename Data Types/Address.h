@@ -24,6 +24,7 @@ typedef enum AddressUse
 @property (nonatomic, retain) FHIRResourceDictionary *addressDictionary; //dictionary of all resources for address
 
 @property (nonatomic) NSInteger use; //Identifies the intended purpose of this address
+@property (nonatomic, retain) String *useSV; //string value of use
 @property (nonatomic, retain) String *text; //a full text representation of the address
 @property (nonatomic, retain) NSMutableArray *part; //Part of an address line. Contains Strings only.
 @property (nonatomic, retain) NSMutableArray *line; //A line of an address (typically used for street names & numbers, unit details, delivery hints, etc.). Contains String's only.
@@ -33,9 +34,6 @@ typedef enum AddressUse
 @property (nonatomic, retain) String *country; //Country. ISO 3166 3 letter codes can be used in place of a full country name.
 @property (nonatomic, retain) String *dpid; //A value that uniquely identifies the postal address. (Often used in barcodes).
 @property (nonatomic, retain) Period *period; //Time period when address was/is in use.
-
-- (void)setValueUse:(NSString *)codeString; //set AddressUse Using a string
-- (NSString *)returnStringUse; //get AddressUse as a String
 
 - (NSDictionary *)generateAndReturnAddressDictionary; //returns resource ready to be formatted
 - (void)addressParser:(NSDictionary *)dictionary; //set address from dictionary

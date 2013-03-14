@@ -107,6 +107,7 @@
     
     //code in here
     //initialize test patient
+    /*
     Patient *patientJson = [[Patient alloc] init];
     
     //implement 2 resource references in link
@@ -132,11 +133,11 @@
     HumanId *id1 = [[HumanId alloc] init];
     id1.identifier.idNumber.value = @"000123";
     id1.label.value = @"Human";
-    [id1 setValueUse:@"official"];
+    //[id1 setValueUse:@"official"];
     HumanId *id2 = [[HumanId alloc] init];
     id2.identifier.idNumber.value = @"321000";
     id2.label.value = @"Inhuman";
-    [id2 setValueUse:@"usual"];
+    //[id2 setValueUse:@"usual"];
     NSDictionary *temp3 = [id1 generateAndReturnHumanIdDictionary];
     [patientJson.identifier addObject:temp3];
     NSDictionary *temp4 = [id2 generateAndReturnHumanIdDictionary];
@@ -158,20 +159,27 @@
     name1.text.value = @"NameText";
     name1.period.start = [NSDate date];
     [patientJson.details.name addObject:[name1 generateAndReturnHumanNameDictionary]];
-    
-    
+    */
     
     //test JSON
+    /*
     DictToJSON *json = [[DictToJSON alloc] init];
     FHIRResourceDictionary *tempDictionary = [[FHIRResourceDictionary alloc] init];
 
     tempDictionary = [patientJson generateAndReturnPatientResourceDictionary];
     [json generateJsonString:tempDictionary urlPath:@"/Users/adamsippel/Desktop/Patient.json"];
+     */
      
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
-    [jsonDict convertJsonToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=json" resourceType:@"Patient"];
-    NSLog(@"%@", jsonDict);
+    [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
+    //NSLog(@"%@", jsonDict.patient);
+    
+    //again to .json file
+    DictToJSON *json2 = [[DictToJSON alloc] init];
+    FHIRResourceDictionary *tempJsonDict = [[FHIRResourceDictionary alloc] init];
+    tempJsonDict = [jsonDict.patient generateAndReturnPatientResourceDictionary];
+    [json2 generateJsonString:tempJsonDict urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
     //take new dictionary and make a new file
     //DictToJSON *json2 = [[DictToJSON alloc] init];
@@ -189,12 +197,11 @@
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
     [xmlDict convertXmlToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?format=xml" resourceType:@"Patient"];
-    NSLog(@"%@", xmlDict);
+    //NSLog(@"%@", xmlDict);
     
     DictToXML *xml = [[DictToXML alloc] init];
     FHIRResourceDictionary *tempDict = [[FHIRResourceDictionary alloc] init];
     tempDict = [xmlDict.patient generateAndReturnPatientResourceDictionary];
-    NSLog(@"%@",xmlDict.patient);
     [xml generateXmlString:tempDict urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
 }
 

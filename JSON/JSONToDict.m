@@ -10,26 +10,22 @@
 
 @implementation JSONToDict
 
-@synthesize incomingResourceType = _incomingResourceType;
+//@synthesize incomingResourceType = _incomingResourceType;
+@synthesize patient = _patient;
 
-- (void)convertJsonToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
+- (void)convertJsonToDictionary:(NSString *)urlString
 {
-    /*
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-     */
     NSURL *url = [NSURL URLWithString:urlString];
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
-    //[documentsDirectory stringByAppendingPathComponent:[urlString stringByAppendingString:@".json"]];
-    //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+
     if (jsonString)
     {
         NSLog(@"Exists");
         NSData *fileContent = [[NSData alloc] initWithContentsOfURL:url];
         NSError *error;
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];
-        _incomingResourceType = resourceType;
-        //NSLog(@"%@", jsonDictionary);
+        //_incomingResourceType = resourceType;
+        NSLog(@"JSON Dict before localized: %@", jsonDictionary);
         [self createLocalizedObject:jsonDictionary];
     }
     else
@@ -41,11 +37,12 @@
 
 - (void)createLocalizedObject:(NSDictionary *)jsonDict
 {
-    if ([_incomingResourceType isEqual: @"Patient"])
+    if ([jsonDict objectForKey:@"Patient"])//([_incomingResourceType caseInsensitiveCompare:@"Patient"])
     {
-        Patient *patient = [[Patient alloc] init];
-        [patient patientParser:jsonDict];
-        NSLog(@"%@", jsonDict);
+        _patient = [[Patient alloc] init];
+        //NSLog(@"%@", _patient);
+        [_patient patientParser:jsonDict];
+        
     }
 }
 
