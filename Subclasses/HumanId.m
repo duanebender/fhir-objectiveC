@@ -83,7 +83,6 @@
     [_period periodParser:[dictionary objectForKey:@"period"]];
     [_assigner resourceReferenceParser:[dictionary objectForKey:@"assigner"]];
     [self setValueUse:[dictionary objectForKey:@"use"]];
-
 }
 
 @end

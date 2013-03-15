@@ -10,7 +10,7 @@
 
 @interface FHIRResourceDictionary : NSObject
 
-@property (nonatomic, retain) NSDictionary *dataForResource; //distionary of resources
+@property (nonatomic, retain) NSMutableDictionary *dataForResource; //distionary of resources
 @property (nonatomic, retain) NSString *resourceName; //name of the resource to be collected
 
 - (void)cleanAndCheck; //removes nil values from dictionary

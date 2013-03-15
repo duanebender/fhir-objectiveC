@@ -50,9 +50,9 @@
 - (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           _link, @"link",
+                                           [self generateLinkArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
-                                           _identifier, @"identifier",
+                                           [self generateIdentifierArray:_identifier], @"identifier",
                                            [_details generateAndReturnDemographicsDictionary], @"details",
                                            [_animal generateAndReturnAnimalDictionary], @"animal",
                                            [_provider generateAndReturnResourceReferenceDictionary], @"provider",
@@ -80,7 +80,7 @@
     {
         ResourceReference *tempRR = [[ResourceReference alloc] init];
         [tempRR resourceReferenceParser:[linkArray objectAtIndex:i]];
-        [_link addObject:[tempRR generateAndReturnResourceReferenceDictionary]];
+        [_link addObject:tempRR];
         //NSLog(@"%@", _link);
     }
     
@@ -93,7 +93,7 @@
     {
         HumanId *tempHI = [[HumanId alloc] init];
         [tempHI humanIdParser:[identifierArray objectAtIndex:i]]; 
-        [_identifier addObject:[tempHI generateAndReturnHumanIdDictionary]];
+        [_identifier addObject:tempHI];
         //NSLog(@"%@", _identifier);
     }
     
@@ -106,6 +106,28 @@
     
     [_genText textParser:[patientDict objectForKey:@"text"]];
     
+}
+
+- (NSArray *)generateLinkArray:(NSArray *)linkArray
+{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [linkArray count]; i++)
+    {
+        [tempArray addObject:[[linkArray objectAtIndex:i] generateAndReturnResourceReferenceDictionary]];
+    }
+    return tempArray;
+}
+
+- (NSArray *)generateIdentifierArray:(NSArray *)identifierArray
+{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [identifierArray count]; i++)
+    {
+        [tempArray addObject:[[identifierArray objectAtIndex:i] generateAndReturnHumanIdDictionary]];
+    }
+    return tempArray;
 }
 
 @end
