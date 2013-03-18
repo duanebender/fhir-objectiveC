@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Demographics.h"
-#import "ResourceReference.h"
+#import "ExistanceChecker.h"
+//#import "ResourceReference.h"
 #import "Animal.h"
-#import "HumanId.h"
+//#import "HumanId.h"
 #import "Bool.h"
 #import "Text.h"
 

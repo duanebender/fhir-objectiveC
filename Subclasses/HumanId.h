@@ -31,7 +31,7 @@ typedef enum IdentifierUse
 @property (nonatomic, retain) String *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
 @property (nonatomic,retain) Identifier *identifier; //The identifier itself
 @property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
-@property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier
+@property (nonatomic) ResourceReference *assigner; //Organisation that issued/manages the identifier
 
 //- (void)setValueUse:(NSString *)codeString; //set IdentifierUse Using a string
 //- (NSString *)returnStringUse; //get IdentifierUse as a String

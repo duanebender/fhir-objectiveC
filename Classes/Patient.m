@@ -50,9 +50,9 @@
 - (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [self generateLinkArray:_link], @"link",
+                                           [ExistanceChecker generateResourceReferenceArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
-                                           [self generateIdentifierArray:_identifier], @"identifier",
+                                           [ExistanceChecker generateHumanIdArray:_identifier], @"identifier",
                                            [_details generateAndReturnDemographicsDictionary], @"details",
                                            [_animal generateAndReturnAnimalDictionary], @"animal",
                                            [_provider generateAndReturnResourceReferenceDictionary], @"provider",
@@ -106,28 +106,6 @@
     
     [_genText textParser:[patientDict objectForKey:@"text"]];
     
-}
-
-- (NSArray *)generateLinkArray:(NSArray *)linkArray
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < [linkArray count]; i++)
-    {
-        [tempArray addObject:[[linkArray objectAtIndex:i] generateAndReturnResourceReferenceDictionary]];
-    }
-    return tempArray;
-}
-
-- (NSArray *)generateIdentifierArray:(NSArray *)identifierArray
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < [identifierArray count]; i++)
-    {
-        [tempArray addObject:[[identifierArray objectAtIndex:i] generateAndReturnHumanIdDictionary]];
-    }
-    return tempArray;
 }
 
 @end

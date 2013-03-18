@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "String.h"
 #import "Period.h"
+#import "ExistanceChecker.h"
 
 typedef enum
 {

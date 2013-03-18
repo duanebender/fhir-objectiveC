@@ -17,11 +17,28 @@
 {
     NSDictionary *startDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSDateFormatter localizedStringFromDate:_start dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"value", nil];
     NSDictionary *endDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSDateFormatter localizedStringFromDate:_end dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"value", nil];
-    NSDictionary *periodDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+    NSMutableDictionary *periodDictionary = [[NSMutableDictionary alloc] init];/*WithObjectsAndKeys:
                                       startDictionary, @"start",
                                       endDictionary, @"end",
-                                      nil];
-    return periodDictionary;
+                                      nil];*/
+    if ([startDictionary objectForKey:@"value"])
+    {
+        [periodDictionary addEntriesFromDictionary:startDictionary];
+    }
+    
+    if ([endDictionary objectForKey:@"value"])
+    {
+        [periodDictionary addEntriesFromDictionary:endDictionary];
+    }
+    
+    if ([periodDictionary count] == 0)
+    {
+        return NULL;
+    }
+    else
+    {
+        return periodDictionary;
+    }
 }
 
 - (void)periodParser:(NSDictionary *)dictionary

@@ -87,10 +87,10 @@
     _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
                                           [_text generateAndReturnDictionary], @"text",
-                                          _family, @"family",
-                                          _given, @"given",
-                                          _prefix, @"prefix",
-                                          _suffix, @"suffix",
+                                          [ExistanceChecker generateStringArray:_family], @"family",
+                                          [ExistanceChecker generateStringArray:_given], @"given",
+                                          [ExistanceChecker generateStringArray:_prefix], @"prefix",
+                                          [ExistanceChecker generateStringArray:_suffix], @"suffix",
                                           [_period generateAndReturnDictionary], @"period",
                                           nil];
     _humanNameDictionary.resourceName = @"HumanName";
@@ -109,19 +109,19 @@
     {
         String *tempS1 = [[String alloc] init];
         [tempS1 setValueString:[famiArray objectAtIndex:i]];
-        [_family addObject:[tempS1 generateAndReturnDictionary]];
+        [_family addObject:tempS1];
         //NSLog(@"%@", _family);
     }
     
     //_given
-    NSArray *giveArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"family"]];
+    NSArray *giveArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"given"]];
     _given = [[NSMutableArray alloc] init];
     for (int i = 0; i < [giveArray count]; i++)
     {
         String *tempS2 = [[String alloc] init];
-        [tempS2 setValueString:[famiArray objectAtIndex:i]];
-        [_given addObject:[tempS2 generateAndReturnDictionary]];
-        //NSLog(@"%@", _given);
+        [tempS2 setValueString:[giveArray objectAtIndex:i]];
+        [_given addObject:tempS2];
+        //NSLog(@"%@",_given);
     }
     
     //_prefix
@@ -131,7 +131,7 @@
     {
         String *tempS3 = [[String alloc] init];
         [tempS3 setValueString:[prefArray objectAtIndex:i]];
-        [_prefix addObject:[tempS3 generateAndReturnDictionary]];
+        [_prefix addObject:tempS3];
         //NSLog(@"%@", _prefix);
     }
     
@@ -142,7 +142,7 @@
     {
         String *tempS4 = [[String alloc] init];
         [tempS4 setValueString:[suffArray objectAtIndex:i]];
-        [_suffix addObject:[tempS4 generateAndReturnDictionary]];
+        [_suffix addObject:tempS4];
         //NSLog(@"%@", _suffix);
     }
 

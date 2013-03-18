@@ -15,4 +15,6 @@
 
 - (void)cleanAndCheck; //removes nil values from dictionary
 
+- (void)cleanUpDictionaryValues; //cleans up the dictionary
+
 @end

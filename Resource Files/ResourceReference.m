@@ -7,6 +7,7 @@
 //
 
 #import "ResourceReference.h"
+#import "ExistanceChecker.h"
 
 @implementation ResourceReference
 
@@ -32,12 +33,16 @@
 
 - (NSDictionary *)generateAndReturnResourceReferenceDictionary
 {
-    _resourceReferenceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+    
+    _resourceReferenceDictionary.dataForResource = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                           [_type generateAndReturnDictionary], @"type",
-                                          [_uriId generateAndReturnDictionary], @"id",
+                                          [_uriId generateAndReturnDictionary], @"url",
                                           [_version generateAndReturnDictionary], @"version",
-                                          [_display generateAndReturnDictionary], @"display",
+                                          [ExistanceChecker stringChecker:_display], @"display",
                                           nil];
+
+    [_resourceReferenceDictionary cleanUpDictionaryValues];
+    
     _resourceReferenceDictionary.resourceName = @"ResourceReference";
     return _resourceReferenceDictionary.dataForResource;
 }
@@ -45,7 +50,7 @@
 - (void)resourceReferenceParser:(NSDictionary *)dictionary
 {
     [_type setValueCode:[dictionary objectForKey:@"type"]];
-    [_uriId setValueURI:[dictionary objectForKey:@"id"]];
+    [_uriId setValueURI:[dictionary objectForKey:@"url"]];
     [_version setValueURI:[dictionary objectForKey:@"version"]];
     [_display setValueString:[dictionary objectForKey:@"display"]];
 }

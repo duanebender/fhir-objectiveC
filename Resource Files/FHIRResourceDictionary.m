@@ -24,4 +24,18 @@
     }
 }
 
+- (void)cleanUpDictionaryValues
+{
+    //remove entries with no values
+    NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
+    for (NSString* key in tempDict)
+    {
+        NSDictionary *value = [tempDict valueForKey:key];
+        if (value == nil || value == NULL || [value count] == 0)
+        {
+            [_dataForResource removeObjectForKey:key];
+        }
+    }
+}
+
 @end

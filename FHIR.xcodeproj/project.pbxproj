@@ -49,6 +49,7 @@
 		8993D80016B1D88500D0AFB4 /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7E716B1D88400D0AFB4 /* libFHIR.a */; };
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
+		89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E00D1216F7449300ED3F5E /* ExistanceChecker.m */; };
 		89F9145816EE28E00024DF3E /* DictToXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F9145716EE28E00024DF3E /* DictToXML.m */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +155,8 @@
 		8993D80516B1D88500D0AFB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
+		89E00D1116F7449300ED3F5E /* ExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistanceChecker.h; sourceTree = "<group>"; };
+		89E00D1216F7449300ED3F5E /* ExistanceChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistanceChecker.m; sourceTree = "<group>"; };
 		89F9145616EE28E00024DF3E /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictToXML.h; path = XML/DictToXML.h; sourceTree = SOURCE_ROOT; };
 		89F9145716EE28E00024DF3E /* DictToXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictToXML.m; path = XML/DictToXML.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -342,6 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */,
+				89E00D1116F7449300ED3F5E /* ExistanceChecker.h */,
+				89E00D1216F7449300ED3F5E /* ExistanceChecker.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				894622FF16E7E63C0040E6EF /* Narrative.m in Sources */,
 				89F9145816EE28E00024DF3E /* DictToXML.m in Sources */,
 				897CF6C116F0EE0200442A03 /* Text.m in Sources */,
+				89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
