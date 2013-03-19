@@ -35,7 +35,7 @@ typedef enum
 @property (nonatomic, retain) NSMutableArray *suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name. Array of Strings
 @property (nonatomic, retain) Period *period; //Indicates the period of time when this name was valid for the named person.
 
-- (NSDictionary *)generateAndReturnHumanNameDictionary; //returns resource ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
 - (void)humanNameParser:(NSDictionary *)dictionary; //set humanname from dictionary
 
 @end

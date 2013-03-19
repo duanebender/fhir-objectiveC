@@ -50,21 +50,22 @@
 - (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [ExistanceChecker generateResourceReferenceArray:_link], @"link",
+                                           [ExistanceChecker generateArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
-                                           [ExistanceChecker generateHumanIdArray:_identifier], @"identifier",
+                                           [ExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDemographicsDictionary], @"details",
                                            [_animal generateAndReturnAnimalDictionary], @"animal",
-                                           [_provider generateAndReturnResourceReferenceDictionary], @"provider",
+                                           [_provider generateAndReturnDictionary], @"provider",
                                            [_diet generateAndReturnCodeableConceptDictionary], @"diet",
                                            [_confidentiality generateAndReturnCodeableConceptDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnCodeableConceptDictionary], @"recordLocation",
-                                           [_genText generateAndReturnTextDictionary], @"text", //holds extra generated text
+                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];
     returnable.resourceName = @"Patient";
+    [returnable cleanUpDictionaryValues];
     return returnable;
 }
 
@@ -94,7 +95,6 @@
         HumanId *tempHI = [[HumanId alloc] init];
         [tempHI humanIdParser:[identifierArray objectAtIndex:i]]; 
         [_identifier addObject:tempHI];
-        //NSLog(@"%@", _identifier);
     }
     
     [_details demographicsParser:[patientDict objectForKey:@"details"]];

@@ -26,7 +26,7 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnTextDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _div = [self divStringClipper:_div];
     _textDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -46,7 +46,7 @@
 - (NSString *)divStringClipper:(NSString *)stringToClip
 {
     NSRange r;
-    while ((r = [stringToClip rangeOfString:@"^(\s*)\n(\s*)$" options:NSRegularExpressionSearch]).location != NSNotFound)
+    while ((r = [stringToClip rangeOfString:@"^(\\s*)\n(\\s*)$" options:NSRegularExpressionSearch]).location != NSNotFound)
     {
         //if ((r = [stringToClip rangeOfString:@"(.*)\n(.*)" options:NSRegularExpressionSearch]).location != NSNotFound)
         stringToClip = [stringToClip stringByReplacingCharactersInRange:r withString:@""];

@@ -82,17 +82,18 @@
     }
 }
 
-- (NSDictionary *)generateAndReturnHumanNameDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
                                           [_text generateAndReturnDictionary], @"text",
-                                          [ExistanceChecker generateStringArray:_family], @"family",
-                                          [ExistanceChecker generateStringArray:_given], @"given",
-                                          [ExistanceChecker generateStringArray:_prefix], @"prefix",
-                                          [ExistanceChecker generateStringArray:_suffix], @"suffix",
+                                          [ExistanceChecker generateArray:_family], @"family",
+                                          [ExistanceChecker generateArray:_given], @"given",
+                                          [ExistanceChecker generateArray:_prefix], @"prefix",
+                                          [ExistanceChecker generateArray:_suffix], @"suffix",
                                           [_period generateAndReturnDictionary], @"period",
                                           nil];
+    
     _humanNameDictionary.resourceName = @"HumanName";
     return _humanNameDictionary.dataForResource;
 }

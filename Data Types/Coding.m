@@ -28,7 +28,7 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnCodingDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _codingDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [_system generateAndReturnDictionary], @"system",

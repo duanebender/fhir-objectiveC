@@ -18,7 +18,7 @@
 
 @property (nonatomic, retain) FHIRResourceDictionary *textDictionary;
 
-- (NSDictionary *)generateAndReturnTextDictionary; //returns text ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns text ready to be formatted
 - (void)textParser:(NSDictionary *)dictionary; //sets text from dictionary
 
 @end

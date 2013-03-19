@@ -40,9 +40,9 @@
 - (NSDictionary *)generateAndReturnDemographicsDictionary
 {
     _demographicsDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               _name, @"name", //humannames only
-                                               _telecom, @"telecom", //contacts only
-                                               [_gender generateAndReturnCodingDictionary], @"gender",
+                                               [ExistanceChecker generateArray:_name], @"name", //humannames only
+                                               [ExistanceChecker generateArray:_telecom], @"telecom", //contacts only
+                                               [_gender generateAndReturnDictionary], @"gender",
                                                [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
                                                _address, @"address", //addresses only
@@ -62,7 +62,7 @@
     {
         HumanName *tempHN = [[HumanName alloc] init];
         [tempHN humanNameParser:[nameArray objectAtIndex:i]];
-        [_name addObject:[tempHN generateAndReturnHumanNameDictionary]];
+        [_name addObject:tempHN];
         //NSLog(@"%@", _name);
     }
     
@@ -73,7 +73,7 @@
     {
         Contact *tempCT = [[Contact alloc] init];
         [tempCT contactParser:[teleArray objectAtIndex:i]];
-        [_telecom addObject:[tempCT generateAndReturnContactDictionary]];
+        [_telecom addObject:tempCT];
         //NSLog(@"%@", _telecom);
     }
     
@@ -88,7 +88,7 @@
     {
         Address *tempAD = [[Address alloc] init];
         [tempAD addressParser:[addrArray objectAtIndex:i]];
-        [_address addObject:[tempAD generateAndReturnAddressDictionary]];
+        [_address addObject:tempAD];
         //NSLog(@"%@", _address);
     }
     
@@ -101,7 +101,7 @@
     {
         Language *tempLA = [[Language alloc] init];
         [tempLA languageParser:[langArray objectAtIndex:i]];
-        [_language addObject:[tempLA generateAndReturnLanguageDictionary]];
+        [_language addObject:tempLA];
         //NSLog(@"%@", _language);
     }
 }

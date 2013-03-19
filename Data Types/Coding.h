@@ -20,7 +20,7 @@
 @property (nonatomic, retain) Code *code; //A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system
 @property (nonatomic, retain) String *display; //A representation of the meaning of the code in the system, following the rules laid out by the system.
 
-- (NSDictionary *)generateAndReturnCodingDictionary; //return dicitonary ready for formatting
+- (NSDictionary *)generateAndReturnDictionary; //return dicitonary ready for formatting
 - (void)codingParser:(NSDictionary *)dictionary; //sets coding from dictionary
 
 @end

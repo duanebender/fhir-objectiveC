@@ -31,9 +31,8 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnResourceReferenceDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
-    
     _resourceReferenceDictionary.dataForResource = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                           [_type generateAndReturnDictionary], @"type",
                                           [_uriId generateAndReturnDictionary], @"url",

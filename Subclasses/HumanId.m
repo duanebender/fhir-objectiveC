@@ -42,6 +42,8 @@
     else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
     else self.use = 0;
     
+    NSLog(@"Use value: %d", _use);
+    
 };
 
 - (NSDictionary *)returnStringUse
@@ -63,15 +65,17 @@
     }
 }
 
-- (NSDictionary *)generateAndReturnHumanIdDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _humanIdDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [_label generateAndReturnDictionary], @"label",
-                                                    [_identifier generateAndReturnDictionary], @"id",
+                                                    [_identifier.idNumber generateAndReturnDictionary], @"id",
+                                                    [_identifier.system generateAndReturnDictionary], @"system",
                                                     [_period generateAndReturnDictionary], @"period",
-                                                    [_assigner generateAndReturnResourceReferenceDictionary], @"assigner",
+                                                    [_assigner generateAndReturnDictionary], @"assigner",
                                                     [self returnStringUse], @"use",
                                                     nil];
+    NSLog(@"%@",[self returnStringUse]);
     _humanIdDictionary.resourceName = @"HumanId";
     return _humanIdDictionary.dataForResource;
 }
@@ -79,7 +83,8 @@
 - (void)humanIdParser:(NSDictionary *)dictionary
 {
     [_label setValueString:[dictionary objectForKey:@"label"]];
-    [_identifier identifierParser:[dictionary objectForKey:@"id"]];
+    [_identifier.idNumber setValueString:[dictionary objectForKey:@"id"]];
+    [_identifier.system setValueURI:[dictionary objectForKey:@"system"]];
     [_period periodParser:[dictionary objectForKey:@"period"]];
     [_assigner resourceReferenceParser:[dictionary objectForKey:@"assigner"]];
     [self setValueUse:[dictionary objectForKey:@"use"]];

@@ -15,56 +15,19 @@
 
 @implementation ExistanceChecker
 
-//Resource Reference
-+ (NSArray *)generateResourceReferenceArray:(NSArray *)resourceReferenceArray
++ (NSArray *)generateArray:(NSArray *)array
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     
-    if ([resourceReferenceArray count] == 0)
+    if ([array count] <= 0)
     {
         return NULL;
     }
     else
     {
-        for (int i = 0; i < [resourceReferenceArray count]; i++)
+        for (int i = 0; i < [array count]; i++)
         {
-            [tempArray addObject:[[resourceReferenceArray objectAtIndex:i] generateAndReturnResourceReferenceDictionary]];
-        }
-        return tempArray;
-    }
-}
-
-+ (NSArray *)generateHumanIdArray:(NSArray *)humanIdArray
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    
-    if ([humanIdArray count] == 0)
-    {
-        return NULL;
-    }
-    else
-    {
-        for (int i = 0; i < [humanIdArray count]; i++)
-        {
-            [tempArray addObject:[[humanIdArray objectAtIndex:i] generateAndReturnHumanIdDictionary]];
-        }
-        return tempArray;
-    }
-}
-
-+ (NSArray *)generateStringArray:(NSArray *)stringArray
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    
-    if ([stringArray count] <= 0)
-    {
-        return NULL;
-    }
-    else
-    {
-        for (int i = 0; i < [stringArray count]; i++)
-        {
-            [tempArray addObject:[[stringArray objectAtIndex:i] generateAndReturnDictionary]];
+            [tempArray addObject:[[array objectAtIndex:i] generateAndReturnDictionary]];
         }
         return tempArray;
     }

@@ -12,10 +12,7 @@
 
 @interface ExistanceChecker : NSObject
 
-+ (NSArray *)generateResourceReferenceArray:(NSArray *)resourceReferenceArray;
-+ (NSArray *)generateHumanIdArray:(NSArray *)humanIdArray;
-
-+ (NSArray *)generateStringArray:(NSArray *)stringArray;
++ (NSArray *)generateArray:(NSArray *)array;
 + (NSDictionary *)stringChecker:(String *)string;
 
 @end
