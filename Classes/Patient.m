@@ -59,7 +59,7 @@
                                            [_diet generateAndReturnDictionary], @"diet",
                                            [_confidentiality generateAndReturnDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnDictionary], @"recordLocation",
-                                           //[_genText generateAndReturnDictionary], @"text", //holds extra generated text
+                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
     //[_patientDictionary cleanUpDictionaryValues];
     

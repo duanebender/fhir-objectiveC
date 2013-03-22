@@ -36,7 +36,7 @@
                                                [_genderStatus generateAndReturnDictionary], @"genderStatus",
                                                nil];
     _animalDictionary.resourceName = @"Animal";
-    //[_animalDictionary cleanUpDictionaryValues];
+    [_animalDictionary cleanUpDictionaryValues];
     return _animalDictionary.dataForResource;
 }
 

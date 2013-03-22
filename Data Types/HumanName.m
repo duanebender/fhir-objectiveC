@@ -94,6 +94,7 @@
                                           [_period generateAndReturnDictionary], @"period",
                                           nil];
     _humanNameDictionary.resourceName = @"HumanName";
+#warning - fix this below, dictionary removal error
     //[_humanNameDictionary cleanUpDictionaryValues];
     return _humanNameDictionary.dataForResource;
 }

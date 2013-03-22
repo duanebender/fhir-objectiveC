@@ -7,6 +7,7 @@
 //
 
 #import "Text.h"
+#import "ExistanceChecker.h"
 
 @implementation Text
 
@@ -49,7 +50,6 @@
     NSRange r;
     while ((r = [stringToClip rangeOfString:@"^(\\s*)\n(\\s*)$" options:NSRegularExpressionSearch]).location != NSNotFound)
     {
-        //if ((r = [stringToClip rangeOfString:@"(.*)\n(.*)" options:NSRegularExpressionSearch]).location != NSNotFound)
         stringToClip = [stringToClip stringByReplacingCharactersInRange:r withString:@""];
     }
     return stringToClip;
