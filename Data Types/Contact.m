@@ -102,7 +102,7 @@
     }
 }
 
-- (NSDictionary *)generateAndReturnContactDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _contactDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                             [self returnStringSystem], @"system",
@@ -111,6 +111,7 @@
                                             [_period generateAndReturnDictionary], @"period",
                                             nil];
     _contactDictionary.resourceName = @"Contact";
+    [_contactDictionary cleanUpDictionaryValues];
     return _contactDictionary.dataForResource;
 }
 

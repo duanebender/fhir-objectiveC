@@ -18,7 +18,7 @@
 @property (nonatomic, retain) String *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
 @property (nonatomic, retain) String *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
 
-- (NSDictionary *)generateAndReturnCodeableConceptDictionary; //returns dictionary ready for formatting
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready for formatting
 
 - (void)codeableConceptParser:(NSDictionary *)dictionary; //parses codeableconcept from dictionary
 

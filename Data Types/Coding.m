@@ -36,6 +36,7 @@
                                           [_display generateAndReturnDictionary], @"display",
                                           nil];
     _codingDictionary.resourceName = @"Coding";
+    [_codingDictionary cleanUpDictionaryValues];
     return _codingDictionary.dataForResource;
 }
 

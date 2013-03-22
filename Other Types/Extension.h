@@ -23,7 +23,7 @@
 @property (nonatomic, retain) Type *value; //Value of extension - may be a resource or one of a constraint set of the data types (see Extensibility in the spec for list)
 @property (nonatomic, retain) NSMutableArray *list; //Nested Extensions - further extensions that are part of the extension
 
-- (NSDictionary *)generateAndReturnExtensionDictionary; //returns dictionary of extension ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary of extension ready to be formatted
 - (void)extensionParser:(NSDictionary *)dictionary; //parses extension from dictionary
 
 @end

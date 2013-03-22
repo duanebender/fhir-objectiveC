@@ -7,6 +7,7 @@
 //
 
 #import "Resource.h"
+#import "ExistanceChecker.h"
 
 @implementation Resource
 
@@ -187,14 +188,15 @@
     
 }
 
-- (NSDictionary *)generateAndReturnResourceDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _resourceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                    _extensions, @"extensions",
-                                                    [_text generateAndReturnNarrativeDictionary], @"text",
+                                                    [ExistanceChecker generateArray:_extensions], @"extensions",
+                                                    [_text generateAndReturnDictionary], @"text",
                                                     [self returnResourceType], @"type",
                                                     nil];
     _resourceDictionary.resourceName = @"Resource";
+    [_resourceDictionary cleanUpDictionaryValues];
     return _resourceDictionary.dataForResource;
 }
 

@@ -17,7 +17,7 @@
 @property (nonatomic, retain) Code *mimeType;
 @property (nonatomic, retain) Base64Binary *content;
 
-- (NSDictionary *)generateAndReturnImageDictionary; //return image resources ready for formatting
+- (NSDictionary *)generateAndReturnDictionary; //return image resources ready for formatting
 - (void)imageParser:(NSDictionary *)dictionary; //set image from dictionary
 
 @end

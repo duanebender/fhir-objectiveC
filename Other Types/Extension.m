@@ -7,6 +7,7 @@
 //
 
 #import "Extension.h"
+#import "ExistanceChecker.h"
 
 @implementation Extension
 
@@ -29,15 +30,16 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnExtensionDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _extensionDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            [_uri generateAndReturnDictionary], @"uri",
                                            [_mustUnderstand generateAndReturnDictionary], @"mustUnderstand",
                                            _value.xmlId, @"value",
-                                           _list, @"list",
+                                           [ExistanceChecker generateArray:_list], @"list",
                                            nil];
     _extensionDictionary.resourceName = @"Extension";
+    [_extensionDictionary cleanUpDictionaryValues];
     return _extensionDictionary.dataForResource;
 }
 

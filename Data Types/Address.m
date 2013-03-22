@@ -7,6 +7,7 @@
 //
 
 #import "Address.h"
+#import "ExistanceChecker.h"
 
 @implementation Address
 
@@ -77,13 +78,13 @@
     }
 }
 
-- (NSDictionary *)generateAndReturnAddressDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _addressDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
                                           [_text generateAndReturnDictionary], @"text",
-                                          _part, @"part", //strings only
-                                          _line, @"line", //strings only
+                                          [ExistanceChecker generateArray:_part], @"part", //strings only
+                                          [ExistanceChecker generateArray:_line], @"line", //strings only
                                           [_city generateAndReturnDictionary], @"city",
                                           [_state generateAndReturnDictionary], @"state",
                                           [_zip generateAndReturnDictionary], @"zip",
@@ -92,6 +93,7 @@
                                           [_period generateAndReturnDictionary], @"period",
                                          nil];
     _addressDictionary.resourceName = @"Address";
+    [_addressDictionary cleanUpDictionaryValues];
     return _addressDictionary.dataForResource;
 }
 
@@ -107,7 +109,7 @@
     {
         String *tempS1 = [[String alloc] init];
         [tempS1 setValueString:[partArray objectAtIndex:i]];
-        [_part addObject:[tempS1 generateAndReturnDictionary]];
+        [_part addObject:tempS1];
         //NSLog(@"%@", _part);
     }
     
@@ -118,7 +120,7 @@
     {
         String *tempS2 = [[String alloc] init];
         [tempS2 setValueString:[lineArray objectAtIndex:i]];
-        [_line addObject:[tempS2 generateAndReturnDictionary]];
+        [_line addObject:tempS2];
         //NSLog(@"%@", _line);
     }
     

@@ -35,7 +35,7 @@ typedef enum AddressUse
 @property (nonatomic, retain) String *dpid; //A value that uniquely identifies the postal address. (Often used in barcodes).
 @property (nonatomic, retain) Period *period; //Time period when address was/is in use.
 
-- (NSDictionary *)generateAndReturnAddressDictionary; //returns resource ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
 - (void)addressParser:(NSDictionary *)dictionary; //set address from dictionary
 
 @end

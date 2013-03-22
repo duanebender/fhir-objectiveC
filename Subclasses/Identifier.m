@@ -25,11 +25,14 @@
 
 - (NSDictionary *)generateAndReturnDictionary
 {
-    NSDictionary *identifierDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+    FHIRResourceDictionary *identifierDictionary = [[FHIRResourceDictionary alloc] init];
+    identifierDictionary.dataForResource = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                       [_system generateAndReturnDictionary], @"system",
                                       [_idNumber generateAndReturnDictionary], @"id",
                                       nil];
-    return identifierDictionary;
+    identifierDictionary.resourceName = @"Identifier";
+    [identifierDictionary cleanUpDictionaryValues];
+    return identifierDictionary.dataForResource;
 }
 
 - (void)identifierParser:(NSDictionary *)dictionary

@@ -45,11 +45,12 @@
                                                [_gender generateAndReturnDictionary], @"gender",
                                                [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
-                                               _address, @"address", //addresses only
-                                               [_maritalStatus generateAndReturnCodeableConceptDictionary], @"maritalStatus",
-                                               _language, @"language", //languages only
+                                               [ExistanceChecker generateArray:_address], @"address", //addresses only
+                                               [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
+                                               [ExistanceChecker generateArray:_language], @"language", //languages only
                                                nil];
     _demographicsDictionary.resourceName = @"Demographics";
+    [_demographicsDictionary cleanUpDictionaryValues];
     return _demographicsDictionary.dataForResource;
 }
 

@@ -42,7 +42,7 @@
     else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
     else self.use = 0;
     
-    NSLog(@"Use value: %d", _use);
+    NSLog(@"Use value: %d with String: %@", self.use, _useSV.value);
     
 };
 
@@ -68,15 +68,15 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _humanIdDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [self returnStringUse], @"use",
                                                     [_label generateAndReturnDictionary], @"label",
                                                     [_identifier.idNumber generateAndReturnDictionary], @"id",
                                                     [_identifier.system generateAndReturnDictionary], @"system",
                                                     [_period generateAndReturnDictionary], @"period",
                                                     [_assigner generateAndReturnDictionary], @"assigner",
-                                                    [self returnStringUse], @"use",
                                                     nil];
-    NSLog(@"%@",[self returnStringUse]);
     _humanIdDictionary.resourceName = @"HumanId";
+    [_humanIdDictionary cleanUpDictionaryValues];
     return _humanIdDictionary.dataForResource;
 }
 

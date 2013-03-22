@@ -30,15 +30,16 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnLanguageDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _languageDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            [_language generateAndReturnCodeableConceptDictionary], @"language",
-                                            [_mode generateAndReturnCodeableConceptDictionary], @"mode",
-                                            [_proficiencyLevel generateAndReturnCodeableConceptDictionary], @"proficiency",
+                                            [_language generateAndReturnDictionary], @"language",
+                                            [_mode generateAndReturnDictionary], @"mode",
+                                            [_proficiencyLevel generateAndReturnDictionary], @"proficiency",
                                             [_preference generateAndReturnDictionary], @"preference",
                                             nil];
     _languageDictionary.resourceName = @"Language";
+    [_languageDictionary cleanUpDictionaryValues];
     return _languageDictionary.dataForResource;
 }
 

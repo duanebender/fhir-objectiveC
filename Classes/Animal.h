@@ -18,7 +18,7 @@
 @property (nonatomic, retain) CodeableConcept *breed; //Identifies the detailed categorization of the kind of animal.
 @property (nonatomic, retain) CodeableConcept *genderStatus; //Indicates the current state of the animal's reproductive organs
 
-- (NSDictionary *)generateAndReturnAnimalDictionary; //returns resources of animal ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns resources of animal ready to be formatted
 - (void)animalParser:(NSDictionary *)dictionary; //sets animal values from dictionary
 
 @end

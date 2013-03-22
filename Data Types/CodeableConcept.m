@@ -7,6 +7,7 @@
 //
 
 #import "CodeableConcept.h"
+#import "ExistanceChecker.h"
 
 @implementation CodeableConcept
 
@@ -28,14 +29,15 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnCodeableConceptDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _codeableConceptDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           _coding, @"coding",
-                                           [_text generateAndReturnDictionary], @"text",
-                                           [_primary generateAndReturnDictionary], @"primary",
+                                           [ExistanceChecker generateArray:_coding], @"coding",
+                                           [ExistanceChecker stringChecker:_text], @"text",
+                                           [ExistanceChecker stringChecker:_primary], @"primary",
                                            nil];
     _codeableConceptDictionary.resourceName = @"CodeableConcept";
+    [_codeableConceptDictionary cleanUpDictionaryValues];
     return _codeableConceptDictionary.dataForResource;
 }
 
@@ -48,7 +50,7 @@
     {
         Coding *tempCS = [[Coding alloc] init];
         [tempCS codingParser:[codeArray objectAtIndex:i]];
-        [_coding addObject:[tempCS generateAndReturnDictionary]];
+        [_coding addObject:tempCS];
         //NSLog(@"%@", _coding);
     }
     

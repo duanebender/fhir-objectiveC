@@ -67,6 +67,7 @@
                                                     _image, @"image", //array of images only
                                                     nil];
     _narrativeDictionary.resourceName = @"Narrative";
+    [_narrativeDictionary cleanUpDictionaryValues];
     return _narrativeDictionary.dataForResource;
 }
 

@@ -93,8 +93,8 @@
                                           [ExistanceChecker generateArray:_suffix], @"suffix",
                                           [_period generateAndReturnDictionary], @"period",
                                           nil];
-    
     _humanNameDictionary.resourceName = @"HumanName";
+    //[_humanNameDictionary cleanUpDictionaryValues];
     return _humanNameDictionary.dataForResource;
 }
 

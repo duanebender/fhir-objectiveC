@@ -54,13 +54,14 @@
                                            [_active generateAndReturnDictionary], @"active",
                                            [ExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDemographicsDictionary], @"details",
-                                           [_animal generateAndReturnAnimalDictionary], @"animal",
                                            [_provider generateAndReturnDictionary], @"provider",
-                                           [_diet generateAndReturnCodeableConceptDictionary], @"diet",
-                                           [_confidentiality generateAndReturnCodeableConceptDictionary], @"confidentiality",
-                                           [_recordLocation generateAndReturnCodeableConceptDictionary], @"recordLocation",
-                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
+                                           [_animal generateAndReturnDictionary], @"animal",
+                                           [_diet generateAndReturnDictionary], @"diet",
+                                           [_confidentiality generateAndReturnDictionary], @"confidentiality",
+                                           [_recordLocation generateAndReturnDictionary], @"recordLocation",
+                                           //[_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
+    //[_patientDictionary cleanUpDictionaryValues];
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];

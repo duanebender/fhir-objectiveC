@@ -26,13 +26,14 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnImageDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _imageDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                             [_mimeType generateAndReturnDictionary], @"type",
                                             [_content generateAndReturnDictionary], @"content",
                                             nil];
     _imageDictionary.resourceName = @"Image";
+    [_imageDictionary cleanUpDictionaryValues];
     return _imageDictionary.dataForResource;
 }
 

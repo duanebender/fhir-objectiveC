@@ -12,7 +12,7 @@
 
 @interface ExistanceChecker : NSObject
 
-+ (NSArray *)generateArray:(NSArray *)array;
-+ (NSDictionary *)stringChecker:(String *)string;
++ (NSArray *)generateArray:(NSArray *)array; //checks an array and returns a null value if the array has no values
++ (NSDictionary *)stringChecker:(String *)string; //checks a string and returns a null value if the string is blank
 
 @end

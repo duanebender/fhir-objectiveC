@@ -34,6 +34,7 @@
                                             [_status generateAndReturnDictionary], @"status",
                                             nil];
     _textDictionary.resourceName = @"Text";
+    [_textDictionary cleanUpDictionaryValues];
     return _textDictionary.dataForResource;
 }
 

@@ -21,7 +21,7 @@
 
 - (void)setResouceTypeValue:(NSString *)codeString; //set the type of resource being used
 
-- (NSDictionary *)generateAndReturnResourceDictionary; //returns all resources for resource ready to be formatted
+- (NSDictionary *)generateAndReturnDictionary; //returns all resources for resource ready to be formatted
 - (void)resourceParser:(NSDictionary *)dictionary; //set resource from dictionary
 
 @end

@@ -28,14 +28,15 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnAnimalDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _animalDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [_species generateAndReturnCodeableConceptDictionary], @"species",
-                                               [_breed generateAndReturnCodeableConceptDictionary], @"breed",
-                                               [_genderStatus generateAndReturnCodeableConceptDictionary], @"genderStatus",
+                                               [_species generateAndReturnDictionary], @"species",
+                                               [_breed generateAndReturnDictionary], @"breed",
+                                               [_genderStatus generateAndReturnDictionary], @"genderStatus",
                                                nil];
     _animalDictionary.resourceName = @"Animal";
+    //[_animalDictionary cleanUpDictionaryValues];
     return _animalDictionary.dataForResource;
 }
 

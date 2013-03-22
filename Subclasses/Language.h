@@ -19,7 +19,7 @@
 @property (nonatomic, retain) CodeableConcept *proficiencyLevel; //A code that describes how well the language is spoken
 @property (nonatomic) Bool *preference; //Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
 
-- (NSDictionary *)generateAndReturnLanguageDictionary; //returns dictionary ready for formatting
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready for formatting
 - (void)languageParser:(NSDictionary *)dictionary; //set language from dictionary
 
 @end

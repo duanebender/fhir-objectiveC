@@ -8,17 +8,11 @@
 
 #import "ExistanceChecker.h"
 
-@interface ExistanceChecker()
-
-
-@end
-
 @implementation ExistanceChecker
 
-+ (NSArray *)generateArray:(NSArray *)array
++ (NSArray *)generateArray:(NSArray *)array //checks if an array is empty
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    
     if ([array count] <= 0)
     {
         return NULL;
@@ -33,7 +27,7 @@
     }
 }
 
-+ (NSDictionary *)stringChecker:(String *)string
++ (NSDictionary *)stringChecker:(String *)string //checks if a string is empty
 {
     if (string)
     {
