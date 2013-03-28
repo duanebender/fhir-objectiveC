@@ -48,7 +48,7 @@
 - (NSString *)divStringClipper:(NSString *)stringToClip
 {
     NSRange r;
-    while ((r = [stringToClip rangeOfString:@"^(\\s*)\n(\\s*)$" options:NSRegularExpressionSearch]).location != NSNotFound)
+    while ((r = [stringToClip rangeOfString:@"\\s*\n\\s*" options:NSRegularExpressionSearch]).location != NSNotFound)
     {
         stringToClip = [stringToClip stringByReplacingCharactersInRange:r withString:@""];
     }

@@ -8,12 +8,15 @@
 
 #import "XMLReader.h"
 
+#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"name",@"telecom",@"address",@"language",@"part",@"line",@"coding",@"extensions",@"list",nil]
+
 NSString *const kXMLReaderTextNodeKey = @"value";
 
 @interface XMLReader (Internal)
 
 - (id)initWithError:(NSError *)error;
 - (NSDictionary *)objectWithData:(NSData *)data;
+- (NSArray *)enforceArray:(id)payload;
 
 @end
 
@@ -35,6 +38,16 @@ NSString *const kXMLReaderTextNodeKey = @"value";
 {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     return [XMLReader dictionaryForXMLData:data error:error];
+}
+
+- (NSMutableArray *)enforceArray:(id)payload
+{
+    if ([payload isKindOfClass:[NSMutableArray class]]){
+        return payload;
+    }else{
+        if ([payload isKindOfClass:[NSNull class]] || (!payload)) return [NSMutableArray array];
+        return [NSMutableArray arrayWithObject:payload];
+    }
 }
 
 #pragma mark -
@@ -109,10 +122,18 @@ NSString *const kXMLReaderTextNodeKey = @"value";
     }
     else
     {
-        // No existing value, so update the dictionary
-        [parentDict setObject:childDict forKey:elementName];
+#warning - fix this...
+        //check if needs to be an array even with one item
+        if ([ARRAY_STRINGS containsObject:elementName])
+        {
+            [parentDict setObject:[self enforceArray:childDict] forKey:elementName];
+        }
+        else
+        {
+            // No existing value, so update the dictionary
+            [parentDict setObject:childDict forKey:elementName];
+        }
     }
-    
     // Update the stack
     [dictionaryStack addObject:childDict];
 }

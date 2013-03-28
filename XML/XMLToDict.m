@@ -16,16 +16,12 @@
 
 - (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
 {
-    //NSString *filePath = @"/Users/adamsippel/Desktop/patient.xml";
-    //BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
-    
     NSURL *url = [NSURL URLWithString:urlString];
     NSString *xmlString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
     
     if (xmlString)
     {
         NSLog(@"Exists");
-        //NSString *xmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         NSError *error;
         xmlString = [self stringByStrippingXMLHeader:xmlString];
         //NSLog(@"%@",xmlString);
@@ -44,10 +40,10 @@
 
 - (void)createLocalizedObject:(NSDictionary *)xmlDict
 {
-    if ([xmlDict objectForKey:@"Patient"])//([_incomingResourceType caseInsensitiveCompare:@"Patient"])
+    if ([xmlDict objectForKey:@"Patient"])
     {
         _patient = [[Patient alloc] init];
-        NSLog(@"Here I made it.");
+#warning - breaks here...
         [_patient patientParser:xmlDict];
         NSLog(@"patientXML ************** %@", _patient);
     }

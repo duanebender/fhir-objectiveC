@@ -25,7 +25,7 @@
         NSError *error;
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];
         //_incomingResourceType = resourceType;
-        NSLog(@"JSON Dict before localized: %@", jsonDictionary);
+        //NSLog(@"JSON Dict before localized: %@", jsonDictionary);
         [self createLocalizedObject:jsonDictionary];
     }
     else

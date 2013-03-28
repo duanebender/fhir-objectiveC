@@ -37,12 +37,12 @@
     return self;
 }
 
-- (NSDictionary *)generateAndReturnDemographicsDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _demographicsDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [ExistanceChecker generateArray:_name], @"name", //humannames only
-                                               [ExistanceChecker generateArray:_telecom], @"telecom", //contacts only
                                                [_gender generateAndReturnDictionary], @"gender",
+                                               [ExistanceChecker generateArray:_telecom], @"telecom", //contacts only
                                                [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
                                                [ExistanceChecker generateArray:_address], @"address", //addresses only

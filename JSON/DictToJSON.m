@@ -14,19 +14,10 @@
 
 - (void)generateJsonString:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString
 {
-    //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //NSString *documentsDirectory = [paths objectAtIndex:0];
-    
     NSData *encodedData = [NSJSONSerialization dataWithJSONObject:json.dataForResource options:NSJSONWritingPrettyPrinted error:nil];
-    //_jsonString = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
-    
-    //NSString *fileName = json.resourceName;
-    //NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[fileName stringByAppendingString:@".json"]];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager createFileAtPath:urlString contents:encodedData attributes:nil];
-    //[_jsonString writeToFile:filePath atomically:YES encoding: NSUTF8StringEncoding error: NULL];
-    
 }
 
 @end

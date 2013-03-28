@@ -86,7 +86,8 @@
 {
     _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
-                                          [_text generateAndReturnDictionary], @"text",
+                                            #warning - fix this below, dictionary removal error
+                                          //[ExistanceChecker stringChecker:_text], @"text", //cannot be removed from dictionary?
                                           [ExistanceChecker generateArray:_family], @"family",
                                           [ExistanceChecker generateArray:_given], @"given",
                                           [ExistanceChecker generateArray:_prefix], @"prefix",
@@ -94,8 +95,7 @@
                                           [_period generateAndReturnDictionary], @"period",
                                           nil];
     _humanNameDictionary.resourceName = @"HumanName";
-#warning - fix this below, dictionary removal error
-    //[_humanNameDictionary cleanUpDictionaryValues];
+    [_humanNameDictionary cleanUpDictionaryValues];
     return _humanNameDictionary.dataForResource;
 }
 

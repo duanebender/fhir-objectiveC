@@ -31,7 +31,7 @@
 @property (nonatomic, retain) CodeableConcept *maritalStatus; //This field contains a patient's marital (civil) status.
 @property (nonatomic, retain) NSMutableArray *language; //A language spoken by the person, with proficiency. Array contains Languages only
 
-- (NSDictionary *)generateAndReturnDemographicsDictionary; //returns dictionary ready to format
+- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready to format
 - (void)demographicsParser:(NSDictionary *)dictionary; //set demographics from dictionary
 
 @end

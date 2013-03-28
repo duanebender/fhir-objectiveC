@@ -53,13 +53,13 @@
                                            [ExistanceChecker generateArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
                                            [ExistanceChecker generateArray:_identifier], @"identifier",
-                                           [_details generateAndReturnDemographicsDictionary], @"details",
+                                           [_details generateAndReturnDictionary], @"details",
                                            [_provider generateAndReturnDictionary], @"provider",
+                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            [_animal generateAndReturnDictionary], @"animal",
                                            [_diet generateAndReturnDictionary], @"diet",
                                            [_confidentiality generateAndReturnDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnDictionary], @"recordLocation",
-                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
     //[_patientDictionary cleanUpDictionaryValues];
     
@@ -85,9 +85,9 @@
         [_link addObject:tempRR];
         //NSLog(@"%@", _link);
     }
-    
+
     [_active setValueBool:[patientDict objectForKey:@"active"]];
-    
+
     //_identifier
     NSArray *identifierArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"identifier"]];
     _identifier = [[NSMutableArray alloc] init];
@@ -97,15 +97,16 @@
         [tempHI humanIdParser:[identifierArray objectAtIndex:i]]; 
         [_identifier addObject:tempHI];
     }
-    
+
     [_details demographicsParser:[patientDict objectForKey:@"details"]];
     [_animal animalParser:[patientDict objectForKey:@"animal"]];
     [_provider resourceReferenceParser:[patientDict objectForKey:@"provider"]];
     [_diet codeableConceptParser:[patientDict objectForKey:@"diet"]];
     [_confidentiality codeableConceptParser:[patientDict objectForKey:@"confidentiality"]];
     [_recordLocation codeableConceptParser:[patientDict objectForKey:@"recordLocation"]];
-    
+    NSLog(@"Made A6"); //xml formatter fails after this step
     [_genText textParser:[patientDict objectForKey:@"text"]];
+    NSLog(@"Made A7");
     
 }
 
