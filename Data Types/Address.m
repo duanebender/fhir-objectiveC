@@ -48,10 +48,10 @@
 {
     [_useSV setValueString:useDictionary];
     
-    if ([_useSV.value caseInsensitiveCompare:@"home"]) self.use = AddressUseHome;
-    else if ([_useSV.value caseInsensitiveCompare:@"work"]) self.use = AddressUseWork;
-    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = AddressUseTemp;
-    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = AddressUseOld;
+    if ([_useSV.value isEqualToString:@"home"]) self.use = AddressUseHome;
+    else if ([_useSV.value isEqualToString:@"work"]) self.use = AddressUseWork;
+    else if ([_useSV.value isEqualToString:@"temp"]) self.use = AddressUseTemp;
+    else if ([_useSV.value isEqualToString:@"old"]) self.use = AddressUseOld;
     else self.use = 0;
     
 };

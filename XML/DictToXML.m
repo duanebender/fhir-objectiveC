@@ -14,6 +14,11 @@
 
 - (void)generateXmlString:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString
 {
+    XMLWriter *xmlWriter = [[XMLWriter alloc] init];
+    _xmlString = [xmlWriter stringForXMLDictionary:xml.dataForResource :@"Patient"];
+    [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    /*
     NSString *error;
     NSData *xmlData = [NSPropertyListSerialization dataFromPropertyList: xml.dataForResource
                                                                  format: NSPropertyListXMLFormat_v1_0
@@ -25,7 +30,7 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager createFileAtPath:urlString contents:xmlData attributes:nil];
     [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    //[_jsonString writeToFile:filePath atomically:YES encoding: NSUTF8StringEncoding error: NULL];
+     */
 }
 
 @end

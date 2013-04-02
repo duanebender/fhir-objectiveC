@@ -51,6 +51,7 @@
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E00D1216F7449300ED3F5E /* ExistanceChecker.m */; };
 		89F9145816EE28E00024DF3E /* DictToXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F9145716EE28E00024DF3E /* DictToXML.m */; };
+		89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F963A81709D5B1009D3CA3 /* XMLWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		89E00D1216F7449300ED3F5E /* ExistanceChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistanceChecker.m; sourceTree = "<group>"; };
 		89F9145616EE28E00024DF3E /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictToXML.h; path = XML/DictToXML.h; sourceTree = SOURCE_ROOT; };
 		89F9145716EE28E00024DF3E /* DictToXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictToXML.m; path = XML/DictToXML.m; sourceTree = SOURCE_ROOT; };
+		89F963A71709D5B1009D3CA3 /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLWriter.h; path = XML/XMLWriter.h; sourceTree = SOURCE_ROOT; };
+		89F963A81709D5B1009D3CA3 /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLWriter.m; path = XML/XMLWriter.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +294,8 @@
 				8946228816E7DB080040E6EF /* XMLToDict.m */,
 				89F9145616EE28E00024DF3E /* DictToXML.h */,
 				89F9145716EE28E00024DF3E /* DictToXML.m */,
+				89F963A71709D5B1009D3CA3 /* XMLWriter.h */,
+				89F963A81709D5B1009D3CA3 /* XMLWriter.m */,
 			);
 			name = XML;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				89F9145816EE28E00024DF3E /* DictToXML.m in Sources */,
 				897CF6C116F0EE0200442A03 /* Text.m in Sources */,
 				89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */,
+				89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

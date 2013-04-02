@@ -43,7 +43,6 @@
     if ([xmlDict objectForKey:@"Patient"])
     {
         _patient = [[Patient alloc] init];
-#warning - breaks here...
         [_patient patientParser:xmlDict];
         NSLog(@"patientXML ************** %@", _patient);
     }

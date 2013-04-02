@@ -36,10 +36,10 @@
 {
     [_systemSV setValueString:systemDictionary];
     
-    if ([_systemSV.value caseInsensitiveCompare:@"phone"]) self.system = ContactSystemPhone;
-    else if ([_systemSV.value caseInsensitiveCompare:@"fax"]) self.system = ContactSystemFax;
-    else if ([_systemSV.value caseInsensitiveCompare:@"email"]) self.system = ContactSystemEmail;
-    else if ([_systemSV.value caseInsensitiveCompare:@"url"]) self.system = ContactSystemUrl;
+    if ([_systemSV.value isEqualToString:@"phone"]) self.system = ContactSystemPhone;
+    else if ([_systemSV.value isEqualToString:@"fax"]) self.system = ContactSystemFax;
+    else if ([_systemSV.value isEqualToString:@"email"]) self.system = ContactSystemEmail;
+    else if ([_systemSV.value isEqualToString:@"url"]) self.system = ContactSystemUrl;
     else self.system = 0;
 };
 
@@ -69,11 +69,11 @@
 {
     [_useSV setValueString:useDictionary];
     
-    if ([_useSV.value caseInsensitiveCompare:@"home"]) self.use = ContactUseHome;
-    else if ([_useSV.value caseInsensitiveCompare:@"work"]) self.use = ContactUseWork;
-    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = ContactUseTemp;
-    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = ContactUseOld;
-    else if ([_useSV.value caseInsensitiveCompare:@"mobile"]) self.use = ContactUseMobile;
+    if ([_useSV.value isEqualToString:@"home"]) self.use = ContactUseHome;
+    else if ([_useSV.value isEqualToString:@"work"]) self.use = ContactUseWork;
+    else if ([_useSV.value isEqualToString:@"temp"]) self.use = ContactUseTemp;
+    else if ([_useSV.value isEqualToString:@"old"]) self.use = ContactUseOld;
+    else if ([_useSV.value isEqualToString:@"mobile"]) self.use = ContactUseMobile;
     else self.use = 0;
 };
 

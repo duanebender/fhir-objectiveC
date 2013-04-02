@@ -137,10 +137,13 @@
     [xmlDict convertXmlToDictionary:@"http://demo.oridashi.com.au:8190/patient/@36?_format=xml" resourceType:@"Patient"];
     NSLog(@"XMLDict before change%@", xmlDict);
     
+#warning - xml to dict works, but not dict to xml
+    /*
     DictToXML *xml = [[DictToXML alloc] init];
     FHIRResourceDictionary *tempDict = [[FHIRResourceDictionary alloc] init];
     tempDict = [xmlDict.patient generateAndReturnPatientResourceDictionary];
     [xml generateXmlString:tempDict urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
+     */
 }
 
 @end

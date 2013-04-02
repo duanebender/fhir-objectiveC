@@ -41,13 +41,13 @@
 {
     [_useSV setValueString:useDictionary];
     
-    if ([_useSV.value caseInsensitiveCompare:@"usual"]) self.use = usual;
-    else if ([_useSV.value caseInsensitiveCompare:@"official"]) self.use = official;
-    else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = temp;
-    else if ([_useSV.value caseInsensitiveCompare:@"nickname"]) self.use = nickname;
-    else if ([_useSV.value caseInsensitiveCompare:@"annonymous"]) self.use = annonymous;
-    else if ([_useSV.value caseInsensitiveCompare:@"old"]) self.use = old;
-    else if ([_useSV.value caseInsensitiveCompare:@"maiden"]) self.use = maiden;
+    if ([_useSV.value isEqualToString:@"usual"]) self.use = usual;
+    else if ([_useSV.value isEqualToString:@"official"]) self.use = official;
+    else if ([_useSV.value isEqualToString:@"temp"]) self.use = temp;
+    else if ([_useSV.value isEqualToString:@"nickname"]) self.use = nickname;
+    else if ([_useSV.value isEqualToString:@"annonymous"]) self.use = annonymous;
+    else if ([_useSV.value isEqualToString:@"old"]) self.use = old;
+    else if ([_useSV.value isEqualToString:@"maiden"]) self.use = maiden;
     else self.use = 0;
 };
 

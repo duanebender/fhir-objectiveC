@@ -42,9 +42,11 @@ NSString *const kXMLReaderTextNodeKey = @"value";
 
 - (NSMutableArray *)enforceArray:(id)payload
 {
-    if ([payload isKindOfClass:[NSMutableArray class]]){
+    if ([payload isKindOfClass:[NSMutableArray class]])
+    {
         return payload;
-    }else{
+    }else
+    {
         if ([payload isKindOfClass:[NSNull class]] || (!payload)) return [NSMutableArray array];
         return [NSMutableArray arrayWithObject:payload];
     }
@@ -122,7 +124,6 @@ NSString *const kXMLReaderTextNodeKey = @"value";
     }
     else
     {
-#warning - fix this...
         //check if needs to be an array even with one item
         if ([ARRAY_STRINGS containsObject:elementName])
         {

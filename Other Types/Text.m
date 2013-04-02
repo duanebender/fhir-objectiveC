@@ -41,7 +41,7 @@
 
 - (void)textParser:(NSDictionary *)dictionary
 {
-    _div = [self divStringClipper:[dictionary objectForKey:@"div"]];
+    _div = /*[self divStringClipper:*/[dictionary objectForKey:@"div"];
     [_status setValueString:[dictionary objectForKey:@"status"]];
 }
 

@@ -30,10 +30,10 @@
 {
     [_statusSV setValueString:statusDictionary];
     
-    if ([_statusSV.value caseInsensitiveCompare:@"generated"]) self.status = NarrativeStatusGenerated;
-    else if ([_statusSV.value caseInsensitiveCompare:@"extensions"]) self.status = NarrativeStatusExtensions;
-    else if ([_statusSV.value caseInsensitiveCompare:@"additional"]) self.status = NarrativeStatusAdditional;
-    else if ([_statusSV.value caseInsensitiveCompare:@"empty"]) self.status = NarrativeStatusEmpty;
+    if ([_statusSV.value isEqualToString:@"generated"]) self.status = NarrativeStatusGenerated;
+    else if ([_statusSV.value isEqualToString:@"extensions"]) self.status = NarrativeStatusExtensions;
+    else if ([_statusSV.value isEqualToString:@"additional"]) self.status = NarrativeStatusAdditional;
+    else if ([_statusSV.value isEqualToString:@"empty"]) self.status = NarrativeStatusEmpty;
     else self.status = 0;
 };
 
