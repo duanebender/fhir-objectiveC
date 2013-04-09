@@ -12,25 +12,23 @@
 
 @synthesize xmlString = _xmlString;
 
-- (void)generateXmlString:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString
+- (void)generateXml:(NSObject *)xmlObject urlPath:(NSString *)urlString
+{
+    NSArray *singleObject = [[NSArray alloc] initWithObjects:xmlObject, nil];
+    
+    if ([xmlObject class] == [Patient class])
+    {
+        Patient *patient = [singleObject objectAtIndex:0];
+        [self generateXmlStringFromFHIRResourceDictionary:[patient generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+}
+
+- (void)generateXmlStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString
 {
     XMLWriter *xmlWriter = [[XMLWriter alloc] init];
     _xmlString = [xmlWriter stringForXMLDictionary:xml.dataForResource :@"Patient"];
     [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
-    /*
-    NSString *error;
-    NSData *xmlData = [NSPropertyListSerialization dataFromPropertyList: xml.dataForResource
-                                                                 format: NSPropertyListXMLFormat_v1_0
-                                                       errorDescription: &error];
-    
-    _xmlString = [[NSString alloc] initWithData: xmlData encoding: NSUTF8StringEncoding];
-    NSLog(@"XMLSTRING HERE *************** %@", _xmlString);
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager createFileAtPath:urlString contents:xmlData attributes:nil];
-    [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
-     */
 }
 
 @end

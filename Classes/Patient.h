@@ -19,8 +19,8 @@
 
 @interface Patient : Resource
     
-- (NSInteger)getResourceType; //override method. Returns integer of specified type, in this case Patient
-- (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary; //returns a dictionary of all resources from patient in a dictionary format
+- (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Patient
+- (FHIRResourceDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from patient in a dictionary format
 
 - (void)patientParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into patient
 
@@ -35,6 +35,7 @@
 @property (nonatomic, retain) CodeableConcept *confidentiality; //Confidentiality of the patient records
 @property (nonatomic, retain) CodeableConcept *recordLocation; //The location of the paper record for the patient, if there is one
 @property (nonatomic, retain) Text *genText; //text holder for extra generated text
+@property (nonatomic, retain) Resource *resourceTypeName; //holds resource type, text, name, and extensions
     
 @end
 

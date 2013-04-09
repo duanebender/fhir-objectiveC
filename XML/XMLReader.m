@@ -8,7 +8,7 @@
 
 #import "XMLReader.h"
 
-#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"name",@"telecom",@"address",@"language",@"part",@"line",@"coding",@"extensions",@"list",nil]
+#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"name",@"telecom",@"address",@"language",@"part",@"line",@"coding",@"extensions",@"list",nil] //strings that need to be in an array even if only one object is present
 
 NSString *const kXMLReaderTextNodeKey = @"value";
 
@@ -146,6 +146,7 @@ NSString *const kXMLReaderTextNodeKey = @"value";
     
     // Set the text property
     //check if text exists, if there is more than just spaces, and if it is within a div container.
+    //XMLReader does not handle div containers properly, so this fixes that problem
     if ([textInProgress length] > 0 && ([dictInProgress objectForKey:@"div"]))
     {
         //remove all spaces
@@ -157,7 +158,7 @@ NSString *const kXMLReaderTextNodeKey = @"value";
         NSString *finalString = [content componentsJoinedByString:@""];
         
         //add to dictionary final edited string
-        [dictInProgress setObject:finalString forKey:kXMLReaderTextNodeKey];
+        [dictInProgress setObject:finalString forKey:@"div"];//kXMLReaderTextNodeKey];
         //NSLog(@"%@", textInProgress);
         
         // Reset the text

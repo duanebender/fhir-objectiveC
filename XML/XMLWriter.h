@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface XMLWriter : NSObject
+{
+    int tabValue;
+}
 
 - (NSString *)stringForXMLDictionary :(NSMutableDictionary *)xmlDictionary :(NSString *)resourceType;
 - (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element:(id)content;
 - (NSMutableString *)writeXMLStringFromArray:(NSString *)element:(id)content;
+- (NSMutableString *)tabber;
 
 @end

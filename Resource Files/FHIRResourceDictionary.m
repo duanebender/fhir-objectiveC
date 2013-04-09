@@ -33,8 +33,8 @@
     {
         if (key != @"div")
         {
-            NSDictionary *value = [tempDict valueForKey:key];
-            if (value == nil || value == NULL || [value count] == 0)
+            NSObject *value = [tempDict valueForKey:key];
+            if (value == nil || value == NULL)
             {
                 [_dataForResource removeObjectForKey:key];
             }

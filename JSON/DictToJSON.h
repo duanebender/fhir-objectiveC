@@ -14,6 +14,6 @@
 
 @property (nonatomic, retain) NSString *jsonString;
 
-- (void)generateJsonString:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString;
+- (void)generateJson:(NSObject *)jsonObject urlPath:(NSString *)urlString;
 
 @end

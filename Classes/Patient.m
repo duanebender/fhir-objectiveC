@@ -21,6 +21,7 @@
 @synthesize confidentiality = _confidentiality; //Confidentiality of the patient records
 @synthesize recordLocation = _recordLocation; //The location of the paper record for the patient, if there is one
 @synthesize genText = _genText;
+@synthesize resourceTypeName = _resourceTypeName; //type of resource with extensions, text, and status
 
 - (id)init
 {
@@ -37,20 +38,21 @@
         _confidentiality = [[CodeableConcept alloc] init];
         _recordLocation = [[CodeableConcept alloc] init];
         _genText = [[Text alloc] init];
+        _resourceTypeName = [[Resource alloc] init];
     }
     return self;
 }
 
 //override method
-- (NSInteger)getResourceType
+- (NSString *)getResourceType
 {
-    return ResourceTypePatient;
+    return [_resourceTypeName returnResourceType];
 }
 
-- (FHIRResourceDictionary *)generateAndReturnPatientResourceDictionary
+- (FHIRResourceDictionary *)generateAndReturnResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [ExistanceChecker generateArray:_link], @"link",
+                                           //[ExistanceChecker generateArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
                                            [ExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDictionary], @"details",
@@ -61,17 +63,18 @@
                                            [_confidentiality generateAndReturnDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnDictionary], @"recordLocation",
                                            nil];
-    //[_patientDictionary cleanUpDictionaryValues];
+    [_patientDictionary cleanUpDictionaryValues];
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];
-    returnable.resourceName = @"Patient";
+    returnable.resourceName = @"patient";
     [returnable cleanUpDictionaryValues];
     return returnable;
 }
 
 - (void)patientParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeName setResouceTypeValue:@"patient"];
     NSDictionary *patientDict = [dictionary objectForKey:@"Patient"];
     //NSLog(@"%@", patient);
     
@@ -104,9 +107,7 @@
     [_diet codeableConceptParser:[patientDict objectForKey:@"diet"]];
     [_confidentiality codeableConceptParser:[patientDict objectForKey:@"confidentiality"]];
     [_recordLocation codeableConceptParser:[patientDict objectForKey:@"recordLocation"]];
-    NSLog(@"Made A6"); //xml formatter fails after this step
     [_genText textParser:[patientDict objectForKey:@"text"]];
-    NSLog(@"Made A7");
     
 }
 

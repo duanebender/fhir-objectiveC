@@ -12,7 +12,18 @@
 
 @synthesize jsonString = _jsonString;
 
-- (void)generateJsonString:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString
+- (void)generateJson:(NSObject *)jsonObject urlPath:(NSString *)urlString
+{
+    NSArray *singleObject = [[NSArray alloc] initWithObjects:jsonObject, nil];
+    
+    if ([jsonObject class] == [Patient class])
+    {
+        Patient *patient = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[patient generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+}
+
+- (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString
 {
     NSData *encodedData = [NSJSONSerialization dataWithJSONObject:json.dataForResource options:NSJSONWritingPrettyPrinted error:nil];
     

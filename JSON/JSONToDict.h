@@ -11,9 +11,6 @@
 
 @interface JSONToDict : NSObject
 
-//@property (nonatomic) NSString *incomingResourceType;
-@property (nonatomic, retain) Patient *patient;
-
-- (void)convertJsonToDictionary:(NSString *)urlString;
+- (NSObject *)convertJsonToDictionary:(NSString *)urlString;
 
 @end

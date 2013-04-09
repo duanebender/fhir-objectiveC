@@ -42,8 +42,6 @@
     else if ([_useSV.value caseInsensitiveCompare:@"temp"]) self.use = IdentifierUseTemp;
     else self.use = 0;
     
-    NSLog(@"Use value: %d with String: %@", self.use, _useSV.value);
-    
 };
 
 - (NSDictionary *)returnStringUse

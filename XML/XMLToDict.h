@@ -13,8 +13,7 @@
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic) NSString *incomingResourceType;
-@property (nonatomic, retain) Patient *patient;
 
-- (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType;
+- (NSObject *)convertXmlToDictionary:(NSString *)urlString;
 
 @end

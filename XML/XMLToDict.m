@@ -11,10 +11,9 @@
 @implementation XMLToDict
 
 @synthesize incomingResourceType = _incomingResourceType;
-@synthesize patient = _patient;
 
 
-- (void)convertXmlToDictionary:(NSString *)urlString resourceType:(NSString *)resourceType
+- (NSObject *)convertXmlToDictionary:(NSString *)urlString
 {
     NSURL *url = [NSURL URLWithString:urlString];
     NSString *xmlString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
@@ -27,24 +26,30 @@
         //NSLog(@"%@",xmlString);
         
         NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLString:xmlString error:error];
-        _incomingResourceType = resourceType;
         //NSLog(@"%@", xmlDictionary);
-        [self createLocalizedObject:xmlDictionary];
+        NSObject *resourceAsObject = [self createLocalizedObject:xmlDictionary];
+        return resourceAsObject;
     }
     else
     {
         NSLog(@"File does not exist at: %@", urlString);
+        return nil;
     }
     
 }
 
-- (void)createLocalizedObject:(NSDictionary *)xmlDict
+- (NSObject *)createLocalizedObject:(NSDictionary *)xmlDict
 {
     if ([xmlDict objectForKey:@"Patient"])
     {
-        _patient = [[Patient alloc] init];
-        [_patient patientParser:xmlDict];
-        NSLog(@"patientXML ************** %@", _patient);
+        Patient *patient = [[Patient alloc] init];
+        [patient patientParser:xmlDict];
+        return patient;
+        NSLog(@"patientXML ************** %@", patient);
+    }
+    else
+    {
+        return nil;
     }
 }
 

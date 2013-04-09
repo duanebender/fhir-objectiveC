@@ -86,8 +86,7 @@
 {
     _humanNameDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
-                                            #warning - fix this below, dictionary removal error
-                                          //[ExistanceChecker stringChecker:_text], @"text", //cannot be removed from dictionary?
+                                          [ExistanceChecker stringChecker:_text], @"text",
                                           [ExistanceChecker generateArray:_family], @"family",
                                           [ExistanceChecker generateArray:_given], @"given",
                                           [ExistanceChecker generateArray:_prefix], @"prefix",

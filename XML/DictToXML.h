@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) NSString *xmlString;
 
-- (void)generateXmlString:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString;
+- (void)generateXml:(NSObject *)xml urlPath:(NSString *)urlString;
 
 @end

@@ -10,10 +10,7 @@
 
 @implementation JSONToDict
 
-//@synthesize incomingResourceType = _incomingResourceType;
-@synthesize patient = _patient;
-
-- (void)convertJsonToDictionary:(NSString *)urlString
+- (NSObject *)convertJsonToDictionary:(NSString *)urlString
 {
     NSURL *url = [NSURL URLWithString:urlString];
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
@@ -26,23 +23,28 @@
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];
         //_incomingResourceType = resourceType;
         //NSLog(@"JSON Dict before localized: %@", jsonDictionary);
-        [self createLocalizedObject:jsonDictionary];
+        NSObject *resourceAsObject = [self createLocalizedObject:jsonDictionary];
+        return resourceAsObject;
     }
     else
     {
         NSLog(@"File does not exist at: %@", url);
+        return nil;
     }
     
 }
 
-- (void)createLocalizedObject:(NSDictionary *)jsonDict
+- (NSObject *)createLocalizedObject:(NSDictionary *)jsonDict
 {
     if ([jsonDict objectForKey:@"Patient"])//([_incomingResourceType caseInsensitiveCompare:@"Patient"])
     {
-        _patient = [[Patient alloc] init];
-        //NSLog(@"%@", _patient);
-        [_patient patientParser:jsonDict];
-        
+        Patient *patient = [[Patient alloc] init];
+        [patient patientParser:jsonDict];
+        return patient;
+    }
+    else
+    {
+        return nil;
     }
 }
 
