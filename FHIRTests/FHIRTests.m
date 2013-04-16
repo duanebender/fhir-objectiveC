@@ -125,6 +125,36 @@
     tempJsonDict2 = [jsonDict2.patient generateAndReturnPatientResourceDictionary];
     [json2 generateJsonString:tempJsonDict2 urlPath:@"/Users/adamsippel/Desktop/Patient2.txt"];
      */
+    
+    //FIREHOSE!!!!!!
+    
+    NSObject *patientJSONA = [[NSObject alloc] init];
+    for (int i = 0; i < 50; i ++)
+    {
+    
+    JSONToDict *jsonDictA = [[JSONToDict alloc] init];
+    NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
+    patientJSONA = [jsonDictA convertJsonToDictionary:[urlString stringByAppendingString:@"/history/@1?_format=json"]];
+    NSLog(@"%@", patientJSONA);
+    
+    //again to .json file
+    DictToJSON *jsonA = [[DictToJSON alloc] init];
+    NSString *printToString = [[NSString alloc] initWithString:[NSString stringWithFormat:@"/Users/adamsippel/Desktop/TempJSON/Patient%d.txt",i]];
+    [jsonA generateJson:patientJSONA urlPath:printToString];
+        
+    }
+    
+    for (int i = 0; i < 50; i ++)
+    {
+        JSONToDict *jsonDictB = [[JSONToDict alloc] init];
+        NSObject *patientJSONB = [[NSObject alloc] init];
+        patientJSONB = [jsonDictB convertJsonToDictionary:[NSString stringWithFormat:@"/Users/adamsippel/Desktop/TempJSON/Patient%d.txt",i]];
+        NSLog(@"%@",patientJSON);
+        
+        NSDictionary *testDict = [[NSDictionary alloc] initWithObjectsAndKeys:patientJSONA, @"PA", patientJSONB, @"PB", nil];
+        
+        STAssertTrue([[testDict objectForKey:@"PA"] patientDictionary] == [[testDict objectForKey:@"PB"] patientDictionary], @"Should be the same otherwise not grabbing all values properly.");
+    }
 
 }
 
@@ -134,11 +164,26 @@
     
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
-    NSObject *patientXML = [xmlDict convertXmlToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=xml"];//@"http://demo.oridashi.com.au:8190/patient/@36?_format=xml"];
-    NSLog(@"XMLDict before change%@", patientXML);
+    NSObject *patientXML = [xmlDict convertXmlToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=xml"];
     
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
+    
+    NSObject *patientXMLA = [[NSObject alloc] init];
+    for (int i = 0; i < 50; i ++)
+    {
+        
+        XMLToDict *xmlDictA = [[XMLToDict alloc] init];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
+        patientXMLA = [xmlDictA convertXmlToDictionary:[urlString stringByAppendingString:@"/history/@1?_format=xml"]];
+        NSLog(@"%@", patientXMLA);
+        
+        //again to .xml file
+        DictToXML *xmlA = [[DictToXML alloc] init];
+        NSString *printToString = [[NSString alloc] initWithString:[NSString stringWithFormat:@"/Users/adamsippel/Desktop/TempXML/Patient%d.xml",i]];
+        [xmlA generateXml:patientXMLA urlPath:printToString];
+        
+    }
 
 }
 

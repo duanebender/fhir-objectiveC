@@ -34,11 +34,16 @@
         if (key != @"div")
         {
             NSObject *value = [tempDict valueForKey:key];
-            if (value == nil || value == NULL)
+            if (value == NULL || value == [NSNull null] || value == nil || [tempDict count] == 0)
             {
                 [_dataForResource removeObjectForKey:key];
             }
         }
+    }
+    
+    if ([tempDict count] == 0)
+    {
+        _dataForResource = NULL;
     }
 }
 

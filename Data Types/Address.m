@@ -83,15 +83,15 @@
     _addressDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
                                           [_text generateAndReturnDictionary], @"text",
-                                          [ExistanceChecker generateArray:_part], @"part", //strings only
                                           [ExistanceChecker generateArray:_line], @"line", //strings only
+                                          [ExistanceChecker generateArray:_part], @"part", //strings only
                                           [_city generateAndReturnDictionary], @"city",
                                           [_state generateAndReturnDictionary], @"state",
                                           [_zip generateAndReturnDictionary], @"zip",
                                           [_country generateAndReturnDictionary], @"country",
                                           [_dpid generateAndReturnDictionary], @"dpid",
                                           [_period generateAndReturnDictionary], @"period",
-                                         nil];
+                                          nil];
     _addressDictionary.resourceName = @"Address";
     [_addressDictionary cleanUpDictionaryValues];
     return _addressDictionary.dataForResource;

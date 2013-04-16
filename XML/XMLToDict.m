@@ -12,7 +12,6 @@
 
 @synthesize incomingResourceType = _incomingResourceType;
 
-
 - (NSObject *)convertXmlToDictionary:(NSString *)urlString
 {
     NSURL *url = [NSURL URLWithString:urlString];

@@ -14,6 +14,6 @@
 @property (nonatomic, retain) NSString *value;
 
 - (NSDictionary *)generateAndReturnDictionary; //returns ready to be formatted
-- (void)setValueCode:(NSDictionary *)dictionary; //rsets value for code from dictionary
+- (void)setValueCode:(NSDictionary *)dictionary; //sets value for code from dictionary
 
 @end

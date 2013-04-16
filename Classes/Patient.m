@@ -52,16 +52,16 @@
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
 {
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           //[ExistanceChecker generateArray:_link], @"link",
                                            [_active generateAndReturnDictionary], @"active",
                                            [ExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDictionary], @"details",
                                            [_provider generateAndReturnDictionary], @"provider",
                                            [_genText generateAndReturnDictionary], @"text", //holds extra generated text
-                                           [_animal generateAndReturnDictionary], @"animal",
-                                           [_diet generateAndReturnDictionary], @"diet",
+                                           [ExistanceChecker generateArray:_link], @"link",
                                            [_confidentiality generateAndReturnDictionary], @"confidentiality",
                                            [_recordLocation generateAndReturnDictionary], @"recordLocation",
+                                           [_animal generateAndReturnDictionary], @"animal",
+                                           [_diet generateAndReturnDictionary], @"diet",
                                            nil];
     [_patientDictionary cleanUpDictionaryValues];
     

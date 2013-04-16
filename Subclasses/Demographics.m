@@ -33,6 +33,7 @@
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[CodeableConcept alloc] init];
         _language = [[NSMutableArray alloc] init];
+        _birthDate = [[String alloc] init];
     }
     return self;
 }
@@ -43,9 +44,9 @@
                                                [ExistanceChecker generateArray:_name], @"name", //humannames only
                                                [_gender generateAndReturnDictionary], @"gender",
                                                [ExistanceChecker generateArray:_telecom], @"telecom", //contacts only
-                                               [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
-                                               [_deceased generateAndReturnDictionary], @"deceased",
                                                [ExistanceChecker generateArray:_address], @"address", //addresses only
+                                               [ExistanceChecker stringChecker:_birthDate], @"birthDate",
+                                               [_deceased generateAndReturnDictionary], @"deceased",
                                                [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
                                                [ExistanceChecker generateArray:_language], @"language", //languages only
                                                nil];
@@ -79,7 +80,7 @@
     }
     
     [_gender codingParser:[dictionary objectForKey:@"gender"]];
-    _birthDate = [dictionary objectForKey:@"birthDate"]; //may need to be converted from string to NSDate
+    [_birthDate setValueString:[dictionary objectForKey:@"birthDate"]];
     [_deceased setValueBool:[dictionary objectForKey:@"deceased"]];
     
     //_address

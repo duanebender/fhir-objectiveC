@@ -17,14 +17,16 @@
 {
     NSMutableString *stringForXML = [[NSMutableString alloc] initWithString:@""]; //initialize string
     
-    [stringForXML appendString:[NSString stringWithFormat:@"<?xml version='1.0' encoding='UTF-8'?> \n"]];
+    [stringForXML appendString:[NSString stringWithFormat:@"<?xml version='1.0' encoding='UTF-8'?>\n"]];
     
     [stringForXML appendString:[NSString stringWithFormat:@"<%@ xmlns='http://hl7.org/fhir'>\n", resourceType]]; //set first line of xml code to resource
     NSMutableDictionary *xmlDict2 = [[NSMutableDictionary alloc] initWithDictionary:[xmlDictionary objectForKey:resourceType]];
+    
     for (NSString *key in xmlDict2)
     {
         NSObject *value = [xmlDict2 valueForKey:key];
         //generate string of xml from resource
+        NSLog(@"Here?");
         if ([value isKindOfClass:[NSDictionary class]] && ![key isEqualToString:@"value"])
         {
             NSLog(@"CheckA1");
@@ -35,9 +37,8 @@
             tabValue--;
             [stringForXML appendString:[self tabber]];
             if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
-            
         }
-        else if ([value isKindOfClass:[NSMutableArray class]])
+        else if ([value isKindOfClass:[NSArray class]])
         {
             NSLog(@"CheckA2");
             [stringForXML appendString:[self writeXMLStringFromArray:key:value]];
@@ -73,7 +74,7 @@
             [returnString appendString:[self tabber]];
             if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
         }
-        else if ([value isKindOfClass:[NSArray class]])
+        else if ([value isKindOfClass:[NSMutableArray class]] || [value isKindOfClass:[NSArray class]])
         {
             NSLog(@"CheckB2");
             tabValue++;

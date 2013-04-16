@@ -36,7 +36,7 @@
 
 - (NSObject *)createLocalizedObject:(NSDictionary *)jsonDict
 {
-    if ([jsonDict objectForKey:@"Patient"])//([_incomingResourceType caseInsensitiveCompare:@"Patient"])
+    if ([jsonDict objectForKey:@"Patient"])
     {
         Patient *patient = [[Patient alloc] init];
         [patient patientParser:jsonDict];
