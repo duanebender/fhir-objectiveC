@@ -50,6 +50,46 @@
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E00D1216F7449300ED3F5E /* ExistanceChecker.m */; };
+		89F6E6761720738B00595ACA /* Patient.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622A716E7DFFF0040E6EF /* Patient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E6771720739200595ACA /* DictToJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228B16E7DBEB0040E6EF /* DictToJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E6781720739400595ACA /* JSONToDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228D16E7DBEB0040E6EF /* JSONToDict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E6791720739C00595ACA /* XMLToDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228716E7DB080040E6EF /* XMLToDict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E67A172073AA00595ACA /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228516E7DB080040E6EF /* XMLReader.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E67B172073AE00595ACA /* XMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F963A71709D5B1009D3CA3 /* XMLWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E67C172073C200595ACA /* DictToXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F9145616EE28E00024DF3E /* DictToXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E67D172073C900595ACA /* Animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622A516E7DFFF0040E6EF /* Animal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E67E172073D600595ACA /* Demographics.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622AD16E7E0510040E6EF /* Demographics.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E67F172073D900595ACA /* HumanId.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C316E7E5980040E6EF /* HumanId.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E680172073E000595ACA /* Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C516E7E5980040E6EF /* Identifier.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E681172073E300595ACA /* Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C716E7E5980040E6EF /* Image.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E682172073E600595ACA /* Language.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C916E7E5980040E6EF /* Language.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E683172073ED00595ACA /* Address.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622B116E7E22A0040E6EF /* Address.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E684172073EE00595ACA /* CodeableConcept.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622B316E7E22A0040E6EF /* CodeableConcept.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E685172073F000595ACA /* Contact.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622B516E7E22A0040E6EF /* Contact.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E686172073F200595ACA /* HumanName.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622B716E7E22A0040E6EF /* HumanName.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E687172073F400595ACA /* Coding.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622CF16E7E5B60040E6EF /* Coding.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E688172073F600595ACA /* NodeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622D116E7E5B60040E6EF /* NodeType.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E689172073F800595ACA /* Period.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622D316E7E5B60040E6EF /* Period.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E68A172073FB00595ACA /* XhtmlNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622D516E7E5B60040E6EF /* XhtmlNode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E68B1720740300595ACA /* FHIRResourceDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946229C16E7DDF70040E6EF /* FHIRResourceDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E68C1720740A00595ACA /* Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946229E16E7DDF70040E6EF /* Resource.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E68D1720740B00595ACA /* ResourceReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622A016E7DDF70040E6EF /* ResourceReference.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E68E1720741200595ACA /* Base64Binary.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622F016E7E6170040E6EF /* Base64Binary.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E68F1720741400595ACA /* Base64Decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622F216E7E6170040E6EF /* Base64Decoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6901720741700595ACA /* Base64Encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622F416E7E6170040E6EF /* Base64Encoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6911720741900595ACA /* Bool.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622DD16E7E6020040E6EF /* Bool.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6921720741B00595ACA /* Code.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622DF16E7E6020040E6EF /* Code.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6931720741D00595ACA /* Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E116E7E6020040E6EF /* Element.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6941720742000595ACA /* Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E516E7E6020040E6EF /* Type.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6951720742200595ACA /* Uri.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E716E7E6020040E6EF /* Uri.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6961720742900595ACA /* Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622FA16E7E63C0040E6EF /* Extension.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6971720742B00595ACA /* Narrative.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622FC16E7E63C0040E6EF /* Narrative.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6981720742D00595ACA /* Text.h in Headers */ = {isa = PBXBuildFile; fileRef = 897CF6BF16F0EE0200442A03 /* Text.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E6991720743200595ACA /* ExistanceChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 89E00D1116F7449300ED3F5E /* ExistanceChecker.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E69C1720769300595ACA /* FHIR.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F6E69B1720762E00595ACA /* FHIR.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89F6E6D917207D2900595ACA /* ResourceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F6E6D817207D2900595ACA /* ResourceType.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E70A17207DE400595ACA /* String.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E316E7E6020040E6EF /* String.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F9145816EE28E00024DF3E /* DictToXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F9145716EE28E00024DF3E /* DictToXML.m */; };
 		89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F963A81709D5B1009D3CA3 /* XMLWriter.m */; };
 /* End PBXBuildFile section */
@@ -158,6 +198,8 @@
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
 		89E00D1116F7449300ED3F5E /* ExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistanceChecker.h; sourceTree = "<group>"; };
 		89E00D1216F7449300ED3F5E /* ExistanceChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistanceChecker.m; sourceTree = "<group>"; };
+		89F6E69B1720762E00595ACA /* FHIR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
+		89F6E6D817207D2900595ACA /* ResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceType.h; path = "Resource Files/ResourceType.h"; sourceTree = SOURCE_ROOT; };
 		89F9145616EE28E00024DF3E /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictToXML.h; path = XML/DictToXML.h; sourceTree = SOURCE_ROOT; };
 		89F9145716EE28E00024DF3E /* DictToXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DictToXML.m; path = XML/DictToXML.m; sourceTree = SOURCE_ROOT; };
 		89F963A71709D5B1009D3CA3 /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLWriter.h; path = XML/XMLWriter.h; sourceTree = SOURCE_ROOT; };
@@ -303,6 +345,7 @@
 		8993D7DC16B1D88400D0AFB4 = {
 			isa = PBXGroup;
 			children = (
+				89F6E69B1720762E00595ACA /* FHIR.h */,
 				8993D7EC16B1D88400D0AFB4 /* FHIR */,
 				8993D80116B1D88500D0AFB4 /* FHIRTests */,
 				8993D7E916B1D88400D0AFB4 /* Frameworks */,
@@ -389,6 +432,7 @@
 		89D05CC716B82D1000139BEF /* Resource Files */ = {
 			isa = PBXGroup;
 			children = (
+				89F6E6D817207D2900595ACA /* ResourceType.h */,
 				8946229C16E7DDF70040E6EF /* FHIRResourceDictionary.h */,
 				8946229D16E7DDF70040E6EF /* FHIRResourceDictionary.m */,
 				8946229E16E7DDF70040E6EF /* Resource.h */,
@@ -401,6 +445,56 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		89F6E66F1720720100595ACA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F6E69C1720769300595ACA /* FHIR.h in Headers */,
+				89F6E6761720738B00595ACA /* Patient.h in Headers */,
+				89F6E6771720739200595ACA /* DictToJSON.h in Headers */,
+				89F6E6781720739400595ACA /* JSONToDict.h in Headers */,
+				89F6E6791720739C00595ACA /* XMLToDict.h in Headers */,
+				89F6E68B1720740300595ACA /* FHIRResourceDictionary.h in Headers */,
+				89F6E67C172073C200595ACA /* DictToXML.h in Headers */,
+				89F6E6D917207D2900595ACA /* ResourceType.h in Headers */,
+				89F6E682172073E600595ACA /* Language.h in Headers */,
+				89F6E67A172073AA00595ACA /* XMLReader.h in Headers */,
+				89F6E67B172073AE00595ACA /* XMLWriter.h in Headers */,
+				89F6E67D172073C900595ACA /* Animal.h in Headers */,
+				89F6E67E172073D600595ACA /* Demographics.h in Headers */,
+				89F6E67F172073D900595ACA /* HumanId.h in Headers */,
+				89F6E680172073E000595ACA /* Identifier.h in Headers */,
+				89F6E684172073EE00595ACA /* CodeableConcept.h in Headers */,
+				89F6E685172073F000595ACA /* Contact.h in Headers */,
+				89F6E686172073F200595ACA /* HumanName.h in Headers */,
+				89F6E68E1720741200595ACA /* Base64Binary.h in Headers */,
+				89F6E68F1720741400595ACA /* Base64Decoder.h in Headers */,
+				89F6E6901720741700595ACA /* Base64Encoder.h in Headers */,
+				89F6E6911720741900595ACA /* Bool.h in Headers */,
+				89F6E6921720741B00595ACA /* Code.h in Headers */,
+				89F6E6931720741D00595ACA /* Element.h in Headers */,
+				89F6E6941720742000595ACA /* Type.h in Headers */,
+				89F6E6951720742200595ACA /* Uri.h in Headers */,
+				89F6E687172073F400595ACA /* Coding.h in Headers */,
+				89F6E688172073F600595ACA /* NodeType.h in Headers */,
+				89F6E689172073F800595ACA /* Period.h in Headers */,
+				89F6E68A172073FB00595ACA /* XhtmlNode.h in Headers */,
+				89F6E683172073ED00595ACA /* Address.h in Headers */,
+				89F6E68D1720740B00595ACA /* ResourceReference.h in Headers */,
+				89F6E6961720742900595ACA /* Extension.h in Headers */,
+				89F6E6971720742B00595ACA /* Narrative.h in Headers */,
+				89F6E6981720742D00595ACA /* Text.h in Headers */,
+				89F6E68C1720740A00595ACA /* Resource.h in Headers */,
+				89F6E70A17207DE400595ACA /* String.h in Headers */,
+				89F6E681172073E300595ACA /* Image.h in Headers */,
+				89F6E6991720743200595ACA /* ExistanceChecker.h in Headers */,
+				89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		8993D7E616B1D88400D0AFB4 /* FHIR */ = {
 			isa = PBXNativeTarget;
@@ -409,6 +503,7 @@
 				8993D7E316B1D88400D0AFB4 /* Sources */,
 				8993D7E416B1D88400D0AFB4 /* Frameworks */,
 				8993D7E516B1D88400D0AFB4 /* CopyFiles */,
+				89F6E66F1720720100595ACA /* Headers */,
 			);
 			buildRules = (
 			);
@@ -617,24 +712,44 @@
 		8993D80D16B1D88500D0AFB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FHIR/FHIR-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /include/private;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Debug;
 		};
 		8993D80E16B1D88500D0AFB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FHIR/FHIR-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /include/private;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Release;
 		};

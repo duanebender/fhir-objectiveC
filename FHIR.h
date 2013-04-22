@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@protocol FHIR <NSObject>
-
-@end
+#import "Patient.h"
+#import "JSONToDict.h"
+#import "DictToJSON.h"
+#import "XMLToDict.h"
+#import "DictToXML.h"
