@@ -8,30 +8,31 @@
 
 #import "PatientEditViewController.h"
 #import "PatientViewController.h"
+#import "DetailsEditViewController.h"
 
-@interface PatientEditViewController ()
+@interface PatientEditViewController () <ViewControllerSubEditDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *activeSwitch;
-@property (nonatomic) BOOL activeState;
 
 @end
 
 @implementation PatientEditViewController
 
-- (IBAction)saveButton:(id)sender
+- (void)editValues:(Patient *)patientToEdit
 {
-    if (self.activeSwitch) self.activeState = true;
-    else self.activeState = false;
-    
-    [self editCurrentPatientValues];
-    [[[UIAlertView alloc] initWithTitle:@"Saved" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    self.patientToEdit = [[Patient alloc] init];
+    self.patientToEdit = patientToEdit;
+    [self.delegate editPatientValues:self.patientToEdit];
 }
 
-- (void)editCurrentPatientValues
+- (IBAction)saveButton:(id)sender
 {
-    NSArray *views = self.navigationController.viewControllers;
-    PatientViewController *target = [views objectAtIndex:([views count] -1)];
-    target.patient.active.value = self.activeState;
+    //grab new active value
+    if ([self.activeSwitch isOn]) self.patientToEdit.active.value = true;
+    else self.patientToEdit.active.value = false;
+    
+    [self.delegate editPatientValues:self.patientToEdit];
+    [[[UIAlertView alloc] initWithTitle:@"Saved" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,20 +40,41 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.patientToEdit = [[Patient alloc] init];
     }
     return self;
+}
+
+- (void)setupPatientView
+{
+    //set switch active
+    if (self.patientToEdit.active.value == true) [self.activeSwitch setOn:YES];
+    else [self.activeSwitch setOn:NO];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setupPatientView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"detailsSegue"])
+    {
+        DetailsEditViewController *target = (DetailsEditViewController *)segue.destinationViewController;
+        target.delegate = self;
+        target.patientDetailsToEdit = self.patientToEdit;
+    }
 }
 
 @end

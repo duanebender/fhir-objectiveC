@@ -48,22 +48,9 @@
         JSONToDict *jsonDict = [[JSONToDict alloc] init];
         NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
         patientJSON = [jsonDict convertJsonToDictionary:[urlString stringByAppendingString:@"/history/@1?_format=json"]];
-        NSLog(@"%@", patientJSON);
         
         [self.patientArray addObject:patientJSON];
-        NSLog(@"%@",self.patientArray);
     }
-    /*
-    for (int i = 0; i < 10; i ++)
-    {
-        
-        self.jsonDict = [[JSONToDict alloc] init];
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
-        [self.patientArray addObject:[self.jsonDict convertJsonToDictionary:[urlString stringByAppendingString:@"/history/@1?_format=json"]]];
-        NSLog(@"%@",self.patientArray);
-        
-    }
-     */
 }
 
 - (void)viewDidLoad
@@ -71,13 +58,6 @@
     [super viewDidLoad];
     [self grabFromServer];
     [self.tableView reloadData];
-    //[[[UIAlertView alloc] initWithTitle:@"Hello" message:@"World" delegate:nil cancelButtonTitle:@"Nope" otherButtonTitles:nil, nil] show];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,8 +101,6 @@
     NSDictionary *lastNameDict = [[NSDictionary alloc] initWithDictionary:[[getNamePatientDict2 objectForKey:@"family"] objectAtIndex:0]]; //holds first family name
     NSString *lastNameString = [lastNameDict objectForKey:@"value"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",lastNameString, firstNameString];
-    NSLog(@"%@, %@",lastNameString, firstNameString);
-    //cell.detailTextLabel.text = [[NSUbiquitousKeyValueStore defaultStore] objectForKey:[url lastPathComponent]];
     
     return cell;
 }
@@ -154,19 +132,6 @@
         {
             indexPath = [self.tableView indexPathForSelectedRow];
         }
-        /*
-        if (indexPath && [segue.identifier isEqualToString:@"segueToPatientView"])
-        {
-            if ([segue.destinationViewController conformsToProtocol:@protocol(DocumentViewControllerSegue)])
-            {
-                NSURL *url = [self.documents objectAtIndex:indexPath.row];
-                [segue.destinationViewController setTitle:[url lastPathComponent]];
-                UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-                [self setPersistantStoreOptionsInDocument:document];
-                [segue.destinationViewController patient:document];
-            }
-        }
-         */
     }
 }
 

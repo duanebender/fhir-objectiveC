@@ -20,7 +20,6 @@
 		8969472E171D99D10072A3CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8969472D171D99D10072A3CD /* Default-568h@2x.png */; };
 		89694731171D99D10072A3CD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8969472F171D99D10072A3CD /* MainStoryboard_iPhone.storyboard */; };
 		89694734171D99D10072A3CD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */; };
-		89694737171D99D10072A3CD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694736171D99D10072A3CD /* TestViewController.m */; };
 		8969473F171D99D10072A3CD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8969473E171D99D10072A3CD /* SenTestingKit.framework */; };
 		89694740171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
 		89694741171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
@@ -28,6 +27,7 @@
 		8969474C171D99D10072A3CD /* TestFHIRPatientAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8969474B171D99D10072A3CD /* TestFHIRPatientAppTests.m */; };
 		89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */; };
 		89694766171DAE550072A3CD /* PatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694765171DAE550072A3CD /* PatientViewController.m */; };
+		89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E2EE3017270E260005CC5A /* DetailsEditViewController.m */; };
 		89F6E76617207EDC00595ACA /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F6E76517207EDC00595ACA /* libFHIR.a */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +61,6 @@
 		8969472D171D99D10072A3CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		89694730171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		89694733171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		89694735171D99D10072A3CD /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		89694736171D99D10072A3CD /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		8969473D171D99D10072A3CD /* TestFHIRPatientAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestFHIRPatientAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8969473E171D99D10072A3CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		89694746171D99D10072A3CD /* TestFHIRPatientAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestFHIRPatientAppTests-Info.plist"; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientLoaderTableViewController.m; sourceTree = "<group>"; };
 		89694764171DAE550072A3CD /* PatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientViewController.h; sourceTree = "<group>"; };
 		89694765171DAE550072A3CD /* PatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientViewController.m; sourceTree = "<group>"; };
+		89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEditViewController.h; sourceTree = "<group>"; };
+		89E2EE3017270E260005CC5A /* DetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEditViewController.m; sourceTree = "<group>"; };
 		89F6E73B17207EDC00595ACA /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
 		89F6E73C17207EDC00595ACA /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToXML.h; sourceTree = "<group>"; };
 		89F6E73D17207EDC00595ACA /* FHIR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 		8969471D171D99D10072A3CD /* TestFHIRPatientApp */ = {
 			isa = PBXGroup;
 			children = (
+				89E2EE3217270E2C0005CC5A /* Edit Views */,
 				89694726171D99D10072A3CD /* TestAppDelegate.h */,
 				89694727171D99D10072A3CD /* TestAppDelegate.m */,
 				8969472F171D99D10072A3CD /* MainStoryboard_iPhone.storyboard */,
@@ -182,11 +183,7 @@
 				89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */,
 				89694764171DAE550072A3CD /* PatientViewController.h */,
 				89694765171DAE550072A3CD /* PatientViewController.m */,
-				891F3A961725C5C70091D782 /* PatientEditViewController.h */,
-				891F3A971725C5C70091D782 /* PatientEditViewController.m */,
 				89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */,
-				89694735171D99D10072A3CD /* TestViewController.h */,
-				89694736171D99D10072A3CD /* TestViewController.m */,
 				8969471E171D99D10072A3CD /* Supporting Files */,
 			);
 			path = TestFHIRPatientApp;
@@ -225,6 +222,17 @@
 				89694747171D99D10072A3CD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89E2EE3217270E2C0005CC5A /* Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				891F3A961725C5C70091D782 /* PatientEditViewController.h */,
+				891F3A971725C5C70091D782 /* PatientEditViewController.m */,
+				89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */,
+				89E2EE3017270E260005CC5A /* DetailsEditViewController.m */,
+			);
+			name = "Edit Views";
 			sourceTree = "<group>";
 		};
 		89F6E73917207EDC00595ACA /* libFHIR */ = {
@@ -413,11 +421,11 @@
 			files = (
 				89694724171D99D10072A3CD /* main.m in Sources */,
 				89694728171D99D10072A3CD /* TestAppDelegate.m in Sources */,
-				89694737171D99D10072A3CD /* TestViewController.m in Sources */,
 				89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */,
 				89694766171DAE550072A3CD /* PatientViewController.m in Sources */,
 				891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */,
 				891F3A981725C5C70091D782 /* PatientEditViewController.m in Sources */,
+				89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

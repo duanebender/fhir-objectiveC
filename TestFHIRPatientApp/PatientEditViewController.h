@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FHIR.h"
+#import "DetailsEditViewController.h"
 
 @class PatientEditViewController;
 
@@ -17,8 +18,9 @@
 
 @end
 
-@interface PatientEditViewController : UIViewController
+@interface PatientEditViewController : UIViewController <ViewControllerSubEditDelegate>
 
 @property (nonatomic, weak) id<ViewControllerEditDelegate> delegate;
+@property (nonatomic, weak) Patient *patientToEdit;
 
 @end

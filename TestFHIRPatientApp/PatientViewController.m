@@ -19,7 +19,9 @@
 
 - (void)editPatientValues:(Patient *)patientToEdit
 {
+    self.patient = [[Patient alloc] init];
     self.patient = patientToEdit;
+    [self initPatientLabel];
 }
 
 
@@ -56,9 +58,9 @@
 {
     if ([segue.identifier isEqualToString:@"editPatientSegue"])
     {
-        PatientEditViewController *viewControllerEdit = [[PatientEditViewController alloc] initWithNibName:@"PatientEditViewController" bundle:nil];
-        viewControllerEdit.delegate = self;
-        [[self navigationController] pushViewController:viewControllerEdit animated:YES];
+        PatientEditViewController *target = (PatientEditViewController *)segue.destinationViewController;
+        target.delegate = self;
+        target.patientToEdit = self.patient;
     }
 }
 
