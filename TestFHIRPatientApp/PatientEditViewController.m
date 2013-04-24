@@ -45,6 +45,7 @@
     return self;
 }
 
+//patient initilizer method
 - (void)setupPatientView
 {
     //set switch active

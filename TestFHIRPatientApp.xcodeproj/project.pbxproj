@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F3A90172593A10091D782 /* PatientViewWriter.m */; };
 		891F3A981725C5C70091D782 /* PatientEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F3A971725C5C70091D782 /* PatientEditViewController.m */; };
+		89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89403EDF172819E100EDDF8A /* NameListTableViewController.m */; };
 		89694718171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
 		8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
 		8969471C171D99D10072A3CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8969471B171D99D10072A3CD /* CoreGraphics.framework */; };
@@ -46,6 +47,8 @@
 		891F3A90172593A10091D782 /* PatientViewWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientViewWriter.m; sourceTree = "<group>"; };
 		891F3A961725C5C70091D782 /* PatientEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEditViewController.h; sourceTree = "<group>"; };
 		891F3A971725C5C70091D782 /* PatientEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEditViewController.m; sourceTree = "<group>"; };
+		89403EDE172819E100EDDF8A /* NameListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameListTableViewController.h; sourceTree = "<group>"; };
+		89403EDF172819E100EDDF8A /* NameListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameListTableViewController.m; sourceTree = "<group>"; };
 		89694713171D99D10072A3CD /* TestFHIRPatientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFHIRPatientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89694717171D99D10072A3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		89694719171D99D10072A3CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -231,6 +234,8 @@
 				891F3A971725C5C70091D782 /* PatientEditViewController.m */,
 				89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */,
 				89E2EE3017270E260005CC5A /* DetailsEditViewController.m */,
+				89403EDE172819E100EDDF8A /* NameListTableViewController.h */,
+				89403EDF172819E100EDDF8A /* NameListTableViewController.m */,
 			);
 			name = "Edit Views";
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */,
 				891F3A981725C5C70091D782 /* PatientEditViewController.m in Sources */,
 				89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */,
+				89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

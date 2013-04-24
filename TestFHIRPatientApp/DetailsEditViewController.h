@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FHIR.h"
+#import "NameListTableViewController.h"
 
 @class DetailsEditViewController;
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface DetailsEditViewController : UIViewController
+@interface DetailsEditViewController : UIViewController <NameTableDelegate>
 
 @property (nonatomic, weak) id<ViewControllerSubEditDelegate> delegate;
 @property (nonatomic, weak) Patient *patientDetailsToEdit;

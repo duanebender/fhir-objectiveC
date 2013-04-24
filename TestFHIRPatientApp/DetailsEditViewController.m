@@ -8,13 +8,20 @@
 
 #import "DetailsEditViewController.h"
 
-@interface DetailsEditViewController ()
+@interface DetailsEditViewController () <NameTableDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *genderTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *deceasedSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *givenTextField;
 
 @end
 
 @implementation DetailsEditViewController
+
+- (void)updateNames:(Patient *)patientNames
+{
+    self.patientDetailsToEdit = patientNames;
+}
 
 - (IBAction)saveButton:(id)sender
 {
@@ -23,6 +30,10 @@
     if ([genderTextTest caseInsensitiveCompare:@"M"] == 0) self.patientDetailsToEdit.details.gender.code.value = @"M";
     else if ([genderTextTest caseInsensitiveCompare:@"F"] == 0) self.patientDetailsToEdit.details.gender.code.value = @"F";
     else self.patientDetailsToEdit.details.gender.code.value = @"?";
+    
+    //grab deceased switch
+    if ([self.deceasedSwitch isOn]) self.patientDetailsToEdit.details.deceased.value = true;
+    else self.patientDetailsToEdit.details.deceased.value = false;
     
     [self.delegate editValues:self.patientDetailsToEdit];
     [[[UIAlertView alloc] initWithTitle:@"Saved" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
@@ -42,6 +53,10 @@
 {
     //set gender field
     self.genderTextField.text = self.patientDetailsToEdit.details.gender.code.value;
+    
+    //set deceased switch
+    if (self.patientDetailsToEdit.details.deceased.value == true) [self.deceasedSwitch setOn:YES];
+    else [self.deceasedSwitch setOn:NO];
 }
 
 - (void)viewDidLoad
@@ -55,6 +70,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"editFamilyNameSegue"])
+    {
+        NameListTableViewController *target = (NameListTableViewController *)segue.destinationViewController;
+        target.delegate = self;
+        target.patientToListNames = self.patientDetailsToEdit;
+    }
 }
 
 @end
