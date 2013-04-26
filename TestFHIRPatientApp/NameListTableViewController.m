@@ -45,6 +45,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.patientToListNames = [[Patient alloc] init];
         self.nameArray = [[NSMutableArray alloc] init];
         self.sectionArray = [[NSMutableArray alloc] init];
         self.typeArray = [[NSMutableArray alloc] init];
@@ -54,6 +55,7 @@
 
 - (void)setUpNamesForTable
 {
+    NSLog(@"%@",self.patientToListNames.details.name);
     for (int i = 0; i < [self.patientToListNames.details.name count]; i++)
     {
 #warning - does not addObject?
@@ -61,6 +63,7 @@
         [self.sectionArray addObject:[NSString stringWithFormat:@"Name %d",i+1]];
         NSLog(@"Here: %@",self.sectionArray);
         HumanName *tempName = [self.patientToListNames.details.name objectAtIndex:i];
+        NSLog(@"TEMPNAME: %@",tempName);
         NSDictionary *tempNameDict = [[NSDictionary alloc] initWithDictionary:[tempName generateAndReturnDictionary]];
         for (NSString *key in tempNameDict)
         {
