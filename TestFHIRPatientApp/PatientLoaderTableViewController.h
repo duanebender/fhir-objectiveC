@@ -11,6 +11,5 @@
 @interface PatientLoaderTableViewController : UITableViewController <UISearchBarDelegate>
 
 @property (nonatomic, retain) NSMutableArray *patientArray;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

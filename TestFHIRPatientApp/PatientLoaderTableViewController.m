@@ -26,7 +26,7 @@
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
     dispatch_async(downloadQueue, ^{
-        [self grabFromServer];
+        [self grabFromServer:@"1-5"];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.navigationItem.rightBarButtonItem = sender;
             //self.patientArray = patients;
@@ -40,6 +40,7 @@
     if (self)
     {
         // Custom initialization
+        
     }
     return self;
 }
@@ -51,8 +52,9 @@
     NSNumber *maxID;
     NSMutableArray *rangesToSearch = [[NSMutableArray alloc] init];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [self.patientArray removeAllObjects];
     
-    if ([searchIDRange rangeOfString:@","].location) //multiple string ranges found
+    if ([searchIDRange rangeOfString:@","].length > 0) //multiple string ranges found
     {
         NSArray *allRanges = [searchIDRange componentsSeparatedByString:@","];
         
@@ -61,18 +63,18 @@
             if ([[allRanges objectAtIndex:k] rangeOfString:@"-"].location) //if a range within the ranges
             {
                 NSArray *grabMinAndMax = [searchIDRange componentsSeparatedByString:@"-"];
-                minID = [NSNumber numberWithInt:[formatter numberFromString:[grabMinAndMax objectAtIndex:0]]];
-                maxID = [NSNumber numberWithInt:[formatter numberFromString:[grabMinAndMax objectAtIndex:1]]];
+                minID = [formatter numberFromString:[grabMinAndMax objectAtIndex:0]];
+                maxID = [formatter numberFromString:[grabMinAndMax objectAtIndex:1]];
                 
                 
             }
         }
     }
-    else if ([searchIDRange rangeOfString:@"-"].location) //string range min to max seperated by "-"
+    else if ([searchIDRange rangeOfString:@"-"].length > 0) //string range min to max seperated by "-"
     {
         NSArray *grabMinAndMax = [searchIDRange componentsSeparatedByString:@"-"];
-        minID = [NSNumber numberWithInt:[formatter numberFromString:[grabMinAndMax objectAtIndex:0]]];
-        maxID = [NSNumber numberWithInt:[formatter numberFromString:[grabMinAndMax objectAtIndex:1]]];
+        minID = [formatter numberFromString:[grabMinAndMax objectAtIndex:0]];
+        maxID = [formatter numberFromString:[grabMinAndMax objectAtIndex:1]];
         
         [rangesToSearch addObject:minID];
         [rangesToSearch addObject:maxID];
@@ -89,41 +91,47 @@
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Please use only digits, '-', and ',' in the search field."
+                                                        message:@"Please use only Patient ID's in the search field. (digits, '-', and ',')"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        [alert show];
         return;
     }
     
     NSObject *patientJSON = [[NSObject alloc] init];
+    BOOL missedFiles = false;
     self.patientArray = [[NSMutableArray alloc] init];
-    NSInteger *currentObjectIndex = 0;
+    NSInteger currentObjectIndex = 0;
     NSMutableString *missingFilesAlert = [[NSMutableString alloc] initWithString:@"Paitient ID(s) "];
-    for (int j = 1; j <= [rangesToSearch count]/2; j++)
+    for (int j = 1; j <= ([rangesToSearch count]/2); j++)
     {
         for (int i = [[rangesToSearch objectAtIndex:currentObjectIndex] intValue]; i <= [[rangesToSearch objectAtIndex:currentObjectIndex+1] intValue]; i ++)
         {
-        
             JSONToDict *jsonDict = [[JSONToDict alloc] init];
-            NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
-            [urlString stringByAppendingString:@"/history/@1?_format=json"];
+            NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@%d", i]];
+            NSString *tempURLString = [urlString stringByAppendingString:@"/history/@1?_format=json"];
         
             //check if file exists at path
-            NSData *checkData = [[NSData alloc] initWithContentsOfFile:urlString];
-            if (checkData)
+            NSURL *tempUrl = [[NSURL alloc] initWithString:tempURLString];
+            NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
+            if (jsonString)
             {
-                patientJSON = [jsonDict convertJsonToDictionary:urlString];
+                NSLog(@"%@",tempURLString);
+                patientJSON = [jsonDict convertJsonToDictionary:tempURLString];
                 [self.patientArray addObject:patientJSON];
             }
             else
             {
                 [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%d, ", i]];
+                missedFiles = true;
             }
         }
-        currentObjectIndex += 2;
     }
-    [missingFilesAlert stringByAppendingString:@"do not exist."];
+    
+    if (missedFiles)
+    {
+    [missingFilesAlert stringByAppendingString:@"do(es) not exist."];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
                                                     message:missingFilesAlert
@@ -131,19 +139,24 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    }
+    [self.tableView reloadData];
+    NSLog(@"%@",self.patientArray);
 }
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+/*
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar
 {
-    
+    NSLog(@"HERE?");
+    [self grabFromServer:self.aSearchBar.text];
 }
+ */
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     //searchbar addon start
-    self.searchBar.delegate = self;
+    //self.aSearchBar.delegate = self;
     
     [self grabFromServer:@"1-10"];
     [self.tableView reloadData];
