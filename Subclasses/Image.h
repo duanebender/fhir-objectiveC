@@ -6,18 +6,24 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * Contains an image
+ */
+
 #import <Foundation/Foundation.h>
 #import "Code.h"
 #import "Base64Binary.h"
 
 @interface Image : Element
 
-@property (nonatomic, retain) FHIRResourceDictionary *imageDictionary;
+@property (nonatomic, retain) FHIRResourceDictionary *imageDictionary; //contains all image resources
 
+//following properties are individual parts of the Identifier Object that can be influenced Individually
 @property (nonatomic, retain) Code *mimeType;
-@property (nonatomic, retain) Base64Binary *content;
+@property (nonatomic, retain) Base64Binary *content; //the image itself encoded in base64Binary
 
-- (NSDictionary *)generateAndReturnDictionary; //return image resources ready for formatting
-- (void)imageParser:(NSDictionary *)dictionary; //set image from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //return a NSDictionary containing all the elements of this Image Object
+- (void)imageParser:(NSDictionary *)dictionary; //set this image object from an NSdictionary
 
 @end

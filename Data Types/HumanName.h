@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * A full name with its use and designation (Family, given, prefix, and suffix)
+ */
+
 #import <Foundation/Foundation.h>
 #import "String.h"
 #import "Period.h"
 #import "ExistanceChecker.h"
 
+//definitions for the use value
 typedef enum
 {
     usual = 1, //Known as/conventional/the one you normally use
@@ -26,6 +31,7 @@ typedef enum
 
 @property (nonatomic, retain) FHIRResourceDictionary *humanNameDictionary; //resources for human name
 
+//following properties are individual parts of the HumanName Object that can be influenced Individually
 @property (nonatomic) NSInteger use;
 @property (nonatomic, retain) String *useSV; //string equivelent of use
 @property (nonatomic, retain) String *text; //a full text representation of the name
@@ -35,7 +41,8 @@ typedef enum
 @property (nonatomic, retain) NSMutableArray *suffix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name. Array of Strings
 @property (nonatomic, retain) Period *period; //Indicates the period of time when this name was valid for the named person.
 
-- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
-- (void)humanNameParser:(NSDictionary *)dictionary; //set humanname from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all of the elements of this HumanName Object
+- (void)humanNameParser:(NSDictionary *)dictionary; //set this HumanName Object from an NSDictionary
 
 @end

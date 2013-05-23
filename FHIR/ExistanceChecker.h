@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * Checks arrays for nil or null values and removes them completely
+ */
+
 #import <Foundation/Foundation.h>
 #import "ResourceReference.h"
 #import "HumanId.h"

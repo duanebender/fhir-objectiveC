@@ -6,17 +6,21 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-//A time period defined by a start and end time.
+/**
+* A time period defined by a start and end time.
+ */
 
 #import <Foundation/Foundation.h>
 #import "Type.h"
 
 @interface Period : Type
 
+//following properties are individual parts of the Period Object that can be influenced Individually
 @property (nonatomic, retain) NSDate *start; //The start of the period. The boundary is inclusive.
 @property (nonatomic, retain) NSDate *end; //The end of the period. If the high is missing, it means that the period is ongoing
 
-- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready for formatting
-- (void)periodParser:(NSDictionary *)dictionary; //set period from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDicitionary containing all elements of this Period Object
+- (void)periodParser:(NSDictionary *)dictionary; //set this period object from an NSdictionary
 
 @end

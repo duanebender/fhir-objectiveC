@@ -10,8 +10,6 @@
 
 @implementation XMLToDict
 
-@synthesize incomingResourceType = _incomingResourceType;
-
 - (NSObject *)convertXmlToDictionary:(NSString *)urlString
 {
     NSURL *url = [NSURL URLWithString:urlString];
@@ -22,10 +20,8 @@
         NSLog(@"Exists");
         NSError *error;
         xmlString = [self stringByStrippingXMLHeader:xmlString];
-        //NSLog(@"%@",xmlString);
         
         NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLString:xmlString error:error];
-        //NSLog(@"%@", xmlDictionary);
         NSObject *resourceAsObject = [self createLocalizedObject:xmlDictionary];
         return resourceAsObject;
     }

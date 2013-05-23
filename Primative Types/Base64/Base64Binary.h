@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * handles base64binary resources by encoding and decoding them as needed
+ */
+
 #import <Foundation/Foundation.h>
 #import "Type.h"
 #import "Base64Encoder.h"
@@ -13,9 +17,11 @@
 
 @interface Base64Binary : Type
 
-@property (nonatomic) NSData *data;
+//following properties are individual parts of the Base64Binary Object that can be influenced Individually
+@property (nonatomic) NSData *data; //data currently in this base64Binary such as an image
 
-- (NSDictionary *)generateAndReturnDictionary; //returns dictionary of base64 encoded binary for formatting
-- (void)setValueBase64BinaryData:(NSDictionary *)dictionary; //sets data in base64Binary from encoded string in a dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns NSdictionary of this base64binary encoded data
+- (void)setValueBase64BinaryData:(NSDictionary *)dictionary; //sets data in this base64Binary object from encoded string in an NSdictionary
 
 @end

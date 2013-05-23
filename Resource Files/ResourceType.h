@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * A definition of every currently available resource type for checking validity
+ */
 
 typedef enum ResourceType
 {

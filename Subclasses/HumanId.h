@@ -15,6 +15,7 @@
 #import "Identifier.h"
 #import "Period.h"
 
+//Type definitions for the Use value
 typedef enum IdentifierUse
 {
     IdentifierUseUsual = 1, // the identifier recommended for display and use in real-world interactions
@@ -26,6 +27,7 @@ typedef enum IdentifierUse
 
 @property (nonatomic, retain) FHIRResourceDictionary *humanIdDictionary; //dictionary of all HumanId resources
 
+//following properties are individual parts of the HumanId Object that can be influenced Individually
 @property (nonatomic) NSInteger use; //Identifies the use for this identifier, if known
 @property (nonatomic, retain) String *useSV; //use value parser value
 @property (nonatomic, retain) String *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
@@ -33,10 +35,8 @@ typedef enum IdentifierUse
 @property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
 @property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier
 
-//- (void)setValueUse:(NSString *)codeString; //set IdentifierUse Using a string
-//- (NSString *)returnStringUse; //get IdentifierUse as a String
-
-- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
-- (void)humanIdParser:(NSDictionary *)dictionary; //set humanid from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns NSDictionary of HumanId containing all it's elements
+- (void)humanIdParser:(NSDictionary *)dictionary; //set humanid from an NSdictionary
 
 @end

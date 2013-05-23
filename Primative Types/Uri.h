@@ -6,14 +6,20 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * A Basic Uri object
+ */
+
 #import <Foundation/Foundation.h>
 #import "Type.h"
 
 @interface Uri : Type
 
+//value of this uri for direct influence
 @property (nonatomic, weak) NSURL *uri;
 
-- (NSDictionary *)generateAndReturnDictionary; //returns ready for formatting
-- (void)setValueURI:(NSDictionary *)dictionary; //set uri from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this uri
+- (void)setValueURI:(NSDictionary *)dictionary; //set this uri object from an NSdictionary
 
 @end

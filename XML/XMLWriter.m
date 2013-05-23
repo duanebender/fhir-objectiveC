@@ -26,10 +26,8 @@
     {
         NSObject *value = [xmlDict2 valueForKey:key];
         //generate string of xml from resource
-        NSLog(@"Here?");
         if ([value isKindOfClass:[NSDictionary class]] && ![key isEqualToString:@"value"])
         {
-            NSLog(@"CheckA1");
             tabValue ++;
             [stringForXML appendString:[self tabber]];
             if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"<%@>\n", key]];
@@ -40,12 +38,10 @@
         }
         else if ([value isKindOfClass:[NSArray class]])
         {
-            NSLog(@"CheckA2");
             [stringForXML appendString:[self writeXMLStringFromArray:key:value]];
         }
         else
         {
-            NSLog(@"CheckA3");
             [stringForXML appendString:[NSString stringWithFormat:@"<%@ value='%@'>", key, value]];
         }
         
@@ -65,7 +61,6 @@
         NSObject *value = [content valueForKey:key];
         if ([content isKindOfClass:[NSMutableDictionary class]] || [value isKindOfClass:[NSDictionary class]])
         {
-            NSLog(@"CheckB1");
             tabValue++;
             [returnString appendString:[self tabber]];
             if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
@@ -76,20 +71,17 @@
         }
         else if ([value isKindOfClass:[NSMutableArray class]] || [value isKindOfClass:[NSArray class]])
         {
-            NSLog(@"CheckB2");
             tabValue++;
             [returnString appendString:[self writeXMLStringFromArray:key:value]];
             tabValue--;
         }
         else if ([key isEqualToString:@"value"])
         {
-            NSLog(@"CheckB3");
             [returnString appendString:[self tabber]];
             [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' \\>\n", element, value]];
         }
         else if ([key isEqualToString:@"div"]) //in case of a div container for the text field
         {
-            NSLog(@"CheckB4");
             tabValue++;
             [returnString appendString:[self tabber]];
             [returnString appendString:[NSString stringWithFormat:@"<div xmlns='http://www.w3.org/1999/xhtml'> \n"]];
@@ -103,7 +95,6 @@
         }
         else
         {
-            NSLog(@"CheckB5");
             [returnString appendString:[NSString stringWithFormat:@"<%@>%@<\\%@>\n", key, value, key]];
         }
     }
@@ -129,25 +120,21 @@
             NSObject *value = [tempDictionary valueForKey:key];
             if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSDictionary class]])
             {
-                NSLog(@"CheckC1");
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
                 [returnString appendString:[self writeXMLStringFromDictionary:key:value]];
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
             }
             else if ([value isKindOfClass:[NSArray class]])
             {
-                NSLog(@"CheckC2");
                 [returnString appendString:[self writeXMLStringFromArray:key:value]];
             }
             else if ([key isEqualToString:@"value"])
             {
-                NSLog(@"CheckC3");
                 [returnString appendString:[self tabber]];
                 [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' \\>\n", element, value]];
             }
             else
             {
-                NSLog(@"CheckC4");
                 [returnString appendString:[NSString stringWithFormat:@"<%@>%@<\\%@>\n", key, value, key]];
             }
         }

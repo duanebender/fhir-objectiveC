@@ -22,6 +22,7 @@
 
 @property (nonatomic, retain) FHIRResourceDictionary *demographicsDictionary; //dictionary of resources in Demographics
 
+//following properties are individual parts of the Demographics Object that can be influenced Individually
 @property (nonatomic, retain) NSMutableArray *name; //A name associated with the individual. Array of "HumanName" in case name has changed over time.
 @property (nonatomic, retain) NSMutableArray *telecom; //A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted. Array of "Contact" in case multiple forms of contact. 
 @property (nonatomic, retain) Coding *gender; //Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes
@@ -31,7 +32,8 @@
 @property (nonatomic, retain) CodeableConcept *maritalStatus; //This field contains a patient's marital (civil) status.
 @property (nonatomic, retain) NSMutableArray *language; //A language spoken by the person, with proficiency. Array contains Languages only
 
-- (NSDictionary *)generateAndReturnDictionary; //returns dictionary ready to format
-- (void)demographicsParser:(NSDictionary *)dictionary; //set demographics from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns NSdictionary containing all elements of Demographics
+- (void)demographicsParser:(NSDictionary *)dictionary; //set this demographics object from an NSdictionary
 
 @end

@@ -6,15 +6,19 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * Optional Extensions Element - found in all resources
+ */
+
 #import <Foundation/Foundation.h>
 #import "Element.h"
 #import "Uri.h"
 #import "String.h"
 #import "Bool.h"
 
-//Optional Extensions Element - found in all resources
 @interface Extension : Element
 
+//following properties are individual parts of the Extension Object that can be influenced Individually
 @property (nonatomic, retain) FHIRResourceDictionary *extensionDictionary; //holds a dictionary of all extension resources
 
 @property (nonatomic, retain) Uri *uri; //Source of the definition for the extension code - a logical name or a URL
@@ -23,7 +27,8 @@
 @property (nonatomic, retain) Type *value; //Value of extension - may be a resource or one of a constraint set of the data types (see Extensibility in the spec for list)
 @property (nonatomic, retain) NSMutableArray *list; //Nested Extensions - further extensions that are part of the extension
 
-- (NSDictionary *)generateAndReturnDictionary; //returns dictionary of extension ready to be formatted
-- (void)extensionParser:(NSDictionary *)dictionary; //parses extension from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this Extension Object
+- (void)extensionParser:(NSDictionary *)dictionary; //sets elements of this extension object from an NSDictionary
 
 @end

@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * A collection of all the address information from city to country, etc.
+ */
+
 #import <Foundation/Foundation.h>
 #import "Type.h"
 #import "String.h"
 #import "Period.h"
 
+//definitions of each Use value
 typedef enum AddressUse
 {
     AddressUseHome = 1, // The contents of the narrative are entirely generated from the structured data in the resource.
@@ -23,6 +28,7 @@ typedef enum AddressUse
 
 @property (nonatomic, retain) FHIRResourceDictionary *addressDictionary; //dictionary of all resources for address
 
+//following properties are individual parts of the Address Object that can be influenced Individually
 @property (nonatomic) NSInteger use; //Identifies the intended purpose of this address
 @property (nonatomic, retain) String *useSV; //string value of use
 @property (nonatomic, retain) String *text; //a full text representation of the address
@@ -35,7 +41,8 @@ typedef enum AddressUse
 @property (nonatomic, retain) String *dpid; //A value that uniquely identifies the postal address. (Often used in barcodes).
 @property (nonatomic, retain) Period *period; //Time period when address was/is in use.
 
-- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
-- (void)addressParser:(NSDictionary *)dictionary; //set address from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this Address Object
+- (void)addressParser:(NSDictionary *)dictionary; //sets this address object from an NSdictionary
 
 @end

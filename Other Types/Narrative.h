@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * Narrative strings of text
+ */
+
 #import <Foundation/Foundation.h>
 #import "Code.h"
 #import "XhtmlNode.h"
 #import "Image.h"
 
+//defines the status options for this narrative object
 typedef enum NarrativeStatus
 {
     NarrativeStatusGenerated = 1, // The contents of the narrative are entirely generated from the structured data in the resource.
@@ -23,15 +28,14 @@ typedef enum NarrativeStatus
 
 @property (nonatomic, retain) FHIRResourceDictionary *narrativeDictionary;
 
+//following properties are individual parts of the Narrative Object that can be influenced Individually
 @property (nonatomic) NSInteger status; //The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
 @property (nonatomic, retain) String *statusSV; //string value of status
 @property (nonatomic, retain) XhtmlNode *div; //The actual narrative content, a stripped down version of XHTML
 @property (nonatomic, retain) NSMutableArray *image; //array of images referred to directly in the xhtml
 
-//- (void)setValueNarrative:(NSString *)codeString; //set IdentifierUse Using a string
-//- (NSString *)returnStringNarrative; //get IdentifierUse as a String
-
-- (NSDictionary *)generateAndReturnDictionary; //returns resource ready to be formatted
-- (void)narrativeParser:(NSDictionary *)dictionary; //sets narrative from dictionary
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all of the elements of this Narrative Object
+- (void)narrativeParser:(NSDictionary *)dictionary; //sets elements of this narrative object from an NSdictionary
 
 @end

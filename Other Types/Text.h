@@ -6,19 +6,23 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-//holds generated text that comes along with xml and json files
+/**
+*holds generated text that comes along with xml and json files
+*/
 
 #import <Foundation/Foundation.h>
 #import "String.h"
 
 @interface Text : NSObject
 
-@property (nonatomic, retain) NSString *div;
-@property (nonatomic, retain) String *status;
-
 @property (nonatomic, retain) FHIRResourceDictionary *textDictionary;
 
-- (NSDictionary *)generateAndReturnDictionary; //returns text ready to be formatted
-- (void)textParser:(NSDictionary *)dictionary; //sets text from dictionary
+//following properties are individual parts of the Text Object that can be influenced Individually
+@property (nonatomic, retain) NSString *div; //holds the text in this object
+@property (nonatomic, retain) String *status;
+
+//Public Methods
+- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this text object
+- (void)textParser:(NSDictionary *)dictionary; //sets this text object from an NSdictionary
 
 @end
