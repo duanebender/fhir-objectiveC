@@ -13,6 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "Patient.h"
 #import "XMLReader.h"
+#import "Organization.h"
 
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 

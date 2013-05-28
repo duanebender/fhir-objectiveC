@@ -13,7 +13,7 @@
 
 @implementation XMLWriter
 
-- (NSMutableString *)stringForXMLDictionary :(NSMutableDictionary *)xmlDictionary :(NSString *)resourceType
+- (NSMutableString *)stringForXMLDictionary:(NSMutableDictionary *)xmlDictionary resourceType:(NSString *)resourceType
 {
     NSMutableString *stringForXML = [[NSMutableString alloc] initWithString:@""]; //initialize string
     

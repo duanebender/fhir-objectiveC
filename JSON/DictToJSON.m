@@ -21,6 +21,11 @@
         Patient *patient = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[patient generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [Organization class])
+    {
+        Organization *organization = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[organization generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString

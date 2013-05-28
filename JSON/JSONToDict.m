@@ -42,6 +42,13 @@
         [patient patientParser:jsonDict];
         return patient;
     }
+    else if ([jsonDict objectForKey:@"Organization"])
+    {
+        Organization *organization = [[Organization alloc] init];
+        [organization organizationParser:jsonDict];
+        return organization;
+        NSLog(@"organizationXML ************** %@", organization);
+    }
     else
     {
         return nil;

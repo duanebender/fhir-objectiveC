@@ -12,6 +12,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Patient.h"
+#import "Organization.h"
 
 @interface JSONToDict : NSObject
 

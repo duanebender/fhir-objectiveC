@@ -109,23 +109,23 @@
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
     NSObject *patientJSON = [[NSObject alloc] init];
     patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
-    NSLog(@"%@", patientJSON);
+    NSLog(@"PAtient:%@", patientJSON);
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
     [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
-    //take new dictionary and make a new file
+    //Organization Test
+    JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
+    NSObject *orgJSON = [[NSObject alloc] init];
+    orgJSON = [jsonDictORG convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/organization-example-lab.json"];
+    NSLog(@"ORG:%@", orgJSON);
+    
+    //again to .json file
+    DictToJSON *jsonORG = [[DictToJSON alloc] init];
+    [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/Organization.txt"];
+    
     /*
-    JSONToDict *jsonDict2 = [[JSONToDict alloc] init];
-    [jsonDict2 convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-b.json"];
-    
-    DictToJSON *json2 = [[DictToJSON alloc] init];
-    FHIRResourceDictionary *tempJsonDict2 = [[FHIRResourceDictionary alloc] init];
-    tempJsonDict2 = [jsonDict2.patient generateAndReturnPatientResourceDictionary];
-    [json2 generateJsonString:tempJsonDict2 urlPath:@"/Users/adamsippel/Desktop/Patient2.txt"];
-     */
-    
     //FIREHOSE!!!!!!
     
     NSObject *patientJSONA = [[NSObject alloc] init];
@@ -155,6 +155,7 @@
         
         STAssertTrue([[testDict objectForKey:@"PA"] patientDictionary] == [[testDict objectForKey:@"PB"] patientDictionary], @"Should be the same otherwise not grabbing all values properly.");
     }
+     */
 
 }
 
@@ -169,6 +170,14 @@
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
     
+    //organization test
+    XMLToDict *xmlDictORG = [[XMLToDict alloc] init];
+    NSObject *orgXML = [xmlDictORG convertXmlToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/organization/@1/history/@1?_format=xml"];
+    
+    DictToXML *xmlORG = [[DictToXML alloc] init];
+    [xmlORG generateXml:orgXML urlPath:@"/Users/adamsippel/Desktop/Organization.xml"];
+    
+    /*
     NSObject *patientXMLA = [[NSObject alloc] init];
     for (int i = 0; i < 50; i ++)
     {
@@ -184,7 +193,9 @@
         [xmlA generateXml:patientXMLA urlPath:printToString];
         
     }
+  */
 
 }
+
 
 @end

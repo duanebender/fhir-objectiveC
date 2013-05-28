@@ -40,7 +40,14 @@
         Patient *patient = [[Patient alloc] init];
         [patient patientParser:xmlDict];
         return patient;
-        NSLog(@"patientXML ************** %@", patient);
+        //NSLog(@"patientXML ************** %@", patient);
+    }
+    else if ([xmlDict objectForKey:@"Organization"])
+    {
+        Organization *organization = [[Organization alloc] init];
+        [organization organizationParser:xmlDict];
+        return organization;
+        NSLog(@"organizationXML ************** %@", organization);
     }
     else
     {

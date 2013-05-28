@@ -42,6 +42,8 @@
 		894622F816E7E6170040E6EF /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F516E7E6170040E6EF /* Base64Encoder.m */; };
 		894622FE16E7E63C0040E6EF /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FB16E7E63C0040E6EF /* Extension.m */; };
 		894622FF16E7E63C0040E6EF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FD16E7E63C0040E6EF /* Narrative.m */; };
+		895AE6B41754E01F005A6D7A /* Organization.h in Headers */ = {isa = PBXBuildFile; fileRef = 895AE6B21754E01F005A6D7A /* Organization.h */; };
+		895AE6B51754E01F005A6D7A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 895AE6B31754E01F005A6D7A /* Organization.m */; };
 		897CF6C116F0EE0200442A03 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 897CF6C016F0EE0200442A03 /* Text.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
@@ -186,6 +188,8 @@
 		894622FC16E7E63C0040E6EF /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Narrative.h; path = "Other Types/Narrative.h"; sourceTree = SOURCE_ROOT; };
 		894622FD16E7E63C0040E6EF /* Narrative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Narrative.m; path = "Other Types/Narrative.m"; sourceTree = SOURCE_ROOT; };
 		8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
+		895AE6B21754E01F005A6D7A /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = Classes/Organization.h; sourceTree = SOURCE_ROOT; };
+		895AE6B31754E01F005A6D7A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = Classes/Organization.m; sourceTree = SOURCE_ROOT; };
 		897CF6BF16F0EE0200442A03 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = "Other Types/Text.h"; sourceTree = SOURCE_ROOT; };
 		897CF6C016F0EE0200442A03 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = "Other Types/Text.m"; sourceTree = SOURCE_ROOT; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +241,8 @@
 				894622A616E7DFFF0040E6EF /* Animal.m */,
 				894622A716E7DFFF0040E6EF /* Patient.h */,
 				894622A816E7DFFF0040E6EF /* Patient.m */,
+				895AE6B21754E01F005A6D7A /* Organization.h */,
+				895AE6B31754E01F005A6D7A /* Organization.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				89F6E681172073E300595ACA /* Image.h in Headers */,
 				89F6E6991720743200595ACA /* ExistanceChecker.h in Headers */,
 				89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */,
+				895AE6B41754E01F005A6D7A /* Organization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +636,7 @@
 				897CF6C116F0EE0200442A03 /* Text.m in Sources */,
 				89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */,
 				89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */,
+				895AE6B51754E01F005A6D7A /* Organization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
