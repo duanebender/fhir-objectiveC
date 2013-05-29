@@ -47,7 +47,21 @@
         Organization *organization = [[Organization alloc] init];
         [organization organizationParser:jsonDict];
         return organization;
-        NSLog(@"organizationXML ************** %@", organization);
+        //NSLog(@"organizationXML ************** %@", organization);
+    }
+    else if ([jsonDict objectForKey:@"AdverseReaction"])
+    {
+        AdverseReaction *adReact = [[AdverseReaction alloc] init];
+        [adReact adverseReactionParser:jsonDict];
+        return adReact;
+        //NSLog(@"adverseReactionXML ************** %@", adReact);
+    }
+    else if ([jsonDict objectForKey:@"Alert"])
+    {
+        Alert *alertOBJ = [[Alert alloc] init];
+        [alertOBJ alertParser:jsonDict];
+        return alertOBJ;
+        //NSLog(@"alertXML ************** %@", alertOBJ);
     }
     else
     {

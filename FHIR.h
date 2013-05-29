@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Patient.h"
 #import "JSONToDict.h"
 #import "DictToJSON.h"
 #import "XMLToDict.h"
 #import "DictToXML.h"
+#import "Patient.h"
+#import "Organization.h"
+#import "AdverseReaction.h"
+#import "Alert.h"

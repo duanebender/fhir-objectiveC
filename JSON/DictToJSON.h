@@ -10,6 +10,8 @@
 #import "FHIRResourceDictionary.h"
 #import "Patient.h"
 #import "Organization.h"
+#import "AdverseReaction.h"
+#import "Alert.h"
 
 @interface DictToJSON : NSObject
 

@@ -26,6 +26,16 @@
         Organization *organization = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[organization generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [AdverseReaction class])
+    {
+        AdverseReaction *adReact = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[adReact generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+    else if ([jsonObject class] == [Alert class])
+    {
+        Alert *alertOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[alertOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString

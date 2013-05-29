@@ -29,6 +29,18 @@
         _currentResource = @"Organization";
         [self generateXmlStringFromFHIRResourceDictionary:[organization generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([xmlObject class] == [AdverseReaction class])
+    {
+        AdverseReaction *adReact = [singleObject objectAtIndex:0];
+        _currentResource = @"AdverseReaction";
+        [self generateXmlStringFromFHIRResourceDictionary:[adReact generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+    else if ([xmlObject class] == [Alert class])
+    {
+        Alert *alertOBJ = [singleObject objectAtIndex:0];
+        _currentResource = @"Alert";
+        [self generateXmlStringFromFHIRResourceDictionary:[alertOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateXmlStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString

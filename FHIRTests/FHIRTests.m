@@ -113,7 +113,7 @@
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
-    [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
+    [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/JSON/Patient.txt"];
     
     //Organization Test
     JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
@@ -123,7 +123,7 @@
     
     //again to .json file
     DictToJSON *jsonORG = [[DictToJSON alloc] init];
-    [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/Organization.txt"];
+    [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/JSON/Organization.txt"];
     
     /*
     //FIREHOSE!!!!!!

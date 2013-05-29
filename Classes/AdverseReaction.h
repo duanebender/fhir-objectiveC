@@ -20,16 +20,16 @@
 
 @property (nonatomic, retain) FHIRResourceDictionary *adverseReactionDictionary; //a dictionary containing all resources in this adverse reaction object
 
-//following properties are individual parts of the Organization Object that can be influenced Individually
+//following properties are individual parts of the AdverseReaction Object that can be influenced Individually
 @property (nonatomic, retain) NSDate *reactionDate; //contains the initial date of the reaction
-@property (nonatomic, retain) Resource *subject; //The subject that the sensitivity is about.
+@property (nonatomic, retain) Resource *subject; //The subject that the sensitivity is about. (Patient)
 @property (nonatomic, retain) Bool *didNotOccurFlag; //
-@property (nonatomic, retain) Resource *recorder; //The person who recorded this reaction.
+@property (nonatomic, retain) Resource *recorder; //The person who recorded this reaction. (Patient/Practitioner)
 @property (nonatomic, retain) NSMutableArray *symptom; //THIS ARRAY IS FILLED WITH "Symptom" OBJECTS ONLY. Symptoms related to the reaction
 @property (nonatomic, retain) NSMutableArray *exposure; //THIS ARRAY IS FILLED WITH "Exposure" OBJECTS ONLY. Substance and exposure time to cause this reaction
 
 //Public Methods
-- (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Organization
+- (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Adverse Reaction
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from adverse reaction in an NSdictionary format
 
 - (void)adverseReactionParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into an adverse reaction object

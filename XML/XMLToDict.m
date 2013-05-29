@@ -47,7 +47,21 @@
         Organization *organization = [[Organization alloc] init];
         [organization organizationParser:xmlDict];
         return organization;
-        NSLog(@"organizationXML ************** %@", organization);
+        //NSLog(@"organizationXML ************** %@", organization);
+    }
+    else if ([xmlDict objectForKey:@"AdverseReaction"])
+    {
+        AdverseReaction *adReact = [[AdverseReaction alloc] init];
+        [adReact adverseReactionParser:xmlDict];
+        return adReact;
+        //NSLog(@"adverseReactionXML ************** %@", adReact);
+    }
+    else if ([xmlDict objectForKey:@"Alert"])
+    {
+        Alert *alertOBJ = [[Alert alloc] init];
+        [alertOBJ alertParser:xmlDict];
+        return alertOBJ;
+        //NSLog(@"alertXML ************** %@", alertOBJ);
     }
     else
     {

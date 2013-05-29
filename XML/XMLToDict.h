@@ -14,6 +14,8 @@
 #import "Patient.h"
 #import "XMLReader.h"
 #import "Organization.h"
+#import "AdverseReaction.h"
+#import "Alert.h"
 
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 

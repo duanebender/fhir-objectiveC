@@ -68,7 +68,7 @@
 {
     [_partOf setResouceTypeValue:@"organization"];
     NSDictionary *organizationDict = [dictionary objectForKey:@"Organization"];
-    //NSLog(@"%@", patient);
+    //NSLog(@"%@", organizationDict);
     
     [_active setValueBool:[organizationDict objectForKey:@"active"]];
     

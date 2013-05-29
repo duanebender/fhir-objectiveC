@@ -15,6 +15,8 @@
 #import "Patient.h"
 #import "XMLWriter.h"
 #import "Organization.h"
+#import "AdverseReaction.h"
+#import "Alert.h"
 
 @interface DictToXML : NSObject
 
