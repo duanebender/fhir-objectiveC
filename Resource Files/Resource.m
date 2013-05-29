@@ -200,7 +200,7 @@
     return _resourceDictionary.dataForResource;
 }
 
-- (void)extensionParser:(NSDictionary *)dictionary
+- (void)resourceParser:(NSDictionary *)dictionary
 {
     //_extensions
     NSArray *extArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extensions"]];

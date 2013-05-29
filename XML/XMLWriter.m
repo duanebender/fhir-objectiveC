@@ -156,7 +156,7 @@
     for (int i = 0; i < tabValue; i++)
     {
         [returnString appendString:@"   "];
-        NSLog(@"Tab: %d",tabValue);
+        //NSLog(@"Tab: %d",tabValue);
     }
     
     return returnString;

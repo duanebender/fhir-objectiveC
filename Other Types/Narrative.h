@@ -14,6 +14,7 @@
 #import "Code.h"
 #import "XhtmlNode.h"
 #import "Image.h"
+#import "ExistanceChecker.h"
 
 //defines the status options for this narrative object
 typedef enum NarrativeStatus

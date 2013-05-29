@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		890AD55416BC176A00FE69E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890AD55316BC176A00FE69E3 /* CoreData.framework */; };
+		89277E6117564A760007CCA3 /* AdverseReaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 89277E5F17564A760007CCA3 /* AdverseReaction.h */; };
+		89277E6217564A760007CCA3 /* AdverseReaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 89277E6017564A760007CCA3 /* AdverseReaction.m */; };
+		89277E6617564EC60007CCA3 /* Symptom.h in Headers */ = {isa = PBXBuildFile; fileRef = 89277E6417564EC60007CCA3 /* Symptom.h */; };
+		89277E6717564EC60007CCA3 /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = 89277E6517564EC60007CCA3 /* Symptom.m */; };
+		89277E6A175651290007CCA3 /* Exposure.h in Headers */ = {isa = PBXBuildFile; fileRef = 89277E68175651290007CCA3 /* Exposure.h */; };
+		89277E6B175651290007CCA3 /* Exposure.m in Sources */ = {isa = PBXBuildFile; fileRef = 89277E69175651290007CCA3 /* Exposure.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		8946228916E7DB080040E6EF /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228616E7DB080040E6EF /* XMLReader.m */; };
 		8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228816E7DB080040E6EF /* XMLToDict.m */; };
@@ -120,6 +126,12 @@
 
 /* Begin PBXFileReference section */
 		890AD55316BC176A00FE69E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		89277E5F17564A760007CCA3 /* AdverseReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdverseReaction.h; path = Classes/AdverseReaction.h; sourceTree = SOURCE_ROOT; };
+		89277E6017564A760007CCA3 /* AdverseReaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdverseReaction.m; path = Classes/AdverseReaction.m; sourceTree = SOURCE_ROOT; };
+		89277E6417564EC60007CCA3 /* Symptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symptom.h; path = Subclasses/Symptom.h; sourceTree = SOURCE_ROOT; };
+		89277E6517564EC60007CCA3 /* Symptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symptom.m; path = Subclasses/Symptom.m; sourceTree = SOURCE_ROOT; };
+		89277E68175651290007CCA3 /* Exposure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exposure.h; path = Subclasses/Exposure.h; sourceTree = SOURCE_ROOT; };
+		89277E69175651290007CCA3 /* Exposure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exposure.m; path = Subclasses/Exposure.m; sourceTree = SOURCE_ROOT; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8946228516E7DB080040E6EF /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = XML/XMLReader.h; sourceTree = SOURCE_ROOT; };
 		8946228616E7DB080040E6EF /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = XML/XMLReader.m; sourceTree = SOURCE_ROOT; };
@@ -243,6 +255,8 @@
 				894622A816E7DFFF0040E6EF /* Patient.m */,
 				895AE6B21754E01F005A6D7A /* Organization.h */,
 				895AE6B31754E01F005A6D7A /* Organization.m */,
+				89277E5F17564A760007CCA3 /* AdverseReaction.h */,
+				89277E6017564A760007CCA3 /* AdverseReaction.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -260,6 +274,10 @@
 				894622C816E7E5980040E6EF /* Image.m */,
 				894622C916E7E5980040E6EF /* Language.h */,
 				894622CA16E7E5980040E6EF /* Language.m */,
+				89277E6417564EC60007CCA3 /* Symptom.h */,
+				89277E6517564EC60007CCA3 /* Symptom.m */,
+				89277E68175651290007CCA3 /* Exposure.h */,
+				89277E69175651290007CCA3 /* Exposure.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -497,6 +515,9 @@
 				89F6E6991720743200595ACA /* ExistanceChecker.h in Headers */,
 				89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */,
 				895AE6B41754E01F005A6D7A /* Organization.h in Headers */,
+				89277E6117564A760007CCA3 /* AdverseReaction.h in Headers */,
+				89277E6617564EC60007CCA3 /* Symptom.h in Headers */,
+				89277E6A175651290007CCA3 /* Exposure.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +658,9 @@
 				89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */,
 				89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */,
 				895AE6B51754E01F005A6D7A /* Organization.m in Sources */,
+				89277E6217564A760007CCA3 /* AdverseReaction.m in Sources */,
+				89277E6717564EC60007CCA3 /* Symptom.m in Sources */,
+				89277E6B175651290007CCA3 /* Exposure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

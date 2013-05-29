@@ -53,7 +53,7 @@
                                           [ExistanceChecker generateArray:_identifier], @"identifier",
                                           [_type generateAndReturnDictionary], @"type",
                                           [ExistanceChecker generateArray:_address], @"address",
-                                          //[_partOf generateAndReturnDictionary], @"partOf",
+                                          [_partOf generateAndReturnDictionary], @"partOf",
                                           nil];
     [_organizationDictionary cleanUpDictionaryValues];
     
@@ -114,6 +114,8 @@
         [tempCO contactParser:[teleArray objectAtIndex:i]];
         [_telecom addObject:tempCO];
     }
+    
+    [_partOf resourceParser:[dictionary objectForKey:@"partOf"]];
     
 }
 

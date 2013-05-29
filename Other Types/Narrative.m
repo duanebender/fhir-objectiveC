@@ -59,12 +59,12 @@
     }
 }
 
-- (NSDictionary *)generateAndReturnResourceReferenceDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _narrativeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [self returnStringNarrative], @"status",
                                                     [_div generateAndReturnXhtmlNodeDictionary], @"div",
-                                                    _image, @"image", //array of images only
+                                                    [ExistanceChecker generateArray:_image], @"image", //array of images only
                                                     nil];
     _narrativeDictionary.resourceName = @"Narrative";
     [_narrativeDictionary cleanUpDictionaryValues];
