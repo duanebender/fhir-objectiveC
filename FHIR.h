@@ -15,3 +15,4 @@
 #import "Organization.h"
 #import "AdverseReaction.h"
 #import "Alert.h"
+#import "AllergyIntolerance.h"

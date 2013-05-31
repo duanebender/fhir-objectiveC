@@ -41,6 +41,12 @@
         _currentResource = @"Alert";
         [self generateXmlStringFromFHIRResourceDictionary:[alertOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([xmlObject class] == [AllergyIntolerance class])
+    {
+        AllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
+        _currentResource = @"AllergyIntolerance";
+        [self generateXmlStringFromFHIRResourceDictionary:[allergyIntoleranceOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateXmlStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString

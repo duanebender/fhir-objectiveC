@@ -60,8 +60,6 @@
 
 - (void)adverseReactionParser:(NSDictionary *)dictionary
 {
-    [_subject setResouceTypeValue:@"patient"];
-    
     NSDictionary *adReactionDict = [dictionary objectForKey:@"AdverseReaction"];
     //NSLog(@"%@", adReactionDict);
     

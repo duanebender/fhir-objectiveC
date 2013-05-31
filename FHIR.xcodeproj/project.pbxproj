@@ -50,6 +50,8 @@
 		894622F816E7E6170040E6EF /* Base64Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F516E7E6170040E6EF /* Base64Encoder.m */; };
 		894622FE16E7E63C0040E6EF /* Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FB16E7E63C0040E6EF /* Extension.m */; };
 		894622FF16E7E63C0040E6EF /* Narrative.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622FD16E7E63C0040E6EF /* Narrative.m */; };
+		8949362817578DD4009F09AB /* AllergyIntolerance.h in Headers */ = {isa = PBXBuildFile; fileRef = 8949362617578DD4009F09AB /* AllergyIntolerance.h */; };
+		8949362917578DD4009F09AB /* AllergyIntolerance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8949362717578DD4009F09AB /* AllergyIntolerance.m */; };
 		895AE6B41754E01F005A6D7A /* Organization.h in Headers */ = {isa = PBXBuildFile; fileRef = 895AE6B21754E01F005A6D7A /* Organization.h */; };
 		895AE6B51754E01F005A6D7A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 895AE6B31754E01F005A6D7A /* Organization.m */; };
 		897CF6C116F0EE0200442A03 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 897CF6C016F0EE0200442A03 /* Text.m */; };
@@ -204,6 +206,8 @@
 		894622FC16E7E63C0040E6EF /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Narrative.h; path = "Other Types/Narrative.h"; sourceTree = SOURCE_ROOT; };
 		894622FD16E7E63C0040E6EF /* Narrative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Narrative.m; path = "Other Types/Narrative.m"; sourceTree = SOURCE_ROOT; };
 		8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
+		8949362617578DD4009F09AB /* AllergyIntolerance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllergyIntolerance.h; path = Classes/AllergyIntolerance.h; sourceTree = SOURCE_ROOT; };
+		8949362717578DD4009F09AB /* AllergyIntolerance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllergyIntolerance.m; path = Classes/AllergyIntolerance.m; sourceTree = SOURCE_ROOT; };
 		895AE6B21754E01F005A6D7A /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = Classes/Organization.h; sourceTree = SOURCE_ROOT; };
 		895AE6B31754E01F005A6D7A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = Classes/Organization.m; sourceTree = SOURCE_ROOT; };
 		897CF6BF16F0EE0200442A03 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = "Other Types/Text.h"; sourceTree = SOURCE_ROOT; };
@@ -263,6 +267,8 @@
 				89277E6017564A760007CCA3 /* AdverseReaction.m */,
 				89277E6C175694AD0007CCA3 /* Alert.h */,
 				89277E6D175694AD0007CCA3 /* Alert.m */,
+				8949362617578DD4009F09AB /* AllergyIntolerance.h */,
+				8949362717578DD4009F09AB /* AllergyIntolerance.m */,
 			);
 			name = "Resources (Classes)";
 			sourceTree = "<group>";
@@ -525,6 +531,7 @@
 				89277E6617564EC60007CCA3 /* Symptom.h in Headers */,
 				89277E6A175651290007CCA3 /* Exposure.h in Headers */,
 				89277E6E175694AD0007CCA3 /* Alert.h in Headers */,
+				8949362817578DD4009F09AB /* AllergyIntolerance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +676,7 @@
 				89277E6717564EC60007CCA3 /* Symptom.m in Sources */,
 				89277E6B175651290007CCA3 /* Exposure.m in Sources */,
 				89277E6F175694AD0007CCA3 /* Alert.m in Sources */,
+				8949362917578DD4009F09AB /* AllergyIntolerance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

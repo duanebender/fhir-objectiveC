@@ -63,6 +63,13 @@
         return alertOBJ;
         //NSLog(@"alertXML ************** %@", alertOBJ);
     }
+    else if ([xmlDict objectForKey:@"AllergyIntolerance"])
+    {
+        AllergyIntolerance *allergyIntolleranceOBJ = [[AllergyIntolerance alloc] init];
+        [allergyIntolleranceOBJ allergyIntoleranceParser:xmlDict];
+        return allergyIntolleranceOBJ;
+        //NSLog(@"alertXML ************** %@", allergyIntoleranceOBJ);
+    }
     else
     {
         return nil;

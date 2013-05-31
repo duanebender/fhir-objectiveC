@@ -66,7 +66,6 @@
 
 - (void)organizationParser:(NSDictionary *)dictionary
 {
-    [_partOf setResouceTypeValue:@"organization"];
     NSDictionary *organizationDict = [dictionary objectForKey:@"Organization"];
     //NSLog(@"%@", organizationDict);
     

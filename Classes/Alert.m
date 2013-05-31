@@ -57,8 +57,6 @@
 
 - (void)alertParser:(NSDictionary *)dictionary
 {
-    [_subject setResouceTypeValue:@"patient"];
-    
     NSDictionary *alertDict = [dictionary objectForKey:@"Alert"];
     //NSLog(@"%@", alertDict);
     
