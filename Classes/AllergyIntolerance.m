@@ -82,7 +82,7 @@
     [_identifier identifierParser:[alIntolDict objectForKey:@"identifier"]];
     [_criticality setValueCode:[alIntolDict objectForKey:@"criticality"]];
     [_sensitivityType setValueCode:[alIntolDict objectForKey:@"sensitivityType"]];
-    _recordedDate = [alIntolDict objectForKey:@"recordedDate"];
+    _recordedDate = [ExistanceChecker generateDateTimeFromString:[alIntolDict objectForKey:@"recordedDate"]];
     [_status setValueCode:[alIntolDict objectForKey:@"status"]];
     [_subject resourceParser:[alIntolDict objectForKey:@"subject"]];
     [_recorder resourceParser:[alIntolDict objectForKey:@"recorder"]];

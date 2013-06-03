@@ -7,6 +7,7 @@
 //
 
 #import "Period.h"
+#import "ExistanceChecker.h"
 
 @implementation Period
 
@@ -44,10 +45,10 @@
 - (void)periodParser:(NSDictionary *)dictionary
 {
     NSDictionary *startDict = [dictionary objectForKey:@"start"];
-    _start = [startDict objectForKey:@"value"]; //may need to be converted from string to date
+    _start = [ExistanceChecker generateDateTimeFromString:[startDict objectForKey:@"value"]];
     
     NSDictionary *endDict = [dictionary objectForKey:@"end"];
-    _end = [endDict objectForKey:@"value"]; //may need to be converted from string to date
+    _end = [ExistanceChecker generateDateTimeFromString:[endDict objectForKey:@"value"]];
 }
 
 @end

@@ -63,7 +63,7 @@
     NSDictionary *adReactionDict = [dictionary objectForKey:@"AdverseReaction"];
     //NSLog(@"%@", adReactionDict);
     
-    _reactionDate = [adReactionDict objectForKey:@"reactionDate"];
+    _reactionDate = [ExistanceChecker generateDateTimeFromString:[adReactionDict objectForKey:@"reactionDate"]];
     [_subject resourceParser:[adReactionDict objectForKey:@"subject"]];
     [_didNotOccurFlag setValueBool:[adReactionDict objectForKey:@"didNotOccurFlag"]];
     [_recorder resourceParser:[adReactionDict objectForKey:@"recorder"]];

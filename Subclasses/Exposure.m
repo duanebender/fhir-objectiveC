@@ -44,7 +44,7 @@
 
 - (void)exposureParser:(NSDictionary *)dictionary
 {
-    _exposureDate = [dictionary objectForKey:@"exposureDate"]; //may need to be converted from string to date
+    _exposureDate = [ExistanceChecker generateDateTimeFromString:[dictionary objectForKey:@"exposureDate"]];
     [_exposureType setValueCode:[dictionary objectForKey:@"exposureType"]];
     [_causalityExpectation setValueCode:[dictionary objectForKey:@"causalityExpectation"]];
     [_substance resourceParser:[dictionary objectForKey:@"substance"]];
