@@ -70,6 +70,13 @@
         return allergyIntolleranceOBJ;
         //NSLog(@"alertXML ************** %@", allergyIntoleranceOBJ);
     }
+    else if ([xmlDict objectForKey:@"CarePlan"])
+    {
+        CarePlan *carePlanOBJ = [[CarePlan alloc] init];
+        [carePlanOBJ carePlanParser:xmlDict];
+        return carePlanOBJ;
+        //NSLog(@"alertXML ************** %@", carePlanOBJ);
+    }
     else
     {
         return nil;

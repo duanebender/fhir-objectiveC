@@ -47,6 +47,10 @@ typedef enum ResourceType
     ResourceTypeAdmission,
     ResourceTypeSubstance,
     ResourceTypeAnatomicalLocation,
-    ResourceTypeInterestOfCare
+    ResourceTypeInterestOfCare,
+    ResourceTypeAdverseReaction, //ResourceTypes from here down are newly added
+    ResourceTypeAlert,
+    ResourceTypeAllergyIntollerance,
+    ResourceTypeCarePlan
 }ResourceType;
 

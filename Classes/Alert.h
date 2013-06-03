@@ -15,7 +15,7 @@
 #import "Resource.h"
 #import "CodeableConcept.h"
 
-@interface Alert : NSObject
+@interface Alert : Resource
 
 @property (nonatomic, retain) FHIRResourceDictionary *alertDictionary; //a dictionary containing all resources in this alert object
 

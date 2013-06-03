@@ -14,7 +14,7 @@
 #import "ExistanceChecker.h"
 #import "Resource.h"
 
-@interface Exposure : NSObject
+@interface Exposure : Element
 
 @property (nonatomic, retain) FHIRResourceDictionary *exposureDictionary; //a dictionary containing all resources in this Symptom object
 
@@ -24,8 +24,8 @@
 @property (nonatomic, retain) Code *causalityExpectation; //A statement of how confident that the recorder was that this exposure caused the reaction.
 @property (nonatomic, retain) Resource *substance; //Substance(s) that is presumed to have caused the adverse reaction.
 
-- (FHIRResourceDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from exposure in an NSdictionary format
-
+//Public Methods
+- (NSDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from exposure in an NSdictionary format
 - (void)exposureParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into a exposure object
 
 @end

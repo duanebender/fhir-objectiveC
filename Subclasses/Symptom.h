@@ -14,7 +14,7 @@
 #import "ExistanceChecker.h"
 #import "CodeableConcept.h"
 
-@interface Symptom : NSObject
+@interface Symptom : Element
 
 @property (nonatomic, retain) FHIRResourceDictionary *symptomDictionary; //a dictionary containing all resources in this Symptom object
 
@@ -22,8 +22,8 @@
 @property (nonatomic, retain) CodeableConcept *code; //the symptom and information about it.
 @property (nonatomic, retain) Code *severity; //The severety of the symptom.
 
-- (FHIRResourceDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from symptom in an NSdictionary format
-
+//Public Methods
+- (NSDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from symptom in an NSdictionary format
 - (void)symptomParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into a symptom object
 
 @end

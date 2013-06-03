@@ -39,4 +39,13 @@
     }
 }
 
++ (NSDate *)generateDateTimeFromString:(NSString *)string
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterShortStyle];
+    [df setTimeStyle:NSDateFormatterLongStyle];
+    NSDate *myDate = [df dateFromString:string];
+    return myDate;
+}
+
 @end

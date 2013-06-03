@@ -13,6 +13,7 @@
 #import "AdverseReaction.h"
 #import "Alert.h"
 #import "AllergyIntolerance.h"
+#import "CarePlan.h"
 
 @interface DictToJSON : NSObject
 

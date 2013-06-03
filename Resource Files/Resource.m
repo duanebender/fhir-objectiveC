@@ -66,6 +66,10 @@
     else if ([codeString isEqualToString:@"substance"]) self.resourceType = ResourceTypeSubstance;
     else if ([codeString isEqualToString:@"anatomicalLocation"]) self.resourceType = ResourceTypeAnatomicalLocation;
     else if ([codeString isEqualToString:@"interestOfCare"]) self.resourceType = ResourceTypeInterestOfCare;
+    else if ([codeString isEqualToString:@"adverseReaction"])self.resourceType = ResourceTypeAdverseReaction;
+    else if ([codeString isEqualToString:@"alert"])self.resourceType = ResourceTypeAlert;
+    else if ([codeString isEqualToString:@"allergyIntollerance"])self.resourceType = ResourceTypeAllergyIntollerance;
+    else if ([codeString isEqualToString:@"carePlan"])self.resourceType = ResourceTypeCarePlan;
     else self.resourceType = 0;
 }
 
@@ -179,6 +183,18 @@
             break;
         case ResourceTypeInterestOfCare:
             return @"interestOfCare";
+            break;
+        case ResourceTypeAdverseReaction:
+            return @"adverseReaction";
+            break;
+        case ResourceTypeAlert:
+            return @"alert";
+            break;
+        case ResourceTypeAllergyIntollerance:
+            return @"allergyIntollerance";
+            break;
+        case ResourceTypeCarePlan:
+            return @"carePlan";
             break;
             
         default:

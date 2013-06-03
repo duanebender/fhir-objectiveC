@@ -10,7 +10,7 @@
 #import "ExistanceChecker.h"
 #import "Resource.h"
 
-@interface AllergyIntolerance : NSObject
+@interface AllergyIntolerance : Resource
 
 @property (nonatomic, retain) FHIRResourceDictionary *allergyIntoleranceDictionary; //a dictionary containing all resources in this alleryIntolerance object
 

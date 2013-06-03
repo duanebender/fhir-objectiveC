@@ -68,7 +68,14 @@
         AllergyIntolerance *allergyIntolleranceOBJ = [[AllergyIntolerance alloc] init];
         [allergyIntolleranceOBJ allergyIntoleranceParser:jsonDict];
         return allergyIntolleranceOBJ;
-        //NSLog(@"alertXML ************** %@", alertOBJ);
+        //NSLog(@"alertXML ************** %@", allergyIntolleranceOBJ);
+    }
+    else if ([jsonDict objectForKey:@"CarePlan"])
+    {
+        CarePlan *carePlanOBJ = [[CarePlan alloc] init];
+        [carePlanOBJ carePlanParser:jsonDict];
+        return carePlanOBJ;
+        //NSLog(@"alertXML ************** %@", carePlanOBJ);
     }
     else
     {

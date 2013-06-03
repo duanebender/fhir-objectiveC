@@ -19,7 +19,7 @@
 #import "Text.h"
 #import "Address.h"
 
-@interface Organization : NSObject
+@interface Organization : Resource
 
 @property (nonatomic, retain) FHIRResourceDictionary *organizationDictionary; //a dictionary containing all resources in this organization object
 

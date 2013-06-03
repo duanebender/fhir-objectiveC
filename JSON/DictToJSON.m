@@ -41,6 +41,11 @@
         AllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[allergyIntoleranceOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [CarePlan class])
+    {
+        CarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[carePlanOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString

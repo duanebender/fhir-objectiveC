@@ -16,7 +16,7 @@
 #import "Symptom.h"
 #import "Exposure.h"
 
-@interface AdverseReaction : NSObject
+@interface AdverseReaction : Resource
 
 @property (nonatomic, retain) FHIRResourceDictionary *adverseReactionDictionary; //a dictionary containing all resources in this adverse reaction object
 

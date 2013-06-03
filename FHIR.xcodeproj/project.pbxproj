@@ -24,7 +24,6 @@
 		894622A216E7DDF70040E6EF /* FHIRResourceDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946229D16E7DDF70040E6EF /* FHIRResourceDictionary.m */; };
 		894622A316E7DDF70040E6EF /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946229F16E7DDF70040E6EF /* Resource.m */; };
 		894622A416E7DDF70040E6EF /* ResourceReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A116E7DDF70040E6EF /* ResourceReference.m */; };
-		894622A916E7DFFF0040E6EF /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A616E7DFFF0040E6EF /* Animal.m */; };
 		894622AA16E7DFFF0040E6EF /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622A816E7DFFF0040E6EF /* Patient.m */; };
 		894622AF16E7E0510040E6EF /* Demographics.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622AE16E7E0510040E6EF /* Demographics.m */; };
 		894622B916E7E22A0040E6EF /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622B216E7E22A0040E6EF /* Address.m */; };
@@ -61,6 +60,20 @@
 		8993D80016B1D88500D0AFB4 /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7E716B1D88400D0AFB4 /* libFHIR.a */; };
 		8993D80616B1D88500D0AFB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8993D80416B1D88500D0AFB4 /* InfoPlist.strings */; };
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
+		89B0B9A4175CD3D600FCDAB0 /* CarePlan.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9A2175CD3D600FCDAB0 /* CarePlan.h */; };
+		89B0B9A5175CD3D600FCDAB0 /* CarePlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9A3175CD3D600FCDAB0 /* CarePlan.m */; };
+		89B0B9A9175CDD9000FCDAB0 /* Animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9A7175CDD9000FCDAB0 /* Animal.h */; };
+		89B0B9AA175CDD9000FCDAB0 /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9A8175CDD9000FCDAB0 /* Animal.m */; };
+		89B0B9AD175CDEF200FCDAB0 /* Participant.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9AB175CDEF200FCDAB0 /* Participant.h */; };
+		89B0B9AE175CDEF200FCDAB0 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9AC175CDEF200FCDAB0 /* Participant.m */; };
+		89B0B9B1175CE2D900FCDAB0 /* Goal.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9AF175CE2D800FCDAB0 /* Goal.h */; };
+		89B0B9B2175CE2D900FCDAB0 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9B0175CE2D800FCDAB0 /* Goal.m */; };
+		89B0B9B5175CE60E00FCDAB0 /* Activity.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9B3175CE60D00FCDAB0 /* Activity.h */; };
+		89B0B9B6175CE60E00FCDAB0 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9B4175CE60E00FCDAB0 /* Activity.m */; };
+		89B0B9B9175CEC9800FCDAB0 /* Schedule.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9B7175CEC9800FCDAB0 /* Schedule.h */; };
+		89B0B9BA175CEC9800FCDAB0 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9B8175CEC9800FCDAB0 /* Schedule.m */; };
+		89B0B9BD175CFB4700FCDAB0 /* Quantity.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9BB175CFB4600FCDAB0 /* Quantity.h */; };
+		89B0B9BE175CFB4700FCDAB0 /* Quantity.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9BC175CFB4600FCDAB0 /* Quantity.m */; };
 		89E00D1316F7449300ED3F5E /* ExistanceChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E00D1216F7449300ED3F5E /* ExistanceChecker.m */; };
 		89F6E6761720738B00595ACA /* Patient.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622A716E7DFFF0040E6EF /* Patient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89F6E6771720739200595ACA /* DictToJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228B16E7DBEB0040E6EF /* DictToJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,7 +82,6 @@
 		89F6E67A172073AA00595ACA /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8946228516E7DB080040E6EF /* XMLReader.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E67B172073AE00595ACA /* XMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F963A71709D5B1009D3CA3 /* XMLWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E67C172073C200595ACA /* DictToXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F9145616EE28E00024DF3E /* DictToXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		89F6E67D172073C900595ACA /* Animal.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622A516E7DFFF0040E6EF /* Animal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E67E172073D600595ACA /* Demographics.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622AD16E7E0510040E6EF /* Demographics.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E67F172073D900595ACA /* HumanId.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C316E7E5980040E6EF /* HumanId.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E680172073E000595ACA /* Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622C516E7E5980040E6EF /* Identifier.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -153,8 +165,6 @@
 		8946229F16E7DDF70040E6EF /* Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Resource.m; path = "Resource Files/Resource.m"; sourceTree = SOURCE_ROOT; };
 		894622A016E7DDF70040E6EF /* ResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceReference.h; path = "Resource Files/ResourceReference.h"; sourceTree = SOURCE_ROOT; };
 		894622A116E7DDF70040E6EF /* ResourceReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResourceReference.m; path = "Resource Files/ResourceReference.m"; sourceTree = SOURCE_ROOT; };
-		894622A516E7DFFF0040E6EF /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animal.h; path = Classes/Animal.h; sourceTree = SOURCE_ROOT; };
-		894622A616E7DFFF0040E6EF /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animal.m; path = Classes/Animal.m; sourceTree = SOURCE_ROOT; };
 		894622A716E7DFFF0040E6EF /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Classes/Patient.h; sourceTree = SOURCE_ROOT; };
 		894622A816E7DFFF0040E6EF /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Classes/Patient.m; sourceTree = SOURCE_ROOT; };
 		894622AD16E7E0510040E6EF /* Demographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Demographics.h; path = Subclasses/Demographics.h; sourceTree = SOURCE_ROOT; };
@@ -220,6 +230,20 @@
 		8993D80516B1D88500D0AFB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8993D80716B1D88500D0AFB4 /* FHIRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIRTests.h; sourceTree = "<group>"; };
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
+		89B0B9A2175CD3D600FCDAB0 /* CarePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarePlan.h; path = Classes/CarePlan.h; sourceTree = SOURCE_ROOT; };
+		89B0B9A3175CD3D600FCDAB0 /* CarePlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarePlan.m; path = Classes/CarePlan.m; sourceTree = SOURCE_ROOT; };
+		89B0B9A7175CDD9000FCDAB0 /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animal.h; path = Subclasses/Animal.h; sourceTree = SOURCE_ROOT; };
+		89B0B9A8175CDD9000FCDAB0 /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animal.m; path = Subclasses/Animal.m; sourceTree = SOURCE_ROOT; };
+		89B0B9AB175CDEF200FCDAB0 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = Subclasses/Participant.h; sourceTree = SOURCE_ROOT; };
+		89B0B9AC175CDEF200FCDAB0 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = Subclasses/Participant.m; sourceTree = SOURCE_ROOT; };
+		89B0B9AF175CE2D800FCDAB0 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Subclasses/Goal.h; sourceTree = SOURCE_ROOT; };
+		89B0B9B0175CE2D800FCDAB0 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Subclasses/Goal.m; sourceTree = SOURCE_ROOT; };
+		89B0B9B3175CE60D00FCDAB0 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Activity.h; path = Subclasses/Activity.h; sourceTree = SOURCE_ROOT; };
+		89B0B9B4175CE60E00FCDAB0 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Activity.m; path = Subclasses/Activity.m; sourceTree = SOURCE_ROOT; };
+		89B0B9B7175CEC9800FCDAB0 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Schedule.h; path = "Data Types/Schedule.h"; sourceTree = SOURCE_ROOT; };
+		89B0B9B8175CEC9800FCDAB0 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Schedule.m; path = "Data Types/Schedule.m"; sourceTree = SOURCE_ROOT; };
+		89B0B9BB175CFB4600FCDAB0 /* Quantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quantity.h; path = "Data Types/Quantity.h"; sourceTree = SOURCE_ROOT; };
+		89B0B9BC175CFB4600FCDAB0 /* Quantity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quantity.m; path = "Data Types/Quantity.m"; sourceTree = SOURCE_ROOT; };
 		89E00D1116F7449300ED3F5E /* ExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistanceChecker.h; sourceTree = "<group>"; };
 		89E00D1216F7449300ED3F5E /* ExistanceChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistanceChecker.m; sourceTree = "<group>"; };
 		89F6E69B1720762E00595ACA /* FHIR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
@@ -257,8 +281,6 @@
 		894622AB16E7E0080040E6EF /* Resources (Classes) */ = {
 			isa = PBXGroup;
 			children = (
-				894622A516E7DFFF0040E6EF /* Animal.h */,
-				894622A616E7DFFF0040E6EF /* Animal.m */,
 				894622A716E7DFFF0040E6EF /* Patient.h */,
 				894622A816E7DFFF0040E6EF /* Patient.m */,
 				895AE6B21754E01F005A6D7A /* Organization.h */,
@@ -269,6 +291,8 @@
 				89277E6D175694AD0007CCA3 /* Alert.m */,
 				8949362617578DD4009F09AB /* AllergyIntolerance.h */,
 				8949362717578DD4009F09AB /* AllergyIntolerance.m */,
+				89B0B9A2175CD3D600FCDAB0 /* CarePlan.h */,
+				89B0B9A3175CD3D600FCDAB0 /* CarePlan.m */,
 			);
 			name = "Resources (Classes)";
 			sourceTree = "<group>";
@@ -276,6 +300,8 @@
 		894622AC16E7E0230040E6EF /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				89B0B9A7175CDD9000FCDAB0 /* Animal.h */,
+				89B0B9A8175CDD9000FCDAB0 /* Animal.m */,
 				894622AD16E7E0510040E6EF /* Demographics.h */,
 				894622AE16E7E0510040E6EF /* Demographics.m */,
 				894622C316E7E5980040E6EF /* HumanId.h */,
@@ -290,6 +316,12 @@
 				89277E6517564EC60007CCA3 /* Symptom.m */,
 				89277E68175651290007CCA3 /* Exposure.h */,
 				89277E69175651290007CCA3 /* Exposure.m */,
+				89B0B9AB175CDEF200FCDAB0 /* Participant.h */,
+				89B0B9AC175CDEF200FCDAB0 /* Participant.m */,
+				89B0B9AF175CE2D800FCDAB0 /* Goal.h */,
+				89B0B9B0175CE2D800FCDAB0 /* Goal.m */,
+				89B0B9B3175CE60D00FCDAB0 /* Activity.h */,
+				89B0B9B4175CE60E00FCDAB0 /* Activity.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -313,6 +345,10 @@
 				894622D416E7E5B60040E6EF /* Period.m */,
 				894622D516E7E5B60040E6EF /* XhtmlNode.h */,
 				894622D616E7E5B60040E6EF /* XhtmlNode.m */,
+				89B0B9B7175CEC9800FCDAB0 /* Schedule.h */,
+				89B0B9B8175CEC9800FCDAB0 /* Schedule.m */,
+				89B0B9BB175CFB4600FCDAB0 /* Quantity.h */,
+				89B0B9BC175CFB4600FCDAB0 /* Quantity.m */,
 			);
 			name = "Data Types";
 			sourceTree = "<group>";
@@ -497,7 +533,6 @@
 				89F6E682172073E600595ACA /* Language.h in Headers */,
 				89F6E67A172073AA00595ACA /* XMLReader.h in Headers */,
 				89F6E67B172073AE00595ACA /* XMLWriter.h in Headers */,
-				89F6E67D172073C900595ACA /* Animal.h in Headers */,
 				89F6E67E172073D600595ACA /* Demographics.h in Headers */,
 				89F6E67F172073D900595ACA /* HumanId.h in Headers */,
 				89F6E680172073E000595ACA /* Identifier.h in Headers */,
@@ -532,6 +567,13 @@
 				89277E6A175651290007CCA3 /* Exposure.h in Headers */,
 				89277E6E175694AD0007CCA3 /* Alert.h in Headers */,
 				8949362817578DD4009F09AB /* AllergyIntolerance.h in Headers */,
+				89B0B9A4175CD3D600FCDAB0 /* CarePlan.h in Headers */,
+				89B0B9A9175CDD9000FCDAB0 /* Animal.h in Headers */,
+				89B0B9AD175CDEF200FCDAB0 /* Participant.h in Headers */,
+				89B0B9B1175CE2D900FCDAB0 /* Goal.h in Headers */,
+				89B0B9B5175CE60E00FCDAB0 /* Activity.h in Headers */,
+				89B0B9B9175CEC9800FCDAB0 /* Schedule.h in Headers */,
+				89B0B9BD175CFB4700FCDAB0 /* Quantity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +683,6 @@
 				894622A216E7DDF70040E6EF /* FHIRResourceDictionary.m in Sources */,
 				894622A316E7DDF70040E6EF /* Resource.m in Sources */,
 				894622A416E7DDF70040E6EF /* ResourceReference.m in Sources */,
-				894622A916E7DFFF0040E6EF /* Animal.m in Sources */,
 				894622AA16E7DFFF0040E6EF /* Patient.m in Sources */,
 				894622AF16E7E0510040E6EF /* Demographics.m in Sources */,
 				894622B916E7E22A0040E6EF /* Address.m in Sources */,
@@ -677,6 +718,13 @@
 				89277E6B175651290007CCA3 /* Exposure.m in Sources */,
 				89277E6F175694AD0007CCA3 /* Alert.m in Sources */,
 				8949362917578DD4009F09AB /* AllergyIntolerance.m in Sources */,
+				89B0B9A5175CD3D600FCDAB0 /* CarePlan.m in Sources */,
+				89B0B9AA175CDD9000FCDAB0 /* Animal.m in Sources */,
+				89B0B9AE175CDEF200FCDAB0 /* Participant.m in Sources */,
+				89B0B9B2175CE2D900FCDAB0 /* Goal.m in Sources */,
+				89B0B9B6175CE60E00FCDAB0 /* Activity.m in Sources */,
+				89B0B9BA175CEC9800FCDAB0 /* Schedule.m in Sources */,
+				89B0B9BE175CFB4700FCDAB0 /* Quantity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

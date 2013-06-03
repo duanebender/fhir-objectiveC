@@ -44,8 +44,6 @@
 
 - (void)exposureParser:(NSDictionary *)dictionary
 {
-    [_substance setResouceTypeValue:@"substance"];
-    
     _exposureDate = [dictionary objectForKey:@"exposureDate"]; //may need to be converted from string to date
     [_exposureType setValueCode:[dictionary objectForKey:@"exposureType"]];
     [_causalityExpectation setValueCode:[dictionary objectForKey:@"causalityExpectation"]];
