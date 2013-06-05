@@ -16,6 +16,18 @@
 		89277E6B175651290007CCA3 /* Exposure.m in Sources */ = {isa = PBXBuildFile; fileRef = 89277E69175651290007CCA3 /* Exposure.m */; };
 		89277E6E175694AD0007CCA3 /* Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = 89277E6C175694AD0007CCA3 /* Alert.h */; };
 		89277E6F175694AD0007CCA3 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 89277E6D175694AD0007CCA3 /* Alert.m */; };
+		893C4453175F6E78005639F2 /* Medication.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C4451175F6E78005639F2 /* Medication.h */; };
+		893C4454175F6E78005639F2 /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4452175F6E78005639F2 /* Medication.m */; };
+		893C4458175F7190005639F2 /* Package.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C4456175F7190005639F2 /* Package.h */; };
+		893C4459175F7190005639F2 /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4457175F7190005639F2 /* Package.m */; };
+		893C445C175F74D9005639F2 /* Content.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C445A175F74D9005639F2 /* Content.h */; };
+		893C445D175F74D9005639F2 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C445B175F74D9005639F2 /* Content.m */; };
+		893C4460175F7A6A005639F2 /* Product.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C445E175F7A6A005639F2 /* Product.h */; };
+		893C4461175F7A6A005639F2 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C445F175F7A6A005639F2 /* Product.m */; };
+		893C4464175F7BB7005639F2 /* Ingredient.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C4462175F7BB7005639F2 /* Ingredient.h */; };
+		893C4465175F7BB7005639F2 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4463175F7BB7005639F2 /* Ingredient.m */; };
+		893C4468175F7C88005639F2 /* Ratio.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C4466175F7C88005639F2 /* Ratio.h */; };
+		893C4469175F7C88005639F2 /* Ratio.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4467175F7C88005639F2 /* Ratio.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		8946228916E7DB080040E6EF /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228616E7DB080040E6EF /* XMLReader.m */; };
 		8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228816E7DB080040E6EF /* XMLToDict.m */; };
@@ -150,6 +162,18 @@
 		89277E69175651290007CCA3 /* Exposure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exposure.m; path = Subclasses/Exposure.m; sourceTree = SOURCE_ROOT; };
 		89277E6C175694AD0007CCA3 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alert.h; path = Classes/Alert.h; sourceTree = SOURCE_ROOT; };
 		89277E6D175694AD0007CCA3 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alert.m; path = Classes/Alert.m; sourceTree = SOURCE_ROOT; };
+		893C4451175F6E78005639F2 /* Medication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Medication.h; path = Classes/Medication.h; sourceTree = SOURCE_ROOT; };
+		893C4452175F6E78005639F2 /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Medication.m; path = Classes/Medication.m; sourceTree = SOURCE_ROOT; };
+		893C4456175F7190005639F2 /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Package.h; path = Subclasses/Package.h; sourceTree = SOURCE_ROOT; };
+		893C4457175F7190005639F2 /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Package.m; path = Subclasses/Package.m; sourceTree = SOURCE_ROOT; };
+		893C445A175F74D9005639F2 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Content.h; path = Subclasses/Content.h; sourceTree = SOURCE_ROOT; };
+		893C445B175F74D9005639F2 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Content.m; path = Subclasses/Content.m; sourceTree = SOURCE_ROOT; };
+		893C445E175F7A6A005639F2 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Subclasses/Product.h; sourceTree = SOURCE_ROOT; };
+		893C445F175F7A6A005639F2 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Subclasses/Product.m; sourceTree = SOURCE_ROOT; };
+		893C4462175F7BB7005639F2 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ingredient.h; path = Subclasses/Ingredient.h; sourceTree = SOURCE_ROOT; };
+		893C4463175F7BB7005639F2 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ingredient.m; path = Subclasses/Ingredient.m; sourceTree = SOURCE_ROOT; };
+		893C4466175F7C88005639F2 /* Ratio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ratio.h; path = "Data Types/Ratio.h"; sourceTree = SOURCE_ROOT; };
+		893C4467175F7C88005639F2 /* Ratio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ratio.m; path = "Data Types/Ratio.m"; sourceTree = SOURCE_ROOT; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8946228516E7DB080040E6EF /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = XML/XMLReader.h; sourceTree = SOURCE_ROOT; };
 		8946228616E7DB080040E6EF /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = XML/XMLReader.m; sourceTree = SOURCE_ROOT; };
@@ -293,6 +317,8 @@
 				8949362717578DD4009F09AB /* AllergyIntolerance.m */,
 				89B0B9A2175CD3D600FCDAB0 /* CarePlan.h */,
 				89B0B9A3175CD3D600FCDAB0 /* CarePlan.m */,
+				893C4451175F6E78005639F2 /* Medication.h */,
+				893C4452175F6E78005639F2 /* Medication.m */,
 			);
 			name = "Resources (Classes)";
 			sourceTree = "<group>";
@@ -322,6 +348,14 @@
 				89B0B9B0175CE2D800FCDAB0 /* Goal.m */,
 				89B0B9B3175CE60D00FCDAB0 /* Activity.h */,
 				89B0B9B4175CE60E00FCDAB0 /* Activity.m */,
+				893C4456175F7190005639F2 /* Package.h */,
+				893C4457175F7190005639F2 /* Package.m */,
+				893C445A175F74D9005639F2 /* Content.h */,
+				893C445B175F74D9005639F2 /* Content.m */,
+				893C445E175F7A6A005639F2 /* Product.h */,
+				893C445F175F7A6A005639F2 /* Product.m */,
+				893C4462175F7BB7005639F2 /* Ingredient.h */,
+				893C4463175F7BB7005639F2 /* Ingredient.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -349,6 +383,8 @@
 				89B0B9B8175CEC9800FCDAB0 /* Schedule.m */,
 				89B0B9BB175CFB4600FCDAB0 /* Quantity.h */,
 				89B0B9BC175CFB4600FCDAB0 /* Quantity.m */,
+				893C4466175F7C88005639F2 /* Ratio.h */,
+				893C4467175F7C88005639F2 /* Ratio.m */,
 			);
 			name = "Data Types";
 			sourceTree = "<group>";
@@ -574,6 +610,12 @@
 				89B0B9B5175CE60E00FCDAB0 /* Activity.h in Headers */,
 				89B0B9B9175CEC9800FCDAB0 /* Schedule.h in Headers */,
 				89B0B9BD175CFB4700FCDAB0 /* Quantity.h in Headers */,
+				893C4453175F6E78005639F2 /* Medication.h in Headers */,
+				893C4458175F7190005639F2 /* Package.h in Headers */,
+				893C445C175F74D9005639F2 /* Content.h in Headers */,
+				893C4460175F7A6A005639F2 /* Product.h in Headers */,
+				893C4464175F7BB7005639F2 /* Ingredient.h in Headers */,
+				893C4468175F7C88005639F2 /* Ratio.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +767,12 @@
 				89B0B9B6175CE60E00FCDAB0 /* Activity.m in Sources */,
 				89B0B9BA175CEC9800FCDAB0 /* Schedule.m in Sources */,
 				89B0B9BE175CFB4700FCDAB0 /* Quantity.m in Sources */,
+				893C4454175F6E78005639F2 /* Medication.m in Sources */,
+				893C4459175F7190005639F2 /* Package.m in Sources */,
+				893C445D175F74D9005639F2 /* Content.m in Sources */,
+				893C4461175F7A6A005639F2 /* Product.m in Sources */,
+				893C4465175F7BB7005639F2 /* Ingredient.m in Sources */,
+				893C4469175F7C88005639F2 /* Ratio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

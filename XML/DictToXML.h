@@ -19,6 +19,7 @@
 #import "Alert.h"
 #import "AllergyIntolerance.h"
 #import "CarePlan.h"
+#import "Medication.h"
 
 @interface DictToXML : NSObject
 

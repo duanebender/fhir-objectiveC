@@ -46,6 +46,11 @@
         CarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[carePlanOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [Medication class])
+    {
+        Medication *medicationOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[medicationOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString

@@ -77,6 +77,13 @@
         return carePlanOBJ;
         //NSLog(@"alertXML ************** %@", carePlanOBJ);
     }
+    else if ([xmlDict objectForKey:@"Medication"])
+    {
+        Medication *medicationOBJ = [[Medication alloc] init];
+        [medicationOBJ medicationParser:xmlDict];
+        return medicationOBJ;
+        //NSLog(@"alertXML ************** %@", medicationOBJ);
+    }
     else
     {
         return nil;
