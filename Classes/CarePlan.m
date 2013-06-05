@@ -70,7 +70,7 @@
     return returnable;
 }
 
-- (void)allergyIntolleranceParser:(NSDictionary *)dictionary
+- (void)carePlanParser:(NSDictionary *)dictionary
 {
     NSDictionary *carePlanDict = [dictionary objectForKey:@"CarePlan"];
     //NSLog(@"%@", carePlanDict);

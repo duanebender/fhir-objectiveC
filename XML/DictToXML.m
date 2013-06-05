@@ -59,6 +59,12 @@
         _currentResource = @"Medication";
         [self generateXmlStringFromFHIRResourceDictionary:[medicationOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([xmlObject class] == [Coverage class])
+    {
+        Coverage *coverageOBJ = [singleObject objectAtIndex:0];
+        _currentResource = @"Coverage";
+        [self generateXmlStringFromFHIRResourceDictionary:[coverageOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
 }
 
 - (void)generateXmlStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString

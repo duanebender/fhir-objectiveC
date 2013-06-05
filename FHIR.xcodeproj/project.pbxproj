@@ -28,6 +28,10 @@
 		893C4465175F7BB7005639F2 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4463175F7BB7005639F2 /* Ingredient.m */; };
 		893C4468175F7C88005639F2 /* Ratio.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C4466175F7C88005639F2 /* Ratio.h */; };
 		893C4469175F7C88005639F2 /* Ratio.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C4467175F7C88005639F2 /* Ratio.m */; };
+		893C446C175FC519005639F2 /* Coverage.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C446A175FC518005639F2 /* Coverage.h */; };
+		893C446D175FC519005639F2 /* Coverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C446B175FC518005639F2 /* Coverage.m */; };
+		893C4470175FC7A8005639F2 /* Subscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 893C446E175FC7A7005639F2 /* Subscriber.h */; };
+		893C4471175FC7A8005639F2 /* Subscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 893C446F175FC7A7005639F2 /* Subscriber.m */; };
 		89436D4F16CA965E004563E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89436D4E16CA965E004563E4 /* UIKit.framework */; };
 		8946228916E7DB080040E6EF /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228616E7DB080040E6EF /* XMLReader.m */; };
 		8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 8946228816E7DB080040E6EF /* XMLToDict.m */; };
@@ -174,6 +178,10 @@
 		893C4463175F7BB7005639F2 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ingredient.m; path = Subclasses/Ingredient.m; sourceTree = SOURCE_ROOT; };
 		893C4466175F7C88005639F2 /* Ratio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ratio.h; path = "Data Types/Ratio.h"; sourceTree = SOURCE_ROOT; };
 		893C4467175F7C88005639F2 /* Ratio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ratio.m; path = "Data Types/Ratio.m"; sourceTree = SOURCE_ROOT; };
+		893C446A175FC518005639F2 /* Coverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coverage.h; path = Classes/Coverage.h; sourceTree = SOURCE_ROOT; };
+		893C446B175FC518005639F2 /* Coverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coverage.m; path = Classes/Coverage.m; sourceTree = SOURCE_ROOT; };
+		893C446E175FC7A7005639F2 /* Subscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subscriber.h; path = Subclasses/Subscriber.h; sourceTree = SOURCE_ROOT; };
+		893C446F175FC7A7005639F2 /* Subscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subscriber.m; path = Subclasses/Subscriber.m; sourceTree = SOURCE_ROOT; };
 		89436D4E16CA965E004563E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8946228516E7DB080040E6EF /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLReader.h; path = XML/XMLReader.h; sourceTree = SOURCE_ROOT; };
 		8946228616E7DB080040E6EF /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLReader.m; path = XML/XMLReader.m; sourceTree = SOURCE_ROOT; };
@@ -319,6 +327,8 @@
 				89B0B9A3175CD3D600FCDAB0 /* CarePlan.m */,
 				893C4451175F6E78005639F2 /* Medication.h */,
 				893C4452175F6E78005639F2 /* Medication.m */,
+				893C446A175FC518005639F2 /* Coverage.h */,
+				893C446B175FC518005639F2 /* Coverage.m */,
 			);
 			name = "Resources (Classes)";
 			sourceTree = "<group>";
@@ -356,6 +366,8 @@
 				893C445F175F7A6A005639F2 /* Product.m */,
 				893C4462175F7BB7005639F2 /* Ingredient.h */,
 				893C4463175F7BB7005639F2 /* Ingredient.m */,
+				893C446E175FC7A7005639F2 /* Subscriber.h */,
+				893C446F175FC7A7005639F2 /* Subscriber.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -616,6 +628,8 @@
 				893C4460175F7A6A005639F2 /* Product.h in Headers */,
 				893C4464175F7BB7005639F2 /* Ingredient.h in Headers */,
 				893C4468175F7C88005639F2 /* Ratio.h in Headers */,
+				893C446C175FC519005639F2 /* Coverage.h in Headers */,
+				893C4470175FC7A8005639F2 /* Subscriber.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +787,8 @@
 				893C4461175F7A6A005639F2 /* Product.m in Sources */,
 				893C4465175F7BB7005639F2 /* Ingredient.m in Sources */,
 				893C4469175F7C88005639F2 /* Ratio.m in Sources */,
+				893C446D175FC519005639F2 /* Coverage.m in Sources */,
+				893C4471175FC7A8005639F2 /* Subscriber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

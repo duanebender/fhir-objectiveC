@@ -19,6 +19,7 @@
 #import "AllergyIntolerance.h"
 #import "CarePlan.h"
 #import "Medication.h"
+#import "Coverage.h"
 
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 

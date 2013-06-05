@@ -10,8 +10,6 @@
  * Identifies a planned action to occur as part of the plan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
  */
 
-#warning -finish this timing is timing[x]
-
 #import <Foundation/Foundation.h>
 #import "ExistanceChecker.h"
 #import "Resource.h"

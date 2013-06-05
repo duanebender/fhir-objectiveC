@@ -84,6 +84,13 @@
         return medicationOBJ;
         //NSLog(@"alertXML ************** %@", medicationOBJ);
     }
+    else if ([xmlDict objectForKey:@"Coverage"])
+    {
+        Coverage *coverageOBJ = [[Coverage alloc] init];
+        [coverageOBJ coverageParser:xmlDict];
+        return coverageOBJ;
+        //NSLog(@"alertXML ************** %@", coverageOBJ);
+    }
     else
     {
         return nil;
