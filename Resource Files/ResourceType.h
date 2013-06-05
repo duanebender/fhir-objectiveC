@@ -51,7 +51,6 @@ typedef enum ResourceType
     ResourceTypeAdverseReaction, //ResourceTypes from here down are newly added
     ResourceTypeAlert,
     ResourceTypeAllergyIntollerance,
-    ResourceTypeCarePlan,
-    ResourceTypeMedication
+    ResourceTypeCarePlan
 }ResourceType;
 
