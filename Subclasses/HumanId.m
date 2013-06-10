@@ -24,11 +24,11 @@
     self = [super init];
     if (self) {
         _humanIdDictionary = [[FHIRResourceDictionary alloc] init];
-        _label = [[String alloc] init];
+        _label = [[FHIRString alloc] init];
         _identifier = [[Identifier alloc] init];
         _period = [[Period alloc] init];
         _assigner = [[ResourceReference alloc] init];
-        _useSV = [[String alloc] init];
+        _useSV = [[FHIRString alloc] init];
     }
     return self;
 }

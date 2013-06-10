@@ -22,7 +22,7 @@
 @property (nonatomic, retain) FHIRResourceDictionary *medicationDictionary; //a dictionary containing all resources in this medication object
 
 //following properties are individual parts of the Medication Object that can be influenced Individually
-@property (nonatomic, retain) String *name; //The common name of the medication.
+@property (nonatomic, retain) FHIRString *name; //The common name of the medication.
 @property (nonatomic, retain) CodeableConcept *code; //References to codes for this medication in standard medication terminologies, drug dictionaries, etc.
 @property (nonatomic, retain) Bool *isBrand; //Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
 @property (nonatomic, retain) Resource *manufacturer; //Describes the details of the manufacturer. (Organization)

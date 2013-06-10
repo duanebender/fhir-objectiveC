@@ -33,7 +33,7 @@
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[CodeableConcept alloc] init];
         _language = [[NSMutableArray alloc] init];
-        _birthDate = [[String alloc] init];
+        _birthDate = [[FHIRString alloc] init];
     }
     return self;
 }

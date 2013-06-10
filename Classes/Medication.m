@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         _medicationDictionary = [[FHIRResourceDictionary alloc] init];
-        _name = [[String alloc] init];
+        _name = [[FHIRString alloc] init];
         _code = [[CodeableConcept alloc] init];
         _isBrand = [[Bool alloc] init];
         _manufacturer = [[Resource alloc] init];

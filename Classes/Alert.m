@@ -26,7 +26,7 @@
         _status = [[Code alloc] init];
         _subject = [[Resource alloc] init];
         _author = [[Resource alloc] init];
-        _note = [[String alloc] init];
+        _note = [[FHIRString alloc] init];
     }
     return self;
 }

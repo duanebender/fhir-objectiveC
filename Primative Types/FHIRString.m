@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#import "String.h"
+#import "FHIRString.h"
 
-@implementation String
+@implementation FHIRString
 
 @synthesize value = _value;
 

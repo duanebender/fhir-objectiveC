@@ -40,9 +40,9 @@
         _product = [[Resource alloc] init];
         _dailyAmount = [[Quantity alloc] init];
         _quantity = [[Quantity alloc] init];
-        _details = [[String alloc] init];
+        _details = [[FHIRString alloc] init];
         _actionTaken = [[NSMutableArray alloc] init];
-        _notes = [[String alloc] init];
+        _notes = [[FHIRString alloc] init];
     }
     return self;
 }
@@ -53,7 +53,7 @@
     NSString *timingTagString = [[NSString alloc] init];
     if ([[_timing objectAtIndex:0] class] == [Period class]) timingTagString = [NSString stringWithFormat:@"timingPeriod"];
     else if ([[_timing objectAtIndex:0] class] == [Schedule class]) timingTagString = [NSString stringWithFormat:@"timingSchedule"];
-    else if ([[_timing objectAtIndex:0] class] == [String class]) timingTagString = [NSString stringWithFormat:@"timingString"];
+    else if ([[_timing objectAtIndex:0] class] == [FHIRString class]) timingTagString = [NSString stringWithFormat:@"timingString"];
     else timingTagString = [NSString stringWithFormat:@"timing?"];
     
     _activityDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -101,7 +101,7 @@
         }
         if ([key isEqualToString:@"timingString"])
         {
-            String *timingString = [[String alloc] init];
+            FHIRString *timingString = [[FHIRString alloc] init];
             [timingString setValueString:[dictionary objectForKey:@"timingString"]];
             _timing = [[NSArray alloc] initWithObjects:timingString, nil];
         }

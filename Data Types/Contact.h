@@ -11,8 +11,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "String.h"
 #import "Period.h"
+#import "FHIRString.h"
 
 //system definitions
 typedef enum ContactSystem
@@ -41,10 +41,10 @@ typedef enum ContactUse
 
 //following properties are individual parts of the Contact Object that can be influenced Individually
 @property (nonatomic) NSInteger system; //What kind of contact this is - what communications system is required to make use of the contact
-@property (nonatomic, retain) String *systemSV; //string value of system
+@property (nonatomic, retain) FHIRString *systemSV; //string value of system
 @property (nonatomic) NSInteger use; //The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
-@property (nonatomic, retain) String *useSV; //String value of use
-@property (nonatomic, retain) String *value; //Identifies the context for the address
+@property (nonatomic, retain) FHIRString *useSV; //String value of use
+@property (nonatomic, retain) FHIRString *value; //Identifies the context for the address
 @property (nonatomic, retain) Period *period; //Time period when the contact was/is in use
 
 //Public Methods

@@ -21,7 +21,7 @@
 //following properties are individual parts of the Quantity Object that can be influenced Individually
 @property (nonatomic, retain) NSNumber *value; //The value of the measured amount. The value includes an implicit precision in the presentation of the value.
 @property (nonatomic, retain) Code *comparator; //How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
-@property (nonatomic, retain) String *units; //A human readable form of the units.
+@property (nonatomic, retain) FHIRString *units; //A human readable form of the units.
 @property (nonatomic, retain) Uri *system; //The identification of the system that provides the coded form of the unit.
 @property (nonatomic, retain) Code *code; //A computer processable form of the units in some unit representation system.
 

@@ -23,8 +23,8 @@
     if (self) {
         _codeableConceptDictionary = [[FHIRResourceDictionary alloc] init];
         _coding = [[NSMutableArray alloc] init];
-        _text = [[String alloc] init];
-        _primary = [[String alloc] init];
+        _text = [[FHIRString alloc] init];
+        _primary = [[FHIRString alloc] init];
     }
     return self;
 }

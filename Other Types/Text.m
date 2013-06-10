@@ -22,7 +22,7 @@
     if (self) {
         _textDictionary = [[FHIRResourceDictionary alloc] init];
         _div = [[NSString alloc] init];
-        _status = [[String alloc] init];
+        _status = [[FHIRString alloc] init];
     }
     return self;
 }

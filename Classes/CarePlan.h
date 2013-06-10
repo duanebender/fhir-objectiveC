@@ -28,7 +28,7 @@
 @property (nonatomic, retain) Period *period; //Indicates when the plan did (or is intended to) come into effect and end.
 @property (nonatomic, retain) NSDate *modified; //Identifies the most recent date on which the plan has been revised.
 @property (nonatomic, retain) NSMutableArray *concern; //THIS ARRAY CONTAINS "Resource(Problem)" OBJECTS ONLY. Identifies the problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
-@property (nonatomic, retain) String *notes; //General notes about the care plan not covered elsewhere.
+@property (nonatomic, retain) FHIRString *notes; //General notes about the care plan not covered elsewhere.
 @property (nonatomic, retain) NSMutableArray *participant; //THIS ARRAY CONTAINS "Participant" OBJECTS ONLY. Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
 @property (nonatomic, retain) NSMutableArray *activity; //THIS ARRAY CONTAINS "Activity" OBJECTS ONLY. Identifies a planned action to occur as part of the plan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
 @property (nonatomic, retain) NSMutableArray *goal; //THIS ARRAY CONTAINS "Goal" OBJECTS ONLY. Describes the intended objective(s) of carrying out the Care Plan.

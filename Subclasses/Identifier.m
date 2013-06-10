@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         _system = [[Uri alloc] init];
-        _idNumber = [[String alloc] init];
+        _idNumber = [[FHIRString alloc] init];
     }
     return self;
 }

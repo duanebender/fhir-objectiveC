@@ -11,7 +11,7 @@
 */
 
 #import <Foundation/Foundation.h>
-#import "String.h"
+#import "FHIRString.h"
 
 @interface Text : NSObject
 
@@ -19,7 +19,7 @@
 
 //following properties are individual parts of the Text Object that can be influenced Individually
 @property (nonatomic, retain) NSString *div; //holds the text in this object
-@property (nonatomic, retain) String *status;
+@property (nonatomic, retain) FHIRString *status;
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this text object

@@ -23,7 +23,7 @@
         _codingDictionary = [[FHIRResourceDictionary alloc] init];
         _system = [[Uri alloc] init];
         _code = [[Code alloc] init];
-        _display = [[String alloc] init];
+        _display = [[FHIRString alloc] init];
     }
     return self;
 }

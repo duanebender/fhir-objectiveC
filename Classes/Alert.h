@@ -24,7 +24,7 @@
 @property (nonatomic, retain) Code *status; //Supports basic workflow
 @property (nonatomic, retain) Resource *subject; //The person who this alert concerns (Patient)
 @property (nonatomic, retain) Resource *author; //The person or device that created the alert (Practitioner/Patient/Device)
-@property (nonatomic, retain) String *note; //The textual component of the alert to display to the user
+@property (nonatomic, retain) FHIRString *note; //The textual component of the alert to display to the user
 
 //Public Methods
 - (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Alert

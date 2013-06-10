@@ -26,10 +26,10 @@
     if (self) {
         _xhtmlNodeDictionary = [[FHIRResourceDictionary alloc] init];
         _node = [[NodeType alloc] init];
-        _name = [[String alloc] init];
+        _name = [[FHIRString alloc] init];
         _attributes = [[NSMutableDictionary alloc] init];
         _childNodes = [[NSMutableArray alloc] init];
-        _content = [[String alloc] init];
+        _content = [[FHIRString alloc] init];
     }
     return self;
 }

@@ -24,7 +24,7 @@
         _quantityDictionary = [[FHIRResourceDictionary alloc] init];
         _value = [[NSNumber alloc] init];
         _comparator = [[Code alloc] init];
-        _units = [[String alloc] init];
+        _units = [[FHIRString alloc] init];
         _system = [[Uri alloc] init];
         _code = [[Code alloc] init];
     }

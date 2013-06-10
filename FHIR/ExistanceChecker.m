@@ -27,7 +27,7 @@
     }
 }
 
-+ (NSDictionary *)stringChecker:(String *)string //checks if a string is empty
++ (NSDictionary *)stringChecker:(FHIRString *)string //checks if a string is empty
 {
     if (string)
     {

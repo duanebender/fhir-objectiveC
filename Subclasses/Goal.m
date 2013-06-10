@@ -20,9 +20,9 @@
     self = [super init];
     if (self) {
         _goalDictionary = [[FHIRResourceDictionary alloc] init];
-        _description = [[String alloc] init];
+        _description = [[FHIRString alloc] init];
         _status = [[Code alloc] init];
-        _notes = [[String alloc] init];
+        _notes = [[FHIRString alloc] init];
     }
     return self;
 }

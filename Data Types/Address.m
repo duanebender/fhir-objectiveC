@@ -30,16 +30,16 @@
     self = [super init];
     if (self) {
         _addressDictionary = [[FHIRResourceDictionary alloc] init];
-        _text = [[String alloc] init];
+        _text = [[FHIRString alloc] init];
         _part = [[NSMutableArray alloc] init];
         _line = [[NSMutableArray alloc] init];
-        _city = [[String alloc] init];
-        _state = [[String alloc] init];
-        _zip = [[String alloc] init];
-        _country = [[String alloc] init];
-        _dpid = [[String alloc] init];
+        _city = [[FHIRString alloc] init];
+        _state = [[FHIRString alloc] init];
+        _zip = [[FHIRString alloc] init];
+        _country = [[FHIRString alloc] init];
+        _dpid = [[FHIRString alloc] init];
         _period = [[Period alloc] init];
-        _useSV = [[String alloc] init];
+        _useSV = [[FHIRString alloc] init];
     }
     return self;
 }
@@ -107,7 +107,7 @@
     _part = [[NSMutableArray alloc] init];
     for (int i = 0; i < [partArray count]; i++)
     {
-        String *tempS1 = [[String alloc] init];
+        FHIRString *tempS1 = [[FHIRString alloc] init];
         [tempS1 setValueString:[partArray objectAtIndex:i]];
         [_part addObject:tempS1];
         //NSLog(@"%@", _part);
@@ -118,7 +118,7 @@
     _line = [[NSMutableArray alloc] init];
     for (int i = 0; i < [lineArray count]; i++)
     {
-        String *tempS2 = [[String alloc] init];
+        FHIRString *tempS2 = [[FHIRString alloc] init];
         [tempS2 setValueString:[lineArray objectAtIndex:i]];
         [_line addObject:tempS2];
         //NSLog(@"%@", _line);

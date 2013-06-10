@@ -31,7 +31,7 @@
     
     for (NSString* key in tempDict)
     {
-        if (key != @"div")
+        if ([key isEqualToString:@"div"] == FALSE)
         {
             NSObject *value = [tempDict valueForKey:key];
             if (value == NULL || value == [NSNull null] || value == nil || [tempDict count] == 0)

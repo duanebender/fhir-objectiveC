@@ -86,7 +86,7 @@
     _name = [[NSMutableArray alloc] init];
     for (int i = 0; i < [nameArray count]; i++)
     {
-        String *tempNA = [[String alloc] init];
+        FHIRString *tempNA = [[FHIRString alloc] init];
         [tempNA setValueString:[nameArray objectAtIndex:i]];
         [_name addObject:tempNA];
     }

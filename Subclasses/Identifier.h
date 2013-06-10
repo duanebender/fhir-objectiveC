@@ -12,13 +12,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Uri.h"
-#import "String.h"
+#import "FHIRString.h"
 
 @interface Identifier : Type
 
 //following properties are individual parts of the Identifier Object that can be influenced Individually
 @property (nonatomic, retain) Uri *system; //Establishes the namespace in which set of possible id values is unique.
-@property (nonatomic, retain) String *idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
+@property (nonatomic, retain) FHIRString *idNumber; //The portion of the identifier typically displayed to the user and which is unique within the context of the system.
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns NSDictionary containing all the elements of this Identifier Object

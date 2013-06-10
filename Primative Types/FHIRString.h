@@ -13,7 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "Type.h"
 
-@interface String : Type
+@interface FHIRString : Type
 
 //value of this string for direct influence
 @property (nonatomic, retain) NSString *value; //contains the value of a string

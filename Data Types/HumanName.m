@@ -26,13 +26,13 @@
     self = [super init];
     if (self) {
         _humanNameDictionary = [[FHIRResourceDictionary alloc] init];
-        _text = [[String alloc] init];
+        _text = [[FHIRString alloc] init];
         _family = [[NSMutableArray alloc] init];
         _given = [[NSMutableArray alloc] init];
         _prefix = [[NSMutableArray alloc] init];
         _suffix = [[NSMutableArray alloc] init];
         _period = [[Period alloc] init];
-        _useSV = [[String alloc] init];
+        _useSV = [[FHIRString alloc] init];
     }
     return self;
 }
@@ -108,7 +108,7 @@
     _family = [[NSMutableArray alloc] init];
     for (int i = 0; i < [famiArray count]; i++)
     {
-        String *tempS1 = [[String alloc] init];
+        FHIRString *tempS1 = [[FHIRString alloc] init];
         [tempS1 setValueString:[famiArray objectAtIndex:i]];
         [_family addObject:tempS1];
         //NSLog(@"%@", _family);
@@ -119,7 +119,7 @@
     _given = [[NSMutableArray alloc] init];
     for (int i = 0; i < [giveArray count]; i++)
     {
-        String *tempS2 = [[String alloc] init];
+        FHIRString *tempS2 = [[FHIRString alloc] init];
         [tempS2 setValueString:[giveArray objectAtIndex:i]];
         [_given addObject:tempS2];
         //NSLog(@"%@",_given);
@@ -130,7 +130,7 @@
     _prefix = [[NSMutableArray alloc] init];
     for (int i = 0; i < [prefArray count]; i++)
     {
-        String *tempS3 = [[String alloc] init];
+        FHIRString *tempS3 = [[FHIRString alloc] init];
         [tempS3 setValueString:[prefArray objectAtIndex:i]];
         [_prefix addObject:tempS3];
         //NSLog(@"%@", _prefix);
@@ -141,7 +141,7 @@
     _suffix = [[NSMutableArray alloc] init];
     for (int i = 0; i < [suffArray count]; i++)
     {
-        String *tempS4 = [[String alloc] init];
+        FHIRString *tempS4 = [[FHIRString alloc] init];
         [tempS4 setValueString:[suffArray objectAtIndex:i]];
         [_suffix addObject:tempS4];
         //NSLog(@"%@", _suffix);

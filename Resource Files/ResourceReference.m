@@ -26,7 +26,7 @@
         _type = [[Code alloc] init];
         _uriId = [[Uri alloc] init];
         _version = [[Uri alloc] init];
-        _display = [[String alloc] init];
+        _display = [[FHIRString alloc] init];
     }
     return self;
 }

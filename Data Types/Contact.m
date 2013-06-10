@@ -24,10 +24,10 @@
     self = [super init];
     if (self) {
         _contactDictionary = [[FHIRResourceDictionary alloc] init];
-        _value = [[String alloc] init];
+        _value = [[FHIRString alloc] init];
         _period = [[Period alloc] init];
-        _systemSV = [[String alloc] init];
-        _useSV = [[String alloc] init];
+        _systemSV = [[FHIRString alloc] init];
+        _useSV = [[FHIRString alloc] init];
     }
     return self;
 }

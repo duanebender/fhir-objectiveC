@@ -32,7 +32,7 @@
         _status = [[Code alloc] init];
         _period = [[Period alloc] init];
         _modified = [[NSDate alloc] init];
-        _notes = [[String alloc] init];
+        _notes = [[FHIRString alloc] init];
         _concern = [[NSMutableArray alloc] init];
         _participant = [[NSMutableArray alloc] init];
         _activity = [[NSMutableArray alloc] init];

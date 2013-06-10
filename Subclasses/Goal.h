@@ -18,9 +18,9 @@
 @property (nonatomic, retain) FHIRResourceDictionary *goalDictionary; //holds all goal resources
 
 //following properties are individual parts of the Goal Object that can be influenced Individually
-@property (nonatomic, retain) String *description; //Human readable description of a specific desired objective of the care plan.
+@property (nonatomic, retain) FHIRString *description; //Human readable description of a specific desired objective of the care plan.
 @property (nonatomic, retain) Code *status; //Indicates whether the goal has been reached and is still considered relevant.
-@property (nonatomic, retain) String *notes; //Any comments related to the goal.
+@property (nonatomic, retain) FHIRString *notes; //Any comments related to the goal.
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this Goal Object

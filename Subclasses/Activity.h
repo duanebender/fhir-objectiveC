@@ -32,9 +32,9 @@
 @property (nonatomic, retain) Resource *product; //Identifies the food, drug or other product being consumed or supplied in the activity.
 @property (nonatomic, retain) Quantity *dailyAmount; //Identifies the quantity expected to be consumed in a given day.
 @property (nonatomic, retain) Quantity *quantity; //Identifies the quantity expected to be supplied.
-@property (nonatomic, retain) String *details; //This provides a textual description of constraints on the activity occurrence, including relation to other activities. It may also include objectives, pre-conditions and end-conditions. Finally, it may convey specifics about the activity such as body site, method, route, etc.
+@property (nonatomic, retain) FHIRString *details; //This provides a textual description of constraints on the activity occurrence, including relation to other activities. It may also include objectives, pre-conditions and end-conditions. Finally, it may convey specifics about the activity such as body site, method, route, etc.
 @property (nonatomic, retain) NSMutableArray *actionTaken; //THIS ARRAY CONTAINS "Resource(Any)" OBJECTS ONLY. Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, visit records, appointments, etc.
-@property (nonatomic, retain) String *notes; //Notes about the execution of the activity.
+@property (nonatomic, retain) FHIRString *notes; //Notes about the execution of the activity.
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this Activity Object

@@ -29,8 +29,8 @@ typedef enum IdentifierUse
 
 //following properties are individual parts of the HumanId Object that can be influenced Individually
 @property (nonatomic) NSInteger use; //Identifies the use for this identifier, if known
-@property (nonatomic, retain) String *useSV; //use value parser value
-@property (nonatomic, retain) String *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
+@property (nonatomic, retain) FHIRString *useSV; //use value parser value
+@property (nonatomic, retain) FHIRString *label; //A label for the identifier that can be displayed to a human so they can recognise the identifier
 @property (nonatomic,retain)  Identifier *identifier; //The identifier itself, should be Identifier?
 @property (nonatomic, retain) Period *period; //Time period during which identifier was valid for use
 @property (nonatomic, retain) ResourceReference *assigner; //Organisation that issued/manages the identifier

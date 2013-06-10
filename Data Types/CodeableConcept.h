@@ -19,8 +19,8 @@
 
 //following properties are individual parts of the CodeableConcept Object that can be influenced Individually
 @property (nonatomic, retain) NSMutableArray *coding; //A reference to a code defined by a terminology system. Contains "coding" objects only.
-@property (nonatomic, retain) String *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
-@property (nonatomic, retain) String *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
+@property (nonatomic, retain) FHIRString *text; //A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept
+@property (nonatomic, retain) FHIRString *primary; //Indicates which of the codes in the codings was chosen by a user, if one was chosen directly
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this CodeableConcept Object

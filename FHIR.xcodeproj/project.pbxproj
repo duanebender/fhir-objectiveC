@@ -57,7 +57,7 @@
 		894622E916E7E6020040E6EF /* Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622DE16E7E6020040E6EF /* Bool.m */; };
 		894622EA16E7E6020040E6EF /* Code.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E016E7E6020040E6EF /* Code.m */; };
 		894622EB16E7E6020040E6EF /* Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E216E7E6020040E6EF /* Element.m */; };
-		894622EC16E7E6020040E6EF /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E416E7E6020040E6EF /* String.m */; };
+		894622EC16E7E6020040E6EF /* FHIRString.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E416E7E6020040E6EF /* FHIRString.m */; };
 		894622ED16E7E6020040E6EF /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E616E7E6020040E6EF /* Type.m */; };
 		894622EE16E7E6020040E6EF /* Uri.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622E816E7E6020040E6EF /* Uri.m */; };
 		894622F616E7E6170040E6EF /* Base64Binary.m in Sources */ = {isa = PBXBuildFile; fileRef = 894622F116E7E6170040E6EF /* Base64Binary.m */; };
@@ -129,7 +129,7 @@
 		89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F6E69C1720769300595ACA /* FHIR.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F6E69B1720762E00595ACA /* FHIR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89F6E6D917207D2900595ACA /* ResourceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F6E6D817207D2900595ACA /* ResourceType.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		89F6E70A17207DE400595ACA /* String.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E316E7E6020040E6EF /* String.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		89F6E70A17207DE400595ACA /* FHIRString.h in Headers */ = {isa = PBXBuildFile; fileRef = 894622E316E7E6020040E6EF /* FHIRString.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		89F9145816EE28E00024DF3E /* DictToXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F9145716EE28E00024DF3E /* DictToXML.m */; };
 		89F963A91709D5B1009D3CA3 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F963A81709D5B1009D3CA3 /* XMLWriter.m */; };
 /* End PBXBuildFile section */
@@ -231,8 +231,8 @@
 		894622E016E7E6020040E6EF /* Code.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Code.m; path = "Primative Types/Code.m"; sourceTree = SOURCE_ROOT; };
 		894622E116E7E6020040E6EF /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Element.h; path = "Primative Types/Element.h"; sourceTree = SOURCE_ROOT; };
 		894622E216E7E6020040E6EF /* Element.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Element.m; path = "Primative Types/Element.m"; sourceTree = SOURCE_ROOT; };
-		894622E316E7E6020040E6EF /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = String.h; path = "Primative Types/String.h"; sourceTree = SOURCE_ROOT; };
-		894622E416E7E6020040E6EF /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = String.m; path = "Primative Types/String.m"; sourceTree = SOURCE_ROOT; };
+		894622E316E7E6020040E6EF /* FHIRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRString.h; path = "Primative Types/FHIRString.h"; sourceTree = SOURCE_ROOT; };
+		894622E416E7E6020040E6EF /* FHIRString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRString.m; path = "Primative Types/FHIRString.m"; sourceTree = SOURCE_ROOT; };
 		894622E516E7E6020040E6EF /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = "Primative Types/Type.h"; sourceTree = SOURCE_ROOT; };
 		894622E616E7E6020040E6EF /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Type.m; path = "Primative Types/Type.m"; sourceTree = SOURCE_ROOT; };
 		894622E716E7E6020040E6EF /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Uri.h; path = "Primative Types/Uri.h"; sourceTree = SOURCE_ROOT; };
@@ -411,8 +411,8 @@
 				894622E016E7E6020040E6EF /* Code.m */,
 				894622E116E7E6020040E6EF /* Element.h */,
 				894622E216E7E6020040E6EF /* Element.m */,
-				894622E316E7E6020040E6EF /* String.h */,
-				894622E416E7E6020040E6EF /* String.m */,
+				894622E316E7E6020040E6EF /* FHIRString.h */,
+				894622E416E7E6020040E6EF /* FHIRString.m */,
 				894622E516E7E6020040E6EF /* Type.h */,
 				894622E616E7E6020040E6EF /* Type.m */,
 				894622E716E7E6020040E6EF /* Uri.h */,
@@ -605,7 +605,7 @@
 				89F6E6971720742B00595ACA /* Narrative.h in Headers */,
 				89F6E6981720742D00595ACA /* Text.h in Headers */,
 				89F6E68C1720740A00595ACA /* Resource.h in Headers */,
-				89F6E70A17207DE400595ACA /* String.h in Headers */,
+				89F6E70A17207DE400595ACA /* FHIRString.h in Headers */,
 				89F6E681172073E300595ACA /* Image.h in Headers */,
 				89F6E6991720743200595ACA /* ExistanceChecker.h in Headers */,
 				89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */,
@@ -756,7 +756,7 @@
 				894622E916E7E6020040E6EF /* Bool.m in Sources */,
 				894622EA16E7E6020040E6EF /* Code.m in Sources */,
 				894622EB16E7E6020040E6EF /* Element.m in Sources */,
-				894622EC16E7E6020040E6EF /* String.m in Sources */,
+				894622EC16E7E6020040E6EF /* FHIRString.m in Sources */,
 				894622ED16E7E6020040E6EF /* Type.m in Sources */,
 				894622EE16E7E6020040E6EF /* Uri.m in Sources */,
 				894622F616E7E6170040E6EF /* Base64Binary.m in Sources */,
@@ -872,10 +872,7 @@
 		8993D80D16B1D88500D0AFB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;
@@ -894,10 +891,7 @@
 		8993D80E16B1D88500D0AFB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;

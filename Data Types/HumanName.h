@@ -11,7 +11,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "String.h"
 #import "Period.h"
 #import "ExistanceChecker.h"
 
@@ -33,8 +32,8 @@ typedef enum
 
 //following properties are individual parts of the HumanName Object that can be influenced Individually
 @property (nonatomic) NSInteger use;
-@property (nonatomic, retain) String *useSV; //string equivelent of use
-@property (nonatomic, retain) String *text; //a full text representation of the name
+@property (nonatomic, retain) FHIRString *useSV; //string equivelent of use
+@property (nonatomic, retain) FHIRString *text; //a full text representation of the name
 @property (nonatomic, retain) NSMutableArray *family; //Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father. Array of Strings
 @property (nonatomic, retain) NSMutableArray *given; //Given name. NOTE: Not to be called "first name" since given names do not always come first. Array of Strings
 @property (nonatomic, retain) NSMutableArray *prefix; //Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name. Array of Strings
