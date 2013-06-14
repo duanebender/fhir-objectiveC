@@ -11,9 +11,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Type.h"
+#import "FHIRType.h"
 
-@interface FHIRString : Type
+@interface FHIRString : FHIRType
 
 //value of this string for direct influence
 @property (nonatomic, retain) NSString *value; //contains the value of a string

@@ -38,55 +38,55 @@
 {
     if ([jsonDict objectForKey:@"Patient"])
     {
-        Patient *patient = [[Patient alloc] init];
+        FHIRPatient *patient = [[FHIRPatient alloc] init];
         [patient patientParser:jsonDict];
         return patient;
     }
     else if ([jsonDict objectForKey:@"Organization"])
     {
-        Organization *organization = [[Organization alloc] init];
+        FHIROrganization *organization = [[FHIROrganization alloc] init];
         [organization organizationParser:jsonDict];
         return organization;
         //NSLog(@"organizationXML ************** %@", organization);
     }
     else if ([jsonDict objectForKey:@"AdverseReaction"])
     {
-        AdverseReaction *adReact = [[AdverseReaction alloc] init];
+        FHIRAdverseReaction *adReact = [[FHIRAdverseReaction alloc] init];
         [adReact adverseReactionParser:jsonDict];
         return adReact;
         //NSLog(@"adverseReactionXML ************** %@", adReact);
     }
     else if ([jsonDict objectForKey:@"Alert"])
     {
-        Alert *alertOBJ = [[Alert alloc] init];
+        FHIRAlert *alertOBJ = [[FHIRAlert alloc] init];
         [alertOBJ alertParser:jsonDict];
         return alertOBJ;
         //NSLog(@"alertXML ************** %@", alertOBJ);
     }
     else if ([jsonDict objectForKey:@"AllergyIntolerance"])
     {
-        AllergyIntolerance *allergyIntolleranceOBJ = [[AllergyIntolerance alloc] init];
+        FHIRAllergyIntolerance *allergyIntolleranceOBJ = [[FHIRAllergyIntolerance alloc] init];
         [allergyIntolleranceOBJ allergyIntoleranceParser:jsonDict];
         return allergyIntolleranceOBJ;
         //NSLog(@"alertXML ************** %@", allergyIntolleranceOBJ);
     }
     else if ([jsonDict objectForKey:@"CarePlan"])
     {
-        CarePlan *carePlanOBJ = [[CarePlan alloc] init];
+        FHIRCarePlan *carePlanOBJ = [[FHIRCarePlan alloc] init];
         [carePlanOBJ carePlanParser:jsonDict];
         return carePlanOBJ;
         //NSLog(@"alertXML ************** %@", carePlanOBJ);
     }
     else if ([jsonDict objectForKey:@"Medication"])
     {
-        Medication *medicationOBJ = [[Medication alloc] init];
+        FHIRMedication *medicationOBJ = [[FHIRMedication alloc] init];
         [medicationOBJ medicationParser:jsonDict];
         return medicationOBJ;
         //NSLog(@"alertXML ************** %@", medicationOBJ);
     }
     else if ([jsonDict objectForKey:@"Coverage"])
     {
-        Coverage *coverageOBJ = [[Coverage alloc] init];
+        FHIRCoverage *coverageOBJ = [[FHIRCoverage alloc] init];
         [coverageOBJ coverageParser:jsonDict];
         return coverageOBJ;
         //NSLog(@"alertXML ************** %@", coverageOBJ);

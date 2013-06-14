@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NodeType.h"
+#import "FHIRNodeType.h"
 #import "FHIRString.h"
 
 @interface XhtmlNode : NSObject
@@ -31,7 +31,7 @@
 
 @property (nonatomic, retain) FHIRResourceDictionary *xhtmlNodeDictionary; //contains all the reources for the xhtmlnode
 
-@property (nonatomic) NodeType *node; //decides node type
+@property (nonatomic) FHIRNodeType *node; //decides node type
 @property (nonatomic, retain) FHIRString *name; //name variable
 @property (nonatomic, retain) NSMutableDictionary *attributes; //@property (nonatomic, retain) Map *attributes; //Map<String, String> Atributes = new HashMap<String, String>();
 @property (nonatomic, retain) NSMutableArray *childNodes; //array of XhtmlNodes

@@ -17,51 +17,51 @@
 {
     NSArray *singleObject = [[NSArray alloc] initWithObjects:xmlObject, nil];
     
-    if ([xmlObject class] == [Patient class])
+    if ([xmlObject class] == [FHIRPatient class])
     {
-        Patient *patient = [singleObject objectAtIndex:0];
+        FHIRPatient *patient = [singleObject objectAtIndex:0];
         _currentResource = @"Patient";
         [self generateXmlStringFromFHIRResourceDictionary:[patient generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [Organization class])
+    else if ([xmlObject class] == [FHIROrganization class])
     {
-        Organization *organization = [singleObject objectAtIndex:0];
+        FHIROrganization *organization = [singleObject objectAtIndex:0];
         _currentResource = @"Organization";
         [self generateXmlStringFromFHIRResourceDictionary:[organization generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [AdverseReaction class])
+    else if ([xmlObject class] == [FHIRAdverseReaction class])
     {
-        AdverseReaction *adReact = [singleObject objectAtIndex:0];
+        FHIRAdverseReaction *adReact = [singleObject objectAtIndex:0];
         _currentResource = @"AdverseReaction";
         [self generateXmlStringFromFHIRResourceDictionary:[adReact generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [Alert class])
+    else if ([xmlObject class] == [FHIRAlert class])
     {
-        Alert *alertOBJ = [singleObject objectAtIndex:0];
+        FHIRAlert *alertOBJ = [singleObject objectAtIndex:0];
         _currentResource = @"Alert";
         [self generateXmlStringFromFHIRResourceDictionary:[alertOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [AllergyIntolerance class])
+    else if ([xmlObject class] == [FHIRAllergyIntolerance class])
     {
-        AllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
+        FHIRAllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
         _currentResource = @"AllergyIntolerance";
         [self generateXmlStringFromFHIRResourceDictionary:[allergyIntoleranceOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [CarePlan class])
+    else if ([xmlObject class] == [FHIRCarePlan class])
     {
-        CarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
+        FHIRCarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
         _currentResource = @"CarePlan";
         [self generateXmlStringFromFHIRResourceDictionary:[carePlanOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [Medication class])
+    else if ([xmlObject class] == [FHIRMedication class])
     {
-        Medication *medicationOBJ = [singleObject objectAtIndex:0];
+        FHIRMedication *medicationOBJ = [singleObject objectAtIndex:0];
         _currentResource = @"Medication";
         [self generateXmlStringFromFHIRResourceDictionary:[medicationOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([xmlObject class] == [Coverage class])
+    else if ([xmlObject class] == [FHIRCoverage class])
     {
-        Coverage *coverageOBJ = [singleObject objectAtIndex:0];
+        FHIRCoverage *coverageOBJ = [singleObject objectAtIndex:0];
         _currentResource = @"Coverage";
         [self generateXmlStringFromFHIRResourceDictionary:[coverageOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }

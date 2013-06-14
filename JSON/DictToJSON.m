@@ -16,44 +16,44 @@
 {
     NSArray *singleObject = [[NSArray alloc] initWithObjects:jsonObject, nil];
     
-    if ([jsonObject class] == [Patient class])
+    if ([jsonObject class] == [FHIRPatient class])
     {
-        Patient *patient = [singleObject objectAtIndex:0];
+        FHIRPatient *patient = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[patient generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [Organization class])
+    else if ([jsonObject class] == [FHIROrganization class])
     {
-        Organization *organization = [singleObject objectAtIndex:0];
+        FHIROrganization *organization = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[organization generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [AdverseReaction class])
+    else if ([jsonObject class] == [FHIRAdverseReaction class])
     {
-        AdverseReaction *adReact = [singleObject objectAtIndex:0];
+        FHIRAdverseReaction *adReact = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[adReact generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [Alert class])
+    else if ([jsonObject class] == [FHIRAlert class])
     {
-        Alert *alertOBJ = [singleObject objectAtIndex:0];
+        FHIRAlert *alertOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[alertOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [AllergyIntolerance class])
+    else if ([jsonObject class] == [FHIRAllergyIntolerance class])
     {
-        AllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
+        FHIRAllergyIntolerance *allergyIntoleranceOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[allergyIntoleranceOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [CarePlan class])
+    else if ([jsonObject class] == [FHIRCarePlan class])
     {
-        CarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
+        FHIRCarePlan *carePlanOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[carePlanOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [Medication class])
+    else if ([jsonObject class] == [FHIRMedication class])
     {
-        Medication *medicationOBJ = [singleObject objectAtIndex:0];
+        FHIRMedication *medicationOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[medicationOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [Coverage class])
+    else if ([jsonObject class] == [FHIRCoverage class])
     {
-        Coverage *coverageOBJ = [singleObject objectAtIndex:0];
+        FHIRCoverage *coverageOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[coverageOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
 }

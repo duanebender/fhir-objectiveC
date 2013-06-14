@@ -11,15 +11,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Patient.h"
+#import "FHIRPatient.h"
 #import "XMLReader.h"
-#import "Organization.h"
-#import "AdverseReaction.h"
-#import "Alert.h"
-#import "AllergyIntolerance.h"
-#import "CarePlan.h"
-#import "Medication.h"
-#import "Coverage.h"
+#import "FHIROrganization.h"
+#import "FHIRAdverseReaction.h"
+#import "FHIRAlert.h"
+#import "FHIRAllergyIntolerance.h"
+#import "FHIRCarePlan.h"
+#import "FHIRMedication.h"
+#import "FHIRCoverage.h"
 
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 

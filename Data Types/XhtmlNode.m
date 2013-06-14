@@ -25,7 +25,7 @@
     self = [super init];
     if (self) {
         _xhtmlNodeDictionary = [[FHIRResourceDictionary alloc] init];
-        _node = [[NodeType alloc] init];
+        _node = [[FHIRNodeType alloc] init];
         _name = [[FHIRString alloc] init];
         _attributes = [[NSMutableDictionary alloc] init];
         _childNodes = [[NSMutableArray alloc] init];

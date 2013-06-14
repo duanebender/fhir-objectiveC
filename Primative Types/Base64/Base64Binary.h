@@ -11,11 +11,11 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "Type.h"
+#import "FHIRType.h"
 #import "Base64Encoder.h"
 #import "Base64Decoder.h"
 
-@interface Base64Binary : Type
+@interface Base64Binary : FHIRType
 
 //following properties are individual parts of the Base64Binary Object that can be influenced Individually
 @property (nonatomic) NSData *data; //data currently in this base64Binary such as an image
