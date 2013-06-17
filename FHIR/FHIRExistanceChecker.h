@@ -12,7 +12,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FHIRResourceReference.h"
-#import "FHIRHumanId.h"
+#import "FHIRIdentifier.h"
 
 @interface FHIRExistanceChecker : NSObject
 

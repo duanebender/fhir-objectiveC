@@ -23,7 +23,7 @@
 @property (nonatomic, retain) FHIRCode *severity; //The severety of the symptom.
 
 //Public Methods
-- (NSDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from symptom in an NSdictionary format
+- (NSDictionary *)generateAndReturnDictionary; //returns a dictionary of all resources from symptom in an NSdictionary format
 - (void)symptomParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into a symptom object
 
 @end

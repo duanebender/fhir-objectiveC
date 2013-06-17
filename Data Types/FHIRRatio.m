@@ -36,7 +36,7 @@
     return _ratioDictionary.dataForResource;
 }
 
-- (void)quantityParser:(NSDictionary *)dictionary
+- (void)ratioParser:(NSDictionary *)dictionary
 {
     [_numerator quantityParser:[dictionary objectForKey:@"numerator"]];
     [_denominator quantityParser:[dictionary objectForKey:@"denominator"]];

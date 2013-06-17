@@ -17,5 +17,5 @@
 #import "FHIRAlert.h"
 #import "FHIRAllergyIntolerance.h"
 #import "FHIRCarePlan.h"
-#import "Medication.h"
-#import "Coverage.h"
+#import "FHIRMedication.h"
+#import "FHIRCoverage.h"

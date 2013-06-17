@@ -11,17 +11,17 @@
 @implementation FHIRPatient:FHIRResource
 
 @synthesize patientDictionary = _patientDictionary;
-@synthesize link = _link; //THIS ARRAY IS FILLED WITH "ResourceReference" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
-@synthesize active = _active; //Whether the patient record is in use, or has been removed from active use
-@synthesize identifier = _identifier; //THIS ARRAY IS FILLED WITH "HumanId" OBJECTS ONLY.. An identifier that applies to this person as a patient
-@synthesize details = _details; //Patient Demographic details
-@synthesize animal = _animal; //This element has a value if the patient is an animal
+@synthesize identifier = _identifier; //THIS ARRAY IS FILLED WITH "Identifier" OBJECTS ONLY. An identifier that applies to this person as a patient
 @synthesize provider = _provider; //The provider for whom this is a patient record
-@synthesize diet = _diet; //Dietary restrictions for the patient
-@synthesize confidentiality = _confidentiality; //Confidentiality of the patient records
-@synthesize recordLocation = _recordLocation; //The location of the paper record for the patient, if there is one
+@synthesize multipleBirthX = _multipleBirthX; //The boolean or integer in which describes a multiple birth, possibly containing the position born.(Integer/Boolean object)
+@synthesize deceasedDate = _deceasedDate; //date in which patient has died
+@synthesize link = _link; //THIS ARRAY IS FILLED WITH "ResourceReference(Patient)" OBJECTS ONLY. A linked patient record is a record that concerns the same patient. Records are linked after it is realized that at least one was created in error.
+@synthesize active = _active; //Whether the patient record is in use, or has been removed from active use
+@synthesize animal = _animal; //This element has a value if the patient is an animal
+@synthesize details = _details; //Patient Demographic details
+@synthesize contact = _contact; //THIS ARRAY IS FILLED WITH "PatientContact" OBJECTS ONLY. A contact party (e.g. guardian, partner, friend) for the patient
 @synthesize genText = _genText;
-@synthesize resourceTypeName = _resourceTypeName; //type of resource with extensions, text, and status
+@synthesize resourceTypeValue = _resourceTypeValue; //type of resource with extensions, text, and status
 
 - (id)init
 {
@@ -34,11 +34,11 @@
         _details = [[FHIRDemographics alloc] init];
         _animal = [[FHIRAnimal alloc] init];
         _provider = [[FHIRResourceReference alloc] init];
-        _diet = [[FHIRCodeableConcept alloc] init];
-        _confidentiality = [[FHIRCodeableConcept alloc] init];
-        _recordLocation = [[FHIRCodeableConcept alloc] init];
         _genText = [[FHIRText alloc] init];
-        _resourceTypeName = [[FHIRResource alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
+        _multipleBirthX = [[NSMutableArray alloc] init];
+        _deceasedDate = [[NSDate alloc] init];
+        _contact = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -46,11 +46,17 @@
 //override method
 - (NSString *)getResourceType
 {
-    return [_resourceTypeName returnResourceType];
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
 {
+    //find multipleBirth type to set for xml tag
+    NSString *multiBirthTagString = [[NSString alloc] init];
+    if ([[_multipleBirthX objectAtIndex:0] class] == [FHIRBool class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthBoolean"];
+    else if ([[_multipleBirthX objectAtIndex:0] class] == [NSNumber class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthInteger"];
+    else multiBirthTagString = [NSString stringWithFormat:@"multipleBirth?"];
+    
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            [_active generateAndReturnDictionary], @"active",
                                            [FHIRExistanceChecker generateArray:_identifier], @"identifier",
@@ -58,10 +64,10 @@
                                            [_provider generateAndReturnDictionary], @"provider",
                                            [_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            [FHIRExistanceChecker generateArray:_link], @"link",
-                                           [_confidentiality generateAndReturnDictionary], @"confidentiality",
-                                           [_recordLocation generateAndReturnDictionary], @"recordLocation",
                                            [_animal generateAndReturnDictionary], @"animal",
-                                           [_diet generateAndReturnDictionary], @"diet",
+                                           [[_multipleBirthX objectAtIndex:0] generateAndReturnDictionary], multiBirthTagString,
+                                           [NSDateFormatter localizedStringFromDate:_deceasedDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"deceasedDate",
+                                           [FHIRExistanceChecker generateArray:_contact], @"contact",
                                            nil];
     [_patientDictionary cleanUpDictionaryValues];
     
@@ -74,7 +80,7 @@
 
 - (void)patientParser:(NSDictionary *)dictionary
 {
-    [_resourceTypeName setResouceTypeValue:@"patient"];
+    [_resourceTypeValue setResouceTypeValue:@"patient"];
     NSDictionary *patientDict = [dictionary objectForKey:@"Patient"];
     //NSLog(@"%@", patient);
     
@@ -96,18 +102,46 @@
     _identifier = [[NSMutableArray alloc] init];
     for (int i = 0; i < [identifierArray count]; i++)
     {
-        FHIRHumanId *tempHI = [[FHIRHumanId alloc] init];
-        [tempHI humanIdParser:[identifierArray objectAtIndex:i]]; 
-        [_identifier addObject:tempHI];
+        FHIRIdentifier *tempID = [[FHIRIdentifier alloc] init];
+        [tempID identifierParser:[identifierArray objectAtIndex:i]];
+        [_identifier addObject:tempID];
     }
 
     [_details demographicsParser:[patientDict objectForKey:@"details"]];
     [_animal animalParser:[patientDict objectForKey:@"animal"]];
     [_provider resourceReferenceParser:[patientDict objectForKey:@"provider"]];
-    [_diet codeableConceptParser:[patientDict objectForKey:@"diet"]];
-    [_confidentiality codeableConceptParser:[patientDict objectForKey:@"confidentiality"]];
-    [_recordLocation codeableConceptParser:[patientDict objectForKey:@"recordLocation"]];
     [_genText textParser:[patientDict objectForKey:@"text"]];
+    
+    //sets timing array with the correct object sent
+    for (NSString *key in dictionary)
+    {
+        if ([key isEqualToString:@"mutlipleBirthBoolean"])
+        {
+            FHIRBool *multiBirthBool = [[FHIRBool alloc] init];
+            [multiBirthBool setValueBool:[patientDict objectForKey:@"multipleBirthBoolean"]];
+            _multipleBirthX = [[NSArray alloc] initWithObjects:multiBirthBool, nil];
+        }
+        if ([key isEqualToString:@"mutlipleBirthInteger"])
+        {
+            NSNumber *multiBirthInt = [[NSNumber alloc] init];
+            multiBirthInt = [NSNumber numberWithInteger:[[patientDict objectForKey:@"multipleBirthInteger"] integerValue]];
+            _multipleBirthX = [[NSArray alloc] initWithObjects:multiBirthInt, nil];
+        }
+
+    }
+    
+    _deceasedDate = [FHIRExistanceChecker generateDateTimeFromString:[patientDict objectForKey:@"deceasedDate"]];
+    
+    //_contact
+    NSArray *contactArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"contact"]];
+    _contact = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [contactArray count]; i++)
+    {
+        FHIRPatientContact *tempPC = [[FHIRPatientContact alloc] init];
+        [tempPC patientContactParser:[contactArray objectAtIndex:i]];
+        [_contact addObject:tempPC];
+        //NSLog(@"%@", _contact);
+    }
     
 }
 

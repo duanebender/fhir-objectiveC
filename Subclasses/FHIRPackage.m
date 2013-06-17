@@ -36,7 +36,7 @@
     return _packageDictionary.dataForResource;
 }
 
-- (void)activityParser:(NSDictionary *)dictionary
+- (void)packageParser:(NSDictionary *)dictionary
 {
     [_container codeableConceptParser:[dictionary objectForKey:@"container"]];
     

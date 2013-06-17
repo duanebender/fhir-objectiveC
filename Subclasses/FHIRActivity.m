@@ -15,7 +15,7 @@
 @synthesize code = _code; //Detailed description of the type of activity. E.g. What lab test, what procedure, what kind of visit.
 @synthesize status = _status; //Identifies what progress is being made for the specific activity.
 @synthesize prohibited = _prohibited; //If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
-@synthesize timing = _timing; //The period, timing or frequency upon which the described activity is to occur.(Schedule/Period/String object)
+@synthesize timingX = _timingX; //The period, timing or frequency upon which the described activity is to occur.(Schedule/Period/String object)
 @synthesize location = _location; //Identifies the facility where the activity will occur. E.g. home, hospital, specific clinic, etc. (Locaton)
 @synthesize performer = _performer; //THIS ARRAY CONATINS "Resource(Practitioner|Organization|Related|Person|Patient)" OBJECTS ONLY. Identifies who's expected to be involved in the activity.
 @synthesize product = _product; //Identifies the food, drug or other product being consumed or supplied in the activity.
@@ -34,7 +34,7 @@
         _code = [[FHIRCodeableConcept alloc] init];
         _status = [[FHIRCode alloc] init];
         _prohibited = [[FHIRBool alloc] init];
-        _timing = [[NSMutableArray alloc] init];
+        _timingX = [[NSMutableArray alloc] init];
         _location = [[FHIRResource alloc] init];
         _performer = [[NSMutableArray alloc] init];
         _product = [[FHIRResource alloc] init];
@@ -51,9 +51,9 @@
 {
     //find timing type to set for xml tag
     NSString *timingTagString = [[NSString alloc] init];
-    if ([[_timing objectAtIndex:0] class] == [FHIRPeriod class]) timingTagString = [NSString stringWithFormat:@"timingPeriod"];
-    else if ([[_timing objectAtIndex:0] class] == [FHIRSchedule class]) timingTagString = [NSString stringWithFormat:@"timingSchedule"];
-    else if ([[_timing objectAtIndex:0] class] == [FHIRString class]) timingTagString = [NSString stringWithFormat:@"timingString"];
+    if ([[_timingX objectAtIndex:0] class] == [FHIRPeriod class]) timingTagString = [NSString stringWithFormat:@"timingPeriod"];
+    else if ([[_timingX objectAtIndex:0] class] == [FHIRSchedule class]) timingTagString = [NSString stringWithFormat:@"timingSchedule"];
+    else if ([[_timingX objectAtIndex:0] class] == [FHIRString class]) timingTagString = [NSString stringWithFormat:@"timingString"];
     else timingTagString = [NSString stringWithFormat:@"timing?"];
     
     _activityDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -61,7 +61,7 @@
                                                [_code generateAndReturnDictionary], @"code",
                                                [_status generateAndReturnDictionary], @"status",
                                                [_prohibited generateAndReturnDictionary], @"prohibited",
-                                               [[_timing objectAtIndex:0] generateAndReturnDictionary], timingTagString,
+                                               [[_timingX objectAtIndex:0] generateAndReturnDictionary], timingTagString,
                                                [_location generateAndReturnDictionary], @"location",
                                                [FHIRExistanceChecker generateArray:_performer], @"performer",
                                                [_product generateAndReturnDictionary], @"product",
@@ -91,19 +91,19 @@
         {
             FHIRPeriod *timingPeriod = [[FHIRPeriod alloc] init];
             [timingPeriod periodParser:[dictionary objectForKey:@"timingPeriod"]];
-            _timing = [[NSArray alloc] initWithObjects:timingPeriod, nil];
+            _timingX = [[NSArray alloc] initWithObjects:timingPeriod, nil];
         }
         if ([key isEqualToString:@"timingSchedule"])
         {
             FHIRSchedule *timingSchedule = [[FHIRSchedule alloc] init];
             [timingSchedule scheduleParser:[dictionary objectForKey:@"timingSchedule"]];
-            _timing = [[NSArray alloc] initWithObjects:timingSchedule, nil];
+            _timingX = [[NSArray alloc] initWithObjects:timingSchedule, nil];
         }
         if ([key isEqualToString:@"timingString"])
         {
             FHIRString *timingString = [[FHIRString alloc] init];
             [timingString setValueString:[dictionary objectForKey:@"timingString"]];
-            _timing = [[NSArray alloc] initWithObjects:timingString, nil];
+            _timingX = [[NSArray alloc] initWithObjects:timingString, nil];
         }
     }
     

@@ -26,7 +26,7 @@
 @property (nonatomic, retain) FHIRCodeableConcept *code; //Detailed description of the type of activity. E.g. What lab test, what procedure, what kind of visit.
 @property (nonatomic, retain) FHIRCode *status; //Identifies what progress is being made for the specific activity.
 @property (nonatomic, retain) FHIRBool *prohibited; //If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
-@property (nonatomic, retain) NSArray *timing; //The period, timing or frequency upon which the described activity is to occur.(Schedule/Period/String object)
+@property (nonatomic, retain) NSArray *timingX; //The period, timing or frequency upon which the described activity is to occur.(Schedule/Period/String object)
 @property (nonatomic, retain) FHIRResource *location; //Identifies the facility where the activity will occur. E.g. home, hospital, specific clinic, etc. (Locaton)
 @property (nonatomic, retain) NSMutableArray *performer; //THIS ARRAY CONATINS "Resource(Practitioner|Organization|Related|Person|Patient)" OBJECTS ONLY. Identifies who's expected to be involved in the activity.
 @property (nonatomic, retain) FHIRResource *product; //Identifies the food, drug or other product being consumed or supplied in the activity.

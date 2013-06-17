@@ -36,7 +36,7 @@
     return _symptomDictionary.dataForResource;
 }
 
-- (void)languageParser:(NSDictionary *)dictionary
+- (void)symptomParser:(NSDictionary *)dictionary
 {
     [_code codeableConceptParser:[dictionary objectForKey:@"code"]];
     [_severity setValueCode:[dictionary objectForKey:@"severity"]];

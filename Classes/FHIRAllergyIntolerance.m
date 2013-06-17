@@ -74,7 +74,7 @@
     return returnable;
 }
 
-- (void)allergyIntolleranceParser:(NSDictionary *)dictionary
+- (void)allergyIntoleranceParser:(NSDictionary *)dictionary
 {
     NSDictionary *alIntolDict = [dictionary objectForKey:@"AllergyIntollerance"];
     //NSLog(@"%@", alIntolDict);

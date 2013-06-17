@@ -25,7 +25,7 @@
 @property (nonatomic, retain) FHIRResource *substance; //Substance(s) that is presumed to have caused the adverse reaction.
 
 //Public Methods
-- (NSDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from exposure in an NSdictionary format
+- (NSDictionary *)generateAndReturnDictionary; //returns a dictionary of all resources from exposure in an NSdictionary format
 - (void)exposureParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into a exposure object
 
 @end

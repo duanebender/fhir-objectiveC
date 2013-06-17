@@ -36,7 +36,7 @@
     return _productDictionary.dataForResource;
 }
 
-- (void)activityParser:(NSDictionary *)dictionary
+- (void)productParser:(NSDictionary *)dictionary
 {
     [_form codeableConceptParser:[dictionary objectForKey:@"form"]];
     

@@ -36,7 +36,7 @@
     return _contentDictionary.dataForResource;
 }
 
-- (void)activityParser:(NSDictionary *)dictionary
+- (void)contentParser:(NSDictionary *)dictionary
 {
     [_item resourceParser:[dictionary objectForKey:@"item"]];
     [_amount quantityParser:[dictionary objectForKey:@"amount"]];
