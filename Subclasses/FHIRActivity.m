@@ -35,9 +35,9 @@
         _status = [[FHIRCode alloc] init];
         _prohibited = [[FHIRBool alloc] init];
         _timingX = [[NSMutableArray alloc] init];
-        _location = [[FHIRResource alloc] init];
+        _location = [[FHIRResourceReference alloc] init];
         _performer = [[NSMutableArray alloc] init];
-        _product = [[FHIRResource alloc] init];
+        _product = [[FHIRResourceReference alloc] init];
         _dailyAmount = [[FHIRQuantity alloc] init];
         _quantity = [[FHIRQuantity alloc] init];
         _details = [[FHIRString alloc] init];
