@@ -19,6 +19,8 @@
 @synthesize active = _active; //active status of the organization
 @synthesize partOf = _partOf; //holds resource type, text, name, and extensions
 @synthesize genText = _genText;
+@synthesize contactEntity = _contactEntity; // CONATINS "ContactEntity" OBJECTS ONLY. Contact for the organization for a certain purpose.
+@synthesize accreditation = _accreditation; //CONTAINS "Accreditation" OBJECTS ONLY. The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment.
 
 - (id)init
 {
@@ -31,8 +33,11 @@
         _address = [[NSMutableArray alloc] init];
         _telecom = [[NSMutableArray alloc] init];
         _active = [[FHIRBool alloc] init];
-        _partOf = [[FHIRResource alloc] init];
+        _partOf = [[FHIRResourceReference alloc] init];
         _genText = [[FHIRText alloc] init];
+        _contactEntity = [[NSMutableArray alloc] init];
+        _accreditation = [[NSMutableArray alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
     }
     return self;
 }
@@ -40,7 +45,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return [_partOf returnResourceType];
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -54,6 +59,8 @@
                                           [_type generateAndReturnDictionary], @"type",
                                           [FHIRExistanceChecker generateArray:_address], @"address",
                                           [_partOf generateAndReturnDictionary], @"partOf",
+                                          [FHIRExistanceChecker generateArray:_contactEntity], @"contactEntity",
+                                          [FHIRExistanceChecker generateArray:_accreditation], @"accreditation",
                                           nil];
     [_organizationDictionary cleanUpDictionaryValues];
     
@@ -66,6 +73,7 @@
 
 - (void)organizationParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"organization"];
     NSDictionary *organizationDict = [dictionary objectForKey:@"Organization"];
     //NSLog(@"%@", organizationDict);
     
@@ -114,7 +122,27 @@
         [_telecom addObject:tempCO];
     }
     
-    [_partOf resourceParser:[dictionary objectForKey:@"partOf"]];
+    [_partOf resourceReferenceParser:[dictionary objectForKey:@"partOf"]];
+    
+    //_contactEntity
+    NSArray *contactEntityArray = [[NSArray alloc] initWithArray:[organizationDict objectForKey:@"contactEntity"]];
+    _contactEntity = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [contactEntityArray count]; i++)
+    {
+        FHIRContactEntity *tempCE = [[FHIRContactEntity alloc] init];
+        [tempCE contactEntityParser:[contactEntityArray objectAtIndex:i]];
+        [_contactEntity addObject:tempCE];
+    }
+    
+    //_accreditation
+    NSArray *accreditationArray = [[NSArray alloc] initWithArray:[organizationDict objectForKey:@"accreditation"]];
+    _accreditation = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [accreditationArray count]; i++)
+    {
+        FHIRAccreditation *tempAC = [[FHIRAccreditation alloc] init];
+        [tempAC accreditationParser:[accreditationArray objectAtIndex:i]];
+        [_accreditation addObject:tempAC];
+    }
     
 }
 

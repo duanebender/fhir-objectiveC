@@ -25,7 +25,7 @@
 @property (nonatomic, retain) FHIRString *name; //The common name of the medication.
 @property (nonatomic, retain) FHIRCodeableConcept *code; //References to codes for this medication in standard medication terminologies, drug dictionaries, etc.
 @property (nonatomic, retain) FHIRBool *isBrand; //Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
-@property (nonatomic, retain) FHIRResource *manufacturer; //Describes the details of the manufacturer. (Organization)
+@property (nonatomic, retain) FHIRResourceReference *manufacturer; //Describes the details of the manufacturer. (Organization)
 @property (nonatomic, retain) FHIRCode *kind; //product | package.
 @property (nonatomic, retain) FHIRPackage *package; //Specifies Ingredient / Product / Package.
 @property (nonatomic, retain) FHIRProduct *product; //If is a product.

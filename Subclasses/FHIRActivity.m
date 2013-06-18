@@ -107,20 +107,20 @@
         }
     }
     
-    [_location resourceParser:[dictionary objectForKey:@"location"]];
+    [_location resourceReferenceParser:[dictionary objectForKey:@"location"]];
     
     //_performer
     NSArray *performerArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"performer"]];
     _performer = [[NSMutableArray alloc] init];
     for (int i = 0; i < [performerArray count]; i++)
     {
-        FHIRResource *tempPR = [[FHIRResource alloc] init];
-        [tempPR resourceParser:[performerArray objectAtIndex:i]];
+        FHIRResourceReference *tempPR = [[FHIRResourceReference alloc] init];
+        [tempPR resourceReferenceParser:[performerArray objectAtIndex:i]];
         [_performer addObject:tempPR];
         //NSLog(@"%@", _performer);
     }
     
-    [_product resourceParser:[dictionary objectForKey:@"product"]];
+    [_product resourceReferenceParser:[dictionary objectForKey:@"product"]];
     [_dailyAmount quantityParser:[dictionary objectForKey:@"dailyAmount"]];
     [_quantity quantityParser:[dictionary objectForKey:@"quantity"]];
     [_details setValueString:[dictionary objectForKey:@"details"]];
@@ -130,8 +130,8 @@
     _actionTaken = [[NSMutableArray alloc] init];
     for (int i = 0; i < [actionTakenArray count]; i++)
     {
-        FHIRResource *tempAT = [[FHIRResource alloc] init];
-        [tempAT resourceParser:[actionTakenArray objectAtIndex:i]];
+        FHIRResourceReference *tempAT = [[FHIRResourceReference alloc] init];
+        [tempAT resourceReferenceParser:[actionTakenArray objectAtIndex:i]];
         [_actionTaken addObject:tempAT];
         //NSLog(@"%@", _actionTaken);
     }

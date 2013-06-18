@@ -22,9 +22,9 @@
 
 //following properties are individual parts of the AdverseReaction Object that can be influenced Individually
 @property (nonatomic, retain) NSDate *reactionDate; //contains the initial date of the reaction
-@property (nonatomic, retain) FHIRResource *subject; //The subject that the sensitivity is about. (Patient)
+@property (nonatomic, retain) FHIRResourceReference *subject; //The subject that the sensitivity is about. (Patient)
 @property (nonatomic, retain) FHIRBool *didNotOccurFlag; //
-@property (nonatomic, retain) FHIRResource *recorder; //The person who recorded this reaction. (Patient/Practitioner)
+@property (nonatomic, retain) FHIRResourceReference *recorder; //The person who recorded this reaction. (Patient/Practitioner)
 @property (nonatomic, retain) NSMutableArray *symptom; //THIS ARRAY IS FILLED WITH "Symptom" OBJECTS ONLY. Symptoms related to the reaction
 @property (nonatomic, retain) NSMutableArray *exposure; //THIS ARRAY IS FILLED WITH "Exposure" OBJECTS ONLY. Substance and exposure time to cause this reaction
 

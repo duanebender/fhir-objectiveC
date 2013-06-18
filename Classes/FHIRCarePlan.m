@@ -28,7 +28,7 @@
     if (self) {
         _carePlanDictionary = [[FHIRResourceDictionary alloc] init];
         _identifier = [[FHIRIdentifier alloc] init];
-        _patient = [[FHIRResource alloc] init];
+        _patient = [[FHIRResourceReference alloc] init];
         _status = [[FHIRCode alloc] init];
         _period = [[FHIRPeriod alloc] init];
         _modified = [[NSDate alloc] init];
@@ -76,7 +76,7 @@
     //NSLog(@"%@", carePlanDict);
     
     [_identifier identifierParser:[carePlanDict objectForKey:@"identifier"]];
-    [_patient resourceParser:[carePlanDict objectForKey:@"patient"]];
+    [_patient resourceReferenceParser:[carePlanDict objectForKey:@"patient"]];
     [_status setValueCode:[carePlanDict objectForKey:@"status"]];
     [_period periodParser:[carePlanDict objectForKey:@"period"]];
     _modified = [FHIRExistanceChecker generateDateTimeFromString:[carePlanDict objectForKey:@"modified"]];
@@ -86,8 +86,8 @@
     _concern = [[NSMutableArray alloc] init];
     for (int i = 0; i < [concernArray count]; i++)
     {
-        FHIRResource *tempCO = [[FHIRResource alloc] init];
-        [tempCO resourceParser:[concernArray objectAtIndex:i]];
+        FHIRResourceReference *tempCO = [[FHIRResourceReference alloc] init];
+        [tempCO resourceReferenceParser:[concernArray objectAtIndex:i]];
         [_concern addObject:tempCO];
     }
     

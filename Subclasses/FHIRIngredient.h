@@ -20,7 +20,7 @@
 @property (nonatomic, retain) FHIRResourceDictionary *ingredientDictionary; //a dictionary containing all resources in this ingredient object
 
 //following properties are individual parts of the ingredient Object that can be influenced Individually
-@property (nonatomic, retain) FHIRResource *item; //The actual ingredient - either a substance (simple ingredient) or another medication. (Substance|Medication)
+@property (nonatomic, retain) FHIRResourceReference *item; //The actual ingredient - either a substance (simple ingredient) or another medication. (Substance|Medication)
 @property (nonatomic, retain) FHIRRatio *amount; //Specifies how many (or how much) of the items there are in this Medication. E.g. 250 mg per tablet.
 
 //Public Methods

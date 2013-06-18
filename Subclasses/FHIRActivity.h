@@ -27,9 +27,9 @@
 @property (nonatomic, retain) FHIRCode *status; //Identifies what progress is being made for the specific activity.
 @property (nonatomic, retain) FHIRBool *prohibited; //If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
 @property (nonatomic, retain) NSArray *timingX; //The period, timing or frequency upon which the described activity is to occur.(Schedule/Period/String object)
-@property (nonatomic, retain) FHIRResource *location; //Identifies the facility where the activity will occur. E.g. home, hospital, specific clinic, etc. (Locaton)
+@property (nonatomic, retain) FHIRResourceReference *location; //Identifies the facility where the activity will occur. E.g. home, hospital, specific clinic, etc. (Locaton)
 @property (nonatomic, retain) NSMutableArray *performer; //THIS ARRAY CONATINS "Resource(Practitioner|Organization|Related|Person|Patient)" OBJECTS ONLY. Identifies who's expected to be involved in the activity.
-@property (nonatomic, retain) FHIRResource *product; //Identifies the food, drug or other product being consumed or supplied in the activity.
+@property (nonatomic, retain) FHIRResourceReference *product; //Identifies the food, drug or other product being consumed or supplied in the activity.
 @property (nonatomic, retain) FHIRQuantity *dailyAmount; //Identifies the quantity expected to be consumed in a given day.
 @property (nonatomic, retain) FHIRQuantity *quantity; //Identifies the quantity expected to be supplied.
 @property (nonatomic, retain) FHIRString *details; //This provides a textual description of constraints on the activity occurrence, including relation to other activities. It may also include objectives, pre-conditions and end-conditions. Finally, it may convey specifics about the activity such as body site, method, route, etc.

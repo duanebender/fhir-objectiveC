@@ -36,9 +36,9 @@
         _sensitivityType = [[FHIRCode alloc] init];
         _recordedDate = [[NSDate alloc] init];
         _status = [[FHIRCode alloc] init];
-        _subject = [[FHIRResource alloc] init];
-        _recorder = [[FHIRResource alloc] init];
-        _substance = [[FHIRResource alloc] init];
+        _subject = [[FHIRResourceReference alloc] init];
+        _recorder = [[FHIRResourceReference alloc] init];
+        _substance = [[FHIRResourceReference alloc] init];
         _reactions = [[NSMutableArray alloc] init];
         _sensitivityTest = [[NSMutableArray alloc] init];
     }
@@ -84,17 +84,17 @@
     [_sensitivityType setValueCode:[alIntolDict objectForKey:@"sensitivityType"]];
     _recordedDate = [FHIRExistanceChecker generateDateTimeFromString:[alIntolDict objectForKey:@"recordedDate"]];
     [_status setValueCode:[alIntolDict objectForKey:@"status"]];
-    [_subject resourceParser:[alIntolDict objectForKey:@"subject"]];
-    [_recorder resourceParser:[alIntolDict objectForKey:@"recorder"]];
-    [_substance resourceParser:[alIntolDict objectForKey:@"substance"]];
+    [_subject resourceReferenceParser:[alIntolDict objectForKey:@"subject"]];
+    [_recorder resourceReferenceParser:[alIntolDict objectForKey:@"recorder"]];
+    [_substance resourceReferenceParser:[alIntolDict objectForKey:@"substance"]];
     
     //_reactions
     NSArray *reactionArray = [[NSArray alloc] initWithArray:[alIntolDict objectForKey:@"reactions"]];
     _reactions = [[NSMutableArray alloc] init];
     for (int i = 0; i < [reactionArray count]; i++)
     {
-        FHIRResource *tempRE = [[FHIRResource alloc] init];
-        [tempRE resourceParser:[reactionArray objectAtIndex:i]];
+        FHIRResourceReference *tempRE = [[FHIRResourceReference alloc] init];
+        [tempRE resourceReferenceParser:[reactionArray objectAtIndex:i]];
         [_reactions addObject:tempRE];
     }
     
@@ -103,8 +103,8 @@
     _sensitivityTest = [[NSMutableArray alloc] init];
     for (int i = 0; i < [senTestArray count]; i++)
     {
-        FHIRResource *tempST = [[FHIRResource alloc] init];
-        [tempST resourceParser:[senTestArray objectAtIndex:i]];
+        FHIRResourceReference *tempST = [[FHIRResourceReference alloc] init];
+        [tempST resourceReferenceParser:[senTestArray objectAtIndex:i]];
         [_sensitivityTest addObject:tempST];
     }
     

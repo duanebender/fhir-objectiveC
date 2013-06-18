@@ -22,7 +22,7 @@
 @property (nonatomic, retain) NSDate *exposureDate; //Date initially exposed.
 @property (nonatomic, retain) FHIRCode *exposureType; //Drug Administration, Immunization, Coincidental
 @property (nonatomic, retain) FHIRCode *causalityExpectation; //A statement of how confident that the recorder was that this exposure caused the reaction.
-@property (nonatomic, retain) FHIRResource *substance; //Substance(s) that is presumed to have caused the adverse reaction.
+@property (nonatomic, retain) FHIRResourceReference *substance; //Substance(s) that is presumed to have caused the adverse reaction.
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns a dictionary of all resources from exposure in an NSdictionary format

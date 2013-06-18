@@ -24,7 +24,7 @@
         _exposureDate = [[NSDate alloc] init];
         _exposureType = [[FHIRCode alloc] init];
         _causalityExpectation = [[FHIRCode alloc] init];
-        _substance = [[FHIRResource alloc] init];
+        _substance = [[FHIRResourceReference alloc] init];
     }
     return self;
 }
@@ -47,7 +47,7 @@
     _exposureDate = [FHIRExistanceChecker generateDateTimeFromString:[dictionary objectForKey:@"exposureDate"]];
     [_exposureType setValueCode:[dictionary objectForKey:@"exposureType"]];
     [_causalityExpectation setValueCode:[dictionary objectForKey:@"causalityExpectation"]];
-    [_substance resourceParser:[dictionary objectForKey:@"substance"]];
+    [_substance resourceReferenceParser:[dictionary objectForKey:@"substance"]];
 }
 
 @end

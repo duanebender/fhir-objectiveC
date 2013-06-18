@@ -24,8 +24,8 @@
         _alertDictionary = [[FHIRResourceDictionary alloc] init];
         _category = [[FHIRCodeableConcept alloc] init];
         _status = [[FHIRCode alloc] init];
-        _subject = [[FHIRResource alloc] init];
-        _author = [[FHIRResource alloc] init];
+        _subject = [[FHIRResourceReference alloc] init];
+        _author = [[FHIRResourceReference alloc] init];
         _note = [[FHIRString alloc] init];
     }
     return self;
@@ -62,8 +62,8 @@
     
     [_category codeableConceptParser:[alertDict objectForKey:@"category"]];
     [_status setValueCode:[alertDict objectForKey:@"status"]];
-    [_subject resourceParser:[alertDict objectForKey:@"subject"]];
-    [_author resourceParser:[alertDict objectForKey:@"author"]];
+    [_subject resourceReferenceParser:[alertDict objectForKey:@"subject"]];
+    [_author resourceReferenceParser:[alertDict objectForKey:@"author"]];
     [_note setValueString:[alertDict objectForKey:@"note"]];
     
 }

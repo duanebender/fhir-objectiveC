@@ -20,6 +20,8 @@
 @synthesize address = _address; //One or more addresses for the individual
 @synthesize maritalStatus = _maritalStatus; //This field contains a patient's marital (civil) status.
 @synthesize language = _language; //A language spoken by the person, with proficiency
+@synthesize photo = _photo;
+@synthesize identifier = _identifier;
 
 - (id)init
 {
@@ -33,7 +35,10 @@
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[FHIRCodeableConcept alloc] init];
         _language = [[NSMutableArray alloc] init];
-        _birthDate = [[FHIRString alloc] init];
+        _birthDate = [[NSDate alloc] init];
+        _photo = [[NSMutableArray alloc] init];
+        _identifier = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -45,10 +50,12 @@
                                                [_gender generateAndReturnDictionary], @"gender",
                                                [FHIRExistanceChecker generateArray:_telecom], @"telecom", //contacts only
                                                [FHIRExistanceChecker generateArray:_address], @"address", //addresses only
-                                               [FHIRExistanceChecker stringChecker:_birthDate], @"birthDate",
+                                               [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
                                                [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
                                                [FHIRExistanceChecker generateArray:_language], @"language", //languages only
+                                               [FHIRExistanceChecker generateArray:_photo], @"photo", //RR(Photo) only
+                                               [FHIRExistanceChecker generateArray:_identifier], @"identifier", //identifier only
                                                nil];
     _demographicsDictionary.resourceName = @"Demographics";
     [_demographicsDictionary cleanUpDictionaryValues];
@@ -80,7 +87,7 @@
     }
     
     [_gender codingParser:[dictionary objectForKey:@"gender"]];
-    [_birthDate setValueString:[dictionary objectForKey:@"birthDate"]];
+    _birthDate = [FHIRExistanceChecker generateDateTimeFromString:[dictionary objectForKey:@"birthDate"]];
     [_deceased setValueBool:[dictionary objectForKey:@"deceased"]];
     
     //_address
@@ -105,6 +112,28 @@
         [tempLA languageParser:[langArray objectAtIndex:i]];
         [_language addObject:tempLA];
         //NSLog(@"%@", _language);
+    }
+    
+    //_photo
+    NSArray *photoArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"photo"]];
+    _photo = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [photoArray count]; i++)
+    {
+        FHIRResourceReference *tempRR = [[FHIRResourceReference alloc] init];
+        [tempRR resourceReferenceParser:[photoArray objectAtIndex:i]];
+        [_photo addObject:tempRR];
+        //NSLog(@"%@", _photo);
+    }
+    
+    //_identifier
+    NSArray *identifierArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"identifier"]];
+    _identifier = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [identifierArray count]; i++)
+    {
+        FHIRIdentifier *tempID = [[FHIRIdentifier alloc] init];
+        [tempID identifierParser:[identifierArray objectAtIndex:i]];
+        [_identifier addObject:tempID];
+        //NSLog(@"%@", _identifier);
     }
 }
 

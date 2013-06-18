@@ -20,9 +20,9 @@
 @property (nonatomic, retain) FHIRCode *sensitivityType; //Type of the sensitivity
 @property (nonatomic, retain) NSDate *recordedDate; //Date when the sensitivity was recorded
 @property (nonatomic, retain) FHIRCode *status; //Suspected, Confirmed, Refuted, Resolved
-@property (nonatomic, retain) FHIRResource *subject; //Who the sensitivity is for (Patient)
-@property (nonatomic, retain) FHIRResource *recorder; //Who recorded the sensitivity (Practitioner/Patient)
-@property (nonatomic, retain) FHIRResource *substance; //The substance that causes the sensitivity (Substance)
+@property (nonatomic, retain) FHIRResourceReference *subject; //Who the sensitivity is for (Patient)
+@property (nonatomic, retain) FHIRResourceReference *recorder; //Who recorded the sensitivity (Practitioner/Patient)
+@property (nonatomic, retain) FHIRResourceReference *substance; //The substance that causes the sensitivity (Substance)
 @property (nonatomic, retain) NSMutableArray *reactions; //THIS ARRAY CONTAINS "Resource(AdverseReaction)" OBJECTS ONLY. Reactions associated with the sensitivity.
 @property (nonatomic, retain) NSMutableArray *sensitivityTest; //THIS ARRAY CONTAINS "Resource(Observation)" OBJECTS ONLY. Observations that confirm or refute the sensitivity.
 

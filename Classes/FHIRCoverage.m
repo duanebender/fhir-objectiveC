@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         _coverageDictionary = [[FHIRResourceDictionary alloc] init];
-        _issuer = [[FHIRResource alloc] init];
+        _issuer = [[FHIRResourceReference alloc] init];
         _period = [[FHIRPeriod alloc] init];
         _type = [[FHIRCoding alloc] init];
         _identifier = [[FHIRIdentifier alloc] init];
@@ -75,7 +75,7 @@
     NSDictionary *coverageDict = [dictionary objectForKey:@"Coverage"];
     //NSLog(@"%@", coverageDict);
     
-    [_issuer resourceParser:[coverageDict objectForKey:@"issuer"]];
+    [_issuer resourceReferenceParser:[coverageDict objectForKey:@"issuer"]];
     [_period periodParser:[coverageDict objectForKey:@"period"]];
     [_type codingParser:[coverageDict objectForKey:@"type"]];
     [_identifier identifierParser:[coverageDict objectForKey:@"identifier"]];

@@ -18,20 +18,25 @@
 #import "FHIRResource.h"
 #import "FHIRText.h"
 #import "FHIRAddress.h"
+#import "FHIRContactEntity.h"
+#import "FHIRAccreditation.h"
 
 @interface FHIROrganization : FHIRResource
 
-@property (nonatomic, retain) FHIRResourceDictionary *organizationDictionary; //a dictionary containing all resources in this organization object
+@property (nonatomic, strong) FHIRResourceDictionary *organizationDictionary; //a dictionary containing all resources in this organization object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the Organization Object that can be influenced Individually
-@property (nonatomic, retain) NSMutableArray *identifier; //THIS ARRAY IS FILLED WITH "Identifier" OBJECTS ONLY. Identification for the organization
-@property (nonatomic, retain) NSMutableArray *name; //THIS ARRAY IS FILLED WITH "String" OBJECTS ONLY. Name of the organization
-@property (nonatomic, retain) FHIRCodeableConcept *type; //the type of organization
-@property (nonatomic, retain) NSMutableArray *address; //organization address details
-@property (nonatomic, retain) NSMutableArray *telecom; //THIS ARRAY IS FILLED WITH "Contact" OBJECTS ONLY. Contact information about this organization
-@property (nonatomic, retain) FHIRBool *active; //active status of the organization
-@property (nonatomic, retain) FHIRResource *partOf; //holds resource type, text, name, and extensions
-@property (nonatomic, retain) FHIRText *genText; //text holder for extra generated text
+@property (nonatomic, strong) NSMutableArray *identifier; //THIS ARRAY IS FILLED WITH "Identifier" OBJECTS ONLY. Identification for the organization
+@property (nonatomic, strong) NSMutableArray *name; //THIS ARRAY IS FILLED WITH "String" OBJECTS ONLY. Name of the organization
+@property (nonatomic, strong) FHIRCodeableConcept *type; //the type of organization
+@property (nonatomic, strong) NSMutableArray *address; //organization address details
+@property (nonatomic, strong) NSMutableArray *telecom; //THIS ARRAY IS FILLED WITH "Contact" OBJECTS ONLY. Contact information about this organization
+@property (nonatomic, strong) FHIRBool *active; //active status of the organization
+@property (nonatomic, strong) FHIRResourceReference *partOf; //holds resource type, text, name, and extensions of another organization (RROganization)
+@property (nonatomic, strong) FHIRText *genText; //text holder for extra generated text
+@property (nonatomic, strong) NSMutableArray *contactEntity; // CONATINS "ContactEntity" OBJECTS ONLY. Contact for the organization for a certain purpose.
+@property (nonatomic, strong) NSMutableArray *accreditation; //CONTAINS "Accreditation" OBJECTS ONLY. The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment.
 
 //Public Methods
 - (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Organization

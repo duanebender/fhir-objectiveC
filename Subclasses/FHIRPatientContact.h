@@ -20,6 +20,7 @@
 //following properties are individual parts of the PatientContact Object that can be influenced Individually
 @property (nonatomic, strong) NSMutableArray *relationship; //THIS ARRAY IS FILLED WITH "PatientContact" OBJECTS ONLY. The nature of the relationship between the patient and the contactperson.
 @property (nonatomic, strong) FHIRResourceReference *organization; //Details about the contact person. (Organization)
+@property (nonatomic, strong) FHIRDemographics *details; //Specific Details.
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns NSDictionary of patientContact containing all it's elements

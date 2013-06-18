@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+#warning - This class is unused
+
 #import <Foundation/Foundation.h>
 #import "FHIRNodeType.h"
 #import "FHIRString.h"

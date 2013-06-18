@@ -24,9 +24,9 @@
     if (self) {
         _adverseReactionDictionary = [[FHIRResourceDictionary alloc] init];
         _reactionDate = [[NSDate alloc] init];
-        _subject = [[FHIRResource alloc] init];
+        _subject = [[FHIRResourceReference alloc] init];
         _didNotOccurFlag = [[FHIRBool alloc] init];
-        _recorder = [[FHIRResource alloc] init];
+        _recorder = [[FHIRResourceReference alloc] init];
         _symptom = [[NSMutableArray alloc] init];
         _exposure = [[NSMutableArray alloc] init];
     }
@@ -64,9 +64,9 @@
     //NSLog(@"%@", adReactionDict);
     
     _reactionDate = [FHIRExistanceChecker generateDateTimeFromString:[adReactionDict objectForKey:@"reactionDate"]];
-    [_subject resourceParser:[adReactionDict objectForKey:@"subject"]];
+    [_subject resourceReferenceParser:[adReactionDict objectForKey:@"subject"]];
     [_didNotOccurFlag setValueBool:[adReactionDict objectForKey:@"didNotOccurFlag"]];
-    [_recorder resourceParser:[adReactionDict objectForKey:@"recorder"]];
+    [_recorder resourceReferenceParser:[adReactionDict objectForKey:@"recorder"]];
     
     //_symptom
     NSArray *symptomArray = [[NSArray alloc] initWithArray:[adReactionDict objectForKey:@"symptom"]];

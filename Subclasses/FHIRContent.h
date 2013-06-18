@@ -20,7 +20,7 @@
 @property (nonatomic, retain) FHIRResourceDictionary *contentDictionary; //a dictionary containing all resources in this content object
 
 //following properties are individual parts of the content Object that can be influenced Individually
-@property (nonatomic, retain) FHIRResource *item; //The product that is in the package. (Medication)
+@property (nonatomic, retain) FHIRResourceReference *item; //The product that is in the package. (Medication)
 @property (nonatomic, retain) FHIRQuantity *amount; //The amount of the product that is in the package.
 
 //Public Methods

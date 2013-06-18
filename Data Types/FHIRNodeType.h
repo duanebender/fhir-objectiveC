@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+#warning - This class is currently unused
 
 @interface FHIRNodeType : NSObject
 

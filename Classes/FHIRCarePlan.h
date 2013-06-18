@@ -23,7 +23,7 @@
 
 //following properties are individual parts of the Care Plan Object that can be influenced Individually
 @property (nonatomic, retain) FHIRIdentifier *identifier; //Unique identifier by which the care plan is known in different business contexts.
-@property (nonatomic, retain) FHIRResource *patient; //Identifies the patient/subject whose intended care is described by the plan.
+@property (nonatomic, retain) FHIRResourceReference *patient; //Identifies the patient/subject whose intended care is described by the plan.
 @property (nonatomic, retain) FHIRCode *status; //Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
 @property (nonatomic, retain) FHIRPeriod *period; //Indicates when the plan did (or is intended to) come into effect and end.
 @property (nonatomic, retain) NSDate *modified; //Identifies the most recent date on which the plan has been revised.

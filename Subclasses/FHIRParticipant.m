@@ -20,7 +20,7 @@
     if (self) {
         _participantDictionary = [[FHIRResourceDictionary alloc] init];
         _role = [[FHIRCodeableConcept alloc] init];
-        _member = [[FHIRResource alloc] init];
+        _member = [[FHIRResourceReference alloc] init];
     }
     return self;
 }
@@ -39,7 +39,7 @@
 - (void)participantParser:(NSDictionary *)dictionary
 {
     [_role codeableConceptParser:[dictionary objectForKey:@"role"]];
-    [_member resourceParser:[dictionary objectForKey:@"member"]];
+    [_member resourceReferenceParser:[dictionary objectForKey:@"member"]];
 }
 
 @end

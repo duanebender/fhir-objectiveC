@@ -13,6 +13,7 @@
 @synthesize patientContactDictionary = _patientContactDictionary; //dictionary of all patientContact resources
 @synthesize relationship = _relationship; //THIS ARRAY IS FILLED WITH "PatientContact" OBJECTS ONLY. The nature of the relationship between the patient and the contactperson.
 @synthesize organization = _organization; //Details about the contact person. (Organization)
+@synthesize details = _details;
 
 - (id)init
 {
@@ -21,6 +22,7 @@
         _patientContactDictionary = [[FHIRResourceDictionary alloc] init];
         _relationship = [[NSMutableArray alloc] init];
         _organization = [[FHIRResourceReference alloc] init];
+        _details = [[FHIRDemographics alloc] init];
     }
     return self;
 }
@@ -30,6 +32,7 @@
     _patientContactDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                          [FHIRExistanceChecker generateArray:_relationship], @"relationship",
                                          [_organization generateAndReturnDictionary], @"organization",
+                                         [_details generateAndReturnDictionary], @"details",
                                          nil];
     _patientContactDictionary.resourceName = @"PatientContact";
     [_patientContactDictionary cleanUpDictionaryValues];
@@ -50,6 +53,7 @@
     }
     
     [_organization resourceReferenceParser:[dictionary objectForKey:@"organization"]];
+    [_details demographicsParser:[dictionary objectForKey:@"details"]];
     
 }
 

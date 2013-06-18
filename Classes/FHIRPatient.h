@@ -21,6 +21,7 @@
 @interface FHIRPatient : FHIRResource
 
 @property (nonatomic, strong) FHIRResourceDictionary *patientDictionary; //a dictionary containing all resources in this patient object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions
 
 //following properties are individual parts of the Patient Object that can be influenced Individually
 @property (nonatomic, strong) NSMutableArray *identifier; //THIS ARRAY IS FILLED WITH "Identifier" OBJECTS ONLY. An identifier that applies to this person as a patient
@@ -33,7 +34,6 @@
 @property (nonatomic, strong) FHIRDemographics *details; //Patient Demographic details
 @property (nonatomic, strong) NSMutableArray *contact; //THIS ARRAY IS FILLED WITH "PatientContact" OBJECTS ONLY. A contact party (e.g. guardian, partner, friend) for the patient
 @property (nonatomic, retain) FHIRText *genText; //text holder for extra generated text
-@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions
 
 //Public Methods
 - (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Patient

@@ -22,8 +22,8 @@
 //following properties are individual parts of the Alert Object that can be influenced Individually
 @property (nonatomic, retain) FHIRCodeableConcept *category; //Allows an alert to be divided int different categories like clinical, administartive etc.
 @property (nonatomic, retain) FHIRCode *status; //Supports basic workflow
-@property (nonatomic, retain) FHIRResource *subject; //The person who this alert concerns (Patient)
-@property (nonatomic, retain) FHIRResource *author; //The person or device that created the alert (Practitioner/Patient/Device)
+@property (nonatomic, retain) FHIRResourceReference *subject; //The person who this alert concerns (Patient)
+@property (nonatomic, retain) FHIRResourceReference *author; //The person or device that created the alert (Practitioner/Patient/Device)
 @property (nonatomic, retain) FHIRString *note; //The textual component of the alert to display to the user
 
 //Public Methods

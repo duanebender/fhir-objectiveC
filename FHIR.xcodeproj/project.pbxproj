@@ -77,6 +77,10 @@
 		8993D80916B1D88500D0AFB4 /* FHIRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8993D80816B1D88500D0AFB4 /* FHIRTests.m */; };
 		89ADE3B8176F5637003FDCAB /* FHIRPatientContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ADE3B6176F5637003FDCAB /* FHIRPatientContact.h */; };
 		89ADE3B9176F5637003FDCAB /* FHIRPatientContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ADE3B7176F5637003FDCAB /* FHIRPatientContact.m */; };
+		89ADE3BC176F9EFC003FDCAB /* FHIRAccreditation.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ADE3BA176F9EFA003FDCAB /* FHIRAccreditation.h */; };
+		89ADE3BD176F9EFC003FDCAB /* FHIRAccreditation.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ADE3BB176F9EFB003FDCAB /* FHIRAccreditation.m */; };
+		89ADE3C0176FA1DD003FDCAB /* FHIRContactEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 89ADE3BE176FA1DB003FDCAB /* FHIRContactEntity.h */; };
+		89ADE3C1176FA1DD003FDCAB /* FHIRContactEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 89ADE3BF176FA1DC003FDCAB /* FHIRContactEntity.m */; };
 		89B0B9A4175CD3D600FCDAB0 /* FHIRCarePlan.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9A2175CD3D600FCDAB0 /* FHIRCarePlan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		89B0B9A5175CD3D600FCDAB0 /* FHIRCarePlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0B9A3175CD3D600FCDAB0 /* FHIRCarePlan.m */; };
 		89B0B9A9175CDD9000FCDAB0 /* FHIRAnimal.h in Headers */ = {isa = PBXBuildFile; fileRef = 89B0B9A7175CDD9000FCDAB0 /* FHIRAnimal.h */; };
@@ -262,6 +266,10 @@
 		8993D80816B1D88500D0AFB4 /* FHIRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHIRTests.m; sourceTree = "<group>"; };
 		89ADE3B6176F5637003FDCAB /* FHIRPatientContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRPatientContact.h; path = Subclasses/FHIRPatientContact.h; sourceTree = SOURCE_ROOT; };
 		89ADE3B7176F5637003FDCAB /* FHIRPatientContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRPatientContact.m; path = Subclasses/FHIRPatientContact.m; sourceTree = SOURCE_ROOT; };
+		89ADE3BA176F9EFA003FDCAB /* FHIRAccreditation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRAccreditation.h; path = Subclasses/FHIRAccreditation.h; sourceTree = SOURCE_ROOT; };
+		89ADE3BB176F9EFB003FDCAB /* FHIRAccreditation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRAccreditation.m; path = Subclasses/FHIRAccreditation.m; sourceTree = SOURCE_ROOT; };
+		89ADE3BE176FA1DB003FDCAB /* FHIRContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRContactEntity.h; path = Subclasses/FHIRContactEntity.h; sourceTree = SOURCE_ROOT; };
+		89ADE3BF176FA1DC003FDCAB /* FHIRContactEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRContactEntity.m; path = Subclasses/FHIRContactEntity.m; sourceTree = SOURCE_ROOT; };
 		89B0B9A2175CD3D600FCDAB0 /* FHIRCarePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRCarePlan.h; path = Classes/FHIRCarePlan.h; sourceTree = SOURCE_ROOT; };
 		89B0B9A3175CD3D600FCDAB0 /* FHIRCarePlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRCarePlan.m; path = Classes/FHIRCarePlan.m; sourceTree = SOURCE_ROOT; };
 		89B0B9A7175CDD9000FCDAB0 /* FHIRAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRAnimal.h; path = Subclasses/FHIRAnimal.h; sourceTree = SOURCE_ROOT; };
@@ -368,6 +376,10 @@
 				893C4463175F7BB7005639F2 /* FHIRIngredient.m */,
 				893C446E175FC7A7005639F2 /* FHIRSubscriber.h */,
 				893C446F175FC7A7005639F2 /* FHIRSubscriber.m */,
+				89ADE3BA176F9EFA003FDCAB /* FHIRAccreditation.h */,
+				89ADE3BB176F9EFB003FDCAB /* FHIRAccreditation.m */,
+				89ADE3BE176FA1DB003FDCAB /* FHIRContactEntity.h */,
+				89ADE3BF176FA1DC003FDCAB /* FHIRContactEntity.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -630,6 +642,8 @@
 				893C446C175FC519005639F2 /* FHIRCoverage.h in Headers */,
 				893C4470175FC7A8005639F2 /* FHIRSubscriber.h in Headers */,
 				89ADE3B8176F5637003FDCAB /* FHIRPatientContact.h in Headers */,
+				89ADE3BC176F9EFC003FDCAB /* FHIRAccreditation.h in Headers */,
+				89ADE3C0176FA1DD003FDCAB /* FHIRContactEntity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +804,8 @@
 				893C446D175FC519005639F2 /* FHIRCoverage.m in Sources */,
 				893C4471175FC7A8005639F2 /* FHIRSubscriber.m in Sources */,
 				89ADE3B9176F5637003FDCAB /* FHIRPatientContact.m in Sources */,
+				89ADE3BD176F9EFC003FDCAB /* FHIRAccreditation.m in Sources */,
+				89ADE3C1176FA1DD003FDCAB /* FHIRContactEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

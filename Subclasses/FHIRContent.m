@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         _contentDictionary = [[FHIRResourceDictionary alloc] init];
-        _item = [[FHIRResource alloc] init];
+        _item = [[FHIRResourceReference alloc] init];
         _amount = [[FHIRQuantity alloc] init];
     }
     return self;
@@ -38,7 +38,7 @@
 
 - (void)contentParser:(NSDictionary *)dictionary
 {
-    [_item resourceParser:[dictionary objectForKey:@"item"]];
+    [_item resourceReferenceParser:[dictionary objectForKey:@"item"]];
     [_amount quantityParser:[dictionary objectForKey:@"amount"]];
 }
 

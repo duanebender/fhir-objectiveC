@@ -27,7 +27,7 @@
         _name = [[FHIRString alloc] init];
         _code = [[FHIRCodeableConcept alloc] init];
         _isBrand = [[FHIRBool alloc] init];
-        _manufacturer = [[FHIRResource alloc] init];
+        _manufacturer = [[FHIRResourceReference alloc] init];
         _package = [[FHIRPackage alloc] init];
         _product = [[FHIRProduct alloc] init];
     }
@@ -67,7 +67,7 @@
     [_name setValueString:[medicationDict objectForKey:@"name"]];
     [_code codeableConceptParser:[medicationDict objectForKey:@"code"]];
     [_isBrand setValueBool:[medicationDict objectForKey:@"isBrand"]];
-    [_manufacturer resourceParser:[medicationDict objectForKey:@"manufacturer"]];
+    [_manufacturer resourceReferenceParser:[medicationDict objectForKey:@"manufacturer"]];
     [_package packageParser:[medicationDict objectForKey:@"package"]];
     [_product productParser:[medicationDict objectForKey:@"product"]];
     

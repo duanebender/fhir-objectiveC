@@ -21,7 +21,7 @@
 @property (nonatomic, retain) FHIRResourceDictionary *coverageDictionary; //a dictionary containing all resources in this coverage object
 
 //following properties are individual parts of the Coverage Object that can be influenced Individually
-@property (nonatomic, retain) FHIRResource *issuer; //The program or plan underwriter or payor.
+@property (nonatomic, retain) FHIRResourceReference *issuer; //The program or plan underwriter or payor.
 @property (nonatomic, retain) FHIRPeriod *period; //Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
 @property (nonatomic, retain) FHIRCoding *type; //The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
 @property (nonatomic, retain) FHIRIdentifier *identifier; //The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.
