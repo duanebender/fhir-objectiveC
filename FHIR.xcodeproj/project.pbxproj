@@ -77,6 +77,8 @@
 		898684CE17723B92009A9C37 /* FHIRChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 898684CC17723B92009A9C37 /* FHIRChoice.m */; };
 		898684D1177243F3009A9C37 /* FHIRChoiceOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 898684CF177243F2009A9C37 /* FHIRChoiceOption.h */; };
 		898684D2177243F3009A9C37 /* FHIRChoiceOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 898684D0177243F2009A9C37 /* FHIRChoiceOption.m */; };
+		898684D5177247A1009A9C37 /* FHIRRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 898684D3177247A0009A9C37 /* FHIRRange.h */; };
+		898684D6177247A1009A9C37 /* FHIRRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 898684D4177247A0009A9C37 /* FHIRRange.m */; };
 		8993D7EB16B1D88400D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
 		8993D7FA16B1D88500D0AFB4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7F916B1D88500D0AFB4 /* SenTestingKit.framework */; };
 		8993D7FD16B1D88500D0AFB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8993D7EA16B1D88400D0AFB4 /* Foundation.framework */; };
@@ -272,6 +274,8 @@
 		898684CC17723B92009A9C37 /* FHIRChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRChoice.m; path = "Data Types/FHIRChoice.m"; sourceTree = SOURCE_ROOT; };
 		898684CF177243F2009A9C37 /* FHIRChoiceOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRChoiceOption.h; path = "Data Types/FHIRChoiceOption.h"; sourceTree = SOURCE_ROOT; };
 		898684D0177243F2009A9C37 /* FHIRChoiceOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRChoiceOption.m; path = "Data Types/FHIRChoiceOption.m"; sourceTree = SOURCE_ROOT; };
+		898684D3177247A0009A9C37 /* FHIRRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRRange.h; path = "Data Types/FHIRRange.h"; sourceTree = SOURCE_ROOT; };
+		898684D4177247A0009A9C37 /* FHIRRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRRange.m; path = "Data Types/FHIRRange.m"; sourceTree = SOURCE_ROOT; };
 		8993D7E716B1D88400D0AFB4 /* libFHIR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFHIR.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8993D7EA16B1D88400D0AFB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8993D7F816B1D88500D0AFB4 /* FHIRTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHIRTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,6 +435,8 @@
 				898684CC17723B92009A9C37 /* FHIRChoice.m */,
 				898684CF177243F2009A9C37 /* FHIRChoiceOption.h */,
 				898684D0177243F2009A9C37 /* FHIRChoiceOption.m */,
+				898684D3177247A0009A9C37 /* FHIRRange.h */,
+				898684D4177247A0009A9C37 /* FHIRRange.m */,
 			);
 			name = "Data Types";
 			sourceTree = "<group>";
@@ -672,6 +678,7 @@
 				898684C917723276009A9C37 /* FHIRInteger.h in Headers */,
 				898684CD17723B92009A9C37 /* FHIRChoice.h in Headers */,
 				898684D1177243F3009A9C37 /* FHIRChoiceOption.h in Headers */,
+				898684D5177247A1009A9C37 /* FHIRRange.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +845,7 @@
 				898684CA17723276009A9C37 /* FHIRInteger.m in Sources */,
 				898684CE17723B92009A9C37 /* FHIRChoice.m in Sources */,
 				898684D2177243F3009A9C37 /* FHIRChoiceOption.m in Sources */,
+				898684D6177247A1009A9C37 /* FHIRRange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

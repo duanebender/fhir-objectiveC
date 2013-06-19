@@ -13,6 +13,7 @@
 #import "FHIRQuantity.h"
 #import "FHIRAttachment.h"
 #import "FHIRChoice.h"
+#import "FHIRRange.h"
 
 @implementation FHIRExtension
 {
@@ -119,8 +120,55 @@
         [value choiceParser:valueDict];
         _valueX = [[NSArray alloc] initWithObjects:value, nil];
     }
+    else if ([key isEqualToString:@"valueRange"])
+    {
+        FHIRRange *value = [[FHIRRange alloc] init];
+        [value rangeParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valuePeriod"])
+    {
+        FHIRPeriod *value = [[FHIRPeriod alloc] init];
+        [value periodParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueRatio"])
+    {
+        FHIRRatio *value = [[FHIRRatio alloc] init];
+        [value ratioParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueHumanName"])
+    {
+        FHIRHumanName *value = [[FHIRHumanName alloc] init];
+        [value humanNameParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueAddress"])
+    {
+        FHIRAddress *value = [[FHIRAddress alloc] init];
+        [value addressParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueContact"])
+    {
+        FHIRContact *value = [[FHIRContact alloc] init];
+        [value contactParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueSchedule"])
+    {
+        FHIRSchedule *value = [[FHIRSchedule alloc] init];
+        [value scheduleParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueResource"])
+    {
+        FHIRResource *value = [[FHIRResource alloc] init];
+        [value resourceParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
     else _valueX = NULL;
-#warning - finish this O.o
 }
 
 - (NSDictionary *)generateAndReturnDictionary
