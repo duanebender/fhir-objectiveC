@@ -10,7 +10,7 @@
  * Contact for the organization for a certain purpose.
  */
 
-#import <FHIR/FHIR.h>
+#import "FHIR.h"
 
 @interface FHIRContactEntity : FHIRType
 

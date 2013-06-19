@@ -18,8 +18,8 @@
 }
 
 - (NSString *)stringForXMLDictionary:(NSMutableDictionary *)xmlDictionary resourceType:(NSString *)resourceType; //turns an NSDictionary containing NSArrays or other NSDictionaries into an xml string and return's it
-- (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element:(id)content; // *DO NOT CALL* used to turn an NSDictionary into an XML string
-- (NSMutableString *)writeXMLStringFromArray:(NSString *)element:(id)content; //turns an NSArray into an xml string
+- (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element contentOfDictionary:(id)content; // *DO NOT CALL* used to turn an NSDictionary into an XML string
+- (NSMutableString *)writeXMLStringFromArray:(NSString *)element contentOfArray:(id)content; //turns an NSArray into an xml string
 - (NSMutableString *)tabber; //controls the tabbing of all the arrays
 
 @end

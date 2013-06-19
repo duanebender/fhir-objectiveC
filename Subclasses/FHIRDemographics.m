@@ -30,7 +30,7 @@
         _demographicsDictionary = [[FHIRResourceDictionary alloc] init];
         _name = [[NSMutableArray alloc] init];
         _telecom = [[NSMutableArray alloc] init];
-        _gender = [[FHIRCoding alloc] init];
+        _gender = [[FHIRCodeableConcept alloc] init];
         _deceased = [[FHIRBool alloc] init];
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[FHIRCodeableConcept alloc] init];
@@ -57,6 +57,7 @@
                                                [FHIRExistanceChecker generateArray:_photo], @"photo", //RR(Photo) only
                                                [FHIRExistanceChecker generateArray:_identifier], @"identifier", //identifier only
                                                nil];
+    
     _demographicsDictionary.resourceName = @"Demographics";
     [_demographicsDictionary cleanUpDictionaryValues];
     return _demographicsDictionary.dataForResource;
@@ -86,7 +87,7 @@
         //NSLog(@"%@", _telecom);
     }
     
-    [_gender codingParser:[dictionary objectForKey:@"gender"]];
+    [_gender codeableConceptParser:[dictionary objectForKey:@"gender"]];
     _birthDate = [FHIRExistanceChecker generateDateTimeFromString:[dictionary objectForKey:@"birthDate"]];
     [_deceased setValueBool:[dictionary objectForKey:@"deceased"]];
     

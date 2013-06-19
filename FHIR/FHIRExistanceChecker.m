@@ -48,4 +48,16 @@
     return myDate;
 }
 
++ (id)checkEmptySingleObjectArray:(NSArray *)arrayToCheck
+{
+    if ([arrayToCheck count] != 1)
+    {
+        return NULL;
+    }
+    else
+    {
+        return [[arrayToCheck objectAtIndex:0] generateAndReturnDictionary];
+    }
+}
+
 @end

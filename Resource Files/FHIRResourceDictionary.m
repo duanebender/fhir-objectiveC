@@ -27,23 +27,31 @@
 - (void)cleanUpDictionaryValues
 {
     //remove entries with no values
-    NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
+    NSInteger *nullCount = 0;
     
-    for (NSString* key in tempDict)
+    while (nullCount > 0)
     {
-        if ([key isEqualToString:@"div"] == FALSE)
+        NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
+    
+        for (NSString* key in tempDict)
         {
-            NSObject *value = [tempDict valueForKey:key];
-            if (value == NULL || value == [NSNull null] || value == nil || [tempDict count] == 0)
+            if ([key isEqualToString:@"div"] == FALSE)
             {
-                [_dataForResource removeObjectForKey:key];
+                NSObject *value = [tempDict valueForKey:key];
+                if (value == NULL || value == [NSNull null] || value == nil || [tempDict count] == 0)
+                {
+                    [_dataForResource removeObjectForKey:key];
+                    nullCount++;
+                }
             }
         }
-    }
     
-    if ([tempDict count] == 0)
-    {
-        _dataForResource = NULL;
+        if ([tempDict count] == 0)
+        {
+            _dataForResource = NULL;
+            nullCount++;
+        }
+        
     }
 }
 

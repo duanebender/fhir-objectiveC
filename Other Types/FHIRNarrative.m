@@ -20,8 +20,9 @@
     self = [super init];
     if (self) {
         _narrativeDictionary = [[FHIRResourceDictionary alloc] init];
-        _div = [[XhtmlNode alloc] init];
+        _div = [[NSString alloc] init];
         _image = [[NSMutableArray alloc] init];
+        _statusSV = [[FHIRString alloc] init];
     }
     return self;
 }
@@ -63,7 +64,7 @@
 {
     _narrativeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [self returnStringNarrative], @"status",
-                                                    [_div generateAndReturnXhtmlNodeDictionary], @"div",
+                                                    _div, @"div",
                                                     [FHIRExistanceChecker generateArray:_image], @"image", //array of images only
                                                     nil];
     _narrativeDictionary.resourceName = @"Narrative";
@@ -74,7 +75,7 @@
 - (void)narrativeParser:(NSDictionary *)dictionary
 {
     [self setValueNarrative:[dictionary objectForKey:@"status"]];
-    [_div xhtmlNodeParser:[dictionary objectForKey:@"div"]];
+    _div = [dictionary objectForKey:@"div"];
     
     //_image
     NSArray *imgArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"image"]];

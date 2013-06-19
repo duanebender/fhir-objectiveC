@@ -10,7 +10,7 @@
  * A contact party (e.g. guardian, partner, friend) for the patient.
  */
 
-#import <FHIR/FHIR.h>
+#import "FHIR.h"
 #import "FHIRExistanceChecker.h"
 
 @interface FHIRPatientContact : FHIRType

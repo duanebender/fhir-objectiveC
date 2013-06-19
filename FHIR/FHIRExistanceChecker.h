@@ -20,5 +20,6 @@
 + (NSDictionary *)stringChecker:(FHIRString *)string; //checks a string and returns a null value if the string is blank
 
 + (NSDate *)generateDateTimeFromString:(NSString *)string; //takes in a string and spits out a dateTime in the proper format
++ (id)checkEmptySingleObjectArray:(NSArray *)arrayToCheck; //checks arrays used for multiple object types such as MultiBirthX in FHIRPatient
 
 @end

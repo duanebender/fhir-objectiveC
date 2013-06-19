@@ -32,7 +32,7 @@ typedef enum NarrativeStatus
 //following properties are individual parts of the Narrative Object that can be influenced Individually
 @property (nonatomic) NSInteger status; //The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data
 @property (nonatomic, retain) FHIRString *statusSV; //string value of status
-@property (nonatomic, retain) XhtmlNode *div; //The actual narrative content, a stripped down version of XHTML
+@property (nonatomic, retain) NSString *div; //The actual narrative content, a stripped down version of XHTML
 @property (nonatomic, retain) NSMutableArray *image; //array of images referred to directly in the xhtml
 
 //Public Methods

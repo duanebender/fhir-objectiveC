@@ -10,7 +10,7 @@
  * The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment.
  */
 
-#import <FHIR/FHIR.h>
+#import "FHIR.h"
 
 @interface FHIRAccreditation : FHIRType
 

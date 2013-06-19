@@ -31,14 +31,14 @@
             tabValue ++;
             [stringForXML appendString:[self tabber]];
             if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"<%@>\n", key]];
-            [stringForXML appendString:[self writeXMLStringFromDictionary:key:value]];
+            [stringForXML appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
             tabValue--;
             [stringForXML appendString:[self tabber]];
             if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
         }
         else if ([value isKindOfClass:[NSArray class]])
         {
-            [stringForXML appendString:[self writeXMLStringFromArray:key:value]];
+            [stringForXML appendString:[self writeXMLStringFromArray:key contentOfArray:value]];
         }
         else
         {
@@ -52,7 +52,7 @@
 }
 
 //generate string from dictionary
-- (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element:(id)content
+- (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element contentOfDictionary:(NSDictionary *)content
 {
     NSMutableString *returnString = [[NSMutableString alloc] initWithString:@""];
     
@@ -65,14 +65,14 @@
             [returnString appendString:[self tabber]];
             if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
             tabValue--;
-            [returnString appendString:[self writeXMLStringFromDictionary:key:value]];
+            [returnString appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
             [returnString appendString:[self tabber]];
             if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
         }
         else if ([value isKindOfClass:[NSMutableArray class]] || [value isKindOfClass:[NSArray class]])
         {
             tabValue++;
-            [returnString appendString:[self writeXMLStringFromArray:key:value]];
+            [returnString appendString:[self writeXMLStringFromArray:key contentOfArray:value]];
             tabValue--;
         }
         else if ([key isEqualToString:@"value"])
@@ -102,7 +102,7 @@
 }
 
 //generate string for array
-- (NSMutableString *)writeXMLStringFromArray:(NSString *)element:(id)content
+- (NSMutableString *)writeXMLStringFromArray:(NSString *)element contentOfArray:(NSArray *)content
 {
     NSMutableString *returnString = [[NSMutableString alloc] init];
     for (int i=0; i < [content count]; i++)
@@ -121,12 +121,12 @@
             if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSDictionary class]])
             {
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
-                [returnString appendString:[self writeXMLStringFromDictionary:key:value]];
+                [returnString appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
             }
             else if ([value isKindOfClass:[NSArray class]])
             {
-                [returnString appendString:[self writeXMLStringFromArray:key:value]];
+                [returnString appendString:[self writeXMLStringFromArray:key contentOfArray:value]];
             }
             else if ([key isEqualToString:@"value"])
             {

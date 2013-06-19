@@ -8,35 +8,128 @@
 
 #import "FHIRExtension.h"
 #import "FHIRExistanceChecker.h"
+#import "Base64Binary.h"
+#import "FHIRCodeableConcept.h"
+#import "FHIRQuantity.h"
+#import "FHIRAttachment.h"
+#import "FHIRChoice.h"
 
 @implementation FHIRExtension
-
-@synthesize uri = _uri; //Source of the definition for the extension code - a logical name or a URL
-@synthesize ref = _ref; //Internal reference to context of the extension - a pointer to an xml:id in the same resource
-@synthesize mustUnderstand = _mustUnderstand; //If this element is set to true, then the containing resource element and its children are only safe to process if the reader understands this extension.
-@synthesize value = _value; //Value of extension - may be a resource or one of a constraint set of the data types (see Extensibility in the spec for list)
-@synthesize list = _list; //Nested Extensions - further extensions that are part of the extension
+{
+    NSString *valueTag;
+}
+@synthesize url = _url; //Source of the definition for the extension code - a logical name or a URL
+@synthesize isModifier = _isModifier; //
+@synthesize valueX = _valueX; //
+@synthesize extension = _extension; //Nested Extensions - further extensions that are part of the extension
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _extensionDictionary = [[FHIRResourceDictionary alloc] init];
-        _uri = [[FHIRUri alloc] init];
-        _mustUnderstand = [[FHIRBool alloc] init];
-        _value = [[FHIRType alloc] init];
-        _list = [[NSMutableArray alloc] init];
+        _url = [[FHIRUri alloc] init];
+        _isModifier = [[FHIRBool alloc] init];
+        _valueX = [[NSArray alloc] init];
+        _extension = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)checkValueExtensionType:(NSDictionary *)valueDict valueString:(NSString *)key
+{
+    valueTag = [[NSString alloc] initWithString:key];
+    
+    if ([key isEqualToString:@"valueInteger"])
+    {
+        NSNumber *value = [[NSNumber alloc] initWithInteger:[valueDict objectForKey:@"value"]];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueDecimal"])
+    {
+        _valueX = [[NSArray alloc] initWithObjects:[valueDict objectForKey:@"value"], nil];
+    }
+    else if ([key isEqualToString:@"valueDateTime"] || [key isEqualToString:@"valueDate"] || [key isEqualToString:@"valueInstant"]) //FHIRExistance checker will handle the difference
+    {
+        _valueX = [[NSArray alloc] initWithObjects:[FHIRExistanceChecker generateDateTimeFromString:[valueDict objectForKey:@"value"]], nil];
+    }
+    else if ([key isEqualToString:@"valueString"])
+    {
+        FHIRString *value = [[FHIRString alloc] init];
+        [value setValueString:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueUri"])
+    {
+        FHIRUri *value = [[FHIRUri alloc] init];
+        [value setValueURI:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueBoolean"])
+    {
+        FHIRBool *value = [[FHIRBool alloc] init];
+        [value setValueBool:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueCode"])
+    {
+        FHIRCode *value = [[FHIRCode alloc] init];
+        [value setValueCode:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueBase64Binary"])
+    {
+        Base64Binary *value = [[Base64Binary alloc] init];
+        [value setValueBase64BinaryData:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueCoding"])
+    {
+        FHIRCoding *value = [[FHIRCoding alloc] init];
+        [value codingParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueCodeableConcept"])
+    {
+        FHIRCodeableConcept *value = [[FHIRCodeableConcept alloc] init];
+        [value codeableConceptParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueAttachment"])
+    {
+        FHIRAttachment *value = [[FHIRAttachment alloc] init];
+        [value attachmentParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueIdentifier"])
+    {
+        FHIRIdentifier *value = [[FHIRIdentifier alloc] init];
+        [value identifierParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueQuantity"])
+    {
+        FHIRQuantity *value = [[FHIRQuantity alloc] init];
+        [value quantityParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else if ([key isEqualToString:@"valueChoice"])
+    {
+        FHIRChoice *value = [[FHIRChoice alloc] init];
+        [value choiceParser:valueDict];
+        _valueX = [[NSArray alloc] initWithObjects:value, nil];
+    }
+    else _valueX = NULL;
+#warning - finish this O.o
 }
 
 - (NSDictionary *)generateAndReturnDictionary
 {
     _extensionDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [_uri generateAndReturnDictionary], @"uri",
-                                           [_mustUnderstand generateAndReturnDictionary], @"mustUnderstand",
-                                           _value.xmlId, @"value",
-                                           [FHIRExistanceChecker generateArray:_list], @"list",
+                                           [_url generateAndReturnDictionary], @"url",
+                                           [_isModifier generateAndReturnDictionary], @"isModifier",
+                                           [FHIRExistanceChecker checkEmptySingleObjectArray:_valueX], valueTag,
+                                           [FHIRExistanceChecker generateArray:_extension], @"extension",
                                            nil];
     _extensionDictionary.resourceName = @"Extension";
     [_extensionDictionary cleanUpDictionaryValues];
@@ -45,22 +138,28 @@
 
 - (void)extensionParser:(NSDictionary *)dictionary
 {
-    [_uri setValueURI:[dictionary objectForKey:@"uri"]];
-    [_mustUnderstand setValueBool:[dictionary objectForKey:@"mustUnderstand"]];
+    [_url setValueURI:[dictionary objectForKey:@"uri"]];
+    [_isModifier setValueBool:[dictionary objectForKey:@"isModifier"]];
     
     //_value
-    _value = [[FHIRType alloc] init];
-    _value.xmlId = [dictionary objectForKey:@"value"];
+    for (NSString *key in dictionary)
+    {
+        NSRange r;
+        if ((r = [key rangeOfString:@"/^value(\\d+)$/" options:NSRegularExpressionSearch]).location != NSNotFound)
+        {
+            [self checkValueExtensionType:[dictionary objectForKey:key] valueString:key];
+        }
+    }
     
     //_list
-    NSArray *listArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extensions"]];
-    _list = [[NSMutableArray alloc] init];
+    NSArray *listArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extension"]];
+    _extension = [[NSMutableArray alloc] init];
     for (int i = 0; i < [listArray count]; i++)
     {
         FHIRExtension *tempS1 = [[FHIRExtension alloc] init];
         [tempS1 extensionParser:[listArray objectAtIndex:i]];
-        [_list addObject:tempS1];
-        //NSLog(@"%@", _list);
+        [_extension addObject:tempS1];
+        //NSLog(@"%@", _extension);
     }
 }
 

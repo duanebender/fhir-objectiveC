@@ -36,7 +36,7 @@
         _provider = [[FHIRResourceReference alloc] init];
         _genText = [[FHIRText alloc] init];
         _resourceTypeValue = [[FHIRResource alloc] init];
-        _multipleBirthX = [[NSMutableArray alloc] init];
+        _multipleBirthX = [[NSArray alloc] init];
         _deceasedDate = [[NSDate alloc] init];
         _contact = [[NSMutableArray alloc] init];
     }
@@ -53,21 +53,26 @@
 {
     //find multipleBirth type to set for xml tag
     NSString *multiBirthTagString = [[NSString alloc] init];
-    if ([[_multipleBirthX objectAtIndex:0] class] == [FHIRBool class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthBoolean"];
-    else if ([[_multipleBirthX objectAtIndex:0] class] == [NSNumber class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthInteger"];
-    else multiBirthTagString = [NSString stringWithFormat:@"multipleBirth?"];
+    if ([_multipleBirthX count] == 1)
+    {
+        if ([[_multipleBirthX objectAtIndex:0] class] == [FHIRBool class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthBoolean"];
+        else if ([[_multipleBirthX objectAtIndex:0] class] == [NSNumber class]) multiBirthTagString = [NSString stringWithFormat:@"multipleBirthInteger"];
+        else multiBirthTagString = [NSString stringWithFormat:@"multipleBirth?"];
+    }
     
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            [_active generateAndReturnDictionary], @"active",
                                            [FHIRExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDictionary], @"details",
                                            [_provider generateAndReturnDictionary], @"provider",
-                                           [_genText generateAndReturnDictionary], @"text", //holds extra generated text
-                                           [FHIRExistanceChecker generateArray:_link], @"link",
-                                           [_animal generateAndReturnDictionary], @"animal",
-                                           [[_multipleBirthX objectAtIndex:0] generateAndReturnDictionary], multiBirthTagString,
-                                           [NSDateFormatter localizedStringFromDate:_deceasedDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"deceasedDate",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
+                                           [FHIRExistanceChecker generateArray:_link], @"link",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                           [_animal generateAndReturnDictionary], @"animal",
+                                           [FHIRExistanceChecker checkEmptySingleObjectArray:_multipleBirthX], multiBirthTagString,
+                                           [NSDateFormatter localizedStringFromDate:_deceasedDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"deceasedDate",
+                                           //[_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
     [_patientDictionary cleanUpDictionaryValues];
     
@@ -83,6 +88,9 @@
     [_resourceTypeValue setResouceTypeValue:@"patient"];
     NSDictionary *patientDict = [dictionary objectForKey:@"Patient"];
     //NSLog(@"%@", patient);
+    
+    [_resourceTypeValue resourceParser:patientDict];
+    NSLog(@"%@", patientDict);
     
     //_link
     NSArray *linkArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"link"]];
@@ -110,19 +118,22 @@
     [_details demographicsParser:[patientDict objectForKey:@"details"]];
     [_animal animalParser:[patientDict objectForKey:@"animal"]];
     [_provider resourceReferenceParser:[patientDict objectForKey:@"provider"]];
-    [_genText textParser:[patientDict objectForKey:@"text"]];
+    //[_genText textParser:[patientDict objectForKey:@"text"]];
+    
     
     //sets timing array with the correct object sent
     for (NSString *key in dictionary)
     {
-        if ([key isEqualToString:@"mutlipleBirthBoolean"])
+        if ([key isEqualToString:@"multipleBirthBoolean"] == TRUE)
         {
+            //NSLog(@"Bool MultiBirth");
             FHIRBool *multiBirthBool = [[FHIRBool alloc] init];
             [multiBirthBool setValueBool:[patientDict objectForKey:@"multipleBirthBoolean"]];
             _multipleBirthX = [[NSArray alloc] initWithObjects:multiBirthBool, nil];
         }
-        if ([key isEqualToString:@"mutlipleBirthInteger"])
+        else if ([key isEqualToString:@"multipleBirthInteger"] == TRUE)
         {
+            //NSLog(@"Int MultiBirth");
             NSNumber *multiBirthInt = [[NSNumber alloc] init];
             multiBirthInt = [NSNumber numberWithInteger:[[patientDict objectForKey:@"multipleBirthInteger"] integerValue]];
             _multipleBirthX = [[NSArray alloc] initWithObjects:multiBirthInt, nil];

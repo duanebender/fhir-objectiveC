@@ -7,9 +7,9 @@
 //
 
 #import "FHIRTests.h"
-#import "Patient.h"
+#import "FHIRPatient.h"
 #import "DictToJSON.h"
-#import "HumanName.h"
+#import "FHIRHumanName.h"
 #import "JSONToDict.h"
 #import "Base64Encoder.h"
 #import "Base64Decoder.h"
@@ -49,56 +49,6 @@
     //          Parse the XML back to an object
     //          Do a field-by-field comparison of the original with the roundtripped one
     
-    //Patient *patient = [[Patient alloc] init];
-    //patient.active = Boolean.true;
-    
-    Patient *patient = [[Patient alloc] init];
-    
-    //activestatus test
-    patient.active.value = YES;
-    NSLog(@"Active Status of Patient: %@", ([patient active])? @"YES" : @"NO");
-    STAssertTrue(patient.active.value == YES, @"BOOL Should be YES"); //should pass
-    STAssertFalse(patient.active.value == NO, @"BOOL Should be YES"); //should pass
-    
-    //test resoourcetype
-    //STAssertTrue(patient.getResourceType == ResourceTypePatient, @"Should be true."); //should pass
-    //STAssertFalse(patient.getResourceType == ResourceTypeAdmission, @"Should be false"); //should pass
-    
-    //test maritalstatus
-//    patient.details.maritalStatus.text.value = @"Single";
-    [patient.details.maritalStatus.text setValue:@"Single"];
-    
-    
-    
-    //NSLog(@"Active Status of Patient: %@", patient.details.maritalStatus.text.value);
-    STAssertEqualObjects(patient.details.maritalStatus.text.value, @"Single", @"Should be single."); //should pass
-    
-    //test animal
-    [patient.animal.breed.coding addObject:@"This is code?"];
-    STAssertEqualObjects([patient.animal.breed.coding objectAtIndex:0], @"This is code?", @"This should pass."); //should pass
-    
-    //test name demographic array
-    [patient.details.name addObject:@"Sir Sparkles"];
-    STAssertEqualObjects([patient.details.name objectAtIndex:0], @"Sir Sparkles", @"This should pass."); //should pass
-    
-    //identifier testing
-    HumanId *human1 = [[HumanId alloc] init];
-    human1.period.start = [NSDate date];
-    [patient.identifier addObject:human1];
-    STAssertEqualObjects([patient.identifier objectAtIndex:0], human1, @"Should Match Values.");
-    STAssertEqualObjects([NSDateFormatter localizedStringFromDate:human1.period.start dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle],[NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"Dates should match."); //should pass
-    
-    //Test codeableconcept NSString
-    patient.animal.breed.primary.value = @"Pie";
-    STAssertEqualObjects(patient.animal.breed.primary.value, @"Pie", @"Should Match Values."); //should pass
-    
-    //Test ResourceReference Uri
-    patient.provider.version.uri = [NSURL URLWithString:@"http://www.google.ca"];
-    STAssertEqualObjects(patient.provider.version.uri, [NSURL URLWithString:@"http://www.google.ca"], @"Should both be google url.");
-    
-    //display contents of any object
-    //NSLog(@"TestObject ***************** %@",patient.provider.version.uri);
-    
 }
 
 - (void)testJSON
@@ -113,7 +63,7 @@
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
-    [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/JSON/Patient.txt"];
+    [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
     //Organization Test
     JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
@@ -159,6 +109,7 @@
 
 }
 
+
 - (void)testXML
 {
     NSLog(@"Beginning FHIRXML tests...");
@@ -177,7 +128,7 @@
     DictToXML *xmlORG = [[DictToXML alloc] init];
     [xmlORG generateXml:orgXML urlPath:@"/Users/adamsippel/Desktop/Organization.xml"];
     
-    /*
+   /*
     NSObject *patientXMLA = [[NSObject alloc] init];
     for (int i = 0; i < 50; i ++)
     {
@@ -192,10 +143,11 @@
         NSString *printToString = [[NSString alloc] initWithString:[NSString stringWithFormat:@"/Users/adamsippel/Desktop/TempXML/Patient%d.xml",i]];
         [xmlA generateXml:patientXMLA urlPath:printToString];
         
-    }
-  */
+    */
+  
 
 }
+
 
 
 @end

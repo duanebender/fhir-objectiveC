@@ -51,17 +51,20 @@
 {
     //find timing type to set for xml tag
     NSString *timingTagString = [[NSString alloc] init];
-    if ([[_timingX objectAtIndex:0] class] == [FHIRPeriod class]) timingTagString = [NSString stringWithFormat:@"timingPeriod"];
-    else if ([[_timingX objectAtIndex:0] class] == [FHIRSchedule class]) timingTagString = [NSString stringWithFormat:@"timingSchedule"];
-    else if ([[_timingX objectAtIndex:0] class] == [FHIRString class]) timingTagString = [NSString stringWithFormat:@"timingString"];
-    else timingTagString = [NSString stringWithFormat:@"timing?"];
+    if ([_timingX count] == 1)
+    {
+        if ([[_timingX objectAtIndex:0] class] == [FHIRPeriod class]) timingTagString = [NSString stringWithFormat:@"timingPeriod"];
+        else if ([[_timingX objectAtIndex:0] class] == [FHIRSchedule class]) timingTagString = [NSString stringWithFormat:@"timingSchedule"];
+        else if ([[_timingX objectAtIndex:0] class] == [FHIRString class]) timingTagString = [NSString stringWithFormat:@"timingString"];
+        else timingTagString = [NSString stringWithFormat:@"timing?"];
+    }
     
     _activityDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [_category generateAndReturnDictionary], @"category",
                                                [_code generateAndReturnDictionary], @"code",
                                                [_status generateAndReturnDictionary], @"status",
                                                [_prohibited generateAndReturnDictionary], @"prohibited",
-                                               [[_timingX objectAtIndex:0] generateAndReturnDictionary], timingTagString,
+                                               [FHIRExistanceChecker checkEmptySingleObjectArray:_timingX], timingTagString,
                                                [_location generateAndReturnDictionary], @"location",
                                                [FHIRExistanceChecker generateArray:_performer], @"performer",
                                                [_product generateAndReturnDictionary], @"product",

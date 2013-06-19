@@ -207,7 +207,7 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _resourceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                    [FHIRExistanceChecker generateArray:_extensions], @"extensions",
+                                                    [FHIRExistanceChecker generateArray:_extensions], @"extension",
                                                     [_text generateAndReturnDictionary], @"text",
                                                     [self returnResourceType], @"type",
                                                     nil];
@@ -219,14 +219,14 @@
 - (void)resourceParser:(NSDictionary *)dictionary
 {
     //_extensions
-    NSArray *extArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extensions"]];
+    NSArray *extArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extension"]];
     _extensions = [[NSMutableArray alloc] init];
     for (int i = 0; i < [extArray count]; i++)
     {
         FHIRExtension *tempS1 = [[FHIRExtension alloc] init];
         [tempS1 extensionParser:[extArray objectAtIndex:i]];
         [_extensions addObject:tempS1];
-        //NSLog(@"%@", _extensions);
+        NSLog(@"%@", _extensions);
     }
     
     [_text narrativeParser:[dictionary objectForKey:@"text"]];
