@@ -35,7 +35,7 @@
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[FHIRCodeableConcept alloc] init];
         _language = [[NSMutableArray alloc] init];
-        _birthDate = [[NSDate alloc] init];
+        _birthDate = [[FHIRDate alloc] init];
         _photo = [[NSMutableArray alloc] init];
         _identifier = [[NSMutableArray alloc] init];
         
@@ -50,7 +50,7 @@
                                                [_gender generateAndReturnDictionary], @"gender",
                                                [FHIRExistanceChecker generateArray:_telecom], @"telecom", //contacts only
                                                [FHIRExistanceChecker generateArray:_address], @"address", //addresses only
-                                               [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
+                                               [_birthDate generateAndReturnDictionary], @"birthDate",
                                                [_deceased generateAndReturnDictionary], @"deceased",
                                                [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
                                                [FHIRExistanceChecker generateArray:_language], @"language", //languages only
@@ -75,7 +75,7 @@
         [_name addObject:tempHN];
         //NSLog(@"%@", _name);
     }
-    
+
     //_telecom
     NSArray *teleArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"telecom"]];
     _telecom = [[NSMutableArray alloc] init];
@@ -86,11 +86,11 @@
         [_telecom addObject:tempCT];
         //NSLog(@"%@", _telecom);
     }
-    
+ 
     [_gender codeableConceptParser:[dictionary objectForKey:@"gender"]];
-    _birthDate = [FHIRExistanceChecker generateDateTimeFromString:[dictionary objectForKey:@"birthDate"]];
+    [_birthDate setValueDate:[dictionary objectForKey:@"birthDate"]];
     [_deceased setValueBool:[dictionary objectForKey:@"deceased"]];
-    
+
     //_address
     NSArray *addrArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"address"]];
     _address = [[NSMutableArray alloc] init];
@@ -136,6 +136,7 @@
         [_identifier addObject:tempID];
         //NSLog(@"%@", _identifier);
     }
+
 }
 
 @end

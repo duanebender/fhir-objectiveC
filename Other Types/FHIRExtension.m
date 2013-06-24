@@ -164,8 +164,9 @@
     }
     else if ([key isEqualToString:@"valueResource"])
     {
-        FHIRResource *value = [[FHIRResource alloc] init];
-        [value resourceParser:valueDict];
+        FHIRResourceReference *value = [[FHIRResourceReference alloc] init];
+        NSLog(@"VALDICT:%@", valueDict);
+        [value resourceReferenceParser:valueDict];
         _valueX = [[NSArray alloc] initWithObjects:value, nil];
     }
     else _valueX = NULL;
@@ -186,26 +187,26 @@
 
 - (void)extensionParser:(NSDictionary *)dictionary
 {
-    [_url setValueURI:[dictionary objectForKey:@"uri"]];
+    [_url setValueURI:[dictionary objectForKey:@"url"]];
     [_isModifier setValueBool:[dictionary objectForKey:@"isModifier"]];
     
     //_value
     for (NSString *key in dictionary)
     {
         NSRange r;
-        if ((r = [key rangeOfString:@"/^value(\\d+)$/" options:NSRegularExpressionSearch]).location != NSNotFound)
+        if ((r = [key rangeOfString:@"value" options:NSRegularExpressionSearch]).location != NSNotFound)
         {
             [self checkValueExtensionType:[dictionary objectForKey:key] valueString:key];
         }
     }
     
-    //_list
-    NSArray *listArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extension"]];
+    //_extension
+    NSArray *extensionArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"extension"]];
     _extension = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [listArray count]; i++)
+    for (int i = 0; i < [extensionArray count]; i++)
     {
         FHIRExtension *tempS1 = [[FHIRExtension alloc] init];
-        [tempS1 extensionParser:[listArray objectAtIndex:i]];
+        [tempS1 extensionParser:[extensionArray objectAtIndex:i]];
         [_extension addObject:tempS1];
         //NSLog(@"%@", _extension);
     }

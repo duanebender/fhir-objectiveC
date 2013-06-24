@@ -65,14 +65,14 @@
                                            [FHIRExistanceChecker generateArray:_identifier], @"identifier",
                                            [_details generateAndReturnDictionary], @"details",
                                            [_provider generateAndReturnDictionary], @"provider",
+                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
                                            [FHIRExistanceChecker generateArray:_link], @"link",
                                            [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
-                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            [_animal generateAndReturnDictionary], @"animal",
                                            [FHIRExistanceChecker checkEmptySingleObjectArray:_multipleBirthX], multiBirthTagString,
                                            [NSDateFormatter localizedStringFromDate:_deceasedDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"deceasedDate",
-                                           //[_genText generateAndReturnDictionary], @"text", //holds extra generated text
                                            nil];
     [_patientDictionary cleanUpDictionaryValues];
     
@@ -118,8 +118,6 @@
     [_details demographicsParser:[patientDict objectForKey:@"details"]];
     [_animal animalParser:[patientDict objectForKey:@"animal"]];
     [_provider resourceReferenceParser:[patientDict objectForKey:@"provider"]];
-    //[_genText textParser:[patientDict objectForKey:@"text"]];
-    
     
     //sets timing array with the correct object sent
     for (NSString *key in dictionary)

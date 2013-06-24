@@ -17,6 +17,7 @@
 #import "FHIRContact.h"
 #import "FHIRAddress.h"
 #import "FHIRLanguage.h"
+#import "FHIRDate.h"
 
 @interface FHIRDemographics : FHIRType
 
@@ -27,7 +28,7 @@
 @property (nonatomic, strong) NSMutableArray *name; //A name associated with the individual. Array of "HumanName" in case name has changed over time.
 @property (nonatomic, strong) NSMutableArray *telecom; //A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted. Array of "Contact" in case multiple forms of contact.
 @property (nonatomic, strong) FHIRCodeableConcept *gender; //Administrative Gender - the gender that the patient is considered to have for administration / record keeping purposes
-@property (nonatomic, strong) NSDate *birthDate; //The birth date for the individual, to the degre of precision now
+@property (nonatomic, strong) FHIRDate *birthDate; //The birth date for the individual, to the degre of precision now
 @property (nonatomic, strong) FHIRBool *deceased; //Indicates if the individual is deceased or not
 @property (nonatomic, strong) NSMutableArray *address; //One or more addresses for the individual. An array of Addresses.
 @property (nonatomic, strong) NSMutableArray *photo; //THIS ARRAY CONTAINS "ResourceReference(Picture)" OBJECTS ONLY. Image of the person.

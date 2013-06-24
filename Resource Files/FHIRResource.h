@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSMutableArray *extensions; //an array of extension objects
 @property (nonatomic, retain) FHIRNarrative *text; //contents of resource
 @property (nonatomic) NSInteger resourceType; //type designation of resource
+@property (nonatomic, strong) NSMutableArray *contained; //extra contents inside the resource
 
 //Public Methods
 - (void)setResouceTypeValue:(NSString *)codeString; //set the type of resource being used
@@ -33,7 +34,7 @@
 - (NSDictionary *)returnTextForResource;
 
 //Old Methods that can still be used with NSDictionary of Resource
-- (NSDictionary *)generateAndReturnDictionary; //returns an NSDicitonary containing all elements of this Resource Object
+- (void)generateAndReturnDictionary; //returns an NSDicitonary containing all elements of this Resource Object
 - (void)resourceParser:(NSDictionary *)dictionary; //set this resource object from an NSdictionary
 
 @end

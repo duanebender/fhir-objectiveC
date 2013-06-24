@@ -8,6 +8,7 @@
 
 #import "FHIRResource.h"
 #import "FHIRExistanceChecker.h"
+#import "FHIRResourceContained.h"
 
 @implementation FHIRResource
 
@@ -16,6 +17,7 @@
 @synthesize extensions = _extensions;
 @synthesize text = _text;
 @synthesize resourceType = _resourceType;
+@synthesize contained = _contained;
 
 - (id)init
 {
@@ -24,6 +26,7 @@
         _resourceDictionary = [[FHIRResourceDictionary alloc] init];
         _extensions = [[NSMutableArray alloc] init];
         _text = [[FHIRNarrative alloc] init];
+        _contained = [[FHIRResourceContained alloc] init];
     }
     return self;
 }
@@ -204,16 +207,16 @@
     
 }
 
-- (NSDictionary *)generateAndReturnDictionary
+- (void)generateAndReturnDictionary
 {
     _resourceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [FHIRExistanceChecker generateArray:_extensions], @"extension",
                                                     [_text generateAndReturnDictionary], @"text",
                                                     [self returnResourceType], @"type",
+                                                    [FHIRExistanceChecker generateArray:_contained], @"contained",
                                                     nil];
     _resourceDictionary.resourceName = @"Resource";
     [_resourceDictionary cleanUpDictionaryValues];
-    return _resourceDictionary.dataForResource;
 }
 
 - (void)resourceParser:(NSDictionary *)dictionary
@@ -226,11 +229,22 @@
         FHIRExtension *tempS1 = [[FHIRExtension alloc] init];
         [tempS1 extensionParser:[extArray objectAtIndex:i]];
         [_extensions addObject:tempS1];
-        NSLog(@"%@", _extensions);
+        //NSLog(@"%@", _extensions);
     }
     
     [_text narrativeParser:[dictionary objectForKey:@"text"]];
     [self setResouceTypeValue:[dictionary objectForKey:@"type"]];
+    
+    //_contained
+    NSArray *containArray = [[NSArray alloc] initWithArray:[dictionary objectForKey:@"contained"]];
+    _contained = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [containArray count]; i++)
+    {
+        FHIRResourceContained *tempCN = [[FHIRResourceContained alloc] init];
+        [tempCN resourceContainedParser:[containArray objectAtIndex:i]];
+        [_contained addObject:tempCN];
+        NSLog(@"%@", _contained);
+    }
 }
 
 @end

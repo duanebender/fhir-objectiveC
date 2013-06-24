@@ -58,13 +58,34 @@
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
     NSObject *patientJSON = [[NSObject alloc] init];
-    patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
-    NSLog(@"PAtient:%@", patientJSON);
+    patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=json"];//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
+    NSLog(@"PAtientOnline:%@", patientJSON);
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
     [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
+    /*
+    NSObject *patientJSONDesktop = [[NSObject alloc] init];
+    patientJSONDesktop = [jsonDict convertJsonToDictionary:@"/Users/adamsippel/Desktop/Patient.txt"];
+    NSLog(@"PatientDesktop:%@", patientJSONDesktop);
+    
+    NSArray *comparator = [[NSArray alloc] initWithObjects:patientJSON, patientJSONDesktop, nil];
+    
+    NSDictionary *patientOnline = [[NSDictionary alloc] initWithDictionary:[[[comparator objectAtIndex:0] generateAndReturnResourceDictionary] dataForResource]];
+    NSDictionary *patientDesktop = [[NSDictionary alloc] initWithDictionary:[[[comparator objectAtIndex:1] generateAndReturnResourceDictionary] dataForResource]];
+    
+    if ([patientOnline isEqualToDictionary:patientDesktop])
+    {
+        NSLog(@"THEY ARE THE SAME SEE!");
+    }
+    else
+    {
+        NSLog(@"Something is off...");
+    }
+     */
+    
+    /*
     //Organization Test
     JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
     NSObject *orgJSON = [[NSObject alloc] init];
@@ -74,6 +95,7 @@
     //again to .json file
     DictToJSON *jsonORG = [[DictToJSON alloc] init];
     [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/JSON/Organization.txt"];
+    */
     
     /*
     //FIREHOSE!!!!!!
@@ -112,6 +134,7 @@
 
 - (void)testXML
 {
+    /*
     NSLog(@"Beginning FHIRXML tests...");
     
     //code in here
@@ -127,7 +150,7 @@
     
     DictToXML *xmlORG = [[DictToXML alloc] init];
     [xmlORG generateXml:orgXML urlPath:@"/Users/adamsippel/Desktop/Organization.xml"];
-    
+     */
    /*
     NSObject *patientXMLA = [[NSObject alloc] init];
     for (int i = 0; i < 50; i ++)
