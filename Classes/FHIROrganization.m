@@ -53,9 +53,11 @@
     _organizationDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [_active generateAndReturnDictionary], @"active",
                                           [FHIRExistanceChecker generateArray:_name], @"name",
-                                          [_genText generateAndReturnDictionary], @"text", //holds extra generated text
+                                          [_resourceTypeValue.text generateAndReturnDictionary], @"text", //holds extra generated text
                                           [FHIRExistanceChecker generateArray:_telecom], @"telecom",
                                           [FHIRExistanceChecker generateArray:_identifier], @"identifier",
+                                          [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
+                                          [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
                                           [_type generateAndReturnDictionary], @"type",
                                           [FHIRExistanceChecker generateArray:_address], @"address",
                                           [_partOf generateAndReturnDictionary], @"partOf",
@@ -76,6 +78,8 @@
     [_resourceTypeValue setResouceTypeValue:@"organization"];
     NSDictionary *organizationDict = [dictionary objectForKey:@"Organization"];
     //NSLog(@"%@", organizationDict);
+    
+    [_resourceTypeValue resourceParser:organizationDict];
     
     [_active setValueBool:[organizationDict objectForKey:@"active"]];
     
@@ -100,7 +104,6 @@
     }
     
     [_type codeableConceptParser:[organizationDict objectForKey:@"type"]];
-    [_genText textParser:[organizationDict objectForKey:@"text"]];
     
     //_address
     NSArray *addressArray = [[NSArray alloc] initWithArray:[organizationDict objectForKey:@"address"]];

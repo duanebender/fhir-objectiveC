@@ -58,8 +58,11 @@
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
     NSObject *patientJSON = [[NSObject alloc] init];
-    patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=json"];//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
+    patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
     NSLog(@"PAtientOnline:%@", patientJSON);
+    
+    //DictToXML *xml = [[DictToXML alloc] init];
+    //[xml generateXml:patientJSON urlPath:@"/Users/adamsippel/Desktop/PatientJSONtoXML.txt"];
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
@@ -85,7 +88,7 @@
     }
      */
     
-    /*
+
     //Organization Test
     JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
     NSObject *orgJSON = [[NSObject alloc] init];
@@ -94,8 +97,7 @@
     
     //again to .json file
     DictToJSON *jsonORG = [[DictToJSON alloc] init];
-    [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/JSON/Organization.txt"];
-    */
+    [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/Organization.txt"];
     
     /*
     //FIREHOSE!!!!!!
@@ -134,7 +136,7 @@
 
 - (void)testXML
 {
-    /*
+    
     NSLog(@"Beginning FHIRXML tests...");
     
     //code in here
@@ -143,7 +145,8 @@
     
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
-    
+
+    /*
     //organization test
     XMLToDict *xmlDictORG = [[XMLToDict alloc] init];
     NSObject *orgXML = [xmlDictORG convertXmlToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/organization/@1/history/@1?_format=xml"];

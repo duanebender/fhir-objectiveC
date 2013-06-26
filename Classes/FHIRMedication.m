@@ -18,6 +18,7 @@
 @synthesize kind = _kind; //product | package.
 @synthesize package = _package; //Specifies Ingredient / Product / Package.
 @synthesize product = _product; //If is a product.
+@synthesize resourceTypeValue = _resourceTypeValue;
 
 - (id)init
 {
@@ -30,6 +31,7 @@
         _manufacturer = [[FHIRResourceReference alloc] init];
         _package = [[FHIRPackage alloc] init];
         _product = [[FHIRProduct alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
     }
     return self;
 }
@@ -37,7 +39,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"medication";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -49,6 +51,9 @@
                                            [_manufacturer generateAndReturnDictionary], @"manufacturer",
                                            [_package generateAndReturnDictionary], @"package",
                                            [_product generateAndReturnDictionary], @"product",
+                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            nil];
     [_medicationDictionary cleanUpDictionaryValues];
     
@@ -61,8 +66,12 @@
 
 - (void)medicationParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"medication"];
     NSDictionary *medicationDict = [dictionary objectForKey:@"Medication"];
     //NSLog(@"%@", medicationDict);
+    
+    [_resourceTypeValue resourceParser:medicationDict];
+    NSLog(@"%@", medicationDict);
     
     [_name setValueString:[medicationDict objectForKey:@"name"]];
     [_code codeableConceptParser:[medicationDict objectForKey:@"code"]];
