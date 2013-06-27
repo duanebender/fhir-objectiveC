@@ -7,6 +7,8 @@
 //
 
 #import "FHIRResourceDictionary.h"
+#import "FHIRString.h"
+#import "FHIRCode.h"
 
 @implementation FHIRResourceDictionary
 
@@ -35,6 +37,7 @@
         nullCount = 0;
         NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
     
+        //first check through dictionary
         for (NSString* key in tempDict)
         {
             if ([key isEqualToString:@"div"] == FALSE)
@@ -58,6 +61,7 @@
             }
         }
     
+        //final check
         if ([tempDict count] == 0)
         {
             _dataForResource = NULL;
@@ -65,6 +69,23 @@
         }
         
     }
+    
+    //second check through dictionary to be sure
+    NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
+    
+    NSArray *blankKeys = [tempDict allKeysForObject:@""];
+    NSArray *nullKeys = [tempDict allKeysForObject:NULL];
+    NSArray *nullStringKeys = [tempDict allKeysForObject:nil];
+    
+    if ([blankKeys count] > 0 || [nullKeys count] > 0)
+    {
+        [_dataForResource removeObjectsForKeys:blankKeys];
+        [_dataForResource removeObjectsForKeys:nullKeys];
+        [_dataForResource removeObjectsForKeys:nullStringKeys];
+    }
+    
+    NSLog (@"Resource:%@ DATA:%@",_resourceName, _dataForResource);
+    
 }
 
 @end

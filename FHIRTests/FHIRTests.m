@@ -68,6 +68,12 @@
     DictToJSON *json = [[DictToJSON alloc] init];
     [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
+    //Medication
+    NSObject *medicationDict = [[NSObject alloc] init];
+    medicationDict = [jsonDict convertJsonToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/medication/@example/history/@1?_format=json"];
+    
+    [json generateJson:medicationDict urlPath:@"/Users/adamsippel/Desktop/Medication.txt"];
+    
     /*
     NSObject *patientJSONDesktop = [[NSObject alloc] init];
     patientJSONDesktop = [jsonDict convertJsonToDictionary:@"/Users/adamsippel/Desktop/Patient.txt"];

@@ -90,7 +90,7 @@
     //NSLog(@"%@", patient);
     
     [_resourceTypeValue resourceParser:patientDict];
-    NSLog(@"%@", patientDict);
+    //NSLog(@"%@", patientDict);
     
     //_link
     NSArray *linkArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"link"]];

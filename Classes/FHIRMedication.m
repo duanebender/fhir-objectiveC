@@ -32,6 +32,7 @@
         _package = [[FHIRPackage alloc] init];
         _product = [[FHIRProduct alloc] init];
         _resourceTypeValue = [[FHIRResource alloc] init];
+        _kind = [[FHIRCode alloc] init];
     }
     return self;
 }
@@ -48,10 +49,11 @@
                                            [_name generateAndReturnDictionary], @"name",
                                            [_code generateAndReturnDictionary], @"code",
                                            [_isBrand generateAndReturnDictionary], @"isBrand",
+                                           [_kind generateAndReturnDictionary], @"kind",
+                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                           [_product generateAndReturnDictionary], @"product",
                                            [_manufacturer generateAndReturnDictionary], @"manufacturer",
                                            [_package generateAndReturnDictionary], @"package",
-                                           [_product generateAndReturnDictionary], @"product",
-                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
                                            [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
                                            [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            nil];
@@ -71,7 +73,7 @@
     //NSLog(@"%@", medicationDict);
     
     [_resourceTypeValue resourceParser:medicationDict];
-    NSLog(@"%@", medicationDict);
+    //NSLog(@"%@", medicationDict);
     
     [_name setValueString:[medicationDict objectForKey:@"name"]];
     [_code codeableConceptParser:[medicationDict objectForKey:@"code"]];
@@ -79,6 +81,7 @@
     [_manufacturer resourceReferenceParser:[medicationDict objectForKey:@"manufacturer"]];
     [_package packageParser:[medicationDict objectForKey:@"package"]];
     [_product productParser:[medicationDict objectForKey:@"product"]];
+    [_kind setValueCode:[medicationDict objectForKey:@"kind"]];
     
 }
 
