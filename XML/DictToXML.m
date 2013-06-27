@@ -65,6 +65,16 @@
         _currentResource = @"Coverage";
         [self generateXmlStringFromFHIRResourceDictionary:[coverageOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([xmlObject class] == [FHIRMedicationAdministration class])
+    {
+        FHIRMedicationAdministration *medAdminOBJ = [singleObject objectAtIndex:0];
+        _currentResource = @"MedicationAdministration";
+        [self generateXmlStringFromFHIRResourceDictionary:[medAdminOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+    else
+    {
+        NSLog(@"NO OBJECT EXISTS FOR %@ IN THIS LIBRARY.", xmlObject);
+    }
 }
 
 - (void)generateXmlStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)xml urlPath:(NSString *)urlString

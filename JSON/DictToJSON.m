@@ -56,6 +56,15 @@
         FHIRCoverage *coverageOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[coverageOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [FHIRMedicationAdministration class])
+    {
+        FHIRMedicationAdministration *medAdminOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[medAdminOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+    else
+    {
+        NSLog(@"NO OBJECT EXISTS FOR %@ IN THIS LIBRARY.", jsonObject);
+    }
 }
 
 - (void)generateJsonStringFromFHIRResourceDictionary:(FHIRResourceDictionary *)json urlPath:(NSString *)urlString

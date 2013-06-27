@@ -34,7 +34,7 @@
             [stringForXML appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
             tabValue--;
             [stringForXML appendString:[self tabber]];
-            if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
+            if (![INTERNAL_VALUE_STRINGS containsObject:key]) [stringForXML appendString:[NSString stringWithFormat:@"</%@>\n", key]];
         }
         else if ([value isKindOfClass:[NSArray class]])
         {
@@ -46,7 +46,7 @@
         }
         
     }
-    [stringForXML appendString:[NSString stringWithFormat:@"<\\%@>\n", resourceType]];
+    [stringForXML appendString:[NSString stringWithFormat:@"</%@>\n", resourceType]];
     
     return stringForXML;
 }
@@ -67,7 +67,7 @@
             tabValue--;
             [returnString appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
             [returnString appendString:[self tabber]];
-            if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
+            if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"</%@>\n", key]];
         }
         else if ([value isKindOfClass:[NSMutableArray class]] || [value isKindOfClass:[NSArray class]])
         {
@@ -78,7 +78,7 @@
         else if ([key isEqualToString:@"value"])
         {
             [returnString appendString:[self tabber]];
-            [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' \\>\n", element, value]];
+            [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' />\n", element, value]];
         }
         else if ([key isEqualToString:@"div"]) //in case of a div container for the text field
         {
@@ -95,7 +95,7 @@
         }
         else
         {
-            [returnString appendString:[NSString stringWithFormat:@"<%@>%@<\\%@>\n", key, value, key]];
+            [returnString appendString:[NSString stringWithFormat:@"<%@>%@</%@>\n", key, value, key]];
         }
     }
     return returnString;
@@ -122,7 +122,7 @@
             {
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
                 [returnString appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
-                if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", key]];
+                if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"</%@>\n", key]];
             }
             else if ([value isKindOfClass:[NSArray class]])
             {
@@ -131,18 +131,18 @@
             else if ([key isEqualToString:@"value"])
             {
                 [returnString appendString:[self tabber]];
-                [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' \\>\n", element, value]];
+                [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' />\n", element, value]];
             }
             else
             {
-                [returnString appendString:[NSString stringWithFormat:@"<%@>%@<\\%@>\n", key, value, key]];
+                [returnString appendString:[NSString stringWithFormat:@"<%@>%@</%@>\n", key, value, key]];
             }
         }
         if ([tempDictionary count] > 1) //match opening wrapper for closing wrapper
         {
             tabValue--;
             [returnString appendString:[self tabber]];
-            [returnString appendString:[NSString stringWithFormat:@"<\\%@>\n", element]];
+            [returnString appendString:[NSString stringWithFormat:@"</%@>\n", element]];
         }
     }
     return returnString;

@@ -68,28 +68,35 @@
         FHIRAllergyIntolerance *allergyIntolleranceOBJ = [[FHIRAllergyIntolerance alloc] init];
         [allergyIntolleranceOBJ allergyIntoleranceParser:xmlDict];
         return allergyIntolleranceOBJ;
-        //NSLog(@"alertXML ************** %@", allergyIntoleranceOBJ);
+        //NSLog(@"allergyIntollerenceXML ************** %@", allergyIntoleranceOBJ);
     }
     else if ([xmlDict objectForKey:@"CarePlan"])
     {
         FHIRCarePlan *carePlanOBJ = [[FHIRCarePlan alloc] init];
         [carePlanOBJ carePlanParser:xmlDict];
         return carePlanOBJ;
-        //NSLog(@"alertXML ************** %@", carePlanOBJ);
+        //NSLog(@"carePlanXML ************** %@", carePlanOBJ);
     }
     else if ([xmlDict objectForKey:@"Medication"])
     {
         FHIRMedication *medicationOBJ = [[FHIRMedication alloc] init];
         [medicationOBJ medicationParser:xmlDict];
         return medicationOBJ;
-        //NSLog(@"alertXML ************** %@", medicationOBJ);
+        //NSLog(@"medicationXML ************** %@", medicationOBJ);
     }
     else if ([xmlDict objectForKey:@"Coverage"])
     {
         FHIRCoverage *coverageOBJ = [[FHIRCoverage alloc] init];
         [coverageOBJ coverageParser:xmlDict];
         return coverageOBJ;
-        //NSLog(@"alertXML ************** %@", coverageOBJ);
+        //NSLog(@"coverageXML ************** %@", coverageOBJ);
+    }
+    else if ([xmlDict objectForKey:@"MedicationAdministration"])
+    {
+        FHIRMedicationAdministration *medAdminOBJ = [[FHIRMedicationAdministration alloc] init];
+        [medAdminOBJ medicationAdministrationParser:xmlDict];
+        return medAdminOBJ;
+        //NSLog(@"medicationAdministrationXML ************** %@", medAdminOBJ);
     }
     else
     {
