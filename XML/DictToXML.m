@@ -71,6 +71,12 @@
         _currentResource = @"MedicationAdministration";
         [self generateXmlStringFromFHIRResourceDictionary:[medAdminOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([xmlObject class] == [FHIRMedicationDispense class])
+    {
+        FHIRMedicationDispense *medDisOBJ = [singleObject objectAtIndex:0];
+        _currentResource = @"MedicationDispense";
+        [self generateXmlStringFromFHIRResourceDictionary:[medDisOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
     else
     {
         NSLog(@"NO OBJECT EXISTS FOR %@ IN THIS LIBRARY.", xmlObject);

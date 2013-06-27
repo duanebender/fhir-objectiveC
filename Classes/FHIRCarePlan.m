@@ -11,6 +11,7 @@
 @implementation FHIRCarePlan
 
 @synthesize carePlanDictionary = _carePlanDictionary; //a dictionary containing all resources in this carePlan object
+@synthesize resourceTypeValue = _resourceTypeValue;
 @synthesize identifier = _identifier; //Unique identifier by which the care plan is known in different business contexts.
 @synthesize patient = _patient; //Identifies the patient/subject whose intended care is described by the plan.
 @synthesize status = _status; //Indicates whether the plan is currently being acted upon, represents future intentions or is now just historical record.
@@ -27,6 +28,7 @@
     self = [super init];
     if (self) {
         _carePlanDictionary = [[FHIRResourceDictionary alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
         _identifier = [[FHIRIdentifier alloc] init];
         _patient = [[FHIRResourceReference alloc] init];
         _status = [[FHIRCode alloc] init];
@@ -44,7 +46,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"carePlan";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -60,6 +62,9 @@
                                                      [FHIRExistanceChecker generateArray:_activity], @"activity",
                                                      [FHIRExistanceChecker generateArray:_goal], @"goal",
                                                      [_notes generateAndReturnDictionary], @"notes",
+                                                     [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                                     [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                                     [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                                      nil];
     [_carePlanDictionary cleanUpDictionaryValues];
     
@@ -72,8 +77,11 @@
 
 - (void)carePlanParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"carePlan"];
     NSDictionary *carePlanDict = [dictionary objectForKey:@"CarePlan"];
     //NSLog(@"%@", carePlanDict);
+    
+    [_resourceTypeValue resourceParser:carePlanDict];
     
     [_identifier identifierParser:[carePlanDict objectForKey:@"identifier"]];
     [_patient resourceReferenceParser:[carePlanDict objectForKey:@"patient"]];

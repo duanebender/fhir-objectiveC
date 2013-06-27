@@ -19,6 +19,7 @@
 @interface FHIRAdverseReaction : FHIRResource
 
 @property (nonatomic, retain) FHIRResourceDictionary *adverseReactionDictionary; //a dictionary containing all resources in this adverse reaction object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the AdverseReaction Object that can be influenced Individually
 @property (nonatomic, retain) NSDate *reactionDate; //contains the initial date of the reaction

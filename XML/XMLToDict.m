@@ -98,6 +98,13 @@
         return medAdminOBJ;
         //NSLog(@"medicationAdministrationXML ************** %@", medAdminOBJ);
     }
+    else if ([xmlDict objectForKey:@"MedicationDispense"])
+    {
+        FHIRMedicationDispense *medDisOBJ = [[FHIRMedicationDispense alloc] init];
+        [medDisOBJ medicationDispenseParser:xmlDict];
+        return medDisOBJ;
+        //NSLog(@"medicationDispenseXML ************** %@", medDisOBJ);
+    }
     else
     {
         return nil;

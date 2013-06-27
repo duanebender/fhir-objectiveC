@@ -20,6 +20,7 @@
 @interface FHIRCarePlan : FHIRResource
 
 @property (nonatomic, retain) FHIRResourceDictionary *carePlanDictionary; //a dictionary containing all resources in this carePlan object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the Care Plan Object that can be influenced Individually
 @property (nonatomic, retain) FHIRIdentifier *identifier; //Unique identifier by which the care plan is known in different business contexts.

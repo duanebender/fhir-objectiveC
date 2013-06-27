@@ -13,6 +13,7 @@
 @interface FHIRAllergyIntolerance : FHIRResource
 
 @property (nonatomic, retain) FHIRResourceDictionary *allergyIntoleranceDictionary; //a dictionary containing all resources in this alleryIntolerance object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the Allery Intolerance Object that can be influenced Individually
 @property (nonatomic, retain) FHIRIdentifier *identifier; //An external identifier for the sensitivity

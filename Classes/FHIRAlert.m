@@ -11,6 +11,7 @@
 @implementation FHIRAlert
 
 @synthesize alertDictionary = _alertDictionary; //a dictionary containing all resources in this alert object
+@synthesize resourceTypeValue = _resourceTypeValue;
 @synthesize category = _category; //Allows an alert to be divided int different categories like clinical, administartive etc.
 @synthesize status = _status; //Supports basic workflow
 @synthesize subject = _subject; //The person who this alert concerns (Patient)
@@ -22,6 +23,7 @@
     self = [super init];
     if (self) {
         _alertDictionary = [[FHIRResourceDictionary alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
         _category = [[FHIRCodeableConcept alloc] init];
         _status = [[FHIRCode alloc] init];
         _subject = [[FHIRResourceReference alloc] init];
@@ -34,7 +36,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"alert";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -45,6 +47,9 @@
                                                   [_subject generateAndReturnDictionary], @"subject",
                                                   [_author generateAndReturnDictionary], @"author",
                                                   [_note generateAndReturnDictionary], @"note",
+                                                  [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                                  [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                                  [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                                   nil];
     [_alertDictionary cleanUpDictionaryValues];
     
@@ -57,8 +62,11 @@
 
 - (void)alertParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"alert"];
     NSDictionary *alertDict = [dictionary objectForKey:@"Alert"];
     //NSLog(@"%@", alertDict);
+    
+    [_resourceTypeValue resourceParser:alertDict];
     
     [_category codeableConceptParser:[alertDict objectForKey:@"category"]];
     [_status setValueCode:[alertDict objectForKey:@"status"]];

@@ -98,6 +98,13 @@
         return medAdminOBJ;
         //NSLog(@"medicationAdministrationJSON ************** %@", medAdminOBJ);
     }
+    else if ([jsonDict objectForKey:@"MedicationDispense"])
+    {
+        FHIRMedicationDispense *medDisOBJ = [[FHIRMedicationDispense alloc] init];
+        [medDisOBJ medicationDispenseParser:jsonDict];
+        return medDisOBJ;
+        //NSLog(@"medicationDispenseJSON ************** %@", medAdminOBJ);
+    }
     else
     {
         return nil;

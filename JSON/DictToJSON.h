@@ -17,6 +17,7 @@
 #import "FHIRMedication.h"
 #import "FHIRCoverage.h"
 #import "FHIRMedicationAdministration.h"
+#import "FHIRMedicationDispense.h"
 
 @interface DictToJSON : NSObject
 

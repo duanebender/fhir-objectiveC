@@ -19,6 +19,7 @@
 @interface FHIRCoverage : FHIRResource
 
 @property (nonatomic, retain) FHIRResourceDictionary *coverageDictionary; //a dictionary containing all resources in this coverage object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the Coverage Object that can be influenced Individually
 @property (nonatomic, retain) FHIRResourceReference *issuer; //The program or plan underwriter or payor.

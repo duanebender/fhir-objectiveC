@@ -18,6 +18,7 @@
 @interface FHIRAlert : FHIRResource
 
 @property (nonatomic, retain) FHIRResourceDictionary *alertDictionary; //a dictionary containing all resources in this alert object
+@property (nonatomic, retain) FHIRResource *resourceTypeValue; //holds resource type, text, name, and extensions of this resource
 
 //following properties are individual parts of the Alert Object that can be influenced Individually
 @property (nonatomic, retain) FHIRCodeableConcept *category; //Allows an alert to be divided int different categories like clinical, administartive etc.

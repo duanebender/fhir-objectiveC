@@ -11,6 +11,7 @@
 @implementation FHIRCoverage
 
 @synthesize coverageDictionary = _coverageDictionary; //a dictionary containing all resources in this coverage object
+@synthesize resourceTypeValue = _resourceTypeValue;
 @synthesize issuer = _issuer; //The program or plan underwriter or payor.
 @synthesize period = _period; //Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
 @synthesize type = _type; //The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
@@ -44,7 +45,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"coverage";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -60,6 +61,7 @@
                                              [_dependent stringValue], @"dependent",
                                              [_sequence stringValue], @"sequence",
                                              [_subscriber generateAndReturnDictionary], @"subscriber",
+                                             [_resourceTypeValue.text generateAndReturnDictionary], @"text",
                                              nil];
     [_coverageDictionary cleanUpDictionaryValues];
     
@@ -72,8 +74,11 @@
 
 - (void)coverageParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"coverage"];
     NSDictionary *coverageDict = [dictionary objectForKey:@"Coverage"];
     //NSLog(@"%@", coverageDict);
+    
+    [_resourceTypeValue resourceParser:coverageDict];
     
     [_issuer resourceReferenceParser:[coverageDict objectForKey:@"issuer"]];
     [_period periodParser:[coverageDict objectForKey:@"period"]];

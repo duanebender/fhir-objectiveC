@@ -15,6 +15,7 @@
 @implementation FHIRAllergyIntolerance
 
 @synthesize allergyIntoleranceDictionary = _allergyIntoleranceDictionary; //a dictionary containing all resources in this alleryIntolerance object
+@synthesize resourceTypeValue = _resourceTypeValue;
 @synthesize identifier = _identifier; //An external identifier for the sensitivity
 @synthesize criticality = _criticality; //Criticality of the sensitivity
 @synthesize sensitivityType = _sensitivityType; //Type of the sensitivity
@@ -31,6 +32,7 @@
     self = [super init];
     if (self) {
         _allergyIntoleranceDictionary = [[FHIRResourceDictionary alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
         _identifier = [[FHIRIdentifier alloc] init];
         _criticality = [[FHIRCode alloc] init];
         _sensitivityType = [[FHIRCode alloc] init];
@@ -48,7 +50,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"allergyIntolerance";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -64,6 +66,9 @@
                                         [_substance generateAndReturnDictionary], @"substance",
                                         [FHIRExistanceChecker generateArray:_reactions], @"reactions",
                                         [FHIRExistanceChecker generateArray:_sensitivityTest], @"sensitivityTest",
+                                        [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                        [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                        [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                         nil];
     [_allergyIntoleranceDictionary cleanUpDictionaryValues];
     
@@ -76,8 +81,11 @@
 
 - (void)allergyIntoleranceParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"allergyIntollerence"];
     NSDictionary *alIntolDict = [dictionary objectForKey:@"AllergyIntollerance"];
     //NSLog(@"%@", alIntolDict);
+    
+    [_resourceTypeValue resourceParser:alIntolDict];
     
     [_identifier identifierParser:[alIntolDict objectForKey:@"identifier"]];
     [_criticality setValueCode:[alIntolDict objectForKey:@"criticality"]];

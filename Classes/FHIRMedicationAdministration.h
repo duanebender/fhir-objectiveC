@@ -34,7 +34,7 @@
 @property (nonatomic, strong) NSMutableArray *dosage; //THIS ARRAY CONTAINS "Dosage" OBJECTS ONLY. Indicates how the medication is to be used by the patient.
 
 //Public Methods
-- (NSString *)getResourceType; //override method. Returns integer of specified type, in this case Organization
+- (NSString *)getResourceType; //override method. Returns integer of specified type, in this case MedicationAdministration
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary; //returns a dictionary of all resources from medicationAdministration in an NSdictionary format
 
 - (void)medicationAdministrationParser:(NSDictionary *)dictionary; //parses incoming dictionaries back into an medicationAdministration object

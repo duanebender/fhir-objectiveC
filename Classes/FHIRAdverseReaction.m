@@ -11,6 +11,7 @@
 @implementation FHIRAdverseReaction
 
 @synthesize adverseReactionDictionary = _adverseReactionDictionary; //a dictionary containing all resources in this adverse reaction object
+@synthesize resourceTypeValue = _resourceTypeValue;
 @synthesize reactionDate = _reactionDate; //contains the initial date of the reaction
 @synthesize subject = _subject; //The subject that the sensitivity is about.
 @synthesize didNotOccurFlag = _didNotOccurFlag; //
@@ -29,6 +30,7 @@
         _recorder = [[FHIRResourceReference alloc] init];
         _symptom = [[NSMutableArray alloc] init];
         _exposure = [[NSMutableArray alloc] init];
+        _resourceTypeValue = [[FHIRResource alloc] init];
     }
     return self;
 }
@@ -36,7 +38,7 @@
 //override method
 - (NSString *)getResourceType
 {
-    return @"adverseReaction";
+    return [_resourceTypeValue returnResourceType];
 }
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
@@ -48,6 +50,9 @@
                                                [_recorder generateAndReturnDictionary], @"recorder",
                                                [FHIRExistanceChecker generateArray:_symptom], @"symptom",
                                                [FHIRExistanceChecker generateArray:_exposure], @"exposure",
+                                               [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                               [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                               [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                                nil];
     [_adverseReactionDictionary cleanUpDictionaryValues];
     
@@ -60,8 +65,11 @@
 
 - (void)adverseReactionParser:(NSDictionary *)dictionary
 {
+    [_resourceTypeValue setResouceTypeValue:@"adverseReaction"];
     NSDictionary *adReactionDict = [dictionary objectForKey:@"AdverseReaction"];
     //NSLog(@"%@", adReactionDict);
+    
+    [_resourceTypeValue resourceParser:adReactionDict];
     
     _reactionDate = [FHIRExistanceChecker generateDateTimeFromString:[adReactionDict objectForKey:@"reactionDate"]];
     [_subject resourceReferenceParser:[adReactionDict objectForKey:@"subject"]];

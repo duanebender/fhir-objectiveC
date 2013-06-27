@@ -68,6 +68,12 @@
 		89478A35177C89A8001FDDB7 /* FHIRMedicationAdministration.m in Sources */ = {isa = PBXBuildFile; fileRef = 89478A33177C89A8001FDDB7 /* FHIRMedicationAdministration.m */; };
 		89478A38177C8D75001FDDB7 /* FHIRDosage.h in Headers */ = {isa = PBXBuildFile; fileRef = 89478A36177C8D75001FDDB7 /* FHIRDosage.h */; };
 		89478A39177C8D75001FDDB7 /* FHIRDosage.m in Sources */ = {isa = PBXBuildFile; fileRef = 89478A37177C8D75001FDDB7 /* FHIRDosage.m */; };
+		89478A3C177CB7D5001FDDB7 /* FHIRMedicationDispense.h in Headers */ = {isa = PBXBuildFile; fileRef = 89478A3A177CB7D4001FDDB7 /* FHIRMedicationDispense.h */; };
+		89478A3D177CB7D5001FDDB7 /* FHIRMedicationDispense.m in Sources */ = {isa = PBXBuildFile; fileRef = 89478A3B177CB7D5001FDDB7 /* FHIRMedicationDispense.m */; };
+		89478A40177CBB38001FDDB7 /* FHIRDispense.h in Headers */ = {isa = PBXBuildFile; fileRef = 89478A3E177CBB38001FDDB7 /* FHIRDispense.h */; };
+		89478A41177CBB38001FDDB7 /* FHIRDispense.m in Sources */ = {isa = PBXBuildFile; fileRef = 89478A3F177CBB38001FDDB7 /* FHIRDispense.m */; };
+		89478A44177CCD12001FDDB7 /* FHIRSubstitution.h in Headers */ = {isa = PBXBuildFile; fileRef = 89478A42177CCD12001FDDB7 /* FHIRSubstitution.h */; };
+		89478A45177CCD12001FDDB7 /* FHIRSubstitution.m in Sources */ = {isa = PBXBuildFile; fileRef = 89478A43177CCD12001FDDB7 /* FHIRSubstitution.m */; };
 		8949362817578DD4009F09AB /* FHIRAllergyIntolerance.h in Headers */ = {isa = PBXBuildFile; fileRef = 8949362617578DD4009F09AB /* FHIRAllergyIntolerance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8949362917578DD4009F09AB /* FHIRAllergyIntolerance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8949362717578DD4009F09AB /* FHIRAllergyIntolerance.m */; };
 		895AE6B41754E01F005A6D7A /* FHIROrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = 895AE6B21754E01F005A6D7A /* FHIROrganization.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -272,6 +278,12 @@
 		89478A33177C89A8001FDDB7 /* FHIRMedicationAdministration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRMedicationAdministration.m; path = Classes/FHIRMedicationAdministration.m; sourceTree = SOURCE_ROOT; };
 		89478A36177C8D75001FDDB7 /* FHIRDosage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRDosage.h; path = Subclasses/FHIRDosage.h; sourceTree = SOURCE_ROOT; };
 		89478A37177C8D75001FDDB7 /* FHIRDosage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRDosage.m; path = Subclasses/FHIRDosage.m; sourceTree = SOURCE_ROOT; };
+		89478A3A177CB7D4001FDDB7 /* FHIRMedicationDispense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRMedicationDispense.h; path = Classes/FHIRMedicationDispense.h; sourceTree = SOURCE_ROOT; };
+		89478A3B177CB7D5001FDDB7 /* FHIRMedicationDispense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRMedicationDispense.m; path = Classes/FHIRMedicationDispense.m; sourceTree = SOURCE_ROOT; };
+		89478A3E177CBB38001FDDB7 /* FHIRDispense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRDispense.h; path = Subclasses/FHIRDispense.h; sourceTree = SOURCE_ROOT; };
+		89478A3F177CBB38001FDDB7 /* FHIRDispense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRDispense.m; path = Subclasses/FHIRDispense.m; sourceTree = SOURCE_ROOT; };
+		89478A42177CCD12001FDDB7 /* FHIRSubstitution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRSubstitution.h; path = Subclasses/FHIRSubstitution.h; sourceTree = SOURCE_ROOT; };
+		89478A43177CCD12001FDDB7 /* FHIRSubstitution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRSubstitution.m; path = Subclasses/FHIRSubstitution.m; sourceTree = SOURCE_ROOT; };
 		8949362617578DD4009F09AB /* FHIRAllergyIntolerance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRAllergyIntolerance.h; path = Classes/FHIRAllergyIntolerance.h; sourceTree = SOURCE_ROOT; };
 		8949362717578DD4009F09AB /* FHIRAllergyIntolerance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRAllergyIntolerance.m; path = Classes/FHIRAllergyIntolerance.m; sourceTree = SOURCE_ROOT; };
 		895AE6B21754E01F005A6D7A /* FHIROrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIROrganization.h; path = Classes/FHIROrganization.h; sourceTree = SOURCE_ROOT; };
@@ -375,6 +387,8 @@
 				893C446B175FC518005639F2 /* FHIRCoverage.m */,
 				89478A32177C89A8001FDDB7 /* FHIRMedicationAdministration.h */,
 				89478A33177C89A8001FDDB7 /* FHIRMedicationAdministration.m */,
+				89478A3A177CB7D4001FDDB7 /* FHIRMedicationDispense.h */,
+				89478A3B177CB7D5001FDDB7 /* FHIRMedicationDispense.m */,
 			);
 			name = "Resources (Classes)";
 			sourceTree = "<group>";
@@ -420,6 +434,10 @@
 				89ADE3BF176FA1DC003FDCAB /* FHIRContactEntity.m */,
 				89478A36177C8D75001FDDB7 /* FHIRDosage.h */,
 				89478A37177C8D75001FDDB7 /* FHIRDosage.m */,
+				89478A3E177CBB38001FDDB7 /* FHIRDispense.h */,
+				89478A3F177CBB38001FDDB7 /* FHIRDispense.m */,
+				89478A42177CCD12001FDDB7 /* FHIRSubstitution.h */,
+				89478A43177CCD12001FDDB7 /* FHIRSubstitution.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -707,6 +725,9 @@
 				89898F2E17789BBF00F24F59 /* FHIRDate.h in Headers */,
 				89478A34177C89A8001FDDB7 /* FHIRMedicationAdministration.h in Headers */,
 				89478A38177C8D75001FDDB7 /* FHIRDosage.h in Headers */,
+				89478A3C177CB7D5001FDDB7 /* FHIRMedicationDispense.h in Headers */,
+				89478A40177CBB38001FDDB7 /* FHIRDispense.h in Headers */,
+				89478A44177CCD12001FDDB7 /* FHIRSubstitution.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +899,9 @@
 				89898F2F17789BBF00F24F59 /* FHIRDate.m in Sources */,
 				89478A35177C89A8001FDDB7 /* FHIRMedicationAdministration.m in Sources */,
 				89478A39177C8D75001FDDB7 /* FHIRDosage.m in Sources */,
+				89478A3D177CB7D5001FDDB7 /* FHIRMedicationDispense.m in Sources */,
+				89478A41177CBB38001FDDB7 /* FHIRDispense.m in Sources */,
+				89478A45177CCD12001FDDB7 /* FHIRSubstitution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
