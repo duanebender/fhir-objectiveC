@@ -105,6 +105,13 @@
         return medDisOBJ;
         //NSLog(@"medicationDispenseXML ************** %@", medDisOBJ);
     }
+    else if ([xmlDict objectForKey:@"MedicationPrescription"])
+    {
+        FHIRMedicationPrescription *medPresOBJ = [[FHIRMedicationPrescription alloc] init];
+        [medPresOBJ medicationPrescriptionParser:xmlDict];
+        return medPresOBJ;
+        //NSLog(@"medicationPrescriptionXML ************** %@", medPresOBJ);
+    }
     else
     {
         return nil;

@@ -21,3 +21,4 @@
 #import "FHIRCoverage.h"
 #import "FHIRMedicationAdministration.h"
 #import "FHIRMedicationDispense.h"
+#import "FHIRMedicationPrescription.h"

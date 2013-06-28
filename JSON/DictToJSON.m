@@ -61,10 +61,15 @@
         FHIRMedicationAdministration *medAdminOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[medAdminOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
-    else if ([jsonObject class] == [FHIRMedicationAdministration class])
+    else if ([jsonObject class] == [FHIRMedicationDispense class])
     {
         FHIRMedicationDispense *medDisOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[medDisOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
+    else if ([jsonObject class] == [FHIRMedicationPrescription class])
+    {
+        FHIRMedicationPrescription *medPresOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[medPresOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
     else
     {

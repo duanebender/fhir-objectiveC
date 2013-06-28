@@ -103,7 +103,14 @@
         FHIRMedicationDispense *medDisOBJ = [[FHIRMedicationDispense alloc] init];
         [medDisOBJ medicationDispenseParser:jsonDict];
         return medDisOBJ;
-        //NSLog(@"medicationDispenseJSON ************** %@", medAdminOBJ);
+        //NSLog(@"medicationDispenseJSON ************** %@", medDisOBJ);
+    }
+    else if ([jsonDict objectForKey:@"MedicationPrescription"])
+    {
+        FHIRMedicationPrescription *medPresOBJ = [[FHIRMedicationPrescription alloc] init];
+        [medPresOBJ medicationPrescriptionParser:jsonDict];
+        return medPresOBJ;
+        //NSLog(@"medicationPrescriptionJSON ************** %@", medPresOBJ);
     }
     else
     {

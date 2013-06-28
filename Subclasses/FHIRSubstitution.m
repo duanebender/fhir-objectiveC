@@ -39,7 +39,7 @@
     return _substitutionDictionary.dataForResource;
 }
 
-- (void)subsitutionParser:(NSDictionary *)dictionary
+- (void)substitutionParser:(NSDictionary *)dictionary
 {
     [_type codeableConceptParser:[dictionary objectForKey:@"type"]];
     
