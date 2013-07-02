@@ -112,6 +112,13 @@
         return medPresOBJ;
         //NSLog(@"medicationPrescriptionJSON ************** %@", medPresOBJ);
     }
+    else if ([jsonDict objectForKey:@"MedicationStatement"])
+    {
+        FHIRMedicationStatement *medStateOBJ = [[FHIRMedicationStatement alloc] init];
+        [medStateOBJ medicationStatementParser:jsonDict];
+        return medStateOBJ;
+        //NSLog(@"medicationStatementJSON ************** %@", medStateOBJ);
+    }
     else
     {
         return nil;

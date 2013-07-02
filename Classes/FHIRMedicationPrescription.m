@@ -53,7 +53,7 @@
 
 - (FHIRResourceDictionary *)generateAndReturnResourceDictionary
 {
-    //find multipleBirth type to set for xml tag
+    //find reasonForPrescribing type to set for xml tag
     NSString *reasonPrescribeTagString = [[NSString alloc] init];
     if ([_reasonForPrescribingX count] == 1)
     {

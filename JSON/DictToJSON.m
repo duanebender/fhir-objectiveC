@@ -71,6 +71,11 @@
         FHIRMedicationPrescription *medPresOBJ = [singleObject objectAtIndex:0];
         [self generateJsonStringFromFHIRResourceDictionary:[medPresOBJ generateAndReturnResourceDictionary] urlPath:urlString];
     }
+    else if ([jsonObject class] == [FHIRMedicationStatement class])
+    {
+        FHIRMedicationStatement *medStateOBJ = [singleObject objectAtIndex:0];
+        [self generateJsonStringFromFHIRResourceDictionary:[medStateOBJ generateAndReturnResourceDictionary] urlPath:urlString];
+    }
     else
     {
         NSLog(@"NO OBJECT EXISTS FOR %@ IN THIS LIBRARY.", jsonObject);
