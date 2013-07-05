@@ -10,7 +10,8 @@
  * Indicates whether or not substitution was made as part of the dispense. In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen. This block explains what substitition did or did not happen and why.
  */
 
-#import "FHIR.h"
+#import <Foundation/Foundation.h>
+#import "FHIRCodeableConcept.h"
 
 @interface FHIRSubstitution : FHIRType
 

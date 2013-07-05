@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#import "FHIR.h"
+#import <Foundation/Foundation.h>
+#import "FHIRType.h"
 
 @interface FHIRInteger : FHIRType
 

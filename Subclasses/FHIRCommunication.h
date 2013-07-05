@@ -1,5 +1,5 @@
 //
-//  Language.h
+//  Communication.h
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-02-11.
@@ -14,7 +14,7 @@
 #import "FHIRCodeableConcept.h"
 #import "FHIRBool.h"
 
-@interface FHIRLanguage : FHIRElement
+@interface FHIRCommunication : FHIRElement
 
 @property (nonatomic, retain) FHIRResourceDictionary *languageDictionary; //holds all language resources
 
@@ -26,6 +26,6 @@
 
 //Public Methods
 - (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this Language Object
-- (void)languageParser:(NSDictionary *)dictionary; //set this language object from an NSdictionary
+- (void)communicationParser:(NSDictionary *)dictionary; //set this language object from an NSdictionary
 
 @end

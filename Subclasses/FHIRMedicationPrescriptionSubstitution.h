@@ -10,7 +10,8 @@
  * Indicates whether or not substitution can or should as part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescribers intent. If nothing is specified substitution may be done.
  */
 
-#import "FHIR.h"
+#import <Foundation/Foundation.h>
+#import "FHIRCodeableConcept.h"
 
 @interface FHIRMedicationPrescriptionSubstitution : FHIRType
 

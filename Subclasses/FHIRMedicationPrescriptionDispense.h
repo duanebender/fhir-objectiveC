@@ -10,8 +10,10 @@
  * Deals with details of the dispense part of the order.
  */
 
-#import "FHIR.h"
+#import <Foundation/Foundation.h>
 #import "FHIRInteger.h"
+#import "FHIRPeriod.h"
+#import "FHIRQuantity.h"
 
 @interface FHIRMedicationPrescriptionDispense : FHIRType
 

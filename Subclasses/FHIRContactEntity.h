@@ -10,7 +10,12 @@
  * Contact for the organization for a certain purpose.
  */
 
-#import "FHIR.h"
+#import <Foundation/Foundation.h>
+#import "FHIRExistanceChecker.h"
+#import "FHIRHumanName.h"
+#import "FHIRCodeableConcept.h"
+#import "FHIRAddress.h"
+#import "FHIRContact.h"
 
 @interface FHIRContactEntity : FHIRType
 

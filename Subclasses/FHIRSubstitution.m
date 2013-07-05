@@ -7,6 +7,7 @@
 //
 
 #import "FHIRSubstitution.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRSubstitution
 

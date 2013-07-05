@@ -1,14 +1,14 @@
 //
-//  Language.m
+//  Communication.m
 //  FHIR
 //
 //  Created by Adam Sippel on 2013-02-11.
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
-#import "FHIRLanguage.h"
+#import "FHIRCommunication.h"
 
-@implementation FHIRLanguage
+@implementation FHIRCommunication
 
 @synthesize languageDictionary = _languageDictionary;
 
@@ -43,7 +43,7 @@
     return _languageDictionary.dataForResource;
 }
 
-- (void)languageParser:(NSDictionary *)dictionary
+- (void)communicationParser:(NSDictionary *)dictionary
 {
     [_language codeableConceptParser:[dictionary objectForKey:@"language"]];
     [_mode codeableConceptParser:[dictionary objectForKey:@"mode"]];
