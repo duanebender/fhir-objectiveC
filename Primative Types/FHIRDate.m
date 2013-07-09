@@ -15,7 +15,7 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     NSDateFormatter *FHIRFormat = [[NSDateFormatter alloc] init];
-    [FHIRFormat setDateFormat:@"yyyyy-MM-dd"];
+    [FHIRFormat setDateFormat:@"yyyy-MM-dd"];
     NSDictionary *dateDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[FHIRFormat stringFromDate:_value], @"value", nil];
     return dateDictionary;
 }
@@ -23,7 +23,7 @@
 - (void)setValueDate:(NSDictionary *)dictionary
 {
     NSDateFormatter *FHIRFormat = [[NSDateFormatter alloc] init];
-    [FHIRFormat setDateFormat:@"yyyyy-MM-dd"];
+    [FHIRFormat setDateFormat:@"yyyy-MM-dd"];
     _value = [[NSDate alloc] init];
     _value = [FHIRFormat dateFromString:[dictionary objectForKey:@"value"]];
 }

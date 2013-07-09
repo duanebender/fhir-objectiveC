@@ -54,12 +54,13 @@
 - (void)testJSON
 {
     NSLog(@"Beginning FHIRJSON tests...");
-     
+    
+    [self testBase64];
+    
     //return back to patient
     JSONToDict *jsonDict = [[JSONToDict alloc] init];
     NSObject *patientJSON = [[NSObject alloc] init];
     patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
-    NSLog(@"PAtientOnline:%@", patientJSON);
     
     //DictToXML *xml = [[DictToXML alloc] init];
     //[xml generateXml:patientJSON urlPath:@"/Users/adamsippel/Desktop/PatientJSONtoXML.txt"];
@@ -68,12 +69,13 @@
     DictToJSON *json = [[DictToJSON alloc] init];
     [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
     
+    /*
     //Medication
     NSObject *medicationDict = [[NSObject alloc] init];
     medicationDict = [jsonDict convertJsonToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/medication/@example/history/@1?_format=json"];
     
     [json generateJson:medicationDict urlPath:@"/Users/adamsippel/Desktop/Medication.txt"];
-    
+    */
     /*
     NSObject *patientJSONDesktop = [[NSObject alloc] init];
     patientJSONDesktop = [jsonDict convertJsonToDictionary:@"/Users/adamsippel/Desktop/Patient.txt"];
@@ -94,7 +96,7 @@
     }
      */
     
-
+/*
     //Organization Test
     JSONToDict *jsonDictORG = [[JSONToDict alloc] init];
     NSObject *orgJSON = [[NSObject alloc] init];
@@ -104,7 +106,7 @@
     //again to .json file
     DictToJSON *jsonORG = [[DictToJSON alloc] init];
     [jsonORG generateJson:orgJSON urlPath:@"/Users/adamsippel/Desktop/Organization.txt"];
-    
+ */   
     /*
     //FIREHOSE!!!!!!
     
@@ -147,7 +149,8 @@
     
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
-    NSObject *patientXML = [xmlDict convertXmlToDictionary:@"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=xml"];
+    NSObject *patientXML = [[NSObject alloc] init];
+    patientXML = [xmlDict convertXmlToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.xml"];
     
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
@@ -180,6 +183,26 @@
 
 }
 
+- (void)testBase64
+{
+    NSLog(@"Beginning FHIRBASE64 tests...");
+    /*
+    Base64Binary *base64Test = [[Base64Binary alloc] init];
+    
+    NSString *stringOfDuckyImageEncoded = @"R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7";
+    
+    NSData *imageData = [base64Test decodeBase64String:stringOfDuckyImageEncoded];
+    [imageData writeToFile:@"/Users/adamsippel/Desktop/PatientImage.png" atomically:YES];
+    
+    //now test encoder to decoders through
+    Base64Binary *base64Test2 = [[Base64Binary alloc] init];
+    
+    NSString *imageBase64EncodedString = [base64Test2 encodeDataToBase64String:[NSData dataWithContentsOfFile:@"/Users/adamsippel/Desktop/creeperwall.png"]];
+    
+    NSData *imageData2 = [base64Test decodeBase64String:imageBase64EncodedString];
+    [imageData2 writeToFile:@"/Users/adamsippel/Desktop/TestImageDecoded.png" atomically:YES];
+     */
+}
 
 
 @end

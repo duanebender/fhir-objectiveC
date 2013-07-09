@@ -9,6 +9,7 @@
 #import "FHIRPatient.h"
 #import "FHIRCommunication.h"
 #import "FHIRAttachment.h"
+#import "FHIRResourceContained.h"
 
 @implementation FHIRPatient:FHIRResource
 
@@ -42,7 +43,7 @@
         _name = [[NSMutableArray alloc] init];
         _telecom = [[NSMutableArray alloc] init];
         _gender = [[FHIRCodeableConcept alloc] init];
-        _birthDate = [[NSDate alloc] init];
+        _birthDate = [[FHIRDate alloc] init];
         _deceasedX = [[NSArray alloc] init];
         _address = [[NSMutableArray alloc] init];
         _maritalStatus = [[FHIRCodeableConcept alloc] init];
@@ -85,24 +86,25 @@
     
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                            [_active generateAndReturnDictionary], @"active",
-                                           [FHIRExistanceChecker generateArray:_identifier], @"identifier",
                                            [FHIRExistanceChecker generateArray:_name], @"name",
-                                           [FHIRExistanceChecker generateArray:_telecom], @"telecom",
+                                           [FHIRExistanceChecker generateArray:_identifier], @"identifier",
                                            [_gender generateAndReturnDictionary], @"gender",
-                                           [NSDateFormatter localizedStringFromDate:_birthDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"birthDate",
                                            [FHIRExistanceChecker checkEmptySingleObjectArray:_deceasedX], deceasedTagString,
                                            [FHIRExistanceChecker generateArray:_address], @"address",
                                            [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
                                            [FHIRExistanceChecker checkEmptySingleObjectArray:_multipleBirthX], multiBirthTagString,
                                            [FHIRExistanceChecker generateArray:_photo], @"photo",
                                            [_provider generateAndReturnDictionary], @"provider",
+                                           [_birthDate generateAndReturnDictionary], @"birthDate",
                                            [_resourceTypeValue.text generateAndReturnDictionary], @"text",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
                                            [FHIRExistanceChecker generateArray:_link], @"link",
-                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
-                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            [_animal generateAndReturnDictionary], @"animal",
                                            [FHIRExistanceChecker generateArray:_communication], @"communication",
+                                           [FHIRExistanceChecker generateArray:_telecom], @"telecom",
+                                           [FHIRExistanceChecker generateArray:_contact], @"contact",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            nil];
     [_patientDictionary cleanUpDictionaryValues];
     
@@ -119,8 +121,31 @@
     NSDictionary *patientDict = [dictionary objectForKey:@"Patient"];
     //NSLog(@"%@", patient);
     
-    [_resourceTypeValue resourceParser:patientDict];
-    //NSLog(@"%@", patientDict);
+    //edited for XML start OLD-->[_resourceTypeValue resourceParser:patientDict];
+    [_resourceTypeValue.text narrativeParser:[patientDict objectForKey:@"text"]];
+    
+    //_resource contained
+    NSArray *containArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"contained"]];
+    _resourceTypeValue.contained = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [containArray count]; i++)
+    {
+        FHIRResourceContained *tempCON = [[FHIRResourceContained alloc] init];
+        [tempCON resourceContainedParser:[containArray objectAtIndex:i]];
+        [_resourceTypeValue.contained addObject:tempCON];
+        //NSLog(@"%@", _resourceTypeValue.contained);
+    }
+    
+    //_resource extensions
+    NSArray *extensionArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"extension"]];
+    _resourceTypeValue.extensions = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [extensionArray count]; i++)
+    {
+        FHIRExtension *tempEX = [[FHIRExtension alloc] init];
+        [tempEX extensionParser:[extensionArray objectAtIndex:i]];
+        [_resourceTypeValue.extensions addObject:tempEX];
+        //NSLog(@"%@", _resourceTypeValue.extensions);
+    }
+    //edited for XML end
     
     [_active setValueBool:[patientDict objectForKey:@"active"]];
     
@@ -155,7 +180,7 @@
     }
     
     [_gender codeableConceptParser:[patientDict objectForKey:@"gender"]];
-    _birthDate = [FHIRExistanceChecker generateDateTimeFromString:[patientDict objectForKey:@"birthDate"]];
+    [_birthDate setValueDate:[patientDict objectForKey:@"birthDate"]];
     
     //sets deceasedX array with the correct object sent
     for (NSString *key in dictionary)
@@ -227,6 +252,7 @@
         FHIRPatientContact *tempPC = [[FHIRPatientContact alloc] init];
         [tempPC patientContactParser:[contactArray objectAtIndex:i]];
         [_contact addObject:tempPC];
+        NSLog(@"%@", _contact);
     }
     
     //_link
@@ -239,7 +265,7 @@
         [_link addObject:tempRR];
         //NSLog(@"%@", _link);
     }
-
+    
     [_animal animalParser:[patientDict objectForKey:@"animal"]];
     
     //_communication

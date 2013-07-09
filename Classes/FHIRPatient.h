@@ -27,7 +27,7 @@
 @property (nonatomic, strong) NSMutableArray *name;//THIS ARRAY IS FILLED WITH "HumanName" OBJECTS ONLY. A name associated with the individual.
 @property (nonatomic, strong) NSMutableArray *telecom; //THIS ARRAY FILLED WITH "Contact" OBJECTS ONLY. A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
 @property (nonatomic, strong) FHIRCodeableConcept *gender; //Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
-@property (nonatomic, strong) NSDate *birthDate; //The date and time of birth for the individual.
+@property (nonatomic, strong) FHIRDate *birthDate; //The date and time of birth for the individual.
 @property (nonatomic, strong) NSArray *deceasedX; //Indicates if the individual is deceased or not. (Boolean/dateTime)
 @property (nonatomic, strong) NSMutableArray *address; //THIS ARRAY IS FILLED WITH "Address" OBJECTS ONLY. Addresses for the individual.
 @property (nonatomic, strong) FHIRCodeableConcept *maritalStatus; //This field contains a patient's most recent marital (civil) status.

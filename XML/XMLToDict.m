@@ -35,6 +35,7 @@
 
 - (NSObject *)createLocalizedObject:(NSDictionary *)xmlDict
 {
+    
     if ([xmlDict objectForKey:@"Patient"])
     {
         FHIRPatient *patient = [[FHIRPatient alloc] init];
@@ -128,7 +129,7 @@
 - (NSString *)stringByStrippingXMLHeader:(NSString *)xmlString
 {
     NSRange r;
-    if ((r = [xmlString rangeOfString:@"(.*)<\?xml.*\?>" options:NSRegularExpressionSearch]).location != NSNotFound)
+    if ((r = [xmlString rangeOfString:@"<?xml version='1.0' encoding='UTF-8'?>" options:NSRegularExpressionSearch]).location != NSNotFound) //(.*)<\?xml.*\?>
         xmlString = [xmlString stringByReplacingCharactersInRange:r withString:@""];
     return xmlString;
 }

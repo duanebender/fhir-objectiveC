@@ -26,7 +26,7 @@
         _resourceDictionary = [[FHIRResourceDictionary alloc] init];
         _extensions = [[NSMutableArray alloc] init];
         _text = [[FHIRNarrative alloc] init];
-        _contained = [[FHIRResourceContained alloc] init];
+        _contained = [[NSMutableArray alloc] init];
     }
     return self;
 }

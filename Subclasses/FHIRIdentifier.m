@@ -59,7 +59,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [[NSDictionary alloc] initWithObjectsAndKeys:_useSV.value, @"value", nil];
     }
 }
 
@@ -69,8 +69,8 @@
                                                     [self returnStringUse], @"use",
                                                     [_label generateAndReturnDictionary], @"label",
                                                     [_system generateAndReturnDictionary], @"system",
-                                                    [_period generateAndReturnDictionary], @"period",
                                                     [_iDKey generateAndReturnDictionary], @"key",
+                                                    [_period generateAndReturnDictionary], @"period",
                                                     nil];
     _identifierDictionary.resourceName = @"Identifier";
     [_identifierDictionary cleanUpDictionaryValues];

@@ -23,6 +23,22 @@
     return encodedString;
 }
 
+- (NSData *)decodeBase64String:(NSString *)encodedString
+{
+    NSData *decodedData = [[NSData alloc] init];
+    decodedData = [Base64Decoder base64DataFromString:encodedString];
+    
+    return decodedData;
+}
+
+- (NSString *)encodeDataToBase64String:(NSData *)dataToEncode
+{
+    NSString *encodedString = [[NSString alloc] init];
+    encodedString = [Base64Encoder base64StringFromData:dataToEncode length:LENGTH];
+    
+    return encodedString;
+}
+
 - (NSDictionary *)generateAndReturnDictionary
 {
     NSDictionary *base64Dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[self getBase64BinaryDataAsEncodedString], @"value", nil];

@@ -29,12 +29,8 @@
 - (void)setResouceTypeValue:(NSString *)codeString; //set the type of resource being used
 - (NSString *)returnResourceType; //returns resource type as a string
 
-- (void)settingResourceElements:(NSString *)resourceName extensionsIncluded:(NSArray *)extensions textIncluded:(FHIRNarrative *)text;
-- (NSArray *)returnExtensionsArray;
-- (NSDictionary *)returnTextForResource;
-
 //Old Methods that can still be used with NSDictionary of Resource
-- (void)generateAndReturnDictionary; //returns an NSDicitonary containing all elements of this Resource Object
+//- (void)generateAndReturnDictionary; //returns an NSDicitonary containing all elements of this Resource Object
 - (void)resourceParser:(NSDictionary *)dictionary; //set this resource object from an NSdictionary
 
 @end

@@ -11,7 +11,9 @@
 #import "FHIRCode.h"
 
 @implementation FHIRResourceDictionary
-
+{
+    NSInteger *nullCount;
+}
 @synthesize dataForResource = _dataForResource;
 @synthesize resourceName = _resourceName;
 
@@ -28,9 +30,10 @@
 
 - (void)cleanUpDictionaryValues
 {
-#warning - this does not remove everything for some reason
     //remove entries with no values
-    NSInteger *nullCount = 1;
+    
+    if ([_dataForResource count] > 0) nullCount = 1;
+    else nullCount = 0;
     
     while (nullCount > 0)
     {
@@ -40,13 +43,16 @@
         //first check through dictionary
         for (NSString* key in tempDict)
         {
-            if ([key isEqualToString:@"div"] == FALSE)
+            if ([key isEqualToString:@"text"])
+            {
+                //dont remove as it is manditory
+            }
+            else if ([key isEqualToString:@"div"] == FALSE)
             {
                 NSObject *value = [tempDict valueForKey:key];
                 if (value == NULL || value == [NSNull null] || [tempDict count] == 0)
                 {
-                    [_dataForResource removeObjectForKey:key];
-                    nullCount++;
+                    [self removeObjectAndIncreaseNullCount:key];
                 }
                 
                 if ([value class] == [NSDictionary class])
@@ -54,11 +60,11 @@
                     NSArray *tempValueHolder = [[NSArray alloc] initWithObjects:value, nil];
                     if ([[tempValueHolder objectAtIndex:0] count] == 0)
                     {
-                        [_dataForResource removeObjectForKey:key];
-                        nullCount++;
+                        [self removeObjectAndIncreaseNullCount:key];
                     }
                 }
             }
+            
         }
     
         //final check
@@ -71,6 +77,7 @@
     }
     
     //second check through dictionary to be sure
+    /*
     NSDictionary *tempDict = [[NSDictionary alloc] initWithDictionary:_dataForResource];
     
     NSArray *blankKeys = [tempDict allKeysForObject:@""];
@@ -81,11 +88,21 @@
     {
         [_dataForResource removeObjectsForKeys:blankKeys];
         [_dataForResource removeObjectsForKeys:nullKeys];
-        [_dataForResource removeObjectsForKeys:nullStringKeys];
+        //[_dataForResource removeObjectsForKeys:nullStringKeys];
     }
+     */
     
-    NSLog (@"Resource:%@ DATA:%@",_resourceName, _dataForResource);
+    //NSLog (@"Resource:%@ DATA:%@",_resourceName, _dataForResource);
     
+}
+
+- (void)removeObjectAndIncreaseNullCount:(NSString *)currentKey
+{
+    if ([_dataForResource objectForKey:currentKey])
+    {
+        [_dataForResource removeObjectForKey:currentKey];
+        nullCount++;
+    }
 }
 
 @end

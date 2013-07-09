@@ -8,7 +8,7 @@
 
 #import "XMLReader.h"
 
-#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"name",@"telecom",@"address",@"language",@"part",@"line",@"coding",@"extensions",@"list",nil] //strings that need to be in an array even if only one object is present
+#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"address",@"language",@"part",@"line",@"coding",@"extension",@"list",@"name",@"telecom",@"contained",@"contact",@"relationship",nil] //strings that need to be in an array even if only one object is present
 
 NSString *const kXMLReaderTextNodeKey = @"value";
 

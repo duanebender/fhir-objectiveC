@@ -9,12 +9,14 @@
 #import "XMLWriter.h"
 
 //define exceptions to the value between two tags
-#define INTERNAL_VALUE_STRINGS [NSSet setWithObjects:@"active",@"gender",nil]
+#define INTERNAL_VALUE_STRINGS [NSSet setWithObjects:@"active",@"birthDate",nil]
 
 @implementation XMLWriter
 
 - (NSMutableString *)stringForXMLDictionary:(NSMutableDictionary *)xmlDictionary resourceType:(NSString *)resourceType
 {
+    NSLog(@"XMLDICT: %@;;;; RESOURCE: %@", xmlDictionary, resourceType);
+    
     NSMutableString *stringForXML = [[NSMutableString alloc] initWithString:@""]; //initialize string
     
     [stringForXML appendString:[NSString stringWithFormat:@"<?xml version='1.0' encoding='UTF-8'?>\n"]];
