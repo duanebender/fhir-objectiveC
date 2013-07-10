@@ -165,7 +165,6 @@
     else if ([key isEqualToString:@"valueResource"])
     {
         FHIRResourceReference *value = [[FHIRResourceReference alloc] init];
-        NSLog(@"VALDICT:%@", valueDict);
         [value resourceReferenceParser:valueDict];
         _valueX = [[NSArray alloc] initWithObjects:value, nil];
     }

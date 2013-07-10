@@ -8,7 +8,7 @@
 
 #import "XMLReader.h"
 
-#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"address",@"language",@"part",@"line",@"coding",@"extension",@"list",@"name",@"telecom",@"contained",@"contact",@"relationship",nil] //strings that need to be in an array even if only one object is present
+#define ARRAY_STRINGS [NSSet setWithObjects:@"given",@"family",@"prefix",@"suffix",@"link",@"identifier",@"address",@"language",@"part",@"line",@"coding",@"extension",@"list",@"name",@"telecom",@"contained",@"contact",@"relationship",@"content",nil] //strings that need to be in an array even if only one object is present
 
 NSString *const kXMLReaderTextNodeKey = @"value";
 
@@ -22,7 +22,9 @@ NSString *const kXMLReaderTextNodeKey = @"value";
 
 
 @implementation XMLReader
-
+{
+    NSMutableArray *containedStringArrayKeys;
+}
 #pragma mark -
 #pragma mark Public methods
 
@@ -30,7 +32,6 @@ NSString *const kXMLReaderTextNodeKey = @"value";
 {
     XMLReader *reader = [[XMLReader alloc] initWithError:error];
     NSDictionary *rootDictionary = [reader objectWithData:data];
-    NSLog(@"%@",rootDictionary);
     return rootDictionary;
 }
 
@@ -66,6 +67,7 @@ NSString *const kXMLReaderTextNodeKey = @"value";
 
 - (NSDictionary *)objectWithData:(NSData *)data
 {
+    containedStringArrayKeys = [[NSMutableArray alloc] init];
     dictionaryStack = [[NSMutableArray alloc] init];
     textInProgress = [[NSMutableString alloc] init];
     
@@ -128,6 +130,10 @@ NSString *const kXMLReaderTextNodeKey = @"value";
         if ([ARRAY_STRINGS containsObject:elementName])
         {
             [parentDict setObject:[self enforceArray:childDict] forKey:elementName];
+            if ([elementName isEqualToString:@"contained"])
+            {
+                [containedStringArrayKeys addObject:elementName];
+            }
         }
         else
         {
@@ -163,6 +169,23 @@ NSString *const kXMLReaderTextNodeKey = @"value";
         
         // Reset the text
         textInProgress = [[NSMutableString alloc] init];
+    }
+    if (containedStringArrayKeys)
+    {
+        for (NSString *key in containedStringArrayKeys)
+        {
+            if ([textInProgress length] > 0 && ([dictInProgress objectForKey:key]))
+            {
+                //remove white space
+                NSString *grabContent = [textInProgress stringByTrimmingCharactersInSet:
+                                     [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                [dictInProgress setObject:grabContent forKey:@"content"];
+                
+                // Reset the text
+                textInProgress = [[NSMutableString alloc] init];
+                //NSLog(@"GRABBY! %@ : ForDIct: %@ : DICTSTACK: %@",grabContent, dictInProgress, dictionaryStack);
+            }
+        }
     }
     
     // Pop the current dict

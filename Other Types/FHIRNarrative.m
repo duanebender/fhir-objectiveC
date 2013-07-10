@@ -70,6 +70,7 @@
     _narrativeDictionary.resourceName = @"Narrative";
     [_narrativeDictionary cleanUpDictionaryValues];
     return _narrativeDictionary.dataForResource;
+    #warning -div is not working with XML? but makes it here?
 }
 
 - (void)narrativeParser:(NSDictionary *)dictionary

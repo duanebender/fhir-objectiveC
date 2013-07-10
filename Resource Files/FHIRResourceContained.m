@@ -30,18 +30,16 @@
 
 - (NSDictionary *)generateAndReturnDictionary
 {
-    _containedResourceDictionary.dataForResource = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *tempMasterDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                                     _content, @"content",
                                                     _contentId, @"_id",
                                                     _contentType, @"contentType",
                                                     nil];
     
+    _containedResourceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    tempMasterDictionary, _contentName,
+                                                    nil];
     [_containedResourceDictionary cleanUpDictionaryValues];
-    
-    NSDictionary *tempMasterDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          _containedResourceDictionary.dataForResource, [NSString stringWithFormat:@"%@",_contentName],
-                                          nil];
-    
     return tempMasterDictionary;
 }
 
@@ -52,12 +50,11 @@
     {
         _contentName = key;
         tempContainer = [dictionary objectForKey:key];
+        _content = [tempContainer objectForKey:@"content"];
+        _contentId = [tempContainer objectForKey:@"_id"];
+        _contentId = [tempContainer objectForKey:@"id"];
+        _contentType = [tempContainer objectForKey:@"contentType"];
     }
-    
-    _content = [tempContainer objectForKey:@"content"];
-    _contentId = [tempContainer objectForKey:@"_id"];
-    _contentType = [tempContainer objectForKey:@"contentType"];
-
 }
 
 @end

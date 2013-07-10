@@ -243,7 +243,6 @@
         FHIRResourceContained *tempCN = [[FHIRResourceContained alloc] init];
         [tempCN resourceContainedParser:[containArray objectAtIndex:i]];
         [_contained addObject:tempCN];
-        NSLog(@"%@", _contained);
     }
 }
 

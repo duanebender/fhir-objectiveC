@@ -15,7 +15,7 @@
 
 - (NSMutableString *)stringForXMLDictionary:(NSMutableDictionary *)xmlDictionary resourceType:(NSString *)resourceType
 {
-    NSLog(@"XMLDICT: %@;;;; RESOURCE: %@", xmlDictionary, resourceType);
+    //NSLog(@"XMLDICT: %@;;;; RESOURCE: %@", xmlDictionary, resourceType);
     
     NSMutableString *stringForXML = [[NSMutableString alloc] initWithString:@""]; //initialize string
     
@@ -42,9 +42,26 @@
         {
             [stringForXML appendString:[self writeXMLStringFromArray:key contentOfArray:value]];
         }
-        else
+        else if ([key isEqualToString:@"value"])
         {
             [stringForXML appendString:[NSString stringWithFormat:@"<%@ value='%@'>", key, value]];
+        }
+        else if ([key isEqualToString:@"div"]) //in case of a div container for the text field
+        {
+            tabValue++;
+            [stringForXML appendString:[self tabber]];
+            [stringForXML appendString:[NSString stringWithFormat:@"<div xmlns='http://www.w3.org/1999/xhtml'> \n"]];
+            tabValue++;
+            [stringForXML appendString:[self tabber]];
+            [stringForXML appendString:[NSString stringWithFormat:@"%@ \n",value]];
+            tabValue--;
+            [stringForXML appendString:[self tabber]];
+            [stringForXML appendString:[NSString stringWithFormat:@"</div> \n"]];
+            tabValue--;
+        }
+        else
+        {
+            [stringForXML appendString:[NSString stringWithFormat:@"<%@>%@</%@>\n", key, value, key]];
         }
         
     }
@@ -61,7 +78,7 @@
     for (NSString *key in content)
     {
         NSObject *value = [content valueForKey:key];
-        if ([content isKindOfClass:[NSMutableDictionary class]] || [value isKindOfClass:[NSDictionary class]])
+        if ([value isKindOfClass:[NSMutableDictionary class]] || [value isKindOfClass:[NSDictionary class]])
         {
             tabValue++;
             [returnString appendString:[self tabber]];
@@ -120,7 +137,7 @@
         for (NSString *key in tempDictionary)
         {
             NSObject *value = [tempDictionary valueForKey:key];
-            if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSDictionary class]])
+            if ([value isKindOfClass:[NSDictionary class]])
             {
                 if ([INTERNAL_VALUE_STRINGS containsObject:key]) [returnString appendString:[NSString stringWithFormat:@"<%@>\n", key]];
                 [returnString appendString:[self writeXMLStringFromDictionary:key contentOfDictionary:value]];
@@ -134,6 +151,19 @@
             {
                 [returnString appendString:[self tabber]];
                 [returnString appendString:[NSString stringWithFormat:@"<%@ value='%@' />\n", element, value]];
+            }
+            else if ([key isEqualToString:@"div"]) //in case of a div container for the text field
+            {
+                tabValue++;
+                [returnString appendString:[self tabber]];
+                [returnString appendString:[NSString stringWithFormat:@"<div xmlns='http://www.w3.org/1999/xhtml'> \n"]];
+                tabValue++;
+                [returnString appendString:[self tabber]];
+                [returnString appendString:[NSString stringWithFormat:@"%@ \n",value]];
+                tabValue--;
+                [returnString appendString:[self tabber]];
+                [returnString appendString:[NSString stringWithFormat:@"</div> \n"]];
+                tabValue--;
             }
             else
             {

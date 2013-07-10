@@ -99,6 +99,7 @@
 {
     XMLWriter *xmlWriter = [[XMLWriter alloc] init];
     _xmlString = [xmlWriter stringForXMLDictionary:xml.dataForResource resourceType:_currentResource];
+    
     [_xmlString writeToFile:urlString atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 

@@ -105,11 +105,8 @@
                                            [FHIRExistanceChecker generateArray:_communication], @"communication",
                                            [FHIRExistanceChecker generateArray:_telecom], @"telecom",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
-                                           
                                            nil];
-    NSLog(@"BEFORE: %@", _patientDictionary.dataForResource);
     [_patientDictionary cleanUpDictionaryValues];
-    NSLog(@"AFTER: %@", _patientDictionary.dataForResource);
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];
@@ -134,9 +131,15 @@
     {
         FHIRResourceContained *tempCON = [[FHIRResourceContained alloc] init];
         [tempCON resourceContainedParser:[containArray objectAtIndex:i]];
+    
+        //XML container issue fix
+        if ([patientDict objectForKey:@"content"])
+        {
+            tempCON.content = [patientDict objectForKey:@"content"];
+        }
         [_resourceTypeValue.contained addObject:tempCON];
-        //NSLog(@"%@", _resourceTypeValue.contained);
     }
+    NSLog(@"CONTAINED: %@", [FHIRExistanceChecker generateArray:_resourceTypeValue.contained]);
     
     //_resource extensions
     NSArray *extensionArray = [[NSArray alloc] initWithArray:[patientDict objectForKey:@"extension"]];
@@ -255,7 +258,6 @@
         FHIRPatientContact *tempPC = [[FHIRPatientContact alloc] init];
         [tempPC patientContactParser:[contactArray objectAtIndex:i]];
         [_contact addObject:tempPC];
-        NSLog(@"%@", _contact);
     }
     
     //_link
