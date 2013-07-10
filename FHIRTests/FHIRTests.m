@@ -15,6 +15,7 @@
 #import "Base64Decoder.h"
 #import "XMLToDict.h"
 #import "DictToXML.h"
+#import "Generation.h"
 
 
 @implementation FHIRTests
@@ -49,12 +50,14 @@
     //          Parse the XML back to an object
     //          Do a field-by-field comparison of the original with the roundtripped one
     
+    [Generation generateFHIRClassFromXMLSchema:@"http://hl7.org/implement/standards/fhir/fhir-base.xsd" toFileLocation:@"/Users/adamsippel/Desktop/GenerationTest/"];
+    
 }
 
 - (void)testJSON
 {
     NSLog(@"Beginning FHIRJSON tests...");
-    
+    /*
     [self testBase64];
     
     //return back to patient
@@ -68,7 +71,7 @@
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
     [json generateJson:patientJSON urlPath:@"/Users/adamsippel/Desktop/Patient.txt"];
-    
+    */
     /*
     //Medication
     NSObject *medicationDict = [[NSObject alloc] init];
@@ -146,7 +149,7 @@
 {
     
     NSLog(@"Beginning FHIRXML tests...");
-    
+    /*
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
     NSObject *patientXML = [[NSObject alloc] init];
@@ -154,7 +157,7 @@
     
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];
-
+*/
     /*
     //organization test
     XMLToDict *xmlDictORG = [[XMLToDict alloc] init];
