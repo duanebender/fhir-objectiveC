@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSNumber *value; //contains the value of a integer
 
 //Public Methods
-- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this String Object
+- (NSObject *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this String Object
 - (void)setValueInteger:(NSDictionary *)dictionary; //sets this string from an NSDictionary
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "FHIRIdentifier.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRIdentifier
 
@@ -44,7 +45,7 @@
     
 };
 
-- (NSDictionary *)returnStringUse
+- (NSObject *)returnStringUse
 {
     switch (self.use)
     {
@@ -59,7 +60,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:_useSV.value, @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -67,10 +68,10 @@
 {
     _identifierDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [self returnStringUse], @"use",
-                                                    [_label generateAndReturnDictionary], @"label",
-                                                    [_system generateAndReturnDictionary], @"system",
-                                                    [_iDKey generateAndReturnDictionary], @"key",
-                                                    [_period generateAndReturnDictionary], @"period",
+                                                    [FHIRExistanceChecker emptyObjectChecker:[_label generateAndReturnDictionary]], @"label",
+                                                    [FHIRExistanceChecker emptyObjectChecker:[_system generateAndReturnDictionary]], @"system",
+                                                    [FHIRExistanceChecker emptyObjectChecker:[_iDKey generateAndReturnDictionary]], @"key",
+                                                    [FHIRExistanceChecker emptyObjectChecker:[_period generateAndReturnDictionary]], @"period",
                                                     nil];
     _identifierDictionary.resourceName = @"Identifier";
     [_identifierDictionary cleanUpDictionaryValues];

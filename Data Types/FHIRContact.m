@@ -7,6 +7,7 @@
 //
 
 #import "FHIRContact.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRContact
 
@@ -43,7 +44,7 @@
     else self.system = 0;
 };
 
-- (NSDictionary *)returnStringSystem
+- (NSObject *)returnStringSystem
 {
     switch (self.system)
     {
@@ -61,7 +62,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -77,7 +78,7 @@
     else self.use = 0;
 };
 
-- (NSDictionary *)returnStringUse
+- (NSObject *)returnStringUse
 {
     switch (self.use)
     {
@@ -98,7 +99,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -107,8 +108,8 @@
     _contactDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                             [self returnStringSystem], @"system",
                                             [self returnStringUse], @"use",
-                                            [_value generateAndReturnDictionary], @"value",
-                                            [_period generateAndReturnDictionary], @"period",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_value generateAndReturnDictionary]], @"value",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_period generateAndReturnDictionary]], @"period",
                                             nil];
     _contactDictionary.resourceName = @"Contact";
     [_contactDictionary cleanUpDictionaryValues];

@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString *value; //contains the value of the code
 
 //Public Methods
-- (NSDictionary *)generateAndReturnDictionary; //returns and NSDictionary containing all the elements of this code object
+- (NSObject *)generateAndReturnDictionary; //returns and NSDictionary containing all the elements of this code object
 - (void)setValueCode:(NSDictionary *)dictionary; //sets this code object from an NSdictionary
 
 @end

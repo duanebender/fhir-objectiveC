@@ -7,6 +7,7 @@
 //
 
 #import "FHIRCommunication.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRCommunication
 
@@ -33,10 +34,10 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _languageDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            [_language generateAndReturnDictionary], @"language",
-                                            [_mode generateAndReturnDictionary], @"mode",
-                                            [_proficiencyLevel generateAndReturnDictionary], @"proficiency",
-                                            [_preference generateAndReturnDictionary], @"preference",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_language generateAndReturnDictionary]], @"language",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_mode generateAndReturnDictionary]], @"mode",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_proficiencyLevel generateAndReturnDictionary]], @"proficiency",
+                                            [FHIRExistanceChecker emptyObjectChecker:[_preference generateAndReturnDictionary]], @"preference",
                                             nil];
     _languageDictionary.resourceName = @"Language";
     [_languageDictionary cleanUpDictionaryValues];

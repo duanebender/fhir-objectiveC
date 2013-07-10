@@ -14,7 +14,7 @@
 @property (nonatomic, retain) NSDate *value; //contains the value of a string
 
 //Public Methods
-- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this String Object
+- (NSObject *)generateAndReturnDictionary; //returns an NSDictionary containing all the elements of this String Object
 - (void)setValueDate:(NSDictionary *)dictionary; //sets this string from an NSDictionary
 
 @end

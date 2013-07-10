@@ -51,7 +51,7 @@
     else self.use = 0;
 };
 
-- (NSDictionary *)returnStringUse
+- (NSObject *)returnStringUse
 {
     switch (self.use)
     {
@@ -78,7 +78,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -91,7 +91,7 @@
                                           [FHIRExistanceChecker generateArray:_given], @"given",
                                           [FHIRExistanceChecker generateArray:_prefix], @"prefix",
                                           [FHIRExistanceChecker generateArray:_suffix], @"suffix",
-                                          [_period generateAndReturnDictionary], @"period",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_period generateAndReturnDictionary]], @"period",
                                           nil];
     _humanNameDictionary.resourceName = @"HumanName";
     [_humanNameDictionary cleanUpDictionaryValues];

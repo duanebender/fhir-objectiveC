@@ -38,13 +38,13 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _attachmentDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [_contentType generateAndReturnDictionary], @"contentType",
-                                        [_language generateAndReturnDictionary], @"language",
-                                        [_data generateAndReturnDictionary], @"data",
-                                        [_url generateAndReturnDictionary], @"url",
-                                        [_size generateAndReturnDictionary], @"size",
-                                        [_hash generateAndReturnDictionary], @"hash",
-                                        [_title generateAndReturnDictionary], @"title",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_contentType generateAndReturnDictionary]], @"contentType",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_language generateAndReturnDictionary]], @"language",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_data generateAndReturnDictionary]], @"data",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_url generateAndReturnDictionary]], @"url",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_size generateAndReturnDictionary]], @"size",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_hash generateAndReturnDictionary]], @"hash",
+                                        [FHIRExistanceChecker emptyObjectChecker:[_title generateAndReturnDictionary]], @"title",
                                         nil];
     _attachmentDictionary.resourceName = @"Attachment";
     [_attachmentDictionary cleanUpDictionaryValues];

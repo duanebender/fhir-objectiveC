@@ -7,15 +7,16 @@
 //
 
 #import "FHIRCode.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRCode
 
 @synthesize value = _value;
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
     NSDictionary *codeDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_value, @"value", nil];
-    return codeDictionary;
+    return [FHIRExistanceChecker emptyObjectChecker:codeDictionary];
 }
 
 - (void)setValueCode:(NSDictionary *)dictionary

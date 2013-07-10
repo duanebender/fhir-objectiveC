@@ -211,7 +211,7 @@
 {
     _resourceDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [FHIRExistanceChecker generateArray:_extensions], @"extension",
-                                                    [_text generateAndReturnDictionary], @"text",
+                                                    [FHIRExistanceChecker emptyObjectChecker:[_text generateAndReturnDictionary]], @"text",
                                                     [self returnResourceType], @"type",
                                                     [FHIRExistanceChecker generateArray:_contained], @"contained",
                                                     nil];

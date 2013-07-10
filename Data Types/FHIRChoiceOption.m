@@ -25,7 +25,7 @@
     return self;
 }
 
-- (NSDictionary *)generateOptionDictionary
+- (NSDictionary *)generateAndReturnDictionary
 {
     _optionDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                          [_code generateAndReturnDictionary], @"code",
@@ -35,7 +35,7 @@
     return _optionDictionary.dataForResource;
 }
 
-- (void)optionParser:(NSDictionary *)dictionary
+- (void)choiceOptionParser:(NSDictionary *)dictionary
 {
     [_code setValueCode:[dictionary objectForKey:@"code"]];
     [_display setValueString:[dictionary objectForKey:@"display"]];

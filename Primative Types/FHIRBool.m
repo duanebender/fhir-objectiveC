@@ -7,16 +7,18 @@
 //
 
 #import "FHIRBool.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRBool
 
 @synthesize value = _value;
 @synthesize original = _original;
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
-    NSDictionary *boolDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:(_value)? @"true": @"false", @"value", nil];
-    return boolDictionary;
+    NSObject *boolObject;
+    boolObject = [FHIRExistanceChecker primitiveValueChecker:[[NSDictionary alloc] initWithObjectsAndKeys:(_value)? @"true": @"false", @"value", nil]];
+    return boolObject;
 }
 
 - (void)setValueBool:(NSDictionary *)dictionary

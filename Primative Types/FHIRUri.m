@@ -7,15 +7,17 @@
 //
 
 #import "FHIRUri.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRUri
 
 @synthesize uri = _uri;
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
-    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_uri, @"value", nil];
-    return stringDictionary;
+    NSObject *uriObject;
+    uriObject = [FHIRExistanceChecker primitiveValueChecker:[[NSDictionary alloc] initWithObjectsAndKeys:_uri, @"value", nil]];
+    return uriObject;
 }
 
 - (void)setValueURI:(NSDictionary *)dictionary

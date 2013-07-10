@@ -32,6 +32,16 @@
 {
     //remove entries with no values
     
+    NSMutableDictionary *notNullDictionary = [[NSMutableDictionary alloc] init];
+    for (NSString * key in [_dataForResource allKeys])
+    {
+        if (![[_dataForResource objectForKey:key] isKindOfClass:[NSNull class]])
+            [notNullDictionary setObject:[_dataForResource objectForKey:key] forKey:key];
+    }
+    
+    _dataForResource = [[NSMutableDictionary alloc] initWithDictionary:notNullDictionary];
+    
+    /*
     if ([_dataForResource count] > 0) nullCount = 1;
     else nullCount = 0;
     
@@ -75,6 +85,7 @@
         }
         
     }
+     */
     
     //second check through dictionary to be sure
     /*

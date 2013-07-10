@@ -7,15 +7,17 @@
 //
 
 #import "FHIRString.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRString
 
 @synthesize value = _value;
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
-    NSDictionary *stringDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:_value, @"value", nil];
-    return stringDictionary;
+    NSObject *stringObject;
+    stringObject = [FHIRExistanceChecker primitiveValueChecker:[[NSDictionary alloc] initWithObjectsAndKeys:_value, @"value", nil]];
+    return stringObject;
 }
 
 - (void)setValueString:(NSDictionary *)dictionary

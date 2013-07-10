@@ -10,12 +10,12 @@
 
 @implementation FHIRExistanceChecker
 
-+ (NSArray *)generateArray:(NSArray *)array //checks if an array is empty
++ (NSObject *)generateArray:(NSArray *)array //checks if an array is empty
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     if ([array count] <= 0)
     {
-        return NULL;
+        return [NSNull null];
     }
     else
     {
@@ -27,7 +27,7 @@
     }
 }
 
-+ (NSDictionary *)stringChecker:(FHIRString *)string //checks if a string is empty
++ (NSObject *)stringChecker:(FHIRString *)string //checks if a string is empty
 {
     if (string)
     {
@@ -35,7 +35,19 @@
     }
     else
     {
-        return NULL;
+        return [NSNull null];
+    }
+}
+
++ (NSObject *)emptyObjectChecker:(NSObject *)objectToCheck
+{
+    if (objectToCheck)
+    {
+        return objectToCheck;
+    }
+    else
+    {
+        return [NSNull null];
     }
 }
 
@@ -52,11 +64,23 @@
 {
     if ([arrayToCheck count] != 1)
     {
-        return NULL;
+        return [NSNull null];
     }
     else
     {
         return [[arrayToCheck objectAtIndex:0] generateAndReturnDictionary];
+    }
+}
+
++ (NSObject *)primitiveValueChecker:(NSDictionary *)dictionaryWithSingleValueKey
+{
+    if ([dictionaryWithSingleValueKey objectForKey:@"value"])
+    {
+        return dictionaryWithSingleValueKey;
+    }
+    else
+    {
+        return [NSNull null];
     }
 }
 

@@ -31,9 +31,9 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _animalDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [_species generateAndReturnDictionary], @"species",
-                                               [_breed generateAndReturnDictionary], @"breed",
-                                               [_genderStatus generateAndReturnDictionary], @"genderStatus",
+                                               [FHIRExistanceChecker emptyObjectChecker:[_species generateAndReturnDictionary]], @"species",
+                                               [FHIRExistanceChecker emptyObjectChecker:[_breed generateAndReturnDictionary]], @"breed",
+                                               [FHIRExistanceChecker emptyObjectChecker:[_genderStatus generateAndReturnDictionary]], @"genderStatus",
                                                nil];
     _animalDictionary.resourceName = @"Animal";
     [_animalDictionary cleanUpDictionaryValues];

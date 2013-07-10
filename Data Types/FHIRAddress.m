@@ -56,7 +56,7 @@
     
 };
 
-- (NSDictionary *)returnStringUse
+- (NSObject *)returnStringUse
 {
     switch (self.use)
     {
@@ -74,7 +74,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -82,15 +82,15 @@
 {
     _addressDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                           [self returnStringUse], @"use",
-                                          [_text generateAndReturnDictionary], @"text",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_text generateAndReturnDictionary]], @"text",
                                           [FHIRExistanceChecker generateArray:_line], @"line", //strings only
                                           [FHIRExistanceChecker generateArray:_part], @"part", //strings only
-                                          [_city generateAndReturnDictionary], @"city",
-                                          [_state generateAndReturnDictionary], @"state",
-                                          [_zip generateAndReturnDictionary], @"zip",
-                                          [_country generateAndReturnDictionary], @"country",
-                                          [_dpid generateAndReturnDictionary], @"dpid",
-                                          [_period generateAndReturnDictionary], @"period",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_city generateAndReturnDictionary]], @"city",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_state generateAndReturnDictionary]], @"state",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_zip generateAndReturnDictionary]], @"zip",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_country generateAndReturnDictionary]], @"country",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_dpid generateAndReturnDictionary]], @"dpid",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_period generateAndReturnDictionary]], @"period",
                                           nil];
     _addressDictionary.resourceName = @"Address";
     [_addressDictionary cleanUpDictionaryValues];

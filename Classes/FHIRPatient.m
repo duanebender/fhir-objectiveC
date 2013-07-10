@@ -85,28 +85,31 @@
     }
     
     _patientDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [_active generateAndReturnDictionary], @"active",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_active generateAndReturnDictionary]], @"active",
                                            [FHIRExistanceChecker generateArray:_name], @"name",
                                            [FHIRExistanceChecker generateArray:_identifier], @"identifier",
-                                           [_gender generateAndReturnDictionary], @"gender",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_gender generateAndReturnDictionary]], @"gender",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_resourceTypeValue.text generateAndReturnDictionary]], @"text",
+                                           [FHIRExistanceChecker generateArray:_link], @"link",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_provider generateAndReturnDictionary]], @"provider",
+                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
                                            [FHIRExistanceChecker checkEmptySingleObjectArray:_deceasedX], deceasedTagString,
                                            [FHIRExistanceChecker generateArray:_address], @"address",
-                                           [_maritalStatus generateAndReturnDictionary], @"maritalStatus",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_maritalStatus generateAndReturnDictionary]], @"maritalStatus",
                                            [FHIRExistanceChecker checkEmptySingleObjectArray:_multipleBirthX], multiBirthTagString,
                                            [FHIRExistanceChecker generateArray:_photo], @"photo",
-                                           [_provider generateAndReturnDictionary], @"provider",
-                                           [_birthDate generateAndReturnDictionary], @"birthDate",
-                                           [_resourceTypeValue.text generateAndReturnDictionary], @"text",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_birthDate generateAndReturnDictionary]], @"birthDate",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
-                                           [FHIRExistanceChecker generateArray:_link], @"link",
-                                           [_animal generateAndReturnDictionary], @"animal",
+                                           [FHIRExistanceChecker emptyObjectChecker:[_animal generateAndReturnDictionary]], @"animal",
                                            [FHIRExistanceChecker generateArray:_communication], @"communication",
                                            [FHIRExistanceChecker generateArray:_telecom], @"telecom",
                                            [FHIRExistanceChecker generateArray:_contact], @"contact",
-                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.extensions], @"extension",
-                                           [FHIRExistanceChecker generateArray:_resourceTypeValue.contained], @"contained",
+                                           
                                            nil];
+    NSLog(@"BEFORE: %@", _patientDictionary.dataForResource);
     [_patientDictionary cleanUpDictionaryValues];
+    NSLog(@"AFTER: %@", _patientDictionary.dataForResource);
     
     FHIRResourceDictionary *returnable = [[FHIRResourceDictionary alloc] init];
     returnable.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:_patientDictionary.dataForResource, @"Patient", nil];

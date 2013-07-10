@@ -14,7 +14,7 @@
 @synthesize start = _start; //The start of the period. The boundary is inclusive.
 @synthesize end = _end; //The end of the period. If the high is missing, it means that the period is ongoing
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
     NSDictionary *startDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSDateFormatter localizedStringFromDate:_start dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"value", nil];
     NSDictionary *endDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSDateFormatter localizedStringFromDate:_end dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterFullStyle], @"value", nil];
@@ -34,7 +34,7 @@
     
     if ([periodDictionary count] == 0)
     {
-        return NULL;
+        return [NSNull null];
     }
     else
     {

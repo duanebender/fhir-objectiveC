@@ -37,11 +37,11 @@
 {
     _patientContactDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                          [FHIRExistanceChecker generateArray:_relationship], @"relationship",
-                                         [_name generateAndReturnDictionary], @"name",
+                                         [FHIRExistanceChecker emptyObjectChecker:[_name generateAndReturnDictionary]], @"name",
                                          [FHIRExistanceChecker generateArray:_telecom], @"telecom",
-                                         [_address generateAndReturnDictionary], @"address",
-                                         [_gender generateAndReturnDictionary], @"gender",
-                                         [_organization generateAndReturnDictionary], @"organization",
+                                         [FHIRExistanceChecker emptyObjectChecker:[_address generateAndReturnDictionary]], @"address",
+                                         [FHIRExistanceChecker emptyObjectChecker:[_gender generateAndReturnDictionary]], @"gender",
+                                         [FHIRExistanceChecker emptyObjectChecker:[_organization generateAndReturnDictionary]], @"organization",
                                          nil];
     _patientContactDictionary.resourceName = @"PatientContact";
     [_patientContactDictionary cleanUpDictionaryValues];

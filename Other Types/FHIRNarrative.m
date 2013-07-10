@@ -38,7 +38,7 @@
     else self.status = 0;
 };
 
-- (NSDictionary *)returnStringNarrative
+- (NSObject *)returnStringNarrative
 {
     switch (self.status)
     {
@@ -56,7 +56,7 @@
             break;
             
         default:
-            return [[NSDictionary alloc] initWithObjectsAndKeys:@"?", @"value", nil];
+            return [NSNull null];
     }
 }
 
@@ -64,7 +64,7 @@
 {
     _narrativeDictionary.dataForResource = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     [self returnStringNarrative], @"status",
-                                                    _div, @"div",
+                                                    [FHIRExistanceChecker emptyObjectChecker:_div], @"div",
                                                     [FHIRExistanceChecker generateArray:_image], @"image", //array of images only
                                                     nil];
     _narrativeDictionary.resourceName = @"Narrative";

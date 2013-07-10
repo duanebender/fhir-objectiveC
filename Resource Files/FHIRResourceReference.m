@@ -34,9 +34,9 @@
 - (NSDictionary *)generateAndReturnDictionary
 {
     _resourceReferenceDictionary.dataForResource = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                          [_type generateAndReturnDictionary], @"type",
-                                          [_reference generateAndReturnDictionary], @"reference",
-                                          [_version generateAndReturnDictionary], @"version",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_type generateAndReturnDictionary]], @"type",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_reference generateAndReturnDictionary]], @"reference",
+                                          [FHIRExistanceChecker emptyObjectChecker:[_version generateAndReturnDictionary]], @"version",
                                           [FHIRExistanceChecker stringChecker:_display], @"display",
                                           nil];
 

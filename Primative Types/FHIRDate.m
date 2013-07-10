@@ -7,17 +7,20 @@
 //
 
 #import "FHIRDate.h"
+#import "FHIRExistanceChecker.h"
 
 @implementation FHIRDate
 
 @synthesize value = _value;
 
-- (NSDictionary *)generateAndReturnDictionary
+- (NSObject *)generateAndReturnDictionary
 {
     NSDateFormatter *FHIRFormat = [[NSDateFormatter alloc] init];
     [FHIRFormat setDateFormat:@"yyyy-MM-dd"];
-    NSDictionary *dateDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[FHIRFormat stringFromDate:_value], @"value", nil];
-    return dateDictionary;
+    
+    NSObject *dateObject;
+    dateObject = [FHIRExistanceChecker primitiveValueChecker:[[NSDictionary alloc] initWithObjectsAndKeys:[FHIRFormat stringFromDate:_value], @"value", nil]];
+    return dateObject;
 }
 
 - (void)setValueDate:(NSDictionary *)dictionary

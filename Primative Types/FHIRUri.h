@@ -19,7 +19,7 @@
 @property (nonatomic, weak) NSURL *uri;
 
 //Public Methods
-- (NSDictionary *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this uri
+- (NSObject *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this uri
 - (void)setValueURI:(NSDictionary *)dictionary; //set this uri object from an NSdictionary
 
 @end

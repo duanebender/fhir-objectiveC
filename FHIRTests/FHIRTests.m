@@ -62,8 +62,6 @@
     NSObject *patientJSON = [[NSObject alloc] init];
     patientJSON = [jsonDict convertJsonToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"];
     
-    //DictToXML *xml = [[DictToXML alloc] init];
-    //[xml generateXml:patientJSON urlPath:@"/Users/adamsippel/Desktop/PatientJSONtoXML.txt"];
     
     //again to .json file
     DictToJSON *json = [[DictToJSON alloc] init];
