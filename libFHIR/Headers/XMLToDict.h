@@ -6,14 +6,23 @@
 //  Copyright (c) 2013 Mohawk College. All rights reserved.
 //
 
+/**
+ * Turns XML files into their correct FHIR Objects (Ex. Patient.xml creates a Patient Object)
+ */
+
 #import <Foundation/Foundation.h>
-#import "Patient.h"
+#import "FHIRPatient.h"
 #import "XMLReader.h"
+#import "FHIROrganization.h"
+#import "FHIRAdverseReaction.h"
+#import "FHIRAlert.h"
+#import "FHIRAllergyIntolerance.h"
+#import "FHIRCarePlan.h"
+#import "FHIRMedication.h"
+#import "FHIRCoverage.h"
 
 @interface XMLToDict : NSObject <NSXMLParserDelegate>
 
-@property (nonatomic) NSString *incomingResourceType;
-
-- (NSObject *)convertXmlToDictionary:(NSString *)urlString;
+- (NSObject *)convertXmlToDictionary:(NSString *)urlString; //takes an xml file and turns it into it's cooresponding FHIR Object
 
 @end

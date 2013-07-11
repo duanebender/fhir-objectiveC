@@ -10,12 +10,6 @@
 #import "FHIR.h"
 #import "PatientViewController.h"
 
-@interface PatientLoaderTableViewController ()
-
-
-
-@end
-
 @implementation PatientLoaderTableViewController
 
 - (IBAction)refresh:(id)sender
@@ -24,7 +18,7 @@
     [spinner startAnimating];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
     
-    dispatch_queue_t downloadQueue = dispatch_queue_create("flickr downloader", NULL);
+    dispatch_queue_t downloadQueue = dispatch_queue_create("patient downloader", NULL);
     dispatch_async(downloadQueue, ^{
         [self grabFromServer:@"1-5"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -40,6 +34,7 @@
     if (self)
     {
         // Custom initialization
+        self.patientSearchBar.delegate = self;
         
     }
     return self;
@@ -166,6 +161,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Search Bar delegate code
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    self.tableView.allowsSelection = NO;
+    self.tableView.scrollEnabled = NO;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text=@"";
+    
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    self.tableView.allowsSelection = YES;
+    self.tableView.scrollEnabled = YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [self grabFromServer:searchBar.text];
 }
 
 #pragma mark - Table view data source

@@ -12,9 +12,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="patientSearchBar" id="rft-CZ-n8T">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Patient Cell" id="IHS-ka-IM1">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -34,8 +39,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="patientSearchBar" destination="rft-CZ-n8T" id="oh2-Vo-iiG"/>
+                        <outlet property="searchDisplayController" destination="q1P-mb-jJ5" id="mWG-cZ-IQo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4p6-79-g4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="q1P-mb-jJ5">
+                    <connections>
+                        <outlet property="delegate" destination="yKu-GC-bjf" id="Vm5-Fk-yw5"/>
+                        <outlet property="searchContentsController" destination="yKu-GC-bjf" id="IA8-KV-R9n"/>
+                        <outlet property="searchResultsDataSource" destination="yKu-GC-bjf" id="rUA-5t-jy0"/>
+                        <outlet property="searchResultsDelegate" destination="yKu-GC-bjf" id="v9W-Lf-RdV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="594" y="60"/>
         </scene>
@@ -334,6 +351,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientLoaderTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="refresh:"/>
+                <relationship kind="outlet" name="patientSearchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
         <class className="PatientViewController" superclassName="UIViewController">

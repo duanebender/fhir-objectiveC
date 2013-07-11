@@ -28,8 +28,8 @@
 		8969474C171D99D10072A3CD /* TestFHIRPatientAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8969474B171D99D10072A3CD /* TestFHIRPatientAppTests.m */; };
 		89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */; };
 		89694766171DAE550072A3CD /* PatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694765171DAE550072A3CD /* PatientViewController.m */; };
+		89756C681770A7A9002675AC /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89756C671770A7A9002675AC /* libFHIR.a */; };
 		89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E2EE3017270E260005CC5A /* DetailsEditViewController.m */; };
-		89F6E76617207EDC00595ACA /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F6E76517207EDC00595ACA /* libFHIR.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,49 +74,71 @@
 		89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientLoaderTableViewController.m; sourceTree = "<group>"; };
 		89694764171DAE550072A3CD /* PatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientViewController.h; sourceTree = "<group>"; };
 		89694765171DAE550072A3CD /* PatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientViewController.m; sourceTree = "<group>"; };
+		89756C271770A7A9002675AC /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
+		89756C281770A7A9002675AC /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToXML.h; sourceTree = "<group>"; };
+		89756C291770A7A9002675AC /* FHIR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
+		89756C2A1770A7A9002675AC /* FHIRAdverseReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAdverseReaction.h; sourceTree = "<group>"; };
+		89756C2B1770A7A9002675AC /* FHIRAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAlert.h; sourceTree = "<group>"; };
+		89756C2C1770A7A9002675AC /* FHIRAllergyIntolerance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAllergyIntolerance.h; sourceTree = "<group>"; };
+		89756C2D1770A7A9002675AC /* FHIRCarePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCarePlan.h; sourceTree = "<group>"; };
+		89756C2E1770A7A9002675AC /* FHIRCoverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCoverage.h; sourceTree = "<group>"; };
+		89756C2F1770A7A9002675AC /* FHIRMedication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedication.h; sourceTree = "<group>"; };
+		89756C301770A7A9002675AC /* FHIROrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIROrganization.h; sourceTree = "<group>"; };
+		89756C311770A7A9002675AC /* FHIRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPatient.h; sourceTree = "<group>"; };
+		89756C321770A7A9002675AC /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceDictionary.h; sourceTree = "<group>"; };
+		89756C331770A7A9002675AC /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
+		89756C341770A7A9002675AC /* XMLToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLToDict.h; sourceTree = "<group>"; };
+		89756C371770A7A9002675AC /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Binary.h; sourceTree = "<group>"; };
+		89756C381770A7A9002675AC /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Decoder.h; sourceTree = "<group>"; };
+		89756C391770A7A9002675AC /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
+		89756C3A1770A7A9002675AC /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
+		89756C3B1770A7A9002675AC /* FHIRAccreditation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAccreditation.h; sourceTree = "<group>"; };
+		89756C3C1770A7A9002675AC /* FHIRActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRActivity.h; sourceTree = "<group>"; };
+		89756C3D1770A7A9002675AC /* FHIRAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAddress.h; sourceTree = "<group>"; };
+		89756C3E1770A7A9002675AC /* FHIRAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAnimal.h; sourceTree = "<group>"; };
+		89756C3F1770A7A9002675AC /* FHIRBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRBool.h; sourceTree = "<group>"; };
+		89756C401770A7A9002675AC /* FHIRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCode.h; sourceTree = "<group>"; };
+		89756C411770A7A9002675AC /* FHIRCodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCodeableConcept.h; sourceTree = "<group>"; };
+		89756C421770A7A9002675AC /* FHIRCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCoding.h; sourceTree = "<group>"; };
+		89756C431770A7A9002675AC /* FHIRContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContact.h; sourceTree = "<group>"; };
+		89756C441770A7A9002675AC /* FHIRContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContactEntity.h; sourceTree = "<group>"; };
+		89756C451770A7A9002675AC /* FHIRContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContent.h; sourceTree = "<group>"; };
+		89756C461770A7A9002675AC /* FHIRDemographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRDemographics.h; sourceTree = "<group>"; };
+		89756C471770A7A9002675AC /* FHIRElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRElement.h; sourceTree = "<group>"; };
+		89756C481770A7A9002675AC /* FHIRExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExistanceChecker.h; sourceTree = "<group>"; };
+		89756C491770A7A9002675AC /* FHIRExposure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExposure.h; sourceTree = "<group>"; };
+		89756C4A1770A7A9002675AC /* FHIRExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExtension.h; sourceTree = "<group>"; };
+		89756C4B1770A7A9002675AC /* FHIRGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRGoal.h; sourceTree = "<group>"; };
+		89756C4C1770A7A9002675AC /* FHIRHumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRHumanName.h; sourceTree = "<group>"; };
+		89756C4D1770A7A9002675AC /* FHIRIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRIdentifier.h; sourceTree = "<group>"; };
+		89756C4E1770A7A9002675AC /* FHIRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRImage.h; sourceTree = "<group>"; };
+		89756C4F1770A7A9002675AC /* FHIRIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRIngredient.h; sourceTree = "<group>"; };
+		89756C501770A7A9002675AC /* FHIRLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRLanguage.h; sourceTree = "<group>"; };
+		89756C511770A7A9002675AC /* FHIRNarrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRNarrative.h; sourceTree = "<group>"; };
+		89756C521770A7A9002675AC /* FHIRNodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRNodeType.h; sourceTree = "<group>"; };
+		89756C531770A7A9002675AC /* FHIRPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPackage.h; sourceTree = "<group>"; };
+		89756C541770A7A9002675AC /* FHIRParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRParticipant.h; sourceTree = "<group>"; };
+		89756C551770A7A9002675AC /* FHIRPatientContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPatientContact.h; sourceTree = "<group>"; };
+		89756C561770A7A9002675AC /* FHIRPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPeriod.h; sourceTree = "<group>"; };
+		89756C571770A7A9002675AC /* FHIRProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRProduct.h; sourceTree = "<group>"; };
+		89756C581770A7A9002675AC /* FHIRQuantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRQuantity.h; sourceTree = "<group>"; };
+		89756C591770A7A9002675AC /* FHIRRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRRatio.h; sourceTree = "<group>"; };
+		89756C5A1770A7A9002675AC /* FHIRResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResource.h; sourceTree = "<group>"; };
+		89756C5B1770A7A9002675AC /* FHIRResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceReference.h; sourceTree = "<group>"; };
+		89756C5C1770A7A9002675AC /* FHIRResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceType.h; sourceTree = "<group>"; };
+		89756C5D1770A7A9002675AC /* FHIRSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSchedule.h; sourceTree = "<group>"; };
+		89756C5E1770A7A9002675AC /* FHIRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRString.h; sourceTree = "<group>"; };
+		89756C5F1770A7A9002675AC /* FHIRSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSubscriber.h; sourceTree = "<group>"; };
+		89756C601770A7A9002675AC /* FHIRSymptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSymptom.h; sourceTree = "<group>"; };
+		89756C611770A7A9002675AC /* FHIRText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRText.h; sourceTree = "<group>"; };
+		89756C621770A7A9002675AC /* FHIRType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRType.h; sourceTree = "<group>"; };
+		89756C631770A7A9002675AC /* FHIRUri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRUri.h; sourceTree = "<group>"; };
+		89756C641770A7A9002675AC /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
+		89756C651770A7A9002675AC /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		89756C661770A7A9002675AC /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLWriter.h; sourceTree = "<group>"; };
+		89756C671770A7A9002675AC /* libFHIR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFHIR.a; sourceTree = "<group>"; };
 		89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEditViewController.h; sourceTree = "<group>"; };
 		89E2EE3017270E260005CC5A /* DetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEditViewController.m; sourceTree = "<group>"; };
-		89F6E73B17207EDC00595ACA /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
-		89F6E73C17207EDC00595ACA /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToXML.h; sourceTree = "<group>"; };
-		89F6E73D17207EDC00595ACA /* FHIR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
-		89F6E73E17207EDC00595ACA /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceDictionary.h; sourceTree = "<group>"; };
-		89F6E73F17207EDC00595ACA /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
-		89F6E74017207EDC00595ACA /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
-		89F6E74117207EDC00595ACA /* XMLToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLToDict.h; sourceTree = "<group>"; };
-		89F6E74417207EDC00595ACA /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
-		89F6E74517207EDC00595ACA /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
-		89F6E74617207EDC00595ACA /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Binary.h; sourceTree = "<group>"; };
-		89F6E74717207EDC00595ACA /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Decoder.h; sourceTree = "<group>"; };
-		89F6E74817207EDC00595ACA /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
-		89F6E74917207EDC00595ACA /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
-		89F6E74A17207EDC00595ACA /* Code.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Code.h; sourceTree = "<group>"; };
-		89F6E74B17207EDC00595ACA /* CodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeableConcept.h; sourceTree = "<group>"; };
-		89F6E74C17207EDC00595ACA /* Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coding.h; sourceTree = "<group>"; };
-		89F6E74D17207EDC00595ACA /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		89F6E74E17207EDC00595ACA /* Demographics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demographics.h; sourceTree = "<group>"; };
-		89F6E74F17207EDC00595ACA /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
-		89F6E75017207EDC00595ACA /* ExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistanceChecker.h; sourceTree = "<group>"; };
-		89F6E75117207EDC00595ACA /* Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
-		89F6E75217207EDC00595ACA /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
-		89F6E75317207EDC00595ACA /* HumanId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanId.h; sourceTree = "<group>"; };
-		89F6E75417207EDC00595ACA /* HumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanName.h; sourceTree = "<group>"; };
-		89F6E75517207EDC00595ACA /* Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identifier.h; sourceTree = "<group>"; };
-		89F6E75617207EDC00595ACA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		89F6E75717207EDC00595ACA /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
-		89F6E75817207EDC00595ACA /* Narrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Narrative.h; sourceTree = "<group>"; };
-		89F6E75917207EDC00595ACA /* NodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeType.h; sourceTree = "<group>"; };
-		89F6E75A17207EDC00595ACA /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
-		89F6E75B17207EDC00595ACA /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
-		89F6E75C17207EDC00595ACA /* ResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceReference.h; sourceTree = "<group>"; };
-		89F6E75D17207EDC00595ACA /* ResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceType.h; sourceTree = "<group>"; };
-		89F6E75E17207EDC00595ACA /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
-		89F6E75F17207EDC00595ACA /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
-		89F6E76017207EDC00595ACA /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
-		89F6E76117207EDC00595ACA /* Uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uri.h; sourceTree = "<group>"; };
-		89F6E76217207EDC00595ACA /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
-		89F6E76317207EDC00595ACA /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		89F6E76417207EDC00595ACA /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLWriter.h; sourceTree = "<group>"; };
-		89F6E76517207EDC00595ACA /* libFHIR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFHIR.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +149,7 @@
 				89694718171D99D10072A3CD /* UIKit.framework in Frameworks */,
 				8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */,
 				8969471C171D99D10072A3CD /* CoreGraphics.framework in Frameworks */,
-				89F6E76617207EDC00595ACA /* libFHIR.a in Frameworks */,
+				89756C681770A7A9002675AC /* libFHIR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +249,90 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		89756C261770A7A9002675AC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				89756C271770A7A9002675AC /* DictToJSON.h */,
+				89756C281770A7A9002675AC /* DictToXML.h */,
+				89756C291770A7A9002675AC /* FHIR.h */,
+				89756C2A1770A7A9002675AC /* FHIRAdverseReaction.h */,
+				89756C2B1770A7A9002675AC /* FHIRAlert.h */,
+				89756C2C1770A7A9002675AC /* FHIRAllergyIntolerance.h */,
+				89756C2D1770A7A9002675AC /* FHIRCarePlan.h */,
+				89756C2E1770A7A9002675AC /* FHIRCoverage.h */,
+				89756C2F1770A7A9002675AC /* FHIRMedication.h */,
+				89756C301770A7A9002675AC /* FHIROrganization.h */,
+				89756C311770A7A9002675AC /* FHIRPatient.h */,
+				89756C321770A7A9002675AC /* FHIRResourceDictionary.h */,
+				89756C331770A7A9002675AC /* JSONToDict.h */,
+				89756C341770A7A9002675AC /* XMLToDict.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		89756C351770A7A9002675AC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				89756C361770A7A9002675AC /* private */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		89756C361770A7A9002675AC /* private */ = {
+			isa = PBXGroup;
+			children = (
+				89756C371770A7A9002675AC /* Base64Binary.h */,
+				89756C381770A7A9002675AC /* Base64Decoder.h */,
+				89756C391770A7A9002675AC /* Base64Encoder.h */,
+				89756C3A1770A7A9002675AC /* FHIR-Prefix.pch */,
+				89756C3B1770A7A9002675AC /* FHIRAccreditation.h */,
+				89756C3C1770A7A9002675AC /* FHIRActivity.h */,
+				89756C3D1770A7A9002675AC /* FHIRAddress.h */,
+				89756C3E1770A7A9002675AC /* FHIRAnimal.h */,
+				89756C3F1770A7A9002675AC /* FHIRBool.h */,
+				89756C401770A7A9002675AC /* FHIRCode.h */,
+				89756C411770A7A9002675AC /* FHIRCodeableConcept.h */,
+				89756C421770A7A9002675AC /* FHIRCoding.h */,
+				89756C431770A7A9002675AC /* FHIRContact.h */,
+				89756C441770A7A9002675AC /* FHIRContactEntity.h */,
+				89756C451770A7A9002675AC /* FHIRContent.h */,
+				89756C461770A7A9002675AC /* FHIRDemographics.h */,
+				89756C471770A7A9002675AC /* FHIRElement.h */,
+				89756C481770A7A9002675AC /* FHIRExistanceChecker.h */,
+				89756C491770A7A9002675AC /* FHIRExposure.h */,
+				89756C4A1770A7A9002675AC /* FHIRExtension.h */,
+				89756C4B1770A7A9002675AC /* FHIRGoal.h */,
+				89756C4C1770A7A9002675AC /* FHIRHumanName.h */,
+				89756C4D1770A7A9002675AC /* FHIRIdentifier.h */,
+				89756C4E1770A7A9002675AC /* FHIRImage.h */,
+				89756C4F1770A7A9002675AC /* FHIRIngredient.h */,
+				89756C501770A7A9002675AC /* FHIRLanguage.h */,
+				89756C511770A7A9002675AC /* FHIRNarrative.h */,
+				89756C521770A7A9002675AC /* FHIRNodeType.h */,
+				89756C531770A7A9002675AC /* FHIRPackage.h */,
+				89756C541770A7A9002675AC /* FHIRParticipant.h */,
+				89756C551770A7A9002675AC /* FHIRPatientContact.h */,
+				89756C561770A7A9002675AC /* FHIRPeriod.h */,
+				89756C571770A7A9002675AC /* FHIRProduct.h */,
+				89756C581770A7A9002675AC /* FHIRQuantity.h */,
+				89756C591770A7A9002675AC /* FHIRRatio.h */,
+				89756C5A1770A7A9002675AC /* FHIRResource.h */,
+				89756C5B1770A7A9002675AC /* FHIRResourceReference.h */,
+				89756C5C1770A7A9002675AC /* FHIRResourceType.h */,
+				89756C5D1770A7A9002675AC /* FHIRSchedule.h */,
+				89756C5E1770A7A9002675AC /* FHIRString.h */,
+				89756C5F1770A7A9002675AC /* FHIRSubscriber.h */,
+				89756C601770A7A9002675AC /* FHIRSymptom.h */,
+				89756C611770A7A9002675AC /* FHIRText.h */,
+				89756C621770A7A9002675AC /* FHIRType.h */,
+				89756C631770A7A9002675AC /* FHIRUri.h */,
+				89756C641770A7A9002675AC /* XhtmlNode.h */,
+				89756C651770A7A9002675AC /* XMLReader.h */,
+				89756C661770A7A9002675AC /* XMLWriter.h */,
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
 		89E2EE3217270E2C0005CC5A /* Edit Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,73 +349,11 @@
 		89F6E73917207EDC00595ACA /* libFHIR */ = {
 			isa = PBXGroup;
 			children = (
-				89F6E73A17207EDC00595ACA /* Headers */,
-				89F6E74217207EDC00595ACA /* include */,
-				89F6E76517207EDC00595ACA /* libFHIR.a */,
+				89756C261770A7A9002675AC /* Headers */,
+				89756C351770A7A9002675AC /* include */,
+				89756C671770A7A9002675AC /* libFHIR.a */,
 			);
 			path = libFHIR;
-			sourceTree = "<group>";
-		};
-		89F6E73A17207EDC00595ACA /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				89F6E73B17207EDC00595ACA /* DictToJSON.h */,
-				89F6E73C17207EDC00595ACA /* DictToXML.h */,
-				89F6E73D17207EDC00595ACA /* FHIR.h */,
-				89F6E73E17207EDC00595ACA /* FHIRResourceDictionary.h */,
-				89F6E73F17207EDC00595ACA /* JSONToDict.h */,
-				89F6E74017207EDC00595ACA /* Patient.h */,
-				89F6E74117207EDC00595ACA /* XMLToDict.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		89F6E74217207EDC00595ACA /* include */ = {
-			isa = PBXGroup;
-			children = (
-				89F6E74317207EDC00595ACA /* private */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		89F6E74317207EDC00595ACA /* private */ = {
-			isa = PBXGroup;
-			children = (
-				89F6E74417207EDC00595ACA /* Address.h */,
-				89F6E74517207EDC00595ACA /* Animal.h */,
-				89F6E74617207EDC00595ACA /* Base64Binary.h */,
-				89F6E74717207EDC00595ACA /* Base64Decoder.h */,
-				89F6E74817207EDC00595ACA /* Base64Encoder.h */,
-				89F6E74917207EDC00595ACA /* Bool.h */,
-				89F6E74A17207EDC00595ACA /* Code.h */,
-				89F6E74B17207EDC00595ACA /* CodeableConcept.h */,
-				89F6E74C17207EDC00595ACA /* Coding.h */,
-				89F6E74D17207EDC00595ACA /* Contact.h */,
-				89F6E74E17207EDC00595ACA /* Demographics.h */,
-				89F6E74F17207EDC00595ACA /* Element.h */,
-				89F6E75017207EDC00595ACA /* ExistanceChecker.h */,
-				89F6E75117207EDC00595ACA /* Extension.h */,
-				89F6E75217207EDC00595ACA /* FHIR-Prefix.pch */,
-				89F6E75317207EDC00595ACA /* HumanId.h */,
-				89F6E75417207EDC00595ACA /* HumanName.h */,
-				89F6E75517207EDC00595ACA /* Identifier.h */,
-				89F6E75617207EDC00595ACA /* Image.h */,
-				89F6E75717207EDC00595ACA /* Language.h */,
-				89F6E75817207EDC00595ACA /* Narrative.h */,
-				89F6E75917207EDC00595ACA /* NodeType.h */,
-				89F6E75A17207EDC00595ACA /* Period.h */,
-				89F6E75B17207EDC00595ACA /* Resource.h */,
-				89F6E75C17207EDC00595ACA /* ResourceReference.h */,
-				89F6E75D17207EDC00595ACA /* ResourceType.h */,
-				89F6E75E17207EDC00595ACA /* String.h */,
-				89F6E75F17207EDC00595ACA /* Text.h */,
-				89F6E76017207EDC00595ACA /* Type.h */,
-				89F6E76117207EDC00595ACA /* Uri.h */,
-				89F6E76217207EDC00595ACA /* XhtmlNode.h */,
-				89F6E76317207EDC00595ACA /* XMLReader.h */,
-				89F6E76417207EDC00595ACA /* XMLWriter.h */,
-			);
-			path = private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

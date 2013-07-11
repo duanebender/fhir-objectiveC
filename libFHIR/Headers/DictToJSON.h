@@ -8,7 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "FHIRResourceDictionary.h"
-#import "Patient.h"
+#import "FHIRPatient.h"
+#import "FHIROrganization.h"
+#import "FHIRAdverseReaction.h"
+#import "FHIRAlert.h"
+#import "FHIRAllergyIntolerance.h"
+#import "FHIRCarePlan.h"
+#import "FHIRMedication.h"
+#import "FHIRCoverage.h"
 
 @interface DictToJSON : NSObject
 

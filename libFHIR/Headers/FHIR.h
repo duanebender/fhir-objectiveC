@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Patient.h"
 #import "JSONToDict.h"
 #import "DictToJSON.h"
 #import "XMLToDict.h"
 #import "DictToXML.h"
+#import "FHIRPatient.h"
+#import "FHIROrganization.h"
+#import "FHIRAdverseReaction.h"
+#import "FHIRAlert.h"
+#import "FHIRAllergyIntolerance.h"
+#import "FHIRCarePlan.h"
+#import "FHIRMedication.h"
+#import "FHIRCoverage.h"
