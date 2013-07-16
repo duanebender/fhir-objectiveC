@@ -87,7 +87,7 @@
 }
 
 //generate string for array
-+ (NSMutableString *)writeXMLStringFromArray:(NSString *)element:(id)content
++ (NSMutableString *)writeXMLStringFromArray:(NSString *)element:(NSArray *)content
 {
     NSMutableString *returnString = [[NSMutableString alloc] init];
     for (int i=0; i < [content count]; i++)

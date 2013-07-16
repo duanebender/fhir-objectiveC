@@ -1,0 +1,310 @@
+//
+//  InitialSearchTableViewController.m
+//  TestFHIRPatientApp
+//
+//  Created by Adam Sippel on 2013-07-15.
+//  Copyright (c) 2013 Adam Sippel. All rights reserved.
+//
+
+#import "InitialSearchTableViewController.h"
+#import "FHIR.h"
+
+#define URL_STRING_TEST @"http://hl7.org/implement/standards/fhir/patient-example-a.json"
+
+@interface InitialSearchTableViewController () <UISearchBarDelegate>
+
+@end
+
+@implementation InitialSearchTableViewController
+
+- (void)setPatientorMedication:(NSString *)string
+{
+    self.patientOrMedication = string;
+}
+
+- (IBAction)refreshButton:(id)sender
+{
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spinner startAnimating];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
+    
+    dispatch_queue_t downloadQueue = dispatch_queue_create("patient downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        //[self grabFromServerUsingID:@"1-5"];
+        [self exampleGrab];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.navigationItem.rightBarButtonItem = sender;
+            //self.patientArray = patients;
+        });
+    });
+}
+
+- (void)exampleGrab //delete after servers are updated
+{
+    JSONToDict *jsonDict = [[JSONToDict alloc] init];
+    
+    //check if file exists at path
+    NSObject *patientJSON = [[NSObject alloc] init];
+    self.patientArray = [[NSMutableArray alloc] init];
+    NSURL *tempUrl = [[NSURL alloc] initWithString:URL_STRING_TEST];
+    NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
+    if (jsonString)
+    {
+        NSLog(@"%@",URL_STRING_TEST);
+        patientJSON = [jsonDict convertJsonToDictionary:URL_STRING_TEST];
+        [self.patientArray addObject:patientJSON];
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+        self.searchBarMain.delegate = self;
+        
+        _patientArray = [[NSMutableArray alloc] initWithObjects:@"Pie",@"PIE",@"Pie?", nil];
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Search Bar delegate code
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    self.tableView.allowsSelection = NO;
+    self.tableView.scrollEnabled = NO;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text=@"";
+    
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    self.tableView.allowsSelection = YES;
+    self.tableView.scrollEnabled = YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *tempStringSearch;
+    if ([searchBar.text hasPrefix:@"ID:"])
+    {
+        tempStringSearch = [searchBar.text substringFromIndex:2];
+        NSLog(@"%@",tempStringSearch);
+    }
+    
+    NSLog(@"%@",tempStringSearch);
+    [searchBar resignFirstResponder];
+    [self grabFromServerUsingName:searchBar.text];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.patientArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"searchMainCells";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    NSString *cellTitle = [self returnPatientsName:[self.patientArray objectAtIndex:indexPath.row]];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",cellTitle]; //=@"ASDF" works.
+    
+    return cell;
+}
+
+- (NSString *)returnPatientsName:(FHIRPatient *)patientToCheckNameOf
+{
+    FHIRHumanName *patientName = [patientToCheckNameOf.name objectAtIndex:0];
+    //firstname
+    FHIRString *firstName = [patientName.given objectAtIndex:0];
+    NSString *firstNameFinal = firstName.value;
+    
+    //lastname
+    FHIRString *lastName = [patientName.family objectAtIndex:0];
+    NSString *lastNameFinal = lastName.value;
+    
+    return [NSString stringWithFormat:@"%@, %@", lastNameFinal, firstNameFinal];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
+#pragma mark - Search controllers
+- (void)grabFromServerUsingName:(NSString *)searchString
+{
+    NSArray *namesSeperated = [[NSArray alloc] initWithArray:[searchString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    NSMutableArray *givenNames = [[NSMutableArray alloc] init];
+    NSMutableArray *familyNames = [[NSMutableArray alloc] init];
+    Boolean *singleName = false;
+    
+    if ([searchString rangeOfString:@","].location != NSNotFound && [namesSeperated count] == 2) //if using "lastName, firstName" format
+    {
+        NSMutableArray *nameArrayWithoutCommas = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [namesSeperated count]; i++)
+        {
+            [nameArrayWithoutCommas addObject:[[namesSeperated objectAtIndex:i] stringByReplacingOccurrencesOfString:@"," withString:@""]];
+        }
+        [givenNames addObject:[nameArrayWithoutCommas objectAtIndex:1]];
+        [familyNames addObject:[nameArrayWithoutCommas objectAtIndex:0]];
+    }
+    else if ([namesSeperated count] > 1) //check if multiple search names "Fistname middleName lastname"
+    {
+        for (int i = 0; i < [namesSeperated count] - 1; i++)
+        {
+            [givenNames addObject:[namesSeperated objectAtIndex:i]];
+        }
+        [familyNames addObject:[namesSeperated objectAtIndex:[namesSeperated count]-1]];
+    }
+    else //single search word is provided "name"
+    {
+        singleName = true;
+    }
+    
+    //search for name
+    if (singleName)
+    {
+        NSObject *patientJSON = [[NSObject alloc] init];
+        BOOL missedFiles = false;
+        self.patientArray = [[NSMutableArray alloc] init];
+        NSMutableString *missingFilesAlert = [[NSMutableString alloc] initWithString:@"Paitient With Name "];
+        
+        JSONToDict *jsonDict = [[JSONToDict alloc] init];
+        //try family name first
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&family=%@", [familyNames objectAtIndex:0]]];
+        
+        //check if file exists at path
+        NSURL *tempUrl = [[NSURL alloc] initWithString:urlString];
+        NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
+        if (jsonString)
+        {
+            patientJSON = [jsonDict convertJsonToDictionary:urlString];
+            [self.patientArray addObject:patientJSON];
+        }
+        else
+        {
+            [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [givenNames objectAtIndex:0], [familyNames objectAtIndex:0]]];
+            missedFiles = true;
+        }
+        
+        //try given names
+        urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&given=%@", [givenNames objectAtIndex:0]]];
+        
+        //check if file exists at path
+        tempUrl = [[NSURL alloc] initWithString:urlString];
+        jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
+        if (jsonString)
+        {
+            patientJSON = [jsonDict convertJsonToDictionary:urlString];
+            [self.patientArray addObject:patientJSON];
+        }
+        else
+        {
+            [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [givenNames objectAtIndex:0], [familyNames objectAtIndex:0]]];
+            missedFiles = true;
+        }
+        
+        if (missedFiles)
+        {
+            [missingFilesAlert stringByAppendingString:@"do(es) not exist."];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                            message:missingFilesAlert
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        [self.tableView reloadData];
+        NSLog(@"%@",self.patientArray);
+    }
+    else //multiple names
+    {
+        //http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&family=everywoman&given=eve
+        NSObject *patientJSON = [[NSObject alloc] init];
+        BOOL missedFiles = false;
+        self.patientArray = [[NSMutableArray alloc] init];
+        NSMutableString *missingFilesAlert = [[NSMutableString alloc] initWithString:@"Paitient Name "];
+        
+        JSONToDict *jsonDict = [[JSONToDict alloc] init];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&family=%@&given=%@", [familyNames objectAtIndex:0], [givenNames objectAtIndex:0]]];
+                
+        //check if file exists at path
+        NSURL *tempUrl = [[NSURL alloc] initWithString:urlString];
+        NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
+        if (jsonString)
+        {
+            patientJSON = [jsonDict convertJsonToDictionary:urlString];
+            [self.patientArray addObject:patientJSON];
+        }
+        else
+        {
+            [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [givenNames objectAtIndex:0], [familyNames objectAtIndex:0]]];
+            missedFiles = true;
+        }
+        
+        if (missedFiles)
+        {
+            [missingFilesAlert stringByAppendingString:@"do(es) not exist."];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                            message:missingFilesAlert
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        [self.tableView reloadData];
+        NSLog(@"%@",self.patientArray);
+        
+    }
+}
+
+@end

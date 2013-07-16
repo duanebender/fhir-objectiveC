@@ -1,23 +1,303 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ijB-HG-9Bo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="4">
+        <!--Load Screen View Controller-->
+        <scene sceneID="Xnk-JD-BpO">
             <objects>
-                <viewController id="2" customClass="TestViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5">
+                <viewController id="4hr-YD-z2O" customClass="loadScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tt8-qh-Ua7">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fhirlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="7HW-aF-l5Y">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="XH8-cf-dR1"/>
+                                    <constraint firstAttribute="height" constant="183" id="gkZ-2f-Cee"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FHIR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v1-df-VIU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="6Fs-mS-5mB"/>
+                                    <constraint firstAttribute="width" constant="282" id="95W-08-FXW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                                <color key="textColor" red="0.98768682065217395" green="0.047878294577040729" blue="0.0044248645394977084" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="-7" height="-6"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="loadScreenImage" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jH0-eL-mck">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1004" id="KS9-YS-NLP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1v1-df-VIU" firstAttribute="leading" secondItem="7HW-aF-l5Y" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6u3-sx-emN"/>
+                            <constraint firstItem="7HW-aF-l5Y" firstAttribute="leading" secondItem="Tt8-qh-Ua7" secondAttribute="leading" type="default" id="E7k-Lk-ljg"/>
+                            <constraint firstAttribute="bottom" secondItem="jH0-eL-mck" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KwI-zJ-HwH"/>
+                            <constraint firstItem="jH0-eL-mck" firstAttribute="trailing" secondItem="Tt8-qh-Ua7" secondAttribute="trailing" type="default" id="NSO-zi-vFQ"/>
+                            <constraint firstItem="1v1-df-VIU" firstAttribute="top" secondItem="Tt8-qh-Ua7" secondAttribute="top" constant="34" id="Uh1-oY-cgy"/>
+                            <constraint firstItem="7HW-aF-l5Y" firstAttribute="top" secondItem="Tt8-qh-Ua7" secondAttribute="top" type="default" id="gYp-jf-C6u"/>
+                            <constraint firstItem="jH0-eL-mck" firstAttribute="leading" secondItem="Tt8-qh-Ua7" secondAttribute="leading" type="default" id="usD-vW-cgD"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="loadScreenImage" destination="jH0-eL-mck" id="iv8-y4-Zsa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qif-Jh-ED0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="170"/>
+        </scene>
+        <!--File Search Table View Controller - File Search-->
+        <scene sceneID="Zqn-2e-qCP">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Exa-Cw-Xym" customClass="FileSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aVw-HE-v9L">
+                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="q6M-75-EoW">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Exa-Cw-Xym" id="0xe-p2-C1G"/>
+                            <outlet property="delegate" destination="Exa-Cw-Xym" id="qrJ-m3-fzF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="File Search" id="xBz-xZ-NSE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxI-CE-Xvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="662" y="-866"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JOm-Wf-uSO">
+            <objects>
+                <navigationController id="X22-Cw-n8l" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Bga-UV-FO5">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Exa-Cw-Xym" kind="relationship" relationship="rootViewController" id="4hh-Pb-QFC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9z-cp-Vf3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="-866"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="4TT-4f-dby">
+            <objects>
+                <splitViewController id="Yjq-Ph-pvr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="X22-Cw-n8l" kind="relationship" relationship="masterViewController" id="5sm-pM-gfW"/>
+                        <segue destination="4hr-YD-z2O" kind="relationship" relationship="detailViewController" id="cFb-re-WcU"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Loc-Oj-pYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-852" y="-228"/>
+        </scene>
+        <!--Add Patient View Controller - Add Patient-->
+        <scene sceneID="ijx-Nj-Uwy">
+            <objects>
+                <viewController id="b6l-70-fK6" customClass="AddPatientViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xqj-K2-cAh">
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Patient" id="itB-ma-H33"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akb-9D-XAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1916" y="-1401"/>
+        </scene>
+        <!--Initial Search Table View Controller-->
+        <scene sceneID="O5Y-UX-Ixg">
+            <objects>
+                <tableViewController id="XhP-Fu-CUy" customClass="InitialSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wlf-fr-OJH">
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="searchBarMain" id="ppn-k3-khx">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchMainCells" textLabel="4WQ-Ug-U4m" detailTextLabel="eFC-OA-fcV" style="IBUITableViewCellStyleSubtitle" id="kZB-Lf-w4T">
+                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WQ-Ug-U4m">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFC-OA-fcV">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="VjM-Bb-KUb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Yxi-hG-jik">
+                            <connections>
+                                <segue destination="b6l-70-fK6" kind="push" id="NOa-MT-121"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="AB2-jE-K9I">
+                            <connections>
+                                <action selector="refreshButton:" destination="XhP-Fu-CUy" id="ufv-1w-S1y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBarMain" destination="ppn-k3-khx" id="tHX-2t-Yn0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ei5-J2-XH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2696" y="-228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ngi-wi-xfo">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="075-Gt-un0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0r-US-ck9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XhP-Fu-CUy" kind="relationship" relationship="rootViewController" id="B7e-Ae-SU7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKe-ck-dMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3640" y="-228"/>
+        </scene>
+        <!--Load Screen View Controller-->
+        <scene sceneID="bwS-O0-Xlw">
+            <objects>
+                <viewController id="ijB-HG-9Bo" customClass="loadScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wYO-oh-dtd">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fhirlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLe-YP-uwh">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="183" id="AYI-YX-nVT"/>
+                                    <constraint firstAttribute="width" constant="209" id="AvO-u9-exx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FHIR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PJ-ak-r7q">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="auN-fg-Rjr"/>
+                                    <constraint firstAttribute="height" constant="131" id="j5H-pS-e4a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="110"/>
+                                <color key="textColor" red="0.98768682070000002" green="0.047878294580000001" blue="0.0044248645389999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="-7" height="-6"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="loadScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="9vq-up-FND"/>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="patientSearch" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKq-Zp-azM">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Patient Search">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="075-Gt-un0" kind="modal" identifier="patientSearchSegue" id="6Qk-mo-a3P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NLe-YP-uwh" firstAttribute="top" secondItem="wYO-oh-dtd" secondAttribute="top" type="default" id="677-6C-Tfa"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="top" secondItem="wYO-oh-dtd" secondAttribute="top" type="default" id="DQL-3j-dQX"/>
+                            <constraint firstItem="3PJ-ak-r7q" firstAttribute="top" secondItem="wYO-oh-dtd" secondAttribute="top" constant="34" id="E3J-4b-4oY"/>
+                            <constraint firstAttribute="bottom" secondItem="PKq-Zp-azM" secondAttribute="bottom" constant="184" id="EOb-1n-Dxh"/>
+                            <constraint firstItem="3PJ-ak-r7q" firstAttribute="trailing" secondItem="PKq-Zp-azM" secondAttribute="trailing" type="default" id="NUg-Xc-o2A"/>
+                            <constraint firstItem="PKq-Zp-azM" firstAttribute="leading" secondItem="3PJ-ak-r7q" secondAttribute="leading" type="default" id="PkM-cv-2Of"/>
+                            <constraint firstItem="3PJ-ak-r7q" firstAttribute="leading" secondItem="NLe-YP-uwh" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aB3-dx-mqt"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="trailing" secondItem="wYO-oh-dtd" secondAttribute="trailing" type="default" id="aiJ-H0-qg6"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="bottom" secondItem="wYO-oh-dtd" secondAttribute="bottom" type="default" id="cNh-FH-dKI"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="leading" secondItem="wYO-oh-dtd" secondAttribute="leading" type="default" id="vEs-cj-6Ka"/>
+                            <constraint firstItem="NLe-YP-uwh" firstAttribute="leading" secondItem="wYO-oh-dtd" secondAttribute="leading" type="default" id="vtd-kZ-bOZ"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="loadScreenImage" destination="9vq-up-FND" id="AZo-Ux-gxO"/>
+                        <outlet property="patientSearch" destination="PKq-Zp-azM" id="4Cp-kg-nsg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8F-O9-04L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4576" y="-228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.jpg" width="200" height="186"/>
+        <image name="fhirlogo.png" width="128" height="128"/>
+    </resources>
+    <classes>
+        <class className="AddPatientViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPatientViewController.h"/>
+        </class>
+        <class className="FileSearchTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileSearchTableViewController.h"/>
+        </class>
+        <class className="InitialSearchTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSearchTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshButton:"/>
+                <relationship kind="outlet" name="searchBarMain" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="loadScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/loadScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loadScreenImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="patientSearch" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

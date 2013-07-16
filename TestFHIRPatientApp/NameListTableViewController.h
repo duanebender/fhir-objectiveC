@@ -13,13 +13,13 @@
 
 @protocol NameTableDelegate <NSObject>
 
-- (void)updateNames:(Patient *)patientNames;
+- (void)updateNames:(FHIRPatient *)patientNames;
 
 @end
 
 @interface NameListTableViewController : UITableViewController
 
 @property (nonatomic, weak) id<NameTableDelegate> delegate;
-@property (nonatomic, weak) Patient *patientToListNames;
+@property (nonatomic, weak) FHIRPatient *patientToListNames;
 
 @end

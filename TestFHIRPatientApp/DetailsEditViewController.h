@@ -14,13 +14,13 @@
 
 @protocol ViewControllerSubEditDelegate <NSObject>
 
-- (void)editValues:(Patient *)patientToEdit;
+- (void)editValues:(FHIRPatient *)patientToEdit;
 
 @end
 
 @interface DetailsEditViewController : UIViewController <NameTableDelegate>
 
 @property (nonatomic, weak) id<ViewControllerSubEditDelegate> delegate;
-@property (nonatomic, weak) Patient *patientDetailsToEdit;
+@property (nonatomic, weak) FHIRPatient *patientDetailsToEdit;
 
 @end

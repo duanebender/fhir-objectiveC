@@ -18,9 +18,9 @@
 
 @implementation PatientEditViewController
 
-- (void)editValues:(Patient *)patientToEdit
+- (void)editValues:(FHIRPatient *)patientToEdit
 {
-    self.patientToEdit = [[Patient alloc] init];
+    self.patientToEdit = [[FHIRPatient alloc] init];
     self.patientToEdit = patientToEdit;
     [self.delegate editPatientValues:self.patientToEdit];
 }
@@ -40,7 +40,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.patientToEdit = [[Patient alloc] init];
+        self.patientToEdit = [[FHIRPatient alloc] init];
     }
     return self;
 }

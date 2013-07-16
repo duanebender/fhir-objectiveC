@@ -212,6 +212,7 @@
     }
     
     //configure cell...
+    /*
     Demographics *tempPatient = [[Demographics alloc] init];
     tempPatient = [[self.patientArray objectAtIndex:indexPath.row] details];
     NSDictionary *getNamePatientDict1 = [[NSDictionary alloc] initWithDictionary:[tempPatient generateAndReturnDictionary]]; //holds a demographics object
@@ -221,7 +222,7 @@
     NSDictionary *lastNameDict = [[NSDictionary alloc] initWithDictionary:[[getNamePatientDict2 objectForKey:@"family"] objectAtIndex:0]]; //holds first family name
     NSString *lastNameString = [lastNameDict objectForKey:@"value"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",lastNameString, firstNameString];
-    
+    */
     return cell;
 }
 

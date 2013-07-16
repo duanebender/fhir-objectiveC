@@ -45,7 +45,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.patientToListNames = [[Patient alloc] init];
+        self.patientToListNames = [[FHIRPatient alloc] init];
         self.nameArray = [[NSMutableArray alloc] init];
         self.sectionArray = [[NSMutableArray alloc] init];
         self.typeArray = [[NSMutableArray alloc] init];
@@ -55,7 +55,8 @@
 
 - (void)setUpNamesForTable
 {
-    NSLog(@"%@",self.patientToListNames.details.name);
+    //NSLog(@"%@",self.patientToListNames.details.name);
+    /*
     for (int i = 0; i < [self.patientToListNames.details.name count]; i++)
     {
 #warning - does not addObject?
@@ -71,6 +72,7 @@
             [self.typeArray addObject:key];
         }
     }
+     */
 }
 
 - (void)viewDidLoad

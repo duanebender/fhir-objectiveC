@@ -17,9 +17,9 @@
 
 @implementation PatientViewController
 
-- (void)editPatientValues:(Patient *)patientToEdit
+- (void)editPatientValues:(FHIRPatient *)patientToEdit
 {
-    self.patient = [[Patient alloc] init];
+    self.patient = [[FHIRPatient alloc] init];
     self.patient = patientToEdit;
     [self initPatientLabel];
 }

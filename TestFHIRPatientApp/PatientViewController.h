@@ -12,6 +12,6 @@
 
 @interface PatientViewController : UIViewController <ViewControllerEditDelegate>
 
-@property (nonatomic, retain) Patient *patient;
+@property (nonatomic, retain) FHIRPatient *patient;
 
 @end
