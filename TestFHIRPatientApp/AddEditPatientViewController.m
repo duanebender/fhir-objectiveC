@@ -1,18 +1,18 @@
 //
-//  AddPatientViewController.m
+//  AddEditPatientViewController.m
 //  TestFHIRPatientApp
 //
-//  Created by Adam Sippel on 2013-07-15.
+//  Created by Adam Sippel on 2013-07-17.
 //  Copyright (c) 2013 Adam Sippel. All rights reserved.
 //
 
-#import "AddPatientViewController.h"
+#import "AddEditPatientViewController.h"
 
-@interface AddPatientViewController ()
+@interface AddEditPatientViewController ()
 
 @end
 
-@implementation AddPatientViewController
+@implementation AddEditPatientViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.editableContentForView = [[AddEditPatientScrollContextViewController alloc] init];
+    self.editableValuesScrollView.contentSize = self.editableContentForView.frame.size;
 }
 
 - (void)didReceiveMemoryWarning

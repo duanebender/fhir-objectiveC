@@ -10,11 +10,8 @@
 
 @interface InitialSearchTableViewController : UITableViewController <UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBarMain;
+@property (weak, nonatomic) UISearchBar *searchBarMain;
 
 @property (nonatomic, strong) NSMutableArray *patientArray;
-@property (nonatomic, strong) NSString *patientOrMedication;
-
--(void)setPatientorMedication:(NSString *)string;
 
 @end

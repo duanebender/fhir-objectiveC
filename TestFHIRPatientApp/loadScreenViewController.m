@@ -50,9 +50,8 @@
     if ([[segue identifier] isEqualToString:@"patientSearchSegue"]) {
         //pass values
         NSLog(@"The sender is %@",sender);
-#warning - why does title not change?
         
-        InitialSearchTableViewController *dest = segue.destinationViewController;
+        //InitialSearchTableViewController *dest = segue.destinationViewController;
         //[dest setTitle:@"Patient Search"];
         //[dest setPatientorMedication:@"Patient"];
         

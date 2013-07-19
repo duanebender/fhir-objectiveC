@@ -8,6 +8,8 @@
 
 #import "InitialSearchTableViewController.h"
 #import "FHIR.h"
+#import "PatientInfoViewController.h"
+#import "AddEditPatientViewController.h"
 
 #define URL_STRING_TEST @"http://hl7.org/implement/standards/fhir/patient-example-a.json"
 
@@ -16,28 +18,6 @@
 @end
 
 @implementation InitialSearchTableViewController
-
-- (void)setPatientorMedication:(NSString *)string
-{
-    self.patientOrMedication = string;
-}
-
-- (IBAction)refreshButton:(id)sender
-{
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [spinner startAnimating];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-    
-    dispatch_queue_t downloadQueue = dispatch_queue_create("patient downloader", NULL);
-    dispatch_async(downloadQueue, ^{
-        //[self grabFromServerUsingID:@"1-5"];
-        [self exampleGrab];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.navigationItem.rightBarButtonItem = sender;
-            //self.patientArray = patients;
-        });
-    });
-}
 
 - (void)exampleGrab //delete after servers are updated
 {
@@ -63,9 +43,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.searchBarMain.delegate = self;
-        
-        _patientArray = [[NSMutableArray alloc] initWithObjects:@"Pie",@"PIE",@"Pie?", nil];
     }
     return self;
 }
@@ -74,6 +51,8 @@
 {
     [super viewDidLoad];
 
+    self.searchBarMain.delegate = self;
+    self.navigationController.title = @"Patient Search";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -106,16 +85,13 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSString *tempStringSearch;
-    if ([searchBar.text hasPrefix:@"ID:"])
-    {
-        tempStringSearch = [searchBar.text substringFromIndex:2];
-        NSLog(@"%@",tempStringSearch);
-    }
-    
-    NSLog(@"%@",tempStringSearch);
+    NSLog(@"%@",searchBar.text);
+    [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
-    [self grabFromServerUsingName:searchBar.text];
+    self.tableView.allowsSelection = YES;
+    self.tableView.scrollEnabled = YES;
+    [self exampleGrab];
+    //[self grabFromServerUsingName:searchBar.text];
 }
 
 #pragma mark - Table view data source
@@ -144,8 +120,10 @@
     
     // Configure the cell...
     NSString *cellTitle = [self returnPatientsName:[self.patientArray objectAtIndex:indexPath.row]];
+    NSString *cellSubtitle = [self returnPatientType:[self.patientArray objectAtIndex:indexPath.row]];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",cellTitle]; //=@"ASDF" works.
+    cell.textLabel.text = cellTitle;
+    cell.detailTextLabel.text = cellSubtitle;
     
     return cell;
 }
@@ -162,6 +140,18 @@
     NSString *lastNameFinal = lastName.value;
     
     return [NSString stringWithFormat:@"%@, %@", lastNameFinal, firstNameFinal];
+}
+
+- (NSString *)returnPatientType:(FHIRPatient *)patientToCheckTypeOf
+{
+    if([patientToCheckTypeOf.animal class] != [NSNull class])
+    {
+        return @"Person";
+    }
+    else
+    {
+        return @"Animal";
+    }
 }
 
 #pragma mark - Table view delegate
@@ -304,6 +294,39 @@
         [self.tableView reloadData];
         NSLog(@"%@",self.patientArray);
         
+    }
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"patientInfoSegue"])
+    {
+        PatientInfoViewController *target = (PatientInfoViewController *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        target.patient = [self.patientArray objectAtIndex:indexPath.row];
+    }
+    else if ([segue.identifier isEqualToString:@"addPatientSegue"])
+    {
+        AddEditPatientViewController *target = (AddEditPatientViewController *)segue.destinationViewController;
+        target.title = @"Add Patient";
+    }
+    else
+    {
+        NSIndexPath *indexPath = nil;
+        if ([sender isKindOfClass:[NSIndexPath class]])
+        {
+            indexPath = (NSIndexPath *)sender;
+        }
+        else if ([sender isKindOfClass:[UITableViewCell class]])
+        {
+            indexPath = [self.tableView indexPathForCell:sender];
+        }
+        else if (!sender || (sender == self.tableView))
+        {
+            indexPath = [self.tableView indexPathForSelectedRow];
+        }
     }
 }
 
