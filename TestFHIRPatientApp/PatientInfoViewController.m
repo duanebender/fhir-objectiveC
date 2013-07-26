@@ -8,6 +8,8 @@
 
 #import "PatientInfoViewController.h"
 #import "FHIRAttachment.h"
+#import "AllPatientItemReturnMethods.h"
+#import "PatientInfoViewTableViewController.h"
 
 @interface PatientInfoViewController ()
 
@@ -28,13 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.defaultImage = [[UIImage alloc] initWithContentsOfFile:@"/images/defaultImage.gif"];
-    self.personalInfo = [[NSMutableDictionary alloc] init];
-    self.contactInfo = [[NSMutableDictionary alloc] init];
-    self.additionalInfo = [[NSMutableDictionary alloc] init];
-    self.contactList = [[NSMutableDictionary alloc] init];
-    self.animalInfo = [[NSMutableDictionary alloc] init];
-    [self loadImageViewForPatient];
+    self.patientImageView.image = [AllPatientItemReturnMethods returnPatientDefaultImage:self.patient];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,27 +39,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadImageViewForPatient
+#pragma mark - segue methods
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    BOOL isDone = false;
-    NSArray *patientImage = self.patient.photo;
-    
-    for (int i = 0; i < [patientImage count]; i++)
+    NSString * segueName = segue.identifier;
+    if ([segueName isEqualToString: @"containerViewSegue"])
     {
-        FHIRAttachment *attachmentToCheck = [patientImage objectAtIndex:i];
-        if (attachmentToCheck.hash)
+        PatientInfoViewTableViewController * childViewController = (PatientInfoViewTableViewController *) [segue destinationViewController];
+        
+        //initialize objects that need it
+        childViewController.personalCellsLabels = [[NSMutableArray alloc] init];
+        childViewController.personalCellsContents = [[NSMutableArray alloc] init];
+        
+        //sections to determine
+        childViewController.sectionsTitleArray = [AllPatientItemReturnMethods generateSectionsArrayForPatientListing:self.patient];
+        
+        //Determine if to display name
+        if (![[AllPatientItemReturnMethods returnPatientsName:self.patient] isEqualToString:@""])
         {
-            UIImage *patientProfileImage = [[UIImage alloc] initWithData:attachmentToCheck.hash.data];
-            self.patientImageView.image = patientProfileImage;
-            isDone = true;
+            [childViewController.personalCellsLabels addObject:@"Name:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsName:self.patient]];
         }
         
-        if (isDone) break;
-    }
-    
-    if (self.patientImageView.image == nil)
-    {
-        self.patientImageView.image = self.defaultImage;
+        if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])
+        {
+            [childViewController.personalCellsLabels addObject:@"Date of Birth:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsDOB:self.patient]];
+        }
+        
     }
 }
 

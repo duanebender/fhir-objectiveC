@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddEditPatientScrollContextViewController.h"
+#import "AddEditPatientTableViewController.h"
+#import "FHIR.h"
 
 @interface AddEditPatientViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *editPatientImage;
-@property (weak, nonatomic) IBOutlet UIScrollView *editableValuesScrollView;
+@property (weak, nonatomic) IBOutlet UIPickerView *optionsToPickPickerView;
+@property (weak, nonatomic) IBOutlet AddEditPatientTableViewController *containerForPatientData;
+
+@property (strong, nonatomic) FHIRPatient *patient;
 
 @end

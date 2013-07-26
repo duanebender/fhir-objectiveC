@@ -10,6 +10,8 @@
 #import "FHIR.h"
 #import "PatientInfoViewController.h"
 #import "AddEditPatientViewController.h"
+#import "PatientSearchTableViewCell.h"
+#import "AllPatientItemReturnMethods.h"
 
 #define URL_STRING_TEST @"http://hl7.org/implement/standards/fhir/patient-example-a.json"
 
@@ -112,46 +114,44 @@
 {
     static NSString *CellIdentifier = @"searchMainCells";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PatientSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PatientSearchTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-    NSString *cellTitle = [self returnPatientsName:[self.patientArray objectAtIndex:indexPath.row]];
-    NSString *cellSubtitle = [self returnPatientType:[self.patientArray objectAtIndex:indexPath.row]];
+    NSString *cellTitle = [AllPatientItemReturnMethods returnPatientsName:[self.patientArray objectAtIndex:indexPath.row]];
+    UIImage *cellDefaultImage = [AllPatientItemReturnMethods returnPatientDefaultImage:[self.patientArray objectAtIndex:indexPath.row]];
+    NSString *cellDOB = [AllPatientItemReturnMethods returnPatientsDOB:[self.patientArray objectAtIndex:indexPath.row]];
+    UIImage *cellGenderImage = [self returnPatientGenderImage:[self.patientArray objectAtIndex:indexPath.row]];
     
-    cell.textLabel.text = cellTitle;
-    cell.detailTextLabel.text = cellSubtitle;
+    cell.patientNameLabel.text = cellTitle;
+    cell.patientProfileImageView.image = cellDefaultImage;
+    cell.patientDOBText.text = cellDOB;
+    cell.patientGenderImageView.image = cellGenderImage;
     
     return cell;
 }
 
-- (NSString *)returnPatientsName:(FHIRPatient *)patientToCheckNameOf
+- (UIImage *)returnPatientGenderImage:(FHIRPatient *)patientToCheckImage
 {
-    FHIRHumanName *patientName = [patientToCheckNameOf.name objectAtIndex:0];
-    //firstname
-    FHIRString *firstName = [patientName.given objectAtIndex:0];
-    NSString *firstNameFinal = firstName.value;
+    UIImage *imageForProfile = [[UIImage alloc] init];
     
-    //lastname
-    FHIRString *lastName = [patientName.family objectAtIndex:0];
-    NSString *lastNameFinal = lastName.value;
-    
-    return [NSString stringWithFormat:@"%@, %@", lastNameFinal, firstNameFinal];
-}
-
-- (NSString *)returnPatientType:(FHIRPatient *)patientToCheckTypeOf
-{
-    if([patientToCheckTypeOf.animal class] != [NSNull class])
+    if ([patientToCheckImage.gender class] == [NSNull class]) //patient is human male
     {
-        return @"Person";
+        imageForProfile = [UIImage imageNamed:@""];
+    }
+    else if ([patientToCheckImage.gender.primary.value isEqualToString:@"Male"])
+    {
+        imageForProfile = [UIImage imageNamed:@"icon_gender_male.png"];
     }
     else
     {
-        return @"Animal";
+        imageForProfile = [UIImage imageNamed:@"icon_gender_female.png"];
     }
+    
+    return imageForProfile;
 }
 
 #pragma mark - Table view delegate
