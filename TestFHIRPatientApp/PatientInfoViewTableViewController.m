@@ -9,8 +9,13 @@
 #import "PatientInfoViewTableViewController.h"
 #import "SectionHeaderView.h"
 #import "SingleLineViewTableViewCell.h"
+#import "AddressViewTableViewCell.h"
+#import "LinksViewTableViewCell.h"
+#import "ContactListTableViewCell.h"
 
 @interface PatientInfoViewTableViewController ()
+
+- (int)checkWhichSectionIsCurrentlyBeingBuiltForRowsNeeded:(NSInteger)section;
 
 @end
 
@@ -31,10 +36,34 @@
     
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - dynamic table sections code
+
+- (int)checkWhichSectionIsCurrentlyBeingBuiltForRowsNeeded:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"PERSONAL INFO"])
+    {
+        return [self.personalCellsLabels count];
+    }
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"CONTACT INFO"])
+    {
+        return [self.contactCellLabels count];
+    }
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"ADDITIONAL INFO"])
+    {
+        return [self.addCellLabels count];
+    }
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"ANIMAL INFO"])
+    {
+        return [self.animalCellLabels count];
+    }
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"CONTACT LIST"])
+    {
+        return [self.contactListCells count];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 #pragma mark - Table view data source
@@ -48,50 +77,94 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    switch (section)
-    {
-        case 0: //Patient Info section
-            return [self.personalCellsLabels count];
-            break;
-            
-        case 1: //Contact info section
-            return 0;//[self.contactCellLabels count];
-            break;
-            
-        case 2: //Additional Info section
-            return 0;//[self.addCellLabels count];
-            break;
-            
-        case 3: //Animal Info section
-            return 0;//[self.animalCellLabels count];
-            break;
-            
-        case 4: //Contact List
-            return 0;
-            break;
-            
-        default:
-            return 0;
-            break;
-    }
+    return [self checkWhichSectionIsCurrentlyBeingBuiltForRowsNeeded:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SingleLineViewTableViewCell *singleCell = [[SingleLineViewTableViewCell alloc] init];
-    
-    switch (indexPath.section)
+    AddressViewTableViewCell *addressCell = [[AddressViewTableViewCell alloc] init];
+    LinksViewTableViewCell *linkCell = [[LinksViewTableViewCell alloc] init];
+    ContactListTableViewCell *contactListCell = [[ContactListTableViewCell alloc] init];
+
+    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"PERSONAL INFO"])
     {
-        case 0: //section Patient Info all single cells
+        singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
+        [singleCell.titleLabel setText:[self.personalCellsLabels objectAtIndex:indexPath.row]];
+        [singleCell.contentLabel setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+        return singleCell;
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT INFO"])
+    {
+        if (indexPath.row == [self.addCellLabels indexOfObject:@"Address:"])
+        {
+            addressCell = [tableView dequeueReusableCellWithIdentifier:@"addressViewCell" forIndexPath:indexPath];
+            addressCell.streetLabel = [self.addressContentsDict objectForKey:@"Street"];
+            addressCell.apptLabel = [self.addressContentsDict objectForKey:@"Appt"];
+            addressCell.cityProvStateLabel = [self.addressContentsDict objectForKey:@"CityState"];
+            addressCell.countryLabel = [self.addressContentsDict objectForKey:@"Country"];
+            addressCell.zipPostalCodeLabel = [self.addressContentsDict objectForKey:@"ZipPostal"];
+            return addressCell;
+        }
+        else
+        {
             singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
-            [singleCell.titleLabel setText:[self.personalCellsLabels objectAtIndex:indexPath.row]];
-            [singleCell.contentLabel setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+            [singleCell.titleLabel setText:[self.contactCellLabels objectAtIndex:indexPath.row]];
+            [singleCell.contentLabel setText:[self.contactCellContents objectAtIndex:indexPath.row]];
             return singleCell;
-            break;
-            
-        default:
-            return nil;
-            break;
+        }
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"ADDITIONAL INFO"])
+    {
+        if (indexPath.row == [self.addCellLabels indexOfObject:@"Linked Patients:"])
+        {
+            linkCell = [tableView dequeueReusableCellWithIdentifier:@"linkViewCell" forIndexPath:indexPath];
+            linkCell.linkedPatientsTextField.text = [self.addCellContents objectAtIndex:indexPath.row];
+            return linkCell;
+        }
+        else
+        {
+            singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
+            [singleCell.titleLabel setText:[self.addCellLabels objectAtIndex:indexPath.row]];
+            [singleCell.contentLabel setText:[self.addCellContents objectAtIndex:indexPath.row]];
+            return singleCell;
+        }
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT LIST"])
+    {
+        NSLog(@"HERE");
+        contactListCell = [tableView dequeueReusableCellWithIdentifier:@"contactListViewCell" forIndexPath:indexPath];
+        NSLog(@"HERE?");
+        NSDictionary *currentContactItem = [[NSDictionary alloc] initWithDictionary:[self.contactListCells objectAtIndex:indexPath.row]];
+        NSLog(@"%@",currentContactItem);
+        [contactListCell.contactInfoLabel setText:@"Contact Info:"];
+        [contactListCell.nameLabel setText:@"Name:"];
+        [contactListCell.nameText setText:[currentContactItem objectForKey:@"nameText"]];
+        [contactListCell.genderLabel setText:@"Gender:"];
+        [contactListCell.genderText setText:[currentContactItem objectForKey:@"genderText"]];
+        [contactListCell.relationshipLabel setText:@"Relationship:"];
+        [contactListCell.relationshipText setText:[currentContactItem objectForKey:@"relationshipText"]];
+        [contactListCell.addressLabel setText:@"Address:"];
+        [contactListCell.addressStreetText setText:[currentContactItem objectForKey:@"addressStreetText"]];
+        [contactListCell.addressAptText setText:[currentContactItem objectForKey:@"addressApptText"]];
+        [contactListCell.addressCityText setText:[currentContactItem objectForKey:@"addressCityText"]];
+        [contactListCell.addressCountryText setText:[currentContactItem objectForKey:@"addressCountryText"]];
+        [contactListCell.addressPostalText setText:[currentContactItem objectForKey:@"addressPostalText"]];
+        [contactListCell.phoneLabel setText:@"Phone:"];
+        [contactListCell.phoneHomeText setText:[currentContactItem objectForKey:@"phoneHome"]];
+        [contactListCell.phoneCellText setText:[currentContactItem objectForKey:@"phoneCell"]];
+        [contactListCell.phoneWorkText setText:[currentContactItem objectForKey:@"phoneWork"]];
+        [contactListCell.faxLabel setText:@"Fax:"];
+        [contactListCell.faxText setText:[currentContactItem objectForKey:@"faxText"]];
+        [contactListCell.emailLabel setText:@"Email:"];
+        [contactListCell.emailText setText:[currentContactItem objectForKey:@"emailText"]];
+        [contactListCell.organizationLabel setText:@"Organization:"];
+        [contactListCell.organizationText setText:[currentContactItem objectForKey:@"organizationText"]];
+        return contactListCell;
+    }
+    else
+    {
+        return nil;
     }
 }
 
@@ -104,46 +177,39 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section)
+    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT INFO"])
     {
-            
-        case 1: //Contact info section
-            switch (indexPath.row)
+        if (indexPath.row == [self.contactCellLabels indexOfObject:@"Address:"])
         {
-            case 0: //address row
-                return 200;
-                break;
-                
-            case 1: //phone row
-                return 125;
-                break;
-                
-            default:
-                return 44;
-                break;
+            return 195;
         }
-            break;
-            
-        case 2: //Additional info section
-            switch (indexPath.row)
+        else if (indexPath.row == [self.contactCellLabels indexOfObject:@"Phone:"])
         {
-            case 3: //linked patients row
-                return 170;
-                break;
-                
-            default:
-                return 44;
-                break;
+            return 125;
         }
-            break;
-            
-        case 4: //Contact List Section
-            return 575;
-            break;
-            
-        default: //Patient info and Animal Section
+        else
+        {
             return 44;
-            break;
+        }
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"ADDITIONAL INFO"])
+    {
+        if (indexPath.row == [self.addCellLabels indexOfObject:@"Linked Patients:"])
+        {
+            return 130;
+        }
+        else
+        {
+            return 44;
+        }
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT LIST"])
+    {
+        return 575;
+    }
+    else
+    {
+        return 44;
     }
 }
 

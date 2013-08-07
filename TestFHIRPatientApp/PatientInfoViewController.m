@@ -55,6 +55,8 @@
         //sections to determine
         childViewController.sectionsTitleArray = [AllPatientItemReturnMethods generateSectionsArrayForPatientListing:self.patient];
         
+        //PersonalInfo section cells
+        
         //Determine if to display name
         if (![[AllPatientItemReturnMethods returnPatientsName:self.patient] isEqualToString:@""])
         {
@@ -68,6 +70,92 @@
             [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsDOB:self.patient]];
         }
         
+        //determine to return patients gender
+        if ([self.patient.gender.coding count] != 0)
+        {
+            [childViewController.personalCellsLabels addObject:@"Gender:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsGender:self.patient]];
+        }
+    
+        //determine to return patient maritalStatus
+        if ([self.patient.maritalStatus.coding count] != 0)
+        {
+            [childViewController.personalCellsLabels addObject:@"Marital Status:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsMaritalStatus:self.patient]];
+        }
+    
+        //determine to return deceased
+        if ([self.patient.deceasedX class] != [NSNull class] && [self.patient.deceasedX count] != 0)
+        {
+            [childViewController.personalCellsLabels addObject:@"Deceased:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsDeceasedStatus:self.patient]];
+        }
+    
+        //determine to return language
+        if ([self.patient.communication count] != 0)
+        {
+            [childViewController.personalCellsLabels addObject:@"Language:"];
+            [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsDeceasedStatus:self.patient]];
+        }
+        
+        //Contact Info section cells
+        childViewController.contactCellLabels = [[NSMutableArray alloc] init];
+        childViewController.contactCellContents = [[NSMutableArray alloc] init];
+        childViewController.addressContentsDict = [[NSMutableDictionary alloc] init];
+        
+        //determine to return address
+        if ([self.patient.address count] != 0)
+        {
+            [childViewController.contactCellLabels addObject:@"Address"];
+            childViewController.addressContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsAddressInfo:self.patient]];
+        }
+        
+        //determine to return phone
+        
+        //determine to return fax
+        
+        //determine to return email
+        
+        //Additional Info section cells
+        childViewController.addCellLabels = [[NSMutableArray alloc] init];
+        childViewController.addCellContents = [[NSMutableArray alloc] init];
+        
+        //determine to return siblings
+        if ([self.patient.multipleBirthX count] != 0)
+        {
+            [childViewController.addCellLabels addObject:@"Siblings:"];
+            [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsMultipleBirth:self.patient]];
+        }
+        
+        //determine to return siblings
+        if ([self.patient.active class] != [NSNull class])
+        {
+            [childViewController.addCellLabels addObject:@"Active Status:"];
+            [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsActiveStatus:self.patient]];
+        }
+        
+        //determine to return provider
+        if ([self.patient.provider.display class] != [NSNull class])
+        {
+            [childViewController.addCellLabels addObject:@"Provider:"];
+            [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient]];
+        }
+        
+        //determine to return patient links
+        if ([self.patient.link count] != 0)
+        {
+            [childViewController.addCellLabels addObject:@"Linked Patients:"];
+            [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsLinkedToThisPatient:self.patient]];
+        }
+        
+        //Contact List section cells
+        childViewController.contactListCells = [[NSMutableArray alloc] init];
+        
+        //determine to return contact list
+        if ([self.patient.contact count] != 0)
+        {
+            childViewController.contactListCells = [[NSMutableArray alloc] initWithArray:[AllPatientItemReturnMethods returnPatientsContactListItemsInAnArray:self.patient]];
+        }
     }
 }
 
