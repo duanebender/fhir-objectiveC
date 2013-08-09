@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="075-Gt-un0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ijB-HG-9Bo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -822,6 +822,7 @@
         <scene sceneID="Ngi-wi-xfo">
             <objects>
                 <navigationController definesPresentationContext="YES" id="075-Gt-un0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="B2q-HE-6Su"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0r-US-ck9">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -845,18 +846,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9vq-up-FND" firstAttribute="top" secondItem="wYO-oh-dtd" secondAttribute="top" type="default" id="Lug-Ky-36u"/>
-                            <constraint firstItem="9vq-up-FND" firstAttribute="leading" secondItem="wYO-oh-dtd" secondAttribute="leading" type="default" id="lBa-Jj-YxO"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="top" secondItem="wYO-oh-dtd" secondAttribute="top" type="default" id="WGc-tz-PpB"/>
+                            <constraint firstItem="9vq-up-FND" firstAttribute="leading" secondItem="wYO-oh-dtd" secondAttribute="leading" type="default" id="uK3-Dd-R4O"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
                         <outlet property="loadScreenImage" destination="9vq-up-FND" id="AZo-Ux-gxO"/>
+                        <segue destination="075-Gt-un0" kind="modal" identifier="loadScreenSegue" id="D2n-D1-BcC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8F-O9-04L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2696" y="-1392"/>
+            <point key="canvasLocation" x="-4551" y="-228"/>
         </scene>
         <!--Add Edit Patient Table View Controller-->
         <scene sceneID="X0u-xy-cgb">
@@ -1464,7 +1466,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/loadScreenViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="loadScreenImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="patientSearch" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

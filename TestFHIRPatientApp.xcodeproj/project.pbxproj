@@ -59,6 +59,11 @@
 		896C065E17B41F1100C25D2E /* icon_female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C065A17B41F1000C25D2E /* icon_female@2x.png */; };
 		896C065F17B41F1100C25D2E /* icon_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C065B17B41F1000C25D2E /* icon_male.png */; };
 		896C066017B41F1100C25D2E /* icon_male@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C065C17B41F1000C25D2E /* icon_male@2x.png */; };
+		896C066417B5582300C25D2E /* icon_fhir_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066217B5582300C25D2E /* icon_fhir_57px.png */; };
+		896C066517B5582300C25D2E /* icon_fhir_512px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066317B5582300C25D2E /* icon_fhir_512px.png */; };
+		896C066717B5584500C25D2E /* icon_fhir_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066617B5584500C25D2E /* icon_fhir_57px.png */; };
+		896C066917B558BA00C25D2E /* icon_fhir_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066817B558BA00C25D2E /* icon_fhir_114px.png */; };
+		896C066B17B558BE00C25D2E /* icon_fhir_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066A17B558BE00C25D2E /* icon_fhir_114px.png */; };
 		898D9DC217B2A40E00554D5D /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898D9DC117B2A40E00554D5D /* libFHIR.a */; };
 		898F79F817A8523F00BE90B0 /* LinksViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */; };
 		89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */; };
@@ -157,6 +162,11 @@
 		896C065A17B41F1000C25D2E /* icon_female@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_female@2x.png"; path = "images/icon_female@2x.png"; sourceTree = "<group>"; };
 		896C065B17B41F1000C25D2E /* icon_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_male.png; path = images/icon_male.png; sourceTree = "<group>"; };
 		896C065C17B41F1000C25D2E /* icon_male@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_male@2x.png"; path = "images/icon_male@2x.png"; sourceTree = "<group>"; };
+		896C066217B5582300C25D2E /* icon_fhir_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_fhir_57px.png; path = images/icon_fhir_57px.png; sourceTree = "<group>"; };
+		896C066317B5582300C25D2E /* icon_fhir_512px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_fhir_512px.png; path = images/icon_fhir_512px.png; sourceTree = "<group>"; };
+		896C066617B5584500C25D2E /* icon_fhir_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_57px.png; sourceTree = "<group>"; };
+		896C066817B558BA00C25D2E /* icon_fhir_114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_fhir_114px.png; path = images/icon_fhir_114px.png; sourceTree = "<group>"; };
+		896C066A17B558BE00C25D2E /* icon_fhir_114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_114px.png; sourceTree = "<group>"; };
 		898D9D7117B2A40E00554D5D /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
 		898D9D7217B2A40E00554D5D /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToXML.h; sourceTree = "<group>"; };
 		898D9D7317B2A40E00554D5D /* FHIR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
@@ -322,6 +332,8 @@
 		89694708171D99D10072A3CD = {
 			isa = PBXGroup;
 			children = (
+				896C066A17B558BE00C25D2E /* icon_fhir_114px.png */,
+				896C066617B5584500C25D2E /* icon_fhir_57px.png */,
 				89B78A47178F2AE5004F4C0D /* FHIRlib */,
 				8969471D171D99D10072A3CD /* TestFHIRPatientApp */,
 				89694744171D99D10072A3CD /* TestFHIRPatientAppTests */,
@@ -419,6 +431,15 @@
 				896B2784179DCE5900608D87 /* SectionHeaderView.m */,
 			);
 			name = "Section Header";
+			sourceTree = "<group>";
+		};
+		896C066117B5414B00C25D2E /* LoadScreen */ = {
+			isa = PBXGroup;
+			children = (
+				89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */,
+				89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */,
+			);
+			name = LoadScreen;
 			sourceTree = "<group>";
 		};
 		898D9D7017B2A40E00554D5D /* Headers */ = {
@@ -534,14 +555,13 @@
 		89B78AEE178F2E74004F4C0D /* iPadDemo */ = {
 			isa = PBXGroup;
 			children = (
+				896C066117B5414B00C25D2E /* LoadScreen */,
 				89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */,
 				89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */,
 				89E3000117A1706100F29B29 /* AllPatientItemReturnMethods.m */,
 				8934346C17A0509A007EFE18 /* Patient Search */,
 				890EFFDF1796E412007ADF5C /* PatientViewer */,
 				8959F4351794836E00AE586D /* Add/Edit */,
-				89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */,
-				89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */,
 			);
 			name = iPadDemo;
 			sourceTree = "<group>";
@@ -566,6 +586,9 @@
 		89B78AF3178F30A3004F4C0D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				896C066217B5582300C25D2E /* icon_fhir_57px.png */,
+				896C066317B5582300C25D2E /* icon_fhir_512px.png */,
+				896C066817B558BA00C25D2E /* icon_fhir_114px.png */,
 				896C065917B41F1000C25D2E /* icon_female.png */,
 				896C065A17B41F1000C25D2E /* icon_female@2x.png */,
 				896C065B17B41F1000C25D2E /* icon_male.png */,
@@ -721,6 +744,11 @@
 				896C065E17B41F1100C25D2E /* icon_female@2x.png in Resources */,
 				896C065F17B41F1100C25D2E /* icon_male.png in Resources */,
 				896C066017B41F1100C25D2E /* icon_male@2x.png in Resources */,
+				896C066417B5582300C25D2E /* icon_fhir_57px.png in Resources */,
+				896C066517B5582300C25D2E /* icon_fhir_512px.png in Resources */,
+				896C066717B5584500C25D2E /* icon_fhir_57px.png in Resources */,
+				896C066917B558BA00C25D2E /* icon_fhir_114px.png in Resources */,
+				896C066B17B558BE00C25D2E /* icon_fhir_114px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,7 @@
     self.searchBarMain.delegate = self;
     self.navigationController.title = @"Patient Search";
     [[[self navigationController] navigationBar] setTintColor:[UIColor blackColor]];
-    [[[[self navigationController] navigationItem] backBarButtonItem] setTintColor:[UIColor redColor]];
+    [[self searchBarMain] setTintColor:[UIColor blackColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -19,5 +19,7 @@
 @property (strong, nonatomic) FHIRPatient *patient;
 @property (strong, nonatomic) NSMutableDictionary *personalInfoContents;
 @property (strong, nonatomic) NSMutableDictionary *contactInfoContents;
+@property (strong, nonatomic) NSMutableDictionary *addInfoContents;
+@property (strong, nonatomic) NSMutableDictionary *animalInfoContents;
 
 @end

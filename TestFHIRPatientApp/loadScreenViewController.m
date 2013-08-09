@@ -35,8 +35,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    sleep(1);
-    _loadScreenImage.image = nil;
+    sleep(3);
+    [self performSegueWithIdentifier:@"loadScreenSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +47,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"patientSearchSegue"]) {
+    if ([[segue identifier] isEqualToString:@"loadScreenSegue"]) {
         //pass values
         NSLog(@"The sender is %@",sender);
         

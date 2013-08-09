@@ -11,7 +11,6 @@
 @interface loadScreenViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *loadScreenImage;
-@property (weak, nonatomic) IBOutlet UIButton *patientSearch;
 
 
 @end

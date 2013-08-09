@@ -224,21 +224,28 @@
     
     for (int i = 0; i < [arraySizeCheck count]; i++)
     {
-        if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Siblings:"])
+        if ([self.addInfoContents count] != 0)
         {
-            [cellContentsArray addObject:@"50"];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Active Status:"])
-        {
-            [cellContentsArray addObject:@""];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Provider:"])
-        {
-            [cellContentsArray addObject:@""];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Linked Patients:"])
-        {
-            [cellContentsArray addObject:@""];
+            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Siblings:"] && [self.addInfoContents objectForKey:@"Siblings:"])
+            {
+                [cellContentsArray addObject:[self.addInfoContents objectForKey:@"Siblings:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Active Status:"] && [self.addInfoContents objectForKey:@"Active Status:"])
+            {
+                [cellContentsArray addObject:[self.addInfoContents objectForKey:@"Active Status:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Provider:"] && [self.addInfoContents objectForKey:@"Provider:"])
+            {
+                [cellContentsArray addObject:[self.addInfoContents objectForKey:@"Provider:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Linked Patients:"] && [self.addInfoContents objectForKey:@"Linked Patients:"])
+            {
+                [cellContentsArray addObject:[self.addInfoContents objectForKey:@"Linked Patients:"]];
+            }
+            else
+            {
+                [cellContentsArray addObject:@""];
+            }
         }
         else
         {
@@ -284,17 +291,24 @@
     
     for (int i = 0; i < [arraySizeCheck count]; i++)
     {
-        if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Species:"])
+        if ([self.animalInfoContents count] != 0)
         {
-            [cellContentsArray addObject:@"Dog"];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Breed:"])
-        {
-            [cellContentsArray addObject:@""];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Gender Status:"])
-        {
-            [cellContentsArray addObject:@""];
+            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Species:"] && [self.animalInfoContents objectForKey:@"Species:"])
+            {
+                [cellContentsArray addObject:[self.animalInfoContents objectForKey:@"Species:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Breed:"] && [self.animalInfoContents objectForKey:@"Breed"])
+            {
+                [cellContentsArray addObject:[self.animalInfoContents objectForKey:@"Breed"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Gender Status:"] && [self.animalInfoContents objectForKey:@"Gender Status:"])
+            {
+                [cellContentsArray addObject:[self.animalInfoContents objectForKey:@"Gender Status:"]];
+            }
+            else
+            {
+                [cellContentsArray addObject:@""];
+            }
         }
         else
         {

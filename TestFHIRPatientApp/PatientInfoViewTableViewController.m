@@ -162,6 +162,13 @@
         [contactListViewCell.organizationText setText:[currentContactItem objectForKey:@"organizationText"]];
         return contactListViewCell;
     }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Animal Info"])
+    {
+        singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
+        [singleCell.titleLabel setText:[self.animalCellLabels objectAtIndex:indexPath.row]];
+        [singleCell.contentLabel setText:[self.animalCellContents objectAtIndex:indexPath.row]];
+        return singleCell;
+    }
     else
     {
         return nil;

@@ -29,6 +29,11 @@
 + (NSString *)returnPatientsProvider:(FHIRPatient *)patientToCheckProviderOf; //Patient's provider
 + (NSString *)returnPatientsLinkedToThisPatient:(FHIRPatient *)patientToCheckLinksTo; //Patient links
 
+//animal info methods
++ (NSString *)returnPatientAnimalSpecies:(FHIRPatient *)patientToCheckSpeciesOf; //Patient's species
++ (NSString *)returnPatientAnimalBreed:(FHIRPatient *)patientToCheckBreedOf; //Patient's breed
++ (NSString *)returnPatientAnimalGenderStatus:(FHIRPatient *)patientToCheckGenderStatusOf; //Patient's gender status
+
 //contact list methods
 + (NSArray *)returnPatientsContactListItemsInAnArray:(FHIRPatient *)patientToGetContactsOf; //takes in patient and returns a dictionary for each contact patient has with contact info
 

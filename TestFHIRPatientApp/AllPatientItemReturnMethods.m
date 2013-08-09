@@ -417,6 +417,60 @@
     return tempString;
 }
 
++ (NSString *)returnPatientAnimalSpecies:(FHIRPatient *)patientToCheckSpeciesOf
+{
+    if (![patientToCheckSpeciesOf.animal.species.text.value isEqualToString:@""])
+    {
+        return patientToCheckSpeciesOf.animal.species.text.value;
+        NSLog(@"TRUE");
+    }
+    else
+    {
+        return @"N/A";
+        NSLOg(@"FALSE");
+    }
+    
+}
+
++ (NSString *)returnPatientAnimalBreed:(FHIRPatient *)patientToCheckBreedOf
+{
+    if (![patientToCheckBreedOf.animal.breed.text.value isEqualToString:@""])
+    {
+        return patientToCheckBreedOf.animal.breed.text.value;
+    }
+    else
+    {
+        return @"N/A";
+    }
+}
+
++ (NSString *)returnPatientAnimalGenderStatus:(FHIRPatient *)patientToCheckGenderStatusOf
+{
+    NSString *statusTypeString = [[NSString alloc] init];
+    FHIRCoding *codeToCheck = [patientToCheckGenderStatusOf.animal.genderStatus.coding objectAtIndex:0];
+    statusTypeString = codeToCheck.code.value;
+    
+    if ([patientToCheckGenderStatusOf.animal.genderStatus class] != [NSNull class])
+    {
+        if ([statusTypeString isEqualToString:@"neutered"])
+        {
+            return @"Neutered";
+        }
+        else if ([statusTypeString isEqualToString:@"intact"])
+        {
+            return @"Intact";
+        }
+        else
+        {
+            return @"Unknown";
+        }
+    }
+    else
+    {
+        return @"N/A";
+    }
+}
+
 + (NSArray *)returnPatientsContactListItemsInAnArray:(FHIRPatient *)patientToGetContactsOf
 {
     NSMutableArray *arrayOfPatientContactItems = [[NSMutableArray alloc] init];

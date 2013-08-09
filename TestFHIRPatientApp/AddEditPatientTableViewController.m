@@ -138,6 +138,7 @@
             case 3: //linked patients cell
                 largeTextCell = [tableView dequeueReusableCellWithIdentifier:@"largeTextCell" forIndexPath:indexPath];
                     [largeTextCell.largeTextLabel setText:@"Linked Patients:"];
+                    [largeTextCell.largeTextView setText:[self.addCellContents objectAtIndex:indexPath.row]];
                     return largeTextCell;
                 break;
                 
