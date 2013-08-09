@@ -12,6 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="456" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Header.png" translatesAutoresizingMaskIntoConstraints="NO" id="6jS-11-YCD"/>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="" text="HeaderText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5W6-HV-4gc">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ai1-Vc-waq"/>
@@ -22,10 +23,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0027472579380000001" green="0.024831301369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.023529414087533951" green="0.0078431377187371254" blue="0.0039215688593685627" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="5W6-HV-4gc" firstAttribute="centerY" secondItem="X6q-gG-GSL" secondAttribute="centerY" type="default" id="YmY-Q9-81F"/>
+                            <constraint firstItem="6jS-11-YCD" firstAttribute="bottom" secondItem="X6q-gG-GSL" secondAttribute="bottom" type="default" id="GMj-IH-KkC"/>
+                            <constraint firstItem="6jS-11-YCD" firstAttribute="leading" secondItem="X6q-gG-GSL" secondAttribute="leading" type="default" id="eMc-Vp-MZ0"/>
+                            <constraint firstItem="6jS-11-YCD" firstAttribute="trailing" secondItem="X6q-gG-GSL" secondAttribute="trailing" type="default" id="eSp-ek-zW6"/>
                             <constraint firstItem="5W6-HV-4gc" firstAttribute="leading" secondItem="X6q-gG-GSL" secondAttribute="leading" constant="9" id="hgy-rs-CcJ"/>
+                            <constraint firstItem="6jS-11-YCD" firstAttribute="top" secondItem="X6q-gG-GSL" secondAttribute="top" type="default" id="kTv-EO-hh3"/>
+                            <constraint firstItem="5W6-HV-4gc" firstAttribute="centerY" secondItem="6jS-11-YCD" secondAttribute="centerY" type="default" id="qdZ-vd-sXq"/>
                         </constraints>
                         <connections>
                             <outlet property="title" destination="5W6-HV-4gc" id="gxt-Wc-efB"/>
@@ -41,6 +46,9 @@
             <point key="canvasLocation" x="74" y="-162"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Header.png" width="228" height="20"/>
+    </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

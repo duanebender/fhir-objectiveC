@@ -12,6 +12,7 @@
 #import "AddressViewTableViewCell.h"
 #import "LinksViewTableViewCell.h"
 #import "ContactListTableViewCell.h"
+#import "PhoneViewTableViewCell.h"
 
 @interface PatientInfoViewTableViewController ()
 
@@ -33,30 +34,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 #pragma mark - dynamic table sections code
 
 - (int)checkWhichSectionIsCurrentlyBeingBuiltForRowsNeeded:(NSInteger)section
 {
-    if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"PERSONAL INFO"])
+    if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"Personal Info"])
     {
         return [self.personalCellsLabels count];
     }
-    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"CONTACT INFO"])
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"Contact Info"])
     {
         return [self.contactCellLabels count];
     }
-    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"ADDITIONAL INFO"])
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"Additional Info"])
     {
         return [self.addCellLabels count];
     }
-    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"ANIMAL INFO"])
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"Animal Info"])
     {
         return [self.animalCellLabels count];
     }
-    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"CONTACT LIST"])
+    else if ([[self.sectionsTitleArray objectAtIndex:section] isEqualToString:@"Contact List"])
     {
         return [self.contactListCells count];
     }
@@ -85,16 +85,17 @@
     SingleLineViewTableViewCell *singleCell = [[SingleLineViewTableViewCell alloc] init];
     AddressViewTableViewCell *addressCell = [[AddressViewTableViewCell alloc] init];
     LinksViewTableViewCell *linkCell = [[LinksViewTableViewCell alloc] init];
-    ContactListTableViewCell *contactListCell = [[ContactListTableViewCell alloc] init];
+    ContactListTableViewCell *contactListViewCell = [[ContactListTableViewCell alloc] init];
+    PhoneViewTableViewCell *phoneViewCell = [[PhoneViewTableViewCell alloc] init];
 
-    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"PERSONAL INFO"])
+    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Personal Info"])
     {
         singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
         [singleCell.titleLabel setText:[self.personalCellsLabels objectAtIndex:indexPath.row]];
         [singleCell.contentLabel setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
         return singleCell;
     }
-    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT INFO"])
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact Info"])
     {
         if (indexPath.row == [self.addCellLabels indexOfObject:@"Address:"])
         {
@@ -106,6 +107,14 @@
             addressCell.zipPostalCodeLabel = [self.addressContentsDict objectForKey:@"ZipPostal"];
             return addressCell;
         }
+        else if (indexPath.row == [self.contactCellLabels indexOfObject:@"Phone"])
+        {
+            phoneViewCell = [tableView dequeueReusableCellWithIdentifier:@"phoneViewCell" forIndexPath:indexPath];
+            phoneViewCell.phoneHomeText.text = [self.phoneContentsDict objectForKey:@"phoneHomeText"];
+            phoneViewCell.phoneCellText.text = [self.phoneContentsDict objectForKey:@"phoneCellText"];
+            phoneViewCell.phoneWorkText.text = [self.phoneContentsDict objectForKey:@"phoneWorkText"];
+            return phoneViewCell;
+        }
         else
         {
             singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleViewCell" forIndexPath:indexPath];
@@ -114,7 +123,7 @@
             return singleCell;
         }
     }
-    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"ADDITIONAL INFO"])
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Additional Info"])
     {
         if (indexPath.row == [self.addCellLabels indexOfObject:@"Linked Patients:"])
         {
@@ -130,37 +139,28 @@
             return singleCell;
         }
     }
-    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT LIST"])
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact List"])
     {
         NSLog(@"HERE");
-        contactListCell = [tableView dequeueReusableCellWithIdentifier:@"contactListViewCell" forIndexPath:indexPath];
+        //contactListViewCell = [tableView dequeueReusableCellWithIdentifier:@"contactListViewCell" forIndexPath:indexPath];
         NSLog(@"HERE?");
         NSDictionary *currentContactItem = [[NSDictionary alloc] initWithDictionary:[self.contactListCells objectAtIndex:indexPath.row]];
         NSLog(@"%@",currentContactItem);
-        [contactListCell.contactInfoLabel setText:@"Contact Info:"];
-        [contactListCell.nameLabel setText:@"Name:"];
-        [contactListCell.nameText setText:[currentContactItem objectForKey:@"nameText"]];
-        [contactListCell.genderLabel setText:@"Gender:"];
-        [contactListCell.genderText setText:[currentContactItem objectForKey:@"genderText"]];
-        [contactListCell.relationshipLabel setText:@"Relationship:"];
-        [contactListCell.relationshipText setText:[currentContactItem objectForKey:@"relationshipText"]];
-        [contactListCell.addressLabel setText:@"Address:"];
-        [contactListCell.addressStreetText setText:[currentContactItem objectForKey:@"addressStreetText"]];
-        [contactListCell.addressAptText setText:[currentContactItem objectForKey:@"addressApptText"]];
-        [contactListCell.addressCityText setText:[currentContactItem objectForKey:@"addressCityText"]];
-        [contactListCell.addressCountryText setText:[currentContactItem objectForKey:@"addressCountryText"]];
-        [contactListCell.addressPostalText setText:[currentContactItem objectForKey:@"addressPostalText"]];
-        [contactListCell.phoneLabel setText:@"Phone:"];
-        [contactListCell.phoneHomeText setText:[currentContactItem objectForKey:@"phoneHome"]];
-        [contactListCell.phoneCellText setText:[currentContactItem objectForKey:@"phoneCell"]];
-        [contactListCell.phoneWorkText setText:[currentContactItem objectForKey:@"phoneWork"]];
-        [contactListCell.faxLabel setText:@"Fax:"];
-        [contactListCell.faxText setText:[currentContactItem objectForKey:@"faxText"]];
-        [contactListCell.emailLabel setText:@"Email:"];
-        [contactListCell.emailText setText:[currentContactItem objectForKey:@"emailText"]];
-        [contactListCell.organizationLabel setText:@"Organization:"];
-        [contactListCell.organizationText setText:[currentContactItem objectForKey:@"organizationText"]];
-        return contactListCell;
+        [contactListViewCell.nameText setText:[currentContactItem objectForKey:@"nameText"]];
+        [contactListViewCell.genderText setText:[currentContactItem objectForKey:@"genderText"]];
+        [contactListViewCell.relationshipText setText:[currentContactItem objectForKey:@"relationshipText"]];
+        [contactListViewCell.addressStreetText setText:[currentContactItem objectForKey:@"addressStreetText"]];
+        [contactListViewCell.addressAptText setText:[currentContactItem objectForKey:@"addressApptText"]];
+        [contactListViewCell.addressCityText setText:[currentContactItem objectForKey:@"addressCityText"]];
+        [contactListViewCell.addressCountryText setText:[currentContactItem objectForKey:@"addressCountryText"]];
+        [contactListViewCell.addressPostalText setText:[currentContactItem objectForKey:@"addressPostalText"]];
+        [contactListViewCell.phoneHomeText setText:[currentContactItem objectForKey:@"phoneHome"]];
+        [contactListViewCell.phoneCellText setText:[currentContactItem objectForKey:@"phoneCell"]];
+        [contactListViewCell.phoneWorkText setText:[currentContactItem objectForKey:@"phoneWork"]];
+        [contactListViewCell.faxText setText:[currentContactItem objectForKey:@"faxText"]];
+        [contactListViewCell.emailText setText:[currentContactItem objectForKey:@"emailText"]];
+        [contactListViewCell.organizationText setText:[currentContactItem objectForKey:@"organizationText"]];
+        return contactListViewCell;
     }
     else
     {
@@ -172,12 +172,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return 40; 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT INFO"])
+    if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact Info"])
     {
         if (indexPath.row == [self.contactCellLabels indexOfObject:@"Address:"])
         {
@@ -192,7 +192,7 @@
             return 44;
         }
     }
-    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"ADDITIONAL INFO"])
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Additional Info"])
     {
         if (indexPath.row == [self.addCellLabels indexOfObject:@"Linked Patients:"])
         {
@@ -203,7 +203,7 @@
             return 44;
         }
     }
-    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"CONTACT LIST"])
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact List"])
     {
         return 575;
     }

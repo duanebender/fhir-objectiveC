@@ -67,21 +67,21 @@
     {
         if ([patientToCheckImage.animal.species.coding count] != 0) //patient is animal
         {
-            imageForProfile = [UIImage imageNamed:@"defaultAnimalProfileImage.jpg"];
+            imageForProfile = [UIImage imageNamed:@"profile_pet.png"];
         }
         else
         {
             if ([patientToCheckImage.gender class] == [NSNull class]) //patient is human male
             {
-                imageForProfile = [UIImage imageNamed:@"defaultMaleProfileImage.gif"];
+                imageForProfile = [UIImage imageNamed:@"profile_male.png"];
             }
             else if ([genderTypeString isEqualToString:@"M"])
             {
-                imageForProfile = [UIImage imageNamed:@"defaultMaleProfileImage.gif"];
+                imageForProfile = [UIImage imageNamed:@"profile_male.png"];
             }
             else
             {
-                imageForProfile = [UIImage imageNamed:@"defaultFemaleProfileImage.jpeg"];
+                imageForProfile = [UIImage imageNamed:@"profile_female.png"];
             }
         }
     }
@@ -269,6 +269,84 @@
     return dictForAddress;
 }
 
++ (NSMutableDictionary *)returnPatientsTelecom:(FHIRPatient *)patientToFindPhone
+{
+    NSMutableDictionary *telecomContactDict = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *phoneDict = [[NSMutableDictionary alloc] init];
+    
+    if ([patientToFindPhone.telecom count] != 0)
+    {
+        for (int i = 0; i < [patientToFindPhone.telecom count]; i++)
+        {
+            FHIRContact *contactLine = [patientToFindPhone.telecom objectAtIndex:i];
+            
+            //check for home phone
+            NSMutableString *homePhone = [[NSMutableString alloc] init];
+            if (contactLine.use == ContactUseHome)
+            {
+                [homePhone setString:contactLine.value.value];
+            }
+            else
+            {
+                [homePhone setString:@"N/A"];
+            }
+            [phoneDict setObject:homePhone forKey:@"phoneHomeText"];
+            
+            //check for work phone
+            NSMutableString *workPhone = [[NSMutableString alloc] init];
+            if (contactLine.use == ContactUseWork)
+            {
+                [workPhone setString:contactLine.value.value];
+            }
+            else
+            {
+                [workPhone setString:@"N/A"];
+            }
+            [phoneDict setObject:workPhone forKey:@"phoneWorkText"];
+            
+            //check for cell phone
+            NSMutableString *cellPhone = [[NSMutableString alloc] init];
+            if (contactLine.use == ContactUseMobile)
+            {
+                [cellPhone setString:contactLine.value.value];
+            }
+            else
+            {
+                [cellPhone setString:@"N/A"];
+            }
+            [phoneDict setObject:cellPhone forKey:@"cellPhoneText"];
+            
+            //add in
+            [telecomContactDict setObject:phoneDict forKey:@"phone"];
+            
+            //check for fax number
+            NSMutableString *faxNumber = [[NSMutableString alloc] init];
+            if (contactLine.system == ContactSystemFax)
+            {
+                [faxNumber setString:contactLine.value.value];
+            }
+            else
+            {
+                [faxNumber setString:@"N/A"];
+            }
+            [telecomContactDict setObject:faxNumber forKey:@"faxText"];
+            
+            //check for email
+            NSMutableString *email = [[NSMutableString alloc] init];
+            if (contactLine.system == ContactSystemEmail)
+            {
+                [email setString:contactLine.value.value];
+            }
+            else
+            {
+                [email setString:@"N/A"];
+            }
+            [telecomContactDict setObject:email forKey:@"emailText"];
+        } //end telecom for loop
+    }
+    return telecomContactDict;
+}
+
 + (NSString *)returnPatientsMultipleBirth:(FHIRPatient *)patientToCheckMultipleBirthOf
 {
     if ([[patientToCheckMultipleBirthOf.multipleBirthX objectAtIndex:0] class] == [FHIRInteger class]) //is number of siblings
@@ -351,7 +429,7 @@
         
         //if Patient Has Name
         NSMutableString *fullName = [[NSMutableString alloc] initWithString:@""];
-        if ([contact.name class] != [NSNull class]) //add their name to dictionary
+        if ([contact.name class] != [NSNull class] || ([contact.name.given count] != 0 && [contact.name.family count] != 0)) //add their name to dictionary
         {
             if ([contact.name.given count] != 0)
             {
@@ -370,6 +448,7 @@
             fullName = [[NSMutableString alloc] initWithString:@"N/A"];
         }
         [currentContactDictionary setObject:fullName forKey:@"nameText"];
+        //end patient name
         
         //if Patient has a gender
         NSMutableString *gender = [[NSMutableString alloc] init];
@@ -401,7 +480,8 @@
             [gender setString:@"N/A"];
         }
         [currentContactDictionary setObject:gender forKey:@"genderText"];
-
+        //end patient gender
+        
         //if Patient has relationship
         NSMutableString *relationshipString = [[NSMutableString alloc] init];
         if ([contact.relationship count] != 0)
@@ -415,6 +495,7 @@
             [relationshipString setString:@"N/A"];
         }
         [currentContactDictionary setObject:relationshipString forKey:@"relationshipText"];
+        //end relationship
         
         //if patient address
         if ([contact.address.line count] != 0)
@@ -452,6 +533,7 @@
                 }
             }
         
+            //street
             if ([dictForAddress objectForKey:@"Street"])
             {
                 [currentContactDictionary setObject:[dictForAddress objectForKey:@"Street"] forKey:@"addressStreetText"];
@@ -460,12 +542,57 @@
             {
                 [currentContactDictionary setObject:@"N/A" forKey:@"addressStreetText"];
             }
+        
+            //appt
+            if ([dictForAddress objectForKey:@"Appt"])
+            {
+                [currentContactDictionary setObject:[dictForAddress objectForKey:@"Appt"] forKey:@"addressApptText"];
+            }
+            else
+            {
+                [currentContactDictionary setObject:@"N/A" forKey:@"addressApptText"];
+            }
+        
+            //citystate
+            if ([dictForAddress objectForKey:@"CityState"])
+            {
+                [currentContactDictionary setObject:[dictForAddress objectForKey:@"CityState"] forKey:@"addressCityText"];
+            }
+            else
+            {
+                [currentContactDictionary setObject:@"N/A" forKey:@"addressCityText"];
+            }
+        
+            //country
+            if ([dictForAddress objectForKey:@"Country"])
+            {
+                [currentContactDictionary setObject:[dictForAddress objectForKey:@"Country"] forKey:@"addressCountryText"];
+            }
+            else
+            {
+                [currentContactDictionary setObject:@"N/A" forKey:@"addressCountryText"];
+            }   
+        
+            //country
+            if ([dictForAddress objectForKey:@"ZipPostal"])
+            {
+                [currentContactDictionary setObject:[dictForAddress objectForKey:@"ZipPostal"] forKey:@"addressPostalText"];
+            }
+            else
+            {
+                [currentContactDictionary setObject:@"N/A" forKey:@"addressPostalText"];
+            }
             
-            [currentContactDictionary setObject:[dictForAddress objectForKey:@"Appt"] forKey:@"addressApptText"];
-            [currentContactDictionary setObject:[dictForAddress objectForKey:@"CityState"] forKey:@"addressCityText"];
-            [currentContactDictionary setObject:[dictForAddress objectForKey:@"Country"] forKey:@"addressCountryText"];
-            [currentContactDictionary setObject:[dictForAddress objectForKey:@"ZipPostal"] forKey:@"addressPostalText"];
         }
+        else
+        {
+            [currentContactDictionary setObject:@"N/A" forKey:@"addressStreetText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"addressApptText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"addressCityText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"addressCountryText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"addressPostalText"];
+        }
+        //end address
         
         //if patient has phone
         if ([contact.telecom count] != 0)
@@ -534,7 +661,16 @@
                 }
                 [currentContactDictionary setObject:email forKey:@"emailText"];
             } //end telecom for loop
-        } //end patient telecom if check
+        }
+        else
+        {
+            [currentContactDictionary setObject:@"N/A" forKey:@"homePhoneText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"workPhoneText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"cellPhoneText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"faxText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"emailText"];
+        }
+        //end patient telecom if check
         
         //if Patient is an organization
         NSMutableString *organizationString = [[NSMutableString alloc] init];
@@ -547,10 +683,11 @@
             [organizationString setString:@"N/A"];
         }
         [currentContactDictionary setObject:organizationString forKey:@"organizationText"];
-        
+        //end organization
+    
         //add contact to the array
-        NSLog(@"%@",currentContactDictionary);
         [arrayOfPatientContactItems addObject:currentContactDictionary];
+        NSLog(@"%@",arrayOfPatientContactItems);
         
     } //end for loop
 
@@ -564,30 +701,30 @@
     //section patient info needed?
     if ([patientToBuildSectionsFor.name count] > 0 || [patientToBuildSectionsFor.birthDate class] != [NSNull class] || [patientToBuildSectionsFor.maritalStatus class] != [NSNull class] || [patientToBuildSectionsFor.deceasedX class] != [NSNull class] || [patientToBuildSectionsFor.communication count] > 0)
     {
-        [sectionArrayToBuild addObject:@"PERSONAL INFO"];
+        [sectionArrayToBuild addObject:@"Personal Info"];
     }
     
     //section contact info needed?
     if ([patientToBuildSectionsFor.address count] > 0 || [patientToBuildSectionsFor.telecom count] > 0)
     {
-        [sectionArrayToBuild addObject:@"CONTACT INFO"];
+        [sectionArrayToBuild addObject:@"Contact Info"];
     }
     
     //section additional info needed?
     if ([patientToBuildSectionsFor.multipleBirthX class] != [NSNull class] || [patientToBuildSectionsFor.link count] > 0 || [patientToBuildSectionsFor.active class] != [NSNull class] || [patientToBuildSectionsFor.provider class] != [NSNull class])
     {
-        [sectionArrayToBuild addObject:@"ADDITIONAL INFO"];
+        [sectionArrayToBuild addObject:@"Additional Info"];
     }
     
     //section animal info needed?
     if ([patientToBuildSectionsFor.animal.species.coding count] != 0)
     {
-        [sectionArrayToBuild addObject:@"ANIMAL INFO"];
+        [sectionArrayToBuild addObject:@"Animal Info"];
     }
     
     if ([patientToBuildSectionsFor.contact count] > 0)
     {
-        [sectionArrayToBuild addObject:@"CONTACT LIST"];
+        [sectionArrayToBuild addObject:@"Contact List"];
     }
     
     return sectionArrayToBuild;

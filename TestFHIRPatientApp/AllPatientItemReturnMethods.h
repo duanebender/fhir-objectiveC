@@ -21,6 +21,7 @@
 
 //contact info methods
 + (NSDictionary *)returnPatientsAddressInfo:(FHIRPatient *)patientToCheckAddress; //Patient's Address
++ (NSMutableDictionary *)returnPatientsTelecom:(FHIRPatient *)patientToFindPhone; //Patients phone numbers, email, and fax
 
 //additional info methods
 + (NSString *)returnPatientsMultipleBirth:(FHIRPatient *)patientToCheckMultipleBirthOf; //Patient's siblings

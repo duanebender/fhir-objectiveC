@@ -55,6 +55,8 @@
 
     self.searchBarMain.delegate = self;
     self.navigationController.title = @"Patient Search";
+    [[[self navigationController] navigationBar] setTintColor:[UIColor blackColor]];
+    [[[[self navigationController] navigationItem] backBarButtonItem] setTintColor:[UIColor redColor]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -148,11 +150,11 @@
     }
     else if ([genderTypeString isEqualToString:@"M"])
     {
-        imageForProfile = [UIImage imageNamed:@"icon_gender_male.png"];
+        imageForProfile = [UIImage imageNamed:@"icon_male.png"];
     }
     else
     {
-        imageForProfile = [UIImage imageNamed:@"icon_gender_female.png"];
+        imageForProfile = [UIImage imageNamed:@"icon_female.png"];
     }
     
     return imageForProfile;

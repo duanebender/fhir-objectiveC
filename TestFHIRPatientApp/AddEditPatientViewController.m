@@ -38,13 +38,36 @@
     
     for (int i = 0; i < [arraySizeCheck count]; i++)
     {
-        if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Name:"])
+        if ([self.personalInfoContents count] != 0)
         {
-            [cellContentsArray addObject:@"Adam Sippel"];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Date Of Birth:"])
-        {
-            [cellContentsArray addObject:@"07/02/1992"];
+            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Name:"] && [self.personalInfoContents objectForKey:@"Name:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Name:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Date Of Birth:"] && [self.personalInfoContents objectForKey:@"Date Of Birth:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Date of Birth:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Gender:"] && [self.personalInfoContents objectForKey:@"Gender:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Gender:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Marital Status:"] && [self.personalInfoContents objectForKey:@"Marital Status:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Marital Status:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Deceased:"] && [self.personalInfoContents objectForKey:@"Deceased:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Deceased:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Language:"] && [self.personalInfoContents objectForKey:@"Language:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Language:"]];
+            }
+            else
+            {
+                [cellContentsArray addObject:@""];
+            }
         }
         else
         {
@@ -119,19 +142,37 @@
     return cellReferencesArray;
 }
 
-- (NSMutableArray *)generateContactCellContentsArray:(NSMutableArray *)arraySizeCheck
+- (NSMutableDictionary *)generateContactCellContentsDictionary:(NSMutableArray *)arraySizeCheck
 {
     NSMutableArray *cellContentsArray = [[NSMutableArray alloc] init];
-    
+    NSMutableDictionary *dictToReturn = [[NSMutableDictionary alloc] init];
+   
     for (int i = 0; i < [arraySizeCheck count]; i++)
     {
-        if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Fax:"])
+        if ([self.contactInfoContents count] != 0)
         {
-            [cellContentsArray addObject:@"(123) 456-7890"];
-        }
-        else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Email:"])
-        {
-            [cellContentsArray addObject:@""];
+            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Fax:"] && [self.contactInfoContents objectForKey:@"faxText"])
+            {
+                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"faxText"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Email:"] && [self.contactInfoContents objectForKey:@"emailText"])
+            {
+                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"emailText"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Address:"] && [self.contactInfoContents objectForKey:@"Address:"])
+            {
+                [dictToReturn setObject:[self.contactInfoContents objectForKey:@"Address:"] forKey:@"addressCellDictionary"];
+                [cellContentsArray addObject:@""];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Phone:"] && [self.contactInfoContents objectForKey:@"Phone:"])
+            {
+                [dictToReturn setObject:[self.contactInfoContents objectForKey:@"Phone:"] forKey:@"phoneCellDictionary"];
+                [cellContentsArray addObject:@""];
+            }
+            else
+            {
+                [cellContentsArray addObject:@""];
+            }
         }
         else
         {
@@ -139,7 +180,9 @@
         }
     }
     
-    return cellContentsArray;
+    [dictToReturn setObject:cellContentsArray forKey:@"singleCellContentsArray"];
+    
+    return dictToReturn;
 }
 
 #pragma mark - additional info array generation for table, code below
@@ -279,7 +322,10 @@
         //contact info array information
         childViewController.contactCellLabels = [[NSMutableArray alloc] initWithObjects:@"Address:", @"Phone:", @"Fax:", @"Email:", nil];
         childViewController.contactCellReferenceText = [[NSMutableArray alloc] initWithArray:[self generateContactCellReferencesArray:childViewController.contactCellLabels]];
-        childViewController.contactCellContents = [[NSMutableArray alloc] initWithArray:[self generateContactCellContentsArray:childViewController.contactCellLabels]];
+        NSDictionary *forPassingCellInfo = [[NSDictionary alloc] initWithDictionary:[self generateContactCellContentsDictionary:childViewController.contactCellLabels]];
+        childViewController.contactCellContents = [[NSMutableArray alloc] initWithArray:[forPassingCellInfo objectForKey:@"singleCellContentsArray"]];
+        childViewController.addressContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[forPassingCellInfo objectForKey:@"addressCellDictionary"]];
+        childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[forPassingCellInfo objectForKey:@"phoneCellDictionary"]];
         
         //additional info array information
         childViewController.addCellLabels = [[NSMutableArray alloc] initWithObjects:@"Siblings:", @"Active Status:", @"Provider:", @"Linked Patients:", nil];

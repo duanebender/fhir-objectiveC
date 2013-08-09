@@ -102,6 +102,11 @@
                     addressCell.cityStateTextField.placeholder = @"city, state/province";
                     addressCell.countryTextField.placeholder = @"Canada";
                     addressCell.postalZipCodeTextField.placeholder = @"zip/postal code";
+                    addressCell.streetNumberTextField.text = [self.addressContentsDict objectForKey:@"Street"];
+                    addressCell.apptNumberTextField.text = [self.addressContentsDict objectForKey:@"Appt"];
+                    addressCell.cityStateTextField.text = [self.addressContentsDict objectForKey:@"CityState"];
+                    addressCell.countryTextField.text = [self.addressContentsDict objectForKey:@"Country"];
+                    addressCell.postalZipCodeTextField.text = [self.addressContentsDict objectForKey:@"ZipPostal"];
                     return addressCell;
                     break;
                 
@@ -111,6 +116,9 @@
                     phoneCell.homePhoneTextField.placeholder = @"Home: (555) 555-5555";
                     phoneCell.cellPhoneTextField.placeholder = @"Cell: (555) 555-5555";
                     phoneCell.workPhoneTextField.placeholder = @"Work: (555) 555-5555";
+                    phoneCell.homePhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneHomeText"];
+                    phoneCell.cellPhoneTextField.text = [self.phoneContentsDict objectForKey:@"cellPhoneText"];
+                    phoneCell.workPhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneWorkText"];
                     return phoneCell;
                     break;
                     
@@ -225,23 +233,23 @@
     switch (section)
     {
         case 0:
-            title = @"PERSONAL INFO";
+            title = @"Personal Info";
             break;
             
         case 1:
-            title = @"CONTACT INFO";
+            title = @"Contact Info";
             break;
             
         case 2:
-            title = @"ADDITIONAL INFO";
+            title = @"Additional Info";
             break;
             
         case 3:
-            title = @"ANIMAL INFO";
+            title = @"Animal Info";
             break;
             
         case 4:
-            title = @"CONTACT LIST";
+            title = @"Contact List";
             break;
             
         default:

@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet AddEditPatientTableViewController *containerForPatientData;
 
 @property (strong, nonatomic) FHIRPatient *patient;
+@property (strong, nonatomic) NSMutableDictionary *personalInfoContents;
+@property (strong, nonatomic) NSMutableDictionary *contactInfoContents;
 
 @end

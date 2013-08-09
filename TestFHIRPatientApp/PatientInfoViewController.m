@@ -10,6 +10,7 @@
 #import "FHIRAttachment.h"
 #import "AllPatientItemReturnMethods.h"
 #import "PatientInfoViewTableViewController.h"
+#import "AddEditPatientViewController.h"
 
 @interface PatientInfoViewController ()
 
@@ -48,14 +49,12 @@
     {
         PatientInfoViewTableViewController * childViewController = (PatientInfoViewTableViewController *) [segue destinationViewController];
         
-        //initialize objects that need it
-        childViewController.personalCellsLabels = [[NSMutableArray alloc] init];
-        childViewController.personalCellsContents = [[NSMutableArray alloc] init];
-        
         //sections to determine
         childViewController.sectionsTitleArray = [AllPatientItemReturnMethods generateSectionsArrayForPatientListing:self.patient];
         
         //PersonalInfo section cells
+        childViewController.personalCellsLabels = [[NSMutableArray alloc] init];
+        childViewController.personalCellsContents = [[NSMutableArray alloc] init];
         
         //Determine if to display name
         if (![[AllPatientItemReturnMethods returnPatientsName:self.patient] isEqualToString:@""])
@@ -110,12 +109,25 @@
             childViewController.addressContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsAddressInfo:self.patient]];
         }
         
-        //determine to return phone
-        
-        //determine to return fax
-        
-        //determine to return email
-        
+        //determine to return phone, fax, or email
+        if ([self.patient.telecom count] != 0)
+        {
+            NSDictionary *telecomDict = [[NSDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsTelecom:self.patient]];
+            for (NSString *key in telecomDict)
+            {
+                if ([telecomDict objectForKey:@"phone"])
+                {
+                    [childViewController.contactCellLabels addObject:@"Phone"];
+                    childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[telecomDict objectForKey:@"phone"]];
+                }
+                else
+                {
+                    [childViewController.contactCellLabels addObject:key];
+                    [childViewController.contactCellContents addObject:[telecomDict objectForKey:key]];
+                }
+            }
+        }
+            
         //Additional Info section cells
         childViewController.addCellLabels = [[NSMutableArray alloc] init];
         childViewController.addCellContents = [[NSMutableArray alloc] init];
@@ -157,6 +169,83 @@
             childViewController.contactListCells = [[NSMutableArray alloc] initWithArray:[AllPatientItemReturnMethods returnPatientsContactListItemsInAnArray:self.patient]];
         }
     }
+    //end container view segue
+    
+    //edit view button segue
+    if ([segueName isEqualToString: @"editPatientViewSegue"])
+    {
+        AddEditPatientViewController *editChildViewController = (AddEditPatientViewController *) [segue destinationViewController];
+        
+        editChildViewController.title = @"Edit Patient";
+        
+        //PersonalInfo section cells
+        editChildViewController.personalInfoContents = [[NSMutableDictionary alloc] init];
+        
+        //Determine if to display name
+        if (![[AllPatientItemReturnMethods returnPatientsName:self.patient] isEqualToString:@""])
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsName:self.patient] forKey:@"Name:"];
+        }
+        
+        if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsDOB:self.patient] forKey:@"Date of Birth:"];
+        }
+        
+        //determine to return patients gender
+        if ([self.patient.gender.coding count] != 0)
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsGender:self.patient] forKey:@"Gender:"];
+        }
+        
+        //determine to return patient maritalStatus
+        if ([self.patient.maritalStatus.coding count] != 0)
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsMaritalStatus:self.patient] forKey:@"Marital Status:"];
+        }
+        
+        //determine to return deceased
+        if ([self.patient.deceasedX class] != [NSNull class] && [self.patient.deceasedX count] != 0)
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsDeceasedStatus:self.patient] forKey:@"Deceased:"];
+        }
+        
+        //determine to return language
+        if ([self.patient.communication count] != 0)
+        {
+            [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsLanguage:self.patient] forKey:@"Language:"];
+        }
+        NSLog(@"%@",editChildViewController.personalInfoContents);
+        //end personal info cells
+        
+        //Contact Info section cells
+        editChildViewController.contactInfoContents = [[NSMutableDictionary alloc] init];
+        
+        //determine to return address
+        if ([self.patient.address count] != 0)
+        {
+            [editChildViewController.contactInfoContents setObject:[AllPatientItemReturnMethods returnPatientsAddressInfo:self.patient] forKey:@"Address:"];
+        }
+        
+        //determine to return phone, fax, or email
+        if ([self.patient.telecom count] != 0)
+        {
+            NSDictionary *telecomDict = [[NSDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsTelecom:self.patient]];
+            for (NSString *key in telecomDict)
+            {
+                if ([telecomDict objectForKey:@"phone"])
+                {
+                    [editChildViewController.contactInfoContents setObject:[telecomDict objectForKey:@"phone"] forKey:@"Phone:"];
+                }
+                else
+                {
+                    [editChildViewController.contactInfoContents setObject:[telecomDict objectForKey:key] forKey:key];
+                }
+            }
+        }
+        
+    }
+    //end edit button segue
 }
 
 @end
