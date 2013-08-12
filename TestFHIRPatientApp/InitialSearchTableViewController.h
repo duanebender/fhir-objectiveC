@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ServerPopoverView.h"
 
-@interface InitialSearchTableViewController : UITableViewController <UISearchBarDelegate>
+@interface InitialSearchTableViewController : UITableViewController <UISearchBarDelegate, UITextFieldDelegate, PopupPassData>
 
 @property (weak, nonatomic) UISearchBar *searchBarMain;
 
 @property (nonatomic, strong) NSMutableArray *patientArray;
+@property (nonatomic, strong) NSString *currentServerAddress;
+
+@property (nonatomic, weak) UIPopoverController *serverPopover;
 
 @end

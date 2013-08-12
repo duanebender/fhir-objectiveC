@@ -419,24 +419,22 @@
 
 + (NSString *)returnPatientAnimalSpecies:(FHIRPatient *)patientToCheckSpeciesOf
 {
-    if (![patientToCheckSpeciesOf.animal.species.text.value isEqualToString:@""])
+    if ([patientToCheckSpeciesOf.animal.species.coding count] != 0)
     {
-        return patientToCheckSpeciesOf.animal.species.text.value;
-        NSLog(@"TRUE");
+        return [[[patientToCheckSpeciesOf.animal.species.coding objectAtIndex:0] display] value];
     }
     else
     {
         return @"N/A";
-        NSLOg(@"FALSE");
     }
     
 }
 
 + (NSString *)returnPatientAnimalBreed:(FHIRPatient *)patientToCheckBreedOf
 {
-    if (![patientToCheckBreedOf.animal.breed.text.value isEqualToString:@""])
+    if ([patientToCheckBreedOf.animal.breed.coding count] != 0)
     {
-        return patientToCheckBreedOf.animal.breed.text.value;
+        return [[[patientToCheckBreedOf.animal.breed.coding objectAtIndex:0] display] value];
     }
     else
     {
@@ -450,7 +448,7 @@
     FHIRCoding *codeToCheck = [patientToCheckGenderStatusOf.animal.genderStatus.coding objectAtIndex:0];
     statusTypeString = codeToCheck.code.value;
     
-    if ([patientToCheckGenderStatusOf.animal.genderStatus class] != [NSNull class])
+    if ([patientToCheckGenderStatusOf.animal.genderStatus.coding count] != 0)
     {
         if ([statusTypeString isEqualToString:@"neutered"])
         {

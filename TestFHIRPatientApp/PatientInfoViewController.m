@@ -166,24 +166,24 @@
         childViewController.animalCellContents = [[NSMutableArray alloc] init];
         
         //determine to return species
-        if ([self.patient.animal.species.text class] != [NSNull class])
+        if ([self.patient.animal.species.coding count] != 0)
         {
             [childViewController.animalCellLabels addObject:@"Species:"];
             [childViewController.animalCellContents addObject:[AllPatientItemReturnMethods returnPatientAnimalSpecies:self.patient]];
         }
         
         //determine to return breed
-        if ([self.patient.animal.breed.text class] != [NSNull class])
+        if ([self.patient.animal.breed.coding count] != 0)
         {
-            //[childViewController.animalCellLabels addObject:@"Breed:"];
-            //[childViewController.animalCellContents addObject:[AllPatientItemReturnMethods returnPatientAnimalBreed:self.patient]];
+            [childViewController.animalCellLabels addObject:@"Breed:"];
+            [childViewController.animalCellContents addObject:[AllPatientItemReturnMethods returnPatientAnimalBreed:self.patient]];
         }
         
         //determine to return gender status
-        if ([self.patient.animal.genderStatus.text class] != [NSNull class])
+        if ([self.patient.animal.genderStatus.coding count] != 0)
         {
-            //[childViewController.animalCellLabels addObject:@"Gender Status:"];
-            //[childViewController.animalCellContents addObject:[AllPatientItemReturnMethods returnPatientAnimalGenderStatus:self.patient]];
+            [childViewController.animalCellLabels addObject:@"Gender Status:"];
+            [childViewController.animalCellContents addObject:[AllPatientItemReturnMethods returnPatientAnimalGenderStatus:self.patient]];
         }
         //end animal info section cells
         
@@ -304,19 +304,19 @@
         editChildViewController.animalInfoContents = [[NSMutableDictionary alloc] init];
         
         //determine to return species
-        if ([self.patient.animal.species.text class] != [NSNull class])
+        if ([self.patient.animal.species.coding count] != 0)
         {
             [editChildViewController.animalInfoContents setObject:[AllPatientItemReturnMethods returnPatientAnimalSpecies:self.patient] forKey:@"Species:"];
         }
         
         //determine to return breed
-        if ([self.patient.animal.breed.text class] != [NSNull class])
+        if ([self.patient.animal.breed.coding count] != 0)
         {
             [editChildViewController.animalInfoContents setObject:[AllPatientItemReturnMethods returnPatientAnimalBreed:self.patient] forKey:@"Breed:"];
         }
         
         //determine to return gender status
-        if ([self.patient.animal.genderStatus.text class] != [NSNull class])
+        if ([self.patient.animal.genderStatus.coding count] != 0)
         {
             [editChildViewController.animalInfoContents setObject:[AllPatientItemReturnMethods returnPatientAnimalGenderStatus:self.patient] forKey:@"Gender Status:"];
         }

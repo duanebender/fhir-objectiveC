@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		890EFFE21796E4E6007ADF5C /* PatientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890EFFE11796E4E6007ADF5C /* PatientInfoViewController.m */; };
 		890EFFE5179731E6007ADF5C /* AddEditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890EFFE4179731E6007ADF5C /* AddEditPatientViewController.m */; };
 		891DB52E17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DB52D17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m */; };
 		891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F3A90172593A10091D782 /* PatientViewWriter.m */; };
@@ -17,7 +16,6 @@
 		8934346B17A05083007EFE18 /* PatientSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */; };
 		8934346F17A06B06007EFE18 /* defaultAnimalProfileImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8934346D17A06B06007EFE18 /* defaultAnimalProfileImage.jpg */; };
 		89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89403EDF172819E100EDDF8A /* NameListTableViewController.m */; };
-		8959F43117942ECA00AE586D /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959F43017942ECA00AE586D /* InitialSearchTableViewController.m */; };
 		8962C88017A6F67000ED4893 /* AddressViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */; };
 		89694718171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
 		8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
@@ -66,6 +64,13 @@
 		896C066B17B558BE00C25D2E /* icon_fhir_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066A17B558BE00C25D2E /* icon_fhir_114px.png */; };
 		898D9DC217B2A40E00554D5D /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898D9DC117B2A40E00554D5D /* libFHIR.a */; };
 		898F79F817A8523F00BE90B0 /* LinksViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */; };
+		8992432417B9469A00296BEA /* AllPatientItemReturnMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */; };
+		8992432717B946D000296BEA /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432617B946D000296BEA /* InitialSearchTableViewController.m */; };
+		8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432917B946EF00296BEA /* PatientInfoViewController.m */; };
+		8992432D17B946F800296BEA /* ServerPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432C17B946F800296BEA /* ServerPopoverView.m */; };
+		8992432E17B948E200296BEA /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432617B946D000296BEA /* InitialSearchTableViewController.m */; };
+		8992432F17B948EB00296BEA /* ServerPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432C17B946F800296BEA /* ServerPopoverView.m */; };
+		8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */; };
 		89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */; };
 		89B78AFB178F372C004F4C0D /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89B78AFA178F372C004F4C0D /* background.jpg */; };
 		89B78B02178F40AE004F4C0D /* fhirlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89B78B01178F40AE004F4C0D /* fhirlogo.png */; };
@@ -73,7 +78,6 @@
 		89C82A4D179EDA6400D147EF /* AddressInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C82A4C179EDA6400D147EF /* AddressInputTableViewCell.m */; };
 		89C82A50179EFF8600D147EF /* PhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C82A4F179EFF8600D147EF /* PhoneTableViewCell.m */; };
 		89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E2EE3017270E260005CC5A /* DetailsEditViewController.m */; };
-		89E3000217A1706100F29B29 /* AllPatientItemReturnMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000117A1706100F29B29 /* AllPatientItemReturnMethods.m */; };
 		89E3000617A1732900F29B29 /* SingleLineViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */; };
 		89E3000917A173E000F29B29 /* PatientInfoViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -90,7 +94,6 @@
 
 /* Begin PBXFileReference section */
 		890EFFE01796E4E6007ADF5C /* PatientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewController.h; sourceTree = "<group>"; };
-		890EFFE11796E4E6007ADF5C /* PatientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewController.m; sourceTree = "<group>"; };
 		890EFFE3179731E6007ADF5C /* AddEditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditPatientViewController.h; sourceTree = "<group>"; };
 		890EFFE4179731E6007ADF5C /* AddEditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditPatientViewController.m; sourceTree = "<group>"; };
 		891DB52C17B3CB2200C3E1E8 /* PhoneViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneViewTableViewCell.h; sourceTree = "<group>"; };
@@ -108,8 +111,6 @@
 		8934346D17A06B06007EFE18 /* defaultAnimalProfileImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = defaultAnimalProfileImage.jpg; path = images/defaultAnimalProfileImage.jpg; sourceTree = "<group>"; };
 		89403EDE172819E100EDDF8A /* NameListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameListTableViewController.h; sourceTree = "<group>"; };
 		89403EDF172819E100EDDF8A /* NameListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameListTableViewController.m; sourceTree = "<group>"; };
-		8959F42F17942ECA00AE586D /* InitialSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSearchTableViewController.h; sourceTree = "<group>"; };
-		8959F43017942ECA00AE586D /* InitialSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSearchTableViewController.m; sourceTree = "<group>"; };
 		8962C87E17A6F67000ED4893 /* AddressViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewTableViewCell.h; sourceTree = "<group>"; };
 		8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewTableViewCell.m; sourceTree = "<group>"; };
 		89694713171D99D10072A3CD /* TestFHIRPatientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFHIRPatientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +249,14 @@
 		898D9DC117B2A40E00554D5D /* libFHIR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFHIR.a; sourceTree = "<group>"; };
 		898F79F617A8523F00BE90B0 /* LinksViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinksViewTableViewCell.h; sourceTree = "<group>"; };
 		898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinksViewTableViewCell.m; sourceTree = "<group>"; };
+		8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPatientItemReturnMethods.m; sourceTree = "<group>"; };
+		8992432517B946D000296BEA /* InitialSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSearchTableViewController.h; sourceTree = "<group>"; };
+		8992432617B946D000296BEA /* InitialSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSearchTableViewController.m; sourceTree = "<group>"; };
+		8992432917B946EF00296BEA /* PatientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewController.m; sourceTree = "<group>"; };
+		8992432B17B946F800296BEA /* ServerPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerPopoverView.h; sourceTree = "<group>"; };
+		8992432C17B946F800296BEA /* ServerPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPopoverView.m; sourceTree = "<group>"; };
+		8992433117B9670E00296BEA /* FHIRSearchAndReturnResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSearchAndReturnResources.h; sourceTree = "<group>"; };
+		8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHIRSearchAndReturnResources.m; sourceTree = "<group>"; };
 		89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadScreenViewController.h; sourceTree = "<group>"; };
 		89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadScreenViewController.m; sourceTree = "<group>"; };
 		89B78AFA178F372C004F4C0D /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = images/background.jpg; sourceTree = "<group>"; };
@@ -261,7 +270,6 @@
 		89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEditViewController.h; sourceTree = "<group>"; };
 		89E2EE3017270E260005CC5A /* DetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEditViewController.m; sourceTree = "<group>"; };
 		89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPatientItemReturnMethods.h; sourceTree = "<group>"; };
-		89E3000117A1706100F29B29 /* AllPatientItemReturnMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPatientItemReturnMethods.m; sourceTree = "<group>"; };
 		89E3000417A1732900F29B29 /* SingleLineViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineViewTableViewCell.h; sourceTree = "<group>"; };
 		89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineViewTableViewCell.m; sourceTree = "<group>"; };
 		89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewTableViewController.h; sourceTree = "<group>"; };
@@ -298,7 +306,7 @@
 			children = (
 				89E3000317A172FF00F29B29 /* Cells */,
 				890EFFE01796E4E6007ADF5C /* PatientInfoViewController.h */,
-				890EFFE11796E4E6007ADF5C /* PatientInfoViewController.m */,
+				8992432917B946EF00296BEA /* PatientInfoViewController.m */,
 				89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */,
 				89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */,
 			);
@@ -308,10 +316,9 @@
 		8934346C17A0509A007EFE18 /* Patient Search */ = {
 			isa = PBXGroup;
 			children = (
-				8934346917A05083007EFE18 /* PatientSearchTableViewCell.h */,
-				8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */,
-				8959F42F17942ECA00AE586D /* InitialSearchTableViewController.h */,
-				8959F43017942ECA00AE586D /* InitialSearchTableViewController.m */,
+				8992432817B946D400296BEA /* Cells/Popover */,
+				8992432517B946D000296BEA /* InitialSearchTableViewController.h */,
+				8992432617B946D000296BEA /* InitialSearchTableViewController.m */,
 			);
 			name = "Patient Search";
 			sourceTree = "<group>";
@@ -542,6 +549,26 @@
 			path = private;
 			sourceTree = "<group>";
 		};
+		8992432817B946D400296BEA /* Cells/Popover */ = {
+			isa = PBXGroup;
+			children = (
+				8992432B17B946F800296BEA /* ServerPopoverView.h */,
+				8992432C17B946F800296BEA /* ServerPopoverView.m */,
+				8934346917A05083007EFE18 /* PatientSearchTableViewCell.h */,
+				8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */,
+			);
+			name = Cells/Popover;
+			sourceTree = "<group>";
+		};
+		8992433017B966D700296BEA /* searchServerCode */ = {
+			isa = PBXGroup;
+			children = (
+				8992433117B9670E00296BEA /* FHIRSearchAndReturnResources.h */,
+				8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */,
+			);
+			name = searchServerCode;
+			sourceTree = "<group>";
+		};
 		89B78A47178F2AE5004F4C0D /* FHIRlib */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,10 +582,11 @@
 		89B78AEE178F2E74004F4C0D /* iPadDemo */ = {
 			isa = PBXGroup;
 			children = (
+				8992433017B966D700296BEA /* searchServerCode */,
 				896C066117B5414B00C25D2E /* LoadScreen */,
 				89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */,
 				89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */,
-				89E3000117A1706100F29B29 /* AllPatientItemReturnMethods.m */,
+				8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */,
 				8934346C17A0509A007EFE18 /* Patient Search */,
 				890EFFDF1796E412007ADF5C /* PatientViewer */,
 				8959F4351794836E00AE586D /* Add/Edit */,
@@ -783,6 +811,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8992432F17B948EB00296BEA /* ServerPopoverView.m in Sources */,
+				8992432E17B948E200296BEA /* InitialSearchTableViewController.m in Sources */,
 				89694724171D99D10072A3CD /* main.m in Sources */,
 				89694728171D99D10072A3CD /* TestAppDelegate.m in Sources */,
 				89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */,
@@ -792,8 +822,6 @@
 				89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */,
 				89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */,
 				89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */,
-				8959F43117942ECA00AE586D /* InitialSearchTableViewController.m in Sources */,
-				890EFFE21796E4E6007ADF5C /* PatientInfoViewController.m in Sources */,
 				890EFFE5179731E6007ADF5C /* AddEditPatientViewController.m in Sources */,
 				896B277C179DC6E700608D87 /* SingleLineInputTableViewCell.m in Sources */,
 				896B277F179DC79000608D87 /* AddEditPatientTableViewController.m in Sources */,
@@ -803,13 +831,15 @@
 				8934346517A000D6007EFE18 /* LargeTextFieldTableViewCell.m in Sources */,
 				8934346817A02168007EFE18 /* ContactListItemTableViewCell.m in Sources */,
 				8934346B17A05083007EFE18 /* PatientSearchTableViewCell.m in Sources */,
-				89E3000217A1706100F29B29 /* AllPatientItemReturnMethods.m in Sources */,
 				89E3000617A1732900F29B29 /* SingleLineViewTableViewCell.m in Sources */,
 				89E3000917A173E000F29B29 /* PatientInfoViewTableViewController.m in Sources */,
 				8962C88017A6F67000ED4893 /* AddressViewTableViewCell.m in Sources */,
 				898F79F817A8523F00BE90B0 /* LinksViewTableViewCell.m in Sources */,
 				89BB1CC617AAF1BC00C8267F /* ContactListTableViewCell.m in Sources */,
 				891DB52E17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m in Sources */,
+				8992432417B9469A00296BEA /* AllPatientItemReturnMethods.m in Sources */,
+				8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */,
+				8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +848,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8969474C171D99D10072A3CD /* TestFHIRPatientAppTests.m in Sources */,
+				8992432717B946D000296BEA /* InitialSearchTableViewController.m in Sources */,
+				8992432D17B946F800296BEA /* ServerPopoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

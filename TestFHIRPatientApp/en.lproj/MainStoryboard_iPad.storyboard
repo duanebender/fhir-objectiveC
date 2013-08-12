@@ -50,6 +50,70 @@
             </objects>
             <point key="canvasLocation" x="-2126" y="1213"/>
         </scene>
+        <!--Server Popover View-->
+        <scene sceneID="hgE-Jn-fLI">
+            <objects>
+                <viewController id="xnT-0A-ivc" customClass="ServerPopoverView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GdT-7N-grv">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Server Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-xQ-Gya">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="201" id="SIq-CU-HHX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6F-CS-NY1">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p18-cI-axR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="Uz8-oW-DdX"/>
+                                    <constraint firstAttribute="height" constant="30" id="lA8-VW-Lrv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyButtonPressed:" destination="xnT-0A-ivc" eventType="touchUpInside" id="FDm-CP-fbB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="p18-cI-axR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="25o-zo-EDA"/>
+                            <constraint firstItem="p18-cI-axR" firstAttribute="top" secondItem="XSx-xQ-Gya" secondAttribute="top" type="default" id="3RL-2S-sR1"/>
+                            <constraint firstAttribute="trailing" secondItem="a6F-CS-NY1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5K6-4D-odQ"/>
+                            <constraint firstItem="XSx-xQ-Gya" firstAttribute="leading" secondItem="GdT-7N-grv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5Sb-mO-NHO"/>
+                            <constraint firstItem="p18-cI-axR" firstAttribute="bottom" secondItem="XSx-xQ-Gya" secondAttribute="bottom" type="default" id="Ndc-dO-pzV"/>
+                            <constraint firstItem="p18-cI-axR" firstAttribute="top" secondItem="GdT-7N-grv" secondAttribute="top" constant="16" id="ca8-vN-KeF"/>
+                            <constraint firstItem="XSx-xQ-Gya" firstAttribute="baseline" secondItem="p18-cI-axR" secondAttribute="baseline" type="default" id="sWY-AZ-p9D"/>
+                            <constraint firstItem="a6F-CS-NY1" firstAttribute="leading" secondItem="GdT-7N-grv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ta2-kT-SVW"/>
+                            <constraint firstAttribute="bottom" secondItem="a6F-CS-NY1" secondAttribute="bottom" constant="12" id="zFG-OF-JLw"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="servAdressLabel" destination="XSx-xQ-Gya" id="LKY-jx-Fyf"/>
+                        <outlet property="serverAddressTextField" destination="a6F-CS-NY1" id="nZa-Tn-W1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csD-74-TLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2696" y="-428"/>
+        </scene>
         <!--Initial Search Table View Controller - Patient Search-->
         <scene sceneID="O5Y-UX-Ixg">
             <objects>
@@ -170,6 +234,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="xnT-0A-ivc" kind="popover" identifier="popoverSegue" popoverAnchorView="d6c-bZ-yNO" id="O4Y-Kt-re4">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yxi-hG-jik">
@@ -1446,6 +1515,13 @@
                 <relationship kind="outlet" name="phoneWorkText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="workLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ServerPopoverView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerPopoverView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="servAdressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="serverAddressTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="SingleLineInputTableViewCell" superclassName="UITableViewCell">

@@ -12,12 +12,9 @@
 #import "AddEditPatientViewController.h"
 #import "PatientSearchTableViewCell.h"
 #import "AllPatientItemReturnMethods.h"
+#import "FHIRSearchAndReturnResources.h"
 
-#define URL_STRING_TEST @"http://hl7.org/implement/standards/fhir/patient-example-a.json"
-
-@interface InitialSearchTableViewController () <UISearchBarDelegate>
-
-@end
+#define URL_STRING_TEST @"http://hl7connect.healthintersections.com.au/svc/fhir/patient/@1/history/@1?_format=json"//@"http://hl7.org/implement/standards/fhir/patient-example-a.json"
 
 @implementation InitialSearchTableViewController
 
@@ -57,6 +54,7 @@
     self.navigationController.title = @"Patient Search";
     [[[self navigationController] navigationBar] setTintColor:[UIColor blackColor]];
     [[self searchBarMain] setTintColor:[UIColor blackColor]];
+    self.currentServerAddress = @"http://hl7connect.healthintersections.com.au/svc/fhir/";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -94,8 +92,8 @@
     [searchBar resignFirstResponder];
     self.tableView.allowsSelection = YES;
     self.tableView.scrollEnabled = YES;
-    [self exampleGrab];
-    //[self grabFromServerUsingName:searchBar.text];
+    //[self exampleGrab];
+    [self grabFromServerUsingName:searchBar.text];
 }
 
 #pragma mark - Table view data source
@@ -132,6 +130,12 @@
     cell.patientProfileImageView.image = cellDefaultImage;
     cell.patientDOBText.text = cellDOB;
     cell.patientGenderImageView.image = cellGenderImage;
+    
+    //alternate cell colors
+    if (indexPath.row % 2 == 0)
+    {
+        cell.backgroundColor = [UIColor orangeColor];
+    }
     
     return cell;
 }
@@ -201,65 +205,36 @@
     }
     else //single search word is provided "name"
     {
+        NSLog(@"SINGLE");
         singleName = true;
+        [familyNames addObject:searchString];
+        [givenNames addObject:searchString];
     }
     
     //search for name
     if (singleName)
     {
-        NSObject *patientJSON = [[NSObject alloc] init];
-        BOOL missedFiles = false;
         self.patientArray = [[NSMutableArray alloc] init];
-        NSMutableString *missingFilesAlert = [[NSMutableString alloc] initWithString:@"Paitient With Name "];
         
-        JSONToDict *jsonDict = [[JSONToDict alloc] init];
         //try family name first
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&family=%@", [familyNames objectAtIndex:0]]];
-        
-        //check if file exists at path
-        NSURL *tempUrl = [[NSURL alloc] initWithString:urlString];
-        NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
-        if (jsonString)
-        {
-            patientJSON = [jsonDict convertJsonToDictionary:urlString];
-            [self.patientArray addObject:patientJSON];
-        }
-        else
-        {
-            [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [givenNames objectAtIndex:0], [familyNames objectAtIndex:0]]];
-            missedFiles = true;
-        }
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0]]];
+        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs family names
         
         //try given names
-        urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&given=%@", [givenNames objectAtIndex:0]]];
-        
-        //check if file exists at path
-        tempUrl = [[NSURL alloc] initWithString:urlString];
-        jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
-        if (jsonString)
-        {
-            patientJSON = [jsonDict convertJsonToDictionary:urlString];
-            [self.patientArray addObject:patientJSON];
-        }
-        else
-        {
-            [missingFilesAlert stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [givenNames objectAtIndex:0], [familyNames objectAtIndex:0]]];
-            missedFiles = true;
-        }
-        
-        if (missedFiles)
-        {
-            [missingFilesAlert stringByAppendingString:@"do(es) not exist."];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                            message:missingFilesAlert
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }
+        urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&given=%@&_format=json", self.currentServerAddress, [givenNames objectAtIndex:0]]];
+        [self.patientArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs given names
+
         [self.tableView reloadData];
+        /*
         NSLog(@"%@",self.patientArray);
+        for (int i = 0; i < [self.patientArray count]; i++)
+        {
+            FHIRPatient *patientToLog = [[FHIRPatient alloc] init];
+            patientToLog = [self.patientArray objectAtIndex:i];
+            NSLog(@"PATIENT %d: %@", i, [[patientToLog generateAndReturnResourceDictionary] dataForResource]);
+        }
+         */
+         
     }
     else //multiple names
     {
@@ -270,7 +245,7 @@
         NSMutableString *missingFilesAlert = [[NSMutableString alloc] initWithString:@"Paitient Name "];
         
         JSONToDict *jsonDict = [[JSONToDict alloc] init];
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"http://hl7connect.healthintersections.com.au/svc/fhir/Patient?_&family=%@&given=%@", [familyNames objectAtIndex:0], [givenNames objectAtIndex:0]]];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&given=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0], [givenNames objectAtIndex:0]]];
                 
         //check if file exists at path
         NSURL *tempUrl = [[NSURL alloc] initWithString:urlString];
@@ -318,6 +293,12 @@
         AddEditPatientViewController *target = (AddEditPatientViewController *)segue.destinationViewController;
         target.title = @"Add Patient";
     }
+    else if ([segue.identifier isEqualToString:@"popoverSegue"])
+    {
+        self.serverPopover = [(UIStoryboardPopoverSegue*)segue popoverController];
+        [[segue destinationViewController] setDelegate:self];
+        [[segue destinationViewController] setServerURLText:self.currentServerAddress];
+    }
     else
     {
         NSIndexPath *indexPath = nil;
@@ -334,6 +315,13 @@
             indexPath = [self.tableView indexPathForSelectedRow];
         }
     }
+}
+
+#pragma mark -popup protocol functions
+- (void) returnFromPopup:(NSString *)popupData
+{
+    self.currentServerAddress = popupData;
+    [self.serverPopover dismissPopoverAnimated:YES];
 }
 
 @end
