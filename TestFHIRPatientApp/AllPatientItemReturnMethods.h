@@ -20,7 +20,7 @@
 + (NSString *)returnPatientsLanguage:(FHIRPatient *)patientToCheckLanguage; //Patient language
 
 //contact info methods
-+ (NSDictionary *)returnPatientsAddressInfo:(FHIRPatient *)patientToCheckAddress; //Patient's Address
++ (NSMutableString *)returnPatientsAddressInfo:(FHIRPatient *)patientToCheckAddress; //Patient's Address
 + (NSMutableDictionary *)returnPatientsTelecom:(FHIRPatient *)patientToFindPhone; //Patients phone numbers, email, and fax
 
 //additional info methods

@@ -230,43 +230,20 @@
     }
 }
 
-+ (NSDictionary *)returnPatientsAddressInfo:(FHIRPatient *)patientToCheckAddress
++ (NSMutableString *)returnPatientsAddressInfo:(FHIRPatient *)patientToCheckAddress
 {
     FHIRAddress *addressOfPatient = [patientToCheckAddress.address objectAtIndex:0];
+    
     NSMutableString *fullAddress = [[NSMutableString alloc] initWithString:@""];
-    NSMutableDictionary *dictForAddress = [[NSMutableDictionary alloc] init];
-    
-    NSRegularExpression *streetRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d{1,4}\\s[a-zA-Z]{2,30}\\s[a-zA-Z]{2,15}" options:NSRegularExpressionCaseInsensitive error:nil]; //street number regular expression
-    NSRegularExpression *apptRegex = [NSRegularExpression regularExpressionWithPattern:@"?(apt|appt|ap)\\s*?(#)\\s[a-zA-Z0-9]{1,6}" options:NSRegularExpressionCaseInsensitive error:nil]; //appt number regular expression
-    NSRegularExpression *cityStateRegex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]{2,30},\\s*([A-Z]{2}|[a-zA-Z]{2,15})" options:NSRegularExpressionCaseInsensitive error:nil]; //city state regular expression
-    NSRegularExpression *countryRegex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]{2,40}\\s*[a-zA-Z]{2,40}*\\s*[a-zA-Z]{2,40}*" options:NSRegularExpressionCaseInsensitive error:nil]; //country regular expression
-    NSRegularExpression *zipPostalRegex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z][0-9][a-zA-Z]\\s*[0-9][a-zA-Z][0-9]|[0-9]{5})" options:NSRegularExpressionCaseInsensitive error:nil]; //zip or postal code regular expression
-    
-    NSDictionary *regexForAddressValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                           streetRegex, @"Street",
-                                           apptRegex, @"Appt",
-                                           cityStateRegex, @"CityState",
-                                           countryRegex, @"Country",
-                                           zipPostalRegex, @"ZipPostal",
-                                           nil];
     
     for (int i = 0; i < [addressOfPatient.line count]; i++)
     {
-        FHIRString *currentString = [addressOfPatient.line objectAtIndex:i];
-        [fullAddress appendFormat:@" %@",currentString.value];
+        FHIRString *currentLine = [[FHIRString alloc] init];
+        currentLine = [addressOfPatient.line objectAtIndex:i];
+        [fullAddress appendFormat:@"%@ \n", currentLine.value];
     }
-    
-    for (NSString *key in regexForAddressValues)
-    {
-        NSRange r;
-        if ([fullAddress rangeOfString:[regexForAddressValues objectForKey:key] options:NSRegularExpressionSearch].location != NSNotFound)
-        {
-            r = [fullAddress rangeOfString:[regexForAddressValues objectForKey:key] options:NSRegularExpressionSearch];
-            [dictForAddress setObject:[fullAddress substringWithRange:r] forKey:key];
-        }
-    }
-    
-    return dictForAddress;
+   
+    return fullAddress;
 }
 
 + (NSMutableDictionary *)returnPatientsTelecom:(FHIRPatient *)patientToFindPhone
@@ -317,7 +294,7 @@
             [phoneDict setObject:cellPhone forKey:@"cellPhoneText"];
             
             //add in
-            [telecomContactDict setObject:phoneDict forKey:@"phone"];
+            [telecomContactDict setObject:phoneDict forKey:@"Phone:"];
             
             //check for fax number
             NSMutableString *faxNumber = [[NSMutableString alloc] init];
@@ -329,7 +306,7 @@
             {
                 [faxNumber setString:@"N/A"];
             }
-            [telecomContactDict setObject:faxNumber forKey:@"faxText"];
+            [telecomContactDict setObject:faxNumber forKey:@"Fax:"];
             
             //check for email
             NSMutableString *email = [[NSMutableString alloc] init];
@@ -341,7 +318,7 @@
             {
                 [email setString:@"N/A"];
             }
-            [telecomContactDict setObject:email forKey:@"emailText"];
+            [telecomContactDict setObject:email forKey:@"Email:"];
         } //end telecom for loop
     }
     return telecomContactDict;

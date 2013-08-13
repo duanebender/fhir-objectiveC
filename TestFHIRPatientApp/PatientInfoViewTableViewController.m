@@ -97,21 +97,17 @@
     }
     else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact Info"])
     {
-        if (indexPath.row == [self.addCellLabels indexOfObject:@"Address:"])
+        if (indexPath.row == [self.contactCellLabels indexOfObject:@"Address:"])
         {
             addressCell = [tableView dequeueReusableCellWithIdentifier:@"addressViewCell" forIndexPath:indexPath];
-            addressCell.streetLabel = [self.addressContentsDict objectForKey:@"Street"];
-            addressCell.apptLabel = [self.addressContentsDict objectForKey:@"Appt"];
-            addressCell.cityProvStateLabel = [self.addressContentsDict objectForKey:@"CityState"];
-            addressCell.countryLabel = [self.addressContentsDict objectForKey:@"Country"];
-            addressCell.zipPostalCodeLabel = [self.addressContentsDict objectForKey:@"ZipPostal"];
+            addressCell.addressTextField.text = self.addressContentsString;
             return addressCell;
         }
-        else if (indexPath.row == [self.contactCellLabels indexOfObject:@"Phone"])
+        else if (indexPath.row == [self.contactCellLabels indexOfObject:@"Phone:"])
         {
             phoneViewCell = [tableView dequeueReusableCellWithIdentifier:@"phoneViewCell" forIndexPath:indexPath];
             phoneViewCell.phoneHomeText.text = [self.phoneContentsDict objectForKey:@"phoneHomeText"];
-            phoneViewCell.phoneCellText.text = [self.phoneContentsDict objectForKey:@"phoneCellText"];
+            phoneViewCell.phoneCellText.text = [self.phoneContentsDict objectForKey:@"cellPhoneText"];
             phoneViewCell.phoneWorkText.text = [self.phoneContentsDict objectForKey:@"phoneWorkText"];
             return phoneViewCell;
         }
@@ -192,7 +188,7 @@
         }
         else if (indexPath.row == [self.contactCellLabels indexOfObject:@"Phone:"])
         {
-            return 125;
+            return 160;
         }
         else
         {

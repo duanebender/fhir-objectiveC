@@ -27,6 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.imageOfPatient)
+    {
+        self.editPatientImage.image = self.imageOfPatient;
+    }
+    else
+    {
+        self.editPatientImage.image = [UIImage imageNamed:@"profile_male.png"];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -151,18 +160,19 @@
     {
         if ([self.contactInfoContents count] != 0)
         {
-            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Fax:"] && [self.contactInfoContents objectForKey:@"faxText"])
+            if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Fax:"] && [self.contactInfoContents objectForKey:@"Fax:"])
             {
-                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"faxText"]];
+                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"Fax:"]];
             }
-            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Email:"] && [self.contactInfoContents objectForKey:@"emailText"])
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Email:"] && [self.contactInfoContents objectForKey:@"Email:"])
             {
-                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"emailText"]];
+                [cellContentsArray addObject:[self.contactInfoContents objectForKey:@"Email:"]];
             }
             else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Address:"] && [self.contactInfoContents objectForKey:@"Address:"])
             {
-                [dictToReturn setObject:[self.contactInfoContents objectForKey:@"Address:"] forKey:@"addressCellDictionary"];
+                [dictToReturn setObject:[self.contactInfoContents objectForKey:@"Address:"] forKey:@"addressCellString"];
                 [cellContentsArray addObject:@""];
+                NSLog(@"%@",self.contactInfoContents);
             }
             else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Phone:"] && [self.contactInfoContents objectForKey:@"Phone:"])
             {
@@ -338,7 +348,7 @@
         childViewController.contactCellReferenceText = [[NSMutableArray alloc] initWithArray:[self generateContactCellReferencesArray:childViewController.contactCellLabels]];
         NSDictionary *forPassingCellInfo = [[NSDictionary alloc] initWithDictionary:[self generateContactCellContentsDictionary:childViewController.contactCellLabels]];
         childViewController.contactCellContents = [[NSMutableArray alloc] initWithArray:[forPassingCellInfo objectForKey:@"singleCellContentsArray"]];
-        childViewController.addressContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[forPassingCellInfo objectForKey:@"addressCellDictionary"]];
+        childViewController.addressContentsString = [[NSMutableString alloc] initWithString:[forPassingCellInfo objectForKey:@"addressCellString"]];
         childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[forPassingCellInfo objectForKey:@"phoneCellDictionary"]];
         
         //additional info array information

@@ -63,6 +63,7 @@
             [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsName:self.patient]];
         }
         
+        //Determine to return date of birth
         if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])
         {
             [childViewController.personalCellsLabels addObject:@"Date of Birth:"];
@@ -100,32 +101,44 @@
         //Contact Info section cells
         childViewController.contactCellLabels = [[NSMutableArray alloc] init];
         childViewController.contactCellContents = [[NSMutableArray alloc] init];
-        childViewController.addressContentsDict = [[NSMutableDictionary alloc] init];
+        childViewController.addressContentsString = [[NSMutableString alloc] init];
         
         //determine to return address
         if ([self.patient.address count] != 0)
         {
-            [childViewController.contactCellLabels addObject:@"Address"];
-            childViewController.addressContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsAddressInfo:self.patient]];
+            [childViewController.contactCellLabels addObject:@"Address:"];
+            childViewController.addressContentsString = [AllPatientItemReturnMethods returnPatientsAddressInfo:self.patient];
+            [childViewController.contactCellContents addObject:@""];
         }
         
         //determine to return phone, fax, or email
         if ([self.patient.telecom count] != 0)
         {
             NSDictionary *telecomDict = [[NSDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsTelecom:self.patient]];
+            NSLog(@"telecomDict:%@",telecomDict);
             for (NSString *key in telecomDict)
             {
-                if ([telecomDict objectForKey:@"phone"])
+                if ([key isEqualToString:@"Phone:"])
                 {
-                    [childViewController.contactCellLabels addObject:@"Phone"];
-                    childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[telecomDict objectForKey:@"phone"]];
+                    NSDictionary *checking = [telecomDict objectForKey:@"Phone:"];
+                    
+                    if (![[checking objectForKey:@"cellPhoneText"] isEqualToString:@"N/A"] || ![[checking objectForKey:@"phoneHomeText"] isEqualToString:@"N/A"] || ![[checking objectForKey:@"phoneWorkText"] isEqualToString:@"N/A"])
+                    {
+                        [childViewController.contactCellLabels addObject:@"Phone:"];
+                        childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[telecomDict objectForKey:@"Phone:"]];
+                        [childViewController.contactCellContents addObject:@""];
+                    }
                 }
                 else
                 {
-                    [childViewController.contactCellLabels addObject:key];
-                    [childViewController.contactCellContents addObject:[telecomDict objectForKey:key]];
+                    if (![[telecomDict objectForKey:key] isEqualToString:@"N/A"])
+                    {
+                        [childViewController.contactCellLabels addObject:key];
+                        [childViewController.contactCellContents addObject:[telecomDict objectForKey:key]];
+                    }
                 }
             }
+            NSLog(@"tele:%@",childViewController.contactCellLabels);
         }
             
         //Additional Info section cells
@@ -147,11 +160,14 @@
         }
         
         //determine to return provider
+#warning -fix this
+        /*
         if ([self.patient.provider.display class] != [NSNull class])
         {
             [childViewController.addCellLabels addObject:@"Provider:"];
             [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient]];
         }
+         */
         
         //determine to return patient links
         if ([self.patient.link count] != 0)
@@ -214,6 +230,7 @@
             [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsName:self.patient] forKey:@"Name:"];
         }
         
+        //Determine if to display date of birth
         if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])
         {
             [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsDOB:self.patient] forKey:@"Date of Birth:"];
@@ -242,7 +259,6 @@
         {
             [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsLanguage:self.patient] forKey:@"Language:"];
         }
-        NSLog(@"%@",editChildViewController.personalInfoContents);
         //end personal info cells
         
         //Contact Info section cells
@@ -287,11 +303,14 @@
             [editChildViewController.addInfoContents setObject:[AllPatientItemReturnMethods returnPatientsActiveStatus:self.patient] forKey:@"Active Status:"];
         }
         
+#warning - fix this
+        /*
         //determine to return provider
         if ([self.patient.provider.display class] != [NSNull class])
         {
             [editChildViewController.addInfoContents setObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient] forKey:@"Provider:"];
         }
+         */
         
         //determine to return patient links
         if ([self.patient.link count] != 0)
@@ -321,6 +340,11 @@
             [editChildViewController.animalInfoContents setObject:[AllPatientItemReturnMethods returnPatientAnimalGenderStatus:self.patient] forKey:@"Gender Status:"];
         }
         //end animal info section cells
+        
+        //return default image to be displayed in editing
+        editChildViewController.imageOfPatient = [[UIImage alloc] init];
+        editChildViewController.imageOfPatient = [AllPatientItemReturnMethods returnPatientDefaultImage:self.patient];
+        NSLog(@"%@",[AllPatientItemReturnMethods returnPatientDefaultImage:self.patient]);
         
     }
     //end edit button segue

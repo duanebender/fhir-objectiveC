@@ -97,16 +97,7 @@
                 case 0: //address cell
                     addressCell = [tableView dequeueReusableCellWithIdentifier:@"addressTextCell" forIndexPath:indexPath];
                     [addressCell.addressLabel setText:@"Address:"];
-                    addressCell.streetNumberTextField.placeholder = @"33 Named Street";
-                    addressCell.apptNumberTextField.placeholder = @"appt #";
-                    addressCell.cityStateTextField.placeholder = @"city, state/province";
-                    addressCell.countryTextField.placeholder = @"Canada";
-                    addressCell.postalZipCodeTextField.placeholder = @"zip/postal code";
-                    addressCell.streetNumberTextField.text = [self.addressContentsDict objectForKey:@"Street"];
-                    addressCell.apptNumberTextField.text = [self.addressContentsDict objectForKey:@"Appt"];
-                    addressCell.cityStateTextField.text = [self.addressContentsDict objectForKey:@"CityState"];
-                    addressCell.countryTextField.text = [self.addressContentsDict objectForKey:@"Country"];
-                    addressCell.postalZipCodeTextField.text = [self.addressContentsDict objectForKey:@"ZipPostal"];
+                    [addressCell.addressTextField setText:self.addressContentsString];
                     return addressCell;
                     break;
                 

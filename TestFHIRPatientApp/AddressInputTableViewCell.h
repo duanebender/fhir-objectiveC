@@ -11,11 +11,6 @@
 @interface AddressInputTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property (weak, nonatomic) IBOutlet UITextField *streetNumberTextField;
-@property (weak, nonatomic) IBOutlet UITextField *apptNumberTextField;
-@property (weak, nonatomic) IBOutlet UITextField *cityStateTextField;
-@property (weak, nonatomic) IBOutlet UITextField *countryTextField;
-@property (weak, nonatomic) IBOutlet UITextField *postalZipCodeTextField;
-
+@property (weak, nonatomic) IBOutlet UITextView *addressTextField;
 
 @end

@@ -17,7 +17,7 @@
 
 //contact section cells
 @property (nonatomic, strong) NSMutableArray *contactCellContents;
-@property (nonatomic, strong) NSMutableDictionary *addressContentsDict;
+@property (nonatomic, strong) NSMutableString *addressContentsString;
 @property (nonatomic, strong) NSMutableDictionary *phoneContentsDict;
 @property (nonatomic, strong) NSMutableArray *contactCellLabels;
 @property (nonatomic, strong) NSMutableArray *contactCellReferenceText;
