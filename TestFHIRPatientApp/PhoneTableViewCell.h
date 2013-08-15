@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CellTextPasserDelegate.h"
 
-@interface PhoneTableViewCell : UITableViewCell
+@interface PhoneTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *homePhoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cellPhoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *workPhoneTextField;
+
+@property (strong, nonatomic) id<CellTextPasserDelegate> delegate;
 
 @end

@@ -172,7 +172,6 @@
             {
                 [dictToReturn setObject:[self.contactInfoContents objectForKey:@"Address:"] forKey:@"addressCellString"];
                 [cellContentsArray addObject:@""];
-                NSLog(@"%@",self.contactInfoContents);
             }
             else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Phone:"] && [self.contactInfoContents objectForKey:@"Phone:"])
             {
@@ -336,7 +335,10 @@
     NSString * segueName = segue.identifier;
     if ([segueName isEqualToString: @"containerSegue"])
     {
-        AddEditPatientTableViewController * childViewController = (AddEditPatientTableViewController *) [segue destinationViewController];
+        AddEditPatientTableViewController *childViewController = (AddEditPatientTableViewController *) [segue destinationViewController];
+        self.containerForPatientData = [[AddEditPatientTableViewController alloc] init];
+        self.containerForPatientData = childViewController;
+        [childViewController setDelegate:self];
         
         //personal info array information
         childViewController.personalCellsLabels = [[NSMutableArray alloc] initWithObjects:@"Name:", @"Date Of Birth:", @"Gender:", @"Marital Status:", @"Deceased:", @"Language:", nil];
@@ -348,7 +350,14 @@
         childViewController.contactCellReferenceText = [[NSMutableArray alloc] initWithArray:[self generateContactCellReferencesArray:childViewController.contactCellLabels]];
         NSDictionary *forPassingCellInfo = [[NSDictionary alloc] initWithDictionary:[self generateContactCellContentsDictionary:childViewController.contactCellLabels]];
         childViewController.contactCellContents = [[NSMutableArray alloc] initWithArray:[forPassingCellInfo objectForKey:@"singleCellContentsArray"]];
-        childViewController.addressContentsString = [[NSMutableString alloc] initWithString:[forPassingCellInfo objectForKey:@"addressCellString"]];
+        if ([forPassingCellInfo objectForKey:@"addressCellString"])
+        {
+            childViewController.addressContentsString = [[NSMutableString alloc] initWithString:[forPassingCellInfo objectForKey:@"addressCellString"]];
+        }
+        else
+        {
+            childViewController.addressContentsString = [[NSMutableString alloc] initWithString:@""];
+        }
         childViewController.phoneContentsDict = [[NSMutableDictionary alloc] initWithDictionary:[forPassingCellInfo objectForKey:@"phoneCellDictionary"]];
         
         //additional info array information
@@ -362,6 +371,18 @@
         childViewController.animalCellContents = [[NSMutableArray alloc] initWithArray:[self generateAnimalInfoCellContentsArray:childViewController.animalCellLabels]];
         
     }
+}
+
+#pragma mark - saving form and pushing to server
+- (IBAction)saveButtonPress:(id)sender
+{
+    [self.containerForPatientData setValuesForAllCells];
+}
+
+- (void)valuesToPassBack:(NSDictionary *)dictionaryToPass
+{
+    self.dictionaryOfUpdatedPatient = dictionaryToPass;
+    NSLog(@"MAINDICT:%@",dictionaryToPass);
 }
 
 @end

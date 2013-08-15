@@ -26,4 +26,15 @@
     // Configure the view for the selected state
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSDictionary *tempDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    self.homePhoneTextField.text, @"Home Phone:",
+                                    self.workPhoneTextField.text, @"Work Phone:",
+                                    self.cellPhoneTextField.text, @"Cell Phone:",
+                                    nil];
+    
+    [self.delegate textFromTheCell:tempDictionary];
+}
+
 @end

@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SingleLineInputTableViewCell.h"
+#import "AddressInputTableViewCell.h"
+#import "PhoneTableViewCell.h"
+#import "LargeTextFieldTableViewCell.h"
+#import "ContactListItemTableViewCell.h"
 
-@interface AddEditPatientTableViewController : UITableViewController
+@protocol passValuesBack <NSObject>
+@required
+- (void)valuesToPassBack:(NSDictionary *)dictionaryToPass;
+@end
+
+@interface AddEditPatientTableViewController : UITableViewController <CellTextPasserDelegate>
 
 //personal section cells
 @property (nonatomic, strong) NSMutableArray *personalCellsContents;
@@ -34,5 +44,11 @@
 
 //contact list
 @property (nonatomic, strong) NSMutableArray *contactListCells;
+
+//table returnable values Dictionary
+@property (nonatomic, strong) NSMutableDictionary *tableReturnableDictionary;
+@property (nonatomic, strong) id<passValuesBack> delegate;
+
+- (void)setValuesForAllCells;
 
 @end

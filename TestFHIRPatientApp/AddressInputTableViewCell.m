@@ -31,4 +31,11 @@
     // Configure the view for the selected state
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSDictionary *tempDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:self.addressTextField.text, self.addressLabel.text, nil];
+    
+    [self.delegate textFromTheCell:tempDictionary];
+}
+
 @end

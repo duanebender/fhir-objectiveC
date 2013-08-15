@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CellTextPasserDelegate.h"
 
-@interface LargeTextFieldTableViewCell : UITableViewCell
+@interface LargeTextFieldTableViewCell : UITableViewCell <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *largeTextLabel;
 @property (weak, nonatomic) IBOutlet UITextView *largeTextView;
+
+@property (strong, nonatomic) id<CellTextPasserDelegate> delegate;
 
 @end

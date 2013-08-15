@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CellTextPasserDelegate.h"
 
-@interface SingleLineInputTableViewCell : UITableViewCell
+@interface SingleLineInputTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+
+@property (strong, nonatomic) NSString *savedText;
+@property (strong, nonatomic) id<CellTextPasserDelegate> delegate;
+
+
 
 @end

@@ -7,11 +7,6 @@
 //
 
 #import "AddEditPatientTableViewController.h"
-#import "SingleLineInputTableViewCell.h"
-#import "AddressInputTableViewCell.h"
-#import "PhoneTableViewCell.h"
-#import "LargeTextFieldTableViewCell.h"
-#import "ContactListItemTableViewCell.h"
 #import "SectionHeaderView.h"
 
 @interface AddEditPatientTableViewController ()
@@ -32,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableReturnableDictionary = [[NSMutableDictionary alloc] init];
 }
 
 #pragma mark - Table view data source
@@ -85,9 +81,17 @@
     {
         case 0: //section Patient Info all single cells
             singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleTextCell" forIndexPath:indexPath];
+            [singleCell setDelegate:self];
             [singleCell.titleLabel setText:[self.personalCellsLabels objectAtIndex:indexPath.row]];
             singleCell.inputTextField.placeholder = [self.personalCellsReferenceText objectAtIndex:indexPath.row];
-            [singleCell.inputTextField setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+            if ([self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text])
+            {
+                [singleCell.inputTextField setText:[self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text]];
+            }
+            else
+            {
+                [singleCell.inputTextField setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+            }
             return singleCell;
             break;
             
@@ -97,7 +101,15 @@
                 case 0: //address cell
                     addressCell = [tableView dequeueReusableCellWithIdentifier:@"addressTextCell" forIndexPath:indexPath];
                     [addressCell.addressLabel setText:@"Address:"];
-                    [addressCell.addressTextField setText:self.addressContentsString];
+                    if ([self.tableReturnableDictionary objectForKey:addressCell.addressLabel.text])
+                    {
+                        [addressCell.addressTextField setText:[self.tableReturnableDictionary objectForKey:addressCell.addressLabel.text]];
+                    }
+                    else
+                    {
+                        [addressCell.addressTextField setText:self.addressContentsString];
+                    }
+                    [addressCell setDelegate:self];
                     return addressCell;
                     break;
                 
@@ -107,9 +119,32 @@
                     phoneCell.homePhoneTextField.placeholder = @"Home: (555) 555-5555";
                     phoneCell.cellPhoneTextField.placeholder = @"Cell: (555) 555-5555";
                     phoneCell.workPhoneTextField.placeholder = @"Work: (555) 555-5555";
-                    phoneCell.homePhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneHomeText"];
-                    phoneCell.cellPhoneTextField.text = [self.phoneContentsDict objectForKey:@"cellPhoneText"];
-                    phoneCell.workPhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneWorkText"];
+                    if ([self.tableReturnableDictionary objectForKey:@"Home Phone:"])
+                    {
+                        phoneCell.homePhoneTextField.text = [self.tableReturnableDictionary objectForKey:@"Home Phone:"];
+                    }
+                    else
+                    {
+                        phoneCell.homePhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneHomeText"];
+                    }
+                    if ([self.tableReturnableDictionary objectForKey:@"Cell Phone:"])
+                    {
+                        phoneCell.cellPhoneTextField.text = [self.tableReturnableDictionary objectForKey:@"Cell Phone:"];
+                    }
+                    else
+                    {
+                        phoneCell.cellPhoneTextField.text = [self.phoneContentsDict objectForKey:@"cellPhoneText"];
+                    }
+                    if ([self.tableReturnableDictionary objectForKey:@"Work Phone:"])
+                    {
+                        phoneCell.workPhoneTextField.text = [self.tableReturnableDictionary objectForKey:@"Work Phone:"];
+                    }
+                    else
+                    {
+                        phoneCell.workPhoneTextField.text = [self.phoneContentsDict objectForKey:@"phoneWorkText"];
+                    }
+                    
+                    [phoneCell setDelegate:self];
                     return phoneCell;
                     break;
                     
@@ -117,7 +152,15 @@
                     singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleTextCell" forIndexPath:indexPath];
                     [singleCell.titleLabel setText:[self.contactCellLabels objectAtIndex:indexPath.row]];
                     singleCell.inputTextField.placeholder = [self.contactCellReferenceText objectAtIndex:indexPath.row];
-                    [singleCell.inputTextField setText:[self.contactCellContents objectAtIndex:indexPath.row]];
+                    if ([self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text])
+                    {
+                        [singleCell.inputTextField setText:[self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text]];
+                    }
+                    else
+                    {
+                        [singleCell.inputTextField setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+                    }
+                    [singleCell setDelegate:self];
                     return singleCell;
                     break;
             }
@@ -128,16 +171,32 @@
             {
             case 3: //linked patients cell
                 largeTextCell = [tableView dequeueReusableCellWithIdentifier:@"largeTextCell" forIndexPath:indexPath];
-                    [largeTextCell.largeTextLabel setText:@"Linked Patients:"];
+                [largeTextCell.largeTextLabel setText:@"Linked Patients:"];
+                if ([self.tableReturnableDictionary objectForKey:largeTextCell.largeTextLabel.text])
+                {
+                    [largeTextCell.largeTextView setText:[self.tableReturnableDictionary objectForKey:largeTextCell.largeTextLabel.text]];
+                }
+                else
+                {
                     [largeTextCell.largeTextView setText:[self.addCellContents objectAtIndex:indexPath.row]];
-                    return largeTextCell;
+                }
+                [largeTextCell setDelegate:self];
+                return largeTextCell;
                 break;
                 
             default:
                 singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleTextCell" forIndexPath:indexPath];
                 [singleCell.titleLabel setText:[self.addCellLabels objectAtIndex:indexPath.row]];
                 singleCell.inputTextField.placeholder = [self.addCellReferenceText objectAtIndex:indexPath.row];
-                [singleCell.inputTextField setText:[self.addCellContents objectAtIndex:indexPath.row]];
+                if ([self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text])
+                {
+                    [singleCell.inputTextField setText:[self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text]];
+                }
+                else
+                {
+                    [singleCell.inputTextField setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+                }
+                [singleCell setDelegate:self];
                 return singleCell;
                 break;
             }
@@ -147,15 +206,21 @@
             singleCell = [tableView dequeueReusableCellWithIdentifier:@"singleTextCell" forIndexPath:indexPath];
             [singleCell.titleLabel setText:[self.animalCellLabels objectAtIndex:indexPath.row]];
             singleCell.inputTextField.placeholder = [self.animalCellReferenceText objectAtIndex:indexPath.row];
-            [singleCell.inputTextField setText:[self.animalCellContents objectAtIndex:indexPath.row]];
+            if ([self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text])
+            {
+                [singleCell.inputTextField setText:[self.tableReturnableDictionary objectForKey:singleCell.titleLabel.text]];
+            }
+            else
+            {
+                [singleCell.inputTextField setText:[self.personalCellsContents objectAtIndex:indexPath.row]];
+            }
+            [singleCell setDelegate:self];
             return singleCell;
             break;
             
         case 4: //section contact list
             contactListCell = [tableView dequeueReusableCellWithIdentifier:@"contactListCell" forIndexPath:indexPath];
-            [singleCell.titleLabel setText:[self.animalCellLabels objectAtIndex:indexPath.row]];
-            singleCell.inputTextField.placeholder = [self.animalCellReferenceText objectAtIndex:indexPath.row];
-            [singleCell.inputTextField setText:[self.animalCellContents objectAtIndex:indexPath.row]];
+            [contactListCell setDelegate:self];
             return contactListCell;
             break;
             
@@ -256,13 +321,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //add code if needed
+}
+
+#pragma mark - protocol function
+
+- (void)textFromTheCell:(NSDictionary *)dictionaryOfStringsTextFromCell
+{
+    for (NSString *key in dictionaryOfStringsTextFromCell)
+    {
+        [self.tableReturnableDictionary setObject:[dictionaryOfStringsTextFromCell objectForKey:key] forKey:key];
+    }
+    NSLog(@"DIct:%@",self.tableReturnableDictionary);
+}
+
+- (void)setValuesForAllCells
+{
+    [self.delegate valuesToPassBack:self.tableReturnableDictionary];
 }
 
 @end

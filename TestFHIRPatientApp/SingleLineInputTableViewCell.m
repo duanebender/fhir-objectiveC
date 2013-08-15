@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
@@ -29,6 +28,14 @@
     }
 
     // Configure the view for the selected state
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSDictionary *tempDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:self.inputTextField.text, self.titleLabel.text, nil];
+    
+    self.savedText = [[NSString alloc] initWithString:self.inputTextField.text];
+    [self.delegate textFromTheCell:tempDictionary];
 }
 
 @end

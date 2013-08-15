@@ -10,11 +10,11 @@
 #import "AddEditPatientTableViewController.h"
 #import "FHIR.h"
 
-@interface AddEditPatientViewController : UIViewController
+@interface AddEditPatientViewController : UIViewController <passValuesBack>
 
 @property (weak, nonatomic) IBOutlet UIImageView *editPatientImage;
 @property (weak, nonatomic) IBOutlet UIPickerView *optionsToPickPickerView;
-@property (weak, nonatomic) IBOutlet AddEditPatientTableViewController *containerForPatientData;
+@property (strong, nonatomic) IBOutlet AddEditPatientTableViewController *containerForPatientData;
 
 @property (strong, nonatomic) FHIRPatient *patient;
 @property (strong, nonatomic) NSMutableDictionary *personalInfoContents;
@@ -22,5 +22,7 @@
 @property (strong, nonatomic) NSMutableDictionary *addInfoContents;
 @property (strong, nonatomic) NSMutableDictionary *animalInfoContents;
 @property (strong, nonatomic) UIImage *imageOfPatient;
+
+@property (strong, nonatomic) NSDictionary *dictionaryOfUpdatedPatient;
 
 @end

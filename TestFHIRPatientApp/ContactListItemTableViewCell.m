@@ -26,4 +26,25 @@
     // Configure the view for the selected state
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSDictionary *tempDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    self.nameTextField.text, @"Contact Name:",
+                                    self.genderTextField.text, @"Contact Gender:",
+                                    self.relationshipTextField.text, @"Contact Relationship:",
+                                    self.faxTextField.text, @"Contact Fax:",
+                                    self.emailTextField.text, @"Contact Email:",
+                                    self.organizationTextField.text, @"Contact Organization:",
+                                    nil];
+    
+    [self.delegate textFromTheCell:tempDictionary];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView //address is a text view instead of a text field
+{
+    NSDictionary *tempDictionary = [NSDictionary dictionaryWithObject:self.addressTextView.text forKey:@"Contact Address:"];
+    
+    [self.delegate textFromTheCell:tempDictionary];
+}
+
 @end

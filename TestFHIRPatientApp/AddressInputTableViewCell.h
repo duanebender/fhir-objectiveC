@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CellTextPasserDelegate.h"
 
-@interface AddressInputTableViewCell : UITableViewCell
+@interface AddressInputTableViewCell : UITableViewCell <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UITextView *addressTextField;
+
+@property (strong, nonatomic) id<CellTextPasserDelegate> delegate;
 
 @end

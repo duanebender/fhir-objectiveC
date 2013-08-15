@@ -80,6 +80,7 @@
 		89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E2EE3017270E260005CC5A /* DetailsEditViewController.m */; };
 		89E3000617A1732900F29B29 /* SingleLineViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */; };
 		89E3000917A173E000F29B29 /* PatientInfoViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */; };
+		89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,9 @@
 		89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineViewTableViewCell.m; sourceTree = "<group>"; };
 		89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewTableViewController.h; sourceTree = "<group>"; };
 		89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewTableViewController.m; sourceTree = "<group>"; };
+		89F886EA17BBCCC200444530 /* SaveAndPushToServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveAndPushToServer.h; sourceTree = "<group>"; };
+		89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveAndPushToServer.m; sourceTree = "<group>"; };
+		89F886ED17BC26E900444530 /* CellTextPasserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellTextPasserDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +430,7 @@
 				8934346417A000D6007EFE18 /* LargeTextFieldTableViewCell.m */,
 				8934346617A02168007EFE18 /* ContactListItemTableViewCell.h */,
 				8934346717A02168007EFE18 /* ContactListItemTableViewCell.m */,
+				89F886ED17BC26E900444530 /* CellTextPasserDelegate.h */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -587,6 +592,8 @@
 				89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */,
 				89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */,
 				8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */,
+				89F886EA17BBCCC200444530 /* SaveAndPushToServer.h */,
+				89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */,
 				8934346C17A0509A007EFE18 /* Patient Search */,
 				890EFFDF1796E412007ADF5C /* PatientViewer */,
 				8959F4351794836E00AE586D /* Add/Edit */,
@@ -840,6 +847,7 @@
 				8992432417B9469A00296BEA /* AllPatientItemReturnMethods.m in Sources */,
 				8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */,
 				8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */,
+				89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
