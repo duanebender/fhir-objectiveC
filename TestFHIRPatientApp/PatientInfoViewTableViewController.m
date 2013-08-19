@@ -145,11 +145,7 @@
         [contactListViewCell.nameText setText:[currentContactItem objectForKey:@"nameText"]];
         [contactListViewCell.genderText setText:[currentContactItem objectForKey:@"genderText"]];
         [contactListViewCell.relationshipText setText:[currentContactItem objectForKey:@"relationshipText"]];
-        [contactListViewCell.addressStreetText setText:[currentContactItem objectForKey:@"addressStreetText"]];
-        [contactListViewCell.addressAptText setText:[currentContactItem objectForKey:@"addressApptText"]];
-        [contactListViewCell.addressCityText setText:[currentContactItem objectForKey:@"addressCityText"]];
-        [contactListViewCell.addressCountryText setText:[currentContactItem objectForKey:@"addressCountryText"]];
-        [contactListViewCell.addressPostalText setText:[currentContactItem objectForKey:@"addressPostalText"]];
+        [contactListViewCell.addressTextView setText:[currentContactItem objectForKey:@"address"]];
         [contactListViewCell.phoneHomeText setText:[currentContactItem objectForKey:@"phoneHome"]];
         [contactListViewCell.phoneCellText setText:[currentContactItem objectForKey:@"phoneCell"]];
         [contactListViewCell.phoneWorkText setText:[currentContactItem objectForKey:@"phoneWork"]];
@@ -164,6 +160,22 @@
         [singleCell.titleLabel setText:[self.animalCellLabels objectAtIndex:indexPath.row]];
         [singleCell.contentLabel setText:[self.animalCellContents objectAtIndex:indexPath.row]];
         return singleCell;
+    }
+    else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact List:"])
+    {
+        contactListViewCell = [tableView dequeueReusableCellWithIdentifier:@"contactListViewCell" forIndexPath:indexPath];
+        NSDictionary *contactCellInfo = [[NSDictionary alloc] initWithDictionary:[self.contactListCells objectAtIndex:0]];
+        [contactListViewCell.nameText setText:[contactCellInfo objectForKey:@"nameText"]];
+        [contactListViewCell.genderText setText:[contactCellInfo objectForKey:@"genderText"]];
+        [contactListViewCell.relationshipText setText:[contactCellInfo objectForKey:@"relationshipText"]];
+        [contactListViewCell.addressTextView setText:[contactCellInfo objectForKey:@"address"]];
+        [contactListViewCell.phoneHomeText setText:[contactCellInfo objectForKey:@"homePhoneText"]];
+        [contactListViewCell.phoneWorkText setText:[contactCellInfo objectForKey:@"workPhoneText"]];
+        [contactListViewCell.phoneCellText setText:[contactCellInfo objectForKey:@"cellPhoneText"]];
+        [contactListViewCell.faxText setText:[contactCellInfo objectForKey:@"faxText"]];
+        [contactListViewCell.emailText setText:[contactCellInfo objectForKey:@"emailText"]];
+        [contactListViewCell.organizationText setText:[contactCellInfo objectForKey:@"organizationText"]];
+        return contactListViewCell;
     }
     else
     {

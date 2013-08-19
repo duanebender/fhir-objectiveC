@@ -13,9 +13,9 @@
 
 @property (nonatomic, strong) FHIRPatient *patient;
 
-- (void)pushUpdatedPatientToServer:(FHIRPatient *)patientToPush; //push a predetermined patient to the server
-- (void)pushNewPatientToServer:(NSDictionary *)patientInfoToConvertAndPush; //take in brand new patient data and push it as a patient object to server
++ (void)pushUpdatedPatientToServer:(FHIRPatient *)patientToPush dictionaryOfUpdates:(NSDictionary *)updatedPatientInfo; //push a predetermined patient to the server
++ (void)pushNewPatientToServer:(NSDictionary *)patientInfoToConvertAndPush; //take in brand new patient data and push it as a patient object to server
 
-- (FHIRPatient *)returnPatientForDictionaryData:(NSDictionary *)dictionaryToConvertToPatient;
++ (FHIRPatient *)returnPatientForDictionaryData:(NSDictionary *)dictionaryToConvertToPatient;
 
 @end

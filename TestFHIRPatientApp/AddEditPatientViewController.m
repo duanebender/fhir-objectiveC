@@ -8,6 +8,7 @@
 
 #import "AddEditPatientViewController.h"
 #import "AddEditPatientTableViewController.h"
+#import "SaveAndPushToServer.h"
 
 @interface AddEditPatientViewController ()
 
@@ -370,6 +371,8 @@
         childViewController.animalCellReferenceText = [[NSMutableArray alloc] initWithArray:[self generateAnimalInfoCellReferencesArray:childViewController.animalCellLabels]];
         childViewController.animalCellContents = [[NSMutableArray alloc] initWithArray:[self generateAnimalInfoCellContentsArray:childViewController.animalCellLabels]];
         
+        //contact List item
+        childViewController.contactListCells = self.contactListCells;
     }
 }
 
@@ -377,6 +380,15 @@
 - (IBAction)saveButtonPress:(id)sender
 {
     [self.containerForPatientData setValuesForAllCells];
+    if ([self.navigationController.title isEqualToString:@"Add Patient"])
+    {
+        [SaveAndPushToServer pushNewPatientToServer:self.dictionaryOfUpdatedPatient];
+    }
+    else
+    {
+        [SaveAndPushToServer pushUpdatedPatientToServer:self.patient dictionaryOfUpdates:self.dictionaryOfUpdatedPatient];
+    }
+    
 }
 
 - (void)valuesToPassBack:(NSDictionary *)dictionaryToPass

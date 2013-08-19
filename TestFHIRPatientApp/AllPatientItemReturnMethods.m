@@ -240,7 +240,7 @@
     {
         FHIRString *currentLine = [[FHIRString alloc] init];
         currentLine = [addressOfPatient.line objectAtIndex:i];
-        [fullAddress appendFormat:@"%@ \n", currentLine.value];
+        [fullAddress appendFormat:@"%@\n", currentLine.value];
     }
    
     return fullAddress;
@@ -363,9 +363,9 @@
 
 + (NSString *)returnPatientsProvider:(FHIRPatient *)patientToCheckProviderOf
 {
-    if ([patientToCheckProviderOf.provider.display.value class] != [NSNull class])
+    if (![patientToCheckProviderOf.provider.type.value isEqualToString:@""] && patientToCheckProviderOf.provider.type.value != nil)
     {
-        return patientToCheckProviderOf.provider.display.value;
+        return patientToCheckProviderOf.provider.type.value;
     }
     else
     {
@@ -530,96 +530,20 @@
         if ([contact.address.line count] != 0)
         {
             NSMutableString *fullAddress = [[NSMutableString alloc] initWithString:@""];
-            NSMutableDictionary *dictForAddress = [[NSMutableDictionary alloc] init];
-            
-            NSRegularExpression *streetRegex = [NSRegularExpression regularExpressionWithPattern:@"\\d{1,4}\\s[a-zA-Z]{2,30}\\s[a-zA-Z]{2,15}" options:NSRegularExpressionCaseInsensitive error:nil]; //street number regular expression
-            NSRegularExpression *apptRegex = [NSRegularExpression regularExpressionWithPattern:@"?(apt|appt|ap)\\s*?(#)\\s[a-zA-Z0-9]{1,6}" options:NSRegularExpressionCaseInsensitive error:nil]; //appt number regular expression
-            NSRegularExpression *cityStateRegex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]{2,30},\\s*([A-Z]{2}|[a-zA-Z]{2,15})" options:NSRegularExpressionCaseInsensitive error:nil]; //city state regular expression
-            NSRegularExpression *countryRegex = [NSRegularExpression regularExpressionWithPattern:@"[a-zA-Z]{2,40}\\s*[a-zA-Z]{2,40}*\\s*[a-zA-Z]{2,40}*" options:NSRegularExpressionCaseInsensitive error:nil]; //country regular expression
-            NSRegularExpression *zipPostalRegex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z][0-9][a-zA-Z]\\s*[0-9][a-zA-Z][0-9]|[0-9]{5})" options:NSRegularExpressionCaseInsensitive error:nil]; //zip or postal code regular expression
-            
-            NSDictionary *regexForAddressValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                                   streetRegex, @"Street",
-                                                   apptRegex, @"Appt",
-                                                   cityStateRegex, @"CityState",
-                                                   countryRegex, @"Country",
-                                                   zipPostalRegex, @"ZipPostal",
-                                                   nil];
             
             for (int i = 0; i < [contact.address.line count]; i++)
             {
-                FHIRString *currentString = [contact.address.line objectAtIndex:i];
-                [fullAddress appendFormat:@" %@",currentString.value];
+                FHIRString *currentLine = [[FHIRString alloc] init];
+                currentLine = [contact.address.line objectAtIndex:i];
+                [fullAddress appendFormat:@"%@\n", currentLine.value];
             }
             
-            for (NSString *key in regexForAddressValues)
-            {
-                NSRange r;
-                if ([fullAddress rangeOfString:[regexForAddressValues objectForKey:key] options:NSRegularExpressionSearch].location != NSNotFound)
-                {
-                    r = [fullAddress rangeOfString:[regexForAddressValues objectForKey:key] options:NSRegularExpressionSearch];
-                    [dictForAddress setObject:[fullAddress substringWithRange:r] forKey:key];
-                }
-            }
-        
-            //street
-            if ([dictForAddress objectForKey:@"Street"])
-            {
-                [currentContactDictionary setObject:[dictForAddress objectForKey:@"Street"] forKey:@"addressStreetText"];
-            }
-            else
-            {
-                [currentContactDictionary setObject:@"N/A" forKey:@"addressStreetText"];
-            }
-        
-            //appt
-            if ([dictForAddress objectForKey:@"Appt"])
-            {
-                [currentContactDictionary setObject:[dictForAddress objectForKey:@"Appt"] forKey:@"addressApptText"];
-            }
-            else
-            {
-                [currentContactDictionary setObject:@"N/A" forKey:@"addressApptText"];
-            }
-        
-            //citystate
-            if ([dictForAddress objectForKey:@"CityState"])
-            {
-                [currentContactDictionary setObject:[dictForAddress objectForKey:@"CityState"] forKey:@"addressCityText"];
-            }
-            else
-            {
-                [currentContactDictionary setObject:@"N/A" forKey:@"addressCityText"];
-            }
-        
-            //country
-            if ([dictForAddress objectForKey:@"Country"])
-            {
-                [currentContactDictionary setObject:[dictForAddress objectForKey:@"Country"] forKey:@"addressCountryText"];
-            }
-            else
-            {
-                [currentContactDictionary setObject:@"N/A" forKey:@"addressCountryText"];
-            }   
-        
-            //country
-            if ([dictForAddress objectForKey:@"ZipPostal"])
-            {
-                [currentContactDictionary setObject:[dictForAddress objectForKey:@"ZipPostal"] forKey:@"addressPostalText"];
-            }
-            else
-            {
-                [currentContactDictionary setObject:@"N/A" forKey:@"addressPostalText"];
-            }
+            [currentContactDictionary setObject:fullAddress forKey:@"address"];
             
         }
         else
         {
-            [currentContactDictionary setObject:@"N/A" forKey:@"addressStreetText"];
-            [currentContactDictionary setObject:@"N/A" forKey:@"addressApptText"];
-            [currentContactDictionary setObject:@"N/A" forKey:@"addressCityText"];
-            [currentContactDictionary setObject:@"N/A" forKey:@"addressCountryText"];
-            [currentContactDictionary setObject:@"N/A" forKey:@"addressPostalText"];
+            [currentContactDictionary setObject:@"N/A" forKey:@"address"];
         }
         //end address
         

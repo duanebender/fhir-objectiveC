@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableDictionary *contactInfoContents;
 @property (strong, nonatomic) NSMutableDictionary *addInfoContents;
 @property (strong, nonatomic) NSMutableDictionary *animalInfoContents;
+@property (strong, nonatomic) NSMutableArray *contactListCells;
 @property (strong, nonatomic) UIImage *imageOfPatient;
 
 @property (strong, nonatomic) NSDictionary *dictionaryOfUpdatedPatient;

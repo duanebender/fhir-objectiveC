@@ -160,14 +160,12 @@
         }
         
         //determine to return provider
-#warning -fix this
-        /*
-        if ([self.patient.provider.display class] != [NSNull class])
+        if (![self.patient.provider.type.value isEqualToString:@""])
         {
             [childViewController.addCellLabels addObject:@"Provider:"];
+            NSLog(@"%@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
             [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient]];
         }
-         */
         
         //determine to return patient links
         if ([self.patient.link count] != 0)
@@ -303,14 +301,11 @@
             [editChildViewController.addInfoContents setObject:[AllPatientItemReturnMethods returnPatientsActiveStatus:self.patient] forKey:@"Active Status:"];
         }
         
-#warning - fix this
-        /*
         //determine to return provider
         if ([self.patient.provider.display class] != [NSNull class])
         {
             [editChildViewController.addInfoContents setObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient] forKey:@"Provider:"];
         }
-         */
         
         //determine to return patient links
         if ([self.patient.link count] != 0)
@@ -340,6 +335,12 @@
             [editChildViewController.animalInfoContents setObject:[AllPatientItemReturnMethods returnPatientAnimalGenderStatus:self.patient] forKey:@"Gender Status:"];
         }
         //end animal info section cells
+        
+        //determine to return contact list
+        if ([self.patient.contact count] != 0)
+        {
+            editChildViewController.contactListCells = [[NSMutableArray alloc] initWithArray:[AllPatientItemReturnMethods returnPatientsContactListItemsInAnArray:self.patient]];
+        }
         
         //return default image to be displayed in editing
         editChildViewController.imageOfPatient = [[UIImage alloc] init];
