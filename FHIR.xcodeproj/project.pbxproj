@@ -85,6 +85,7 @@
 		8949362917578DD4009F09AB /* FHIRAllergyIntolerance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8949362717578DD4009F09AB /* FHIRAllergyIntolerance.m */; };
 		895AE6B41754E01F005A6D7A /* FHIROrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = 895AE6B21754E01F005A6D7A /* FHIROrganization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		895AE6B51754E01F005A6D7A /* FHIROrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 895AE6B31754E01F005A6D7A /* FHIROrganization.m */; };
+		896BD97017C7EA2C00B49F31 /* OrderedKeyDefinitions.h in Sources */ = {isa = PBXBuildFile; fileRef = 896BD96F17C7B79D00B49F31 /* OrderedKeyDefinitions.h */; };
 		897CF6C116F0EE0200442A03 /* FHIRText.m in Sources */ = {isa = PBXBuildFile; fileRef = 897CF6C016F0EE0200442A03 /* FHIRText.m */; };
 		898684C517723151009A9C37 /* FHIRAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 898684C317723150009A9C37 /* FHIRAttachment.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		898684C617723151009A9C37 /* FHIRAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 898684C417723150009A9C37 /* FHIRAttachment.m */; };
@@ -302,6 +303,7 @@
 		8949362717578DD4009F09AB /* FHIRAllergyIntolerance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRAllergyIntolerance.m; path = Classes/FHIRAllergyIntolerance.m; sourceTree = SOURCE_ROOT; };
 		895AE6B21754E01F005A6D7A /* FHIROrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIROrganization.h; path = Classes/FHIROrganization.h; sourceTree = SOURCE_ROOT; };
 		895AE6B31754E01F005A6D7A /* FHIROrganization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIROrganization.m; path = Classes/FHIROrganization.m; sourceTree = SOURCE_ROOT; };
+		896BD96F17C7B79D00B49F31 /* OrderedKeyDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderedKeyDefinitions.h; sourceTree = "<group>"; };
 		897CF6BF16F0EE0200442A03 /* FHIRText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRText.h; path = "Other Types/FHIRText.h"; sourceTree = SOURCE_ROOT; };
 		897CF6C016F0EE0200442A03 /* FHIRText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FHIRText.m; path = "Other Types/FHIRText.m"; sourceTree = SOURCE_ROOT; };
 		898684C317723150009A9C37 /* FHIRAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FHIRAttachment.h; path = "Data Types/FHIRAttachment.h"; sourceTree = SOURCE_ROOT; };
@@ -618,6 +620,7 @@
 		8993D7ED16B1D88400D0AFB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				896BD96F17C7B79D00B49F31 /* OrderedKeyDefinitions.h */,
 				8946230016E7E6CB0040E6EF /* FHIR-Prefix.pch */,
 				89E00D1116F7449300ED3F5E /* FHIRExistanceChecker.h */,
 				89E00D1216F7449300ED3F5E /* FHIRExistanceChecker.m */,
@@ -859,6 +862,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				896BD97017C7EA2C00B49F31 /* OrderedKeyDefinitions.h in Sources */,
 				8946228916E7DB080040E6EF /* XMLReader.m in Sources */,
 				8946228A16E7DB080040E6EF /* XMLToDict.m in Sources */,
 				8946228F16E7DBEB0040E6EF /* DictToJSON.m in Sources */,
@@ -989,7 +993,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1017,7 +1021,12 @@
 		8993D80D16B1D88500D0AFB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+					i386,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;
@@ -1029,14 +1038,19 @@
 				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "armv6 armv7 $(ARCHS_STANDARD_32_BIT) i386";
 			};
 			name = Debug;
 		};
 		8993D80E16B1D88500D0AFB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+					i386,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/FHIR.dst;
@@ -1048,7 +1062,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "armv6 armv7 $(ARCHS_STANDARD_32_BIT) i386";
 			};
 			name = Release;
 		};

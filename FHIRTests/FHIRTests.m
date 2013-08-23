@@ -148,7 +148,7 @@
     //code in here
     XMLToDict *xmlDict = [[XMLToDict alloc] init];
     NSObject *patientXML = [[NSObject alloc] init];
-    patientXML = [xmlDict convertXmlToDictionary:@"http://hl7.org/implement/standards/fhir/patient-example-a.xml"];
+    patientXML = [xmlDict convertXmlToDictionary:@"http://cr.marc-hi.ca:8080/fhir/0.09/Patient/@27320/history/@27321"];
     
     DictToXML *xml = [[DictToXML alloc] init];
     [xml generateXml:patientXML urlPath:@"/Users/adamsippel/Desktop/Patient.xml"];

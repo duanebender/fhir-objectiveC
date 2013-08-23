@@ -22,3 +22,4 @@
 #import "FHIRMedicationAdministration.h"
 #import "FHIRMedicationDispense.h"
 #import "FHIRMedicationPrescription.h"
+#import "FHIRMedicationStatement.h"

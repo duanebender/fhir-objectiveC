@@ -9,14 +9,12 @@
 #import "XMLWriter.h"
 
 //define exceptions to the value between two tags
-#define INTERNAL_VALUE_STRINGS [NSSet setWithObjects:@"active",@"birthDate",nil]
+#define INTERNAL_VALUE_STRINGS [NSSet setWithObjects:@"active",@"birthDate", @"DeceasedBoolean", @"DeceasedDate", nil]
 
 @implementation XMLWriter
 
 - (NSMutableString *)stringForXMLDictionary:(NSMutableDictionary *)xmlDictionary resourceType:(NSString *)resourceType
 {
-    //NSLog(@"XMLDICT: %@;;;; RESOURCE: %@", xmlDictionary, resourceType);
-    
     NSMutableString *stringForXML = [[NSMutableString alloc] initWithString:@""]; //initialize string
     
     [stringForXML appendString:[NSString stringWithFormat:@"<?xml version='1.0' encoding='UTF-8'?>\n"]];
@@ -24,8 +22,28 @@
     [stringForXML appendString:[NSString stringWithFormat:@"<%@ xmlns='http://hl7.org/fhir'>\n", resourceType]]; //set first line of xml code to resource
     NSMutableDictionary *xmlDict2 = [[NSMutableDictionary alloc] initWithDictionary:[xmlDictionary objectForKey:resourceType]];
     
-    for (NSString *key in xmlDict2)
+    NSMutableArray *arrayOfOrderedKeys = [[NSMutableArray alloc] init];
+    if ([resourceType isEqualToString:@"Patient"])
     {
+        for (NSString *key in xmlDict2)
+        {
+            for (int i = 0; i < [PATIENT_ORDERED_KEYS count]; i++)
+            {
+                if ([[PATIENT_ORDERED_KEYS objectAtIndex:i] isEqualToString:key])
+                {
+                    [arrayOfOrderedKeys addObject:[PATIENT_ORDERED_KEYS objectAtIndex:i]];
+                }
+            }
+        }
+    }
+    else
+    {
+        [arrayOfOrderedKeys addObjectsFromArray:[xmlDict2 allKeys]];
+    }
+    
+    for (int x = 0; x < [arrayOfOrderedKeys count]; x++)//for (NSString *key in xmlDict2)
+    {
+        NSString *key = [arrayOfOrderedKeys objectAtIndex:x];
         NSObject *value = [xmlDict2 valueForKey:key];
         //generate string of xml from resource
         if ([value isKindOfClass:[NSDictionary class]] && ![key isEqualToString:@"value"])
@@ -73,10 +91,18 @@
 //generate string from dictionary
 - (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element contentOfDictionary:(NSDictionary *)content
 {
+    NSArray *orderedKeyArray = [self arrayOfProperlyOrderedKeys:element];
+    
+    if ([orderedKeyArray count] == 0) //failsafe for single dictionarys that dont need to be ordered
+    {
+        orderedKeyArray = [content allKeys];
+    }
+    
     NSMutableString *returnString = [[NSMutableString alloc] initWithString:@""];
     
-    for (NSString *key in content)
+    for (int x = 0; x < [orderedKeyArray count]; x++)//for (NSString *key in content)
     {
+        NSString *key = [orderedKeyArray objectAtIndex:x];
         NSObject *value = [content valueForKey:key];
         if ([value isKindOfClass:[NSMutableDictionary class]] || [value isKindOfClass:[NSDictionary class]])
         {
@@ -192,6 +218,55 @@
     }
     
     return returnString;
+}
+
+//checks for what the element is
+- (NSArray *)arrayOfProperlyOrderedKeys:(NSString *)keyToCheck
+{
+    if ([keyToCheck isEqualToString:@"identifier"])
+    {
+        return IDENTIFIER_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"name"])
+    {
+        return HUMANNAME_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"telecom"])
+    {
+        return CONTACT_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"contact"]) //only in patient contact
+    {
+        return PATIENT_CONTACT_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"address"])
+    {
+        return ADDRESS_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"photo"])
+    {
+        return ATTACHMENT_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"period"])
+    {
+        return PERIOD_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"animal"])
+    {
+        return PATIENT_ANIMAL_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"provider"] || [keyToCheck isEqualToString:@"link"] || [keyToCheck isEqualToString:@"organization"]) //all uses for patient
+    {
+        return RESOURCEREFERENCE_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"gender"] || [keyToCheck isEqualToString:@"maritalStatus"] || [keyToCheck isEqualToString:@"communication"] || [keyToCheck isEqualToString:@"relationship"] || [keyToCheck isEqualToString:@"species"] || [keyToCheck isEqualToString:@"breed"] || [keyToCheck isEqualToString:@"genderStatus"]) //all uses for patient
+    {
+        return CODABLECONCEPT_ORDERED_KEYS;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 @end
