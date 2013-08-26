@@ -92,17 +92,31 @@
 - (NSMutableString *)writeXMLStringFromDictionary:(NSString *)element contentOfDictionary:(NSDictionary *)content
 {
     NSArray *orderedKeyArray = [self arrayOfProperlyOrderedKeys:element];
+    NSMutableArray *arrayOfOrderedKeys = [[NSMutableArray alloc] init];
     
     if ([orderedKeyArray count] == 0) //failsafe for single dictionarys that dont need to be ordered
     {
-        orderedKeyArray = [content allKeys];
+        [arrayOfOrderedKeys addObjectsFromArray:[content allKeys]];
+    }
+    else
+    {
+        for (int i = 0; i < [orderedKeyArray count]; i++)
+        {
+            for (NSString *key in content)
+            {
+                if ([[orderedKeyArray objectAtIndex:i] isEqualToString:key])
+                {
+                    [arrayOfOrderedKeys addObject:[orderedKeyArray objectAtIndex:i]];
+                }
+            }
+        }
     }
     
     NSMutableString *returnString = [[NSMutableString alloc] initWithString:@""];
     
-    for (int x = 0; x < [orderedKeyArray count]; x++)//for (NSString *key in content)
+    for (int x = 0; x < [arrayOfOrderedKeys count]; x++)//for (NSString *key in content)
     {
-        NSString *key = [orderedKeyArray objectAtIndex:x];
+        NSString *key = [arrayOfOrderedKeys objectAtIndex:x];
         NSObject *value = [content valueForKey:key];
         if ([value isKindOfClass:[NSMutableDictionary class]] || [value isKindOfClass:[NSDictionary class]])
         {
@@ -150,19 +164,21 @@
 - (NSMutableString *)writeXMLStringFromArray:(NSString *)element contentOfArray:(NSArray *)content
 {
     NSMutableString *returnString = [[NSMutableString alloc] init];
+
     for (int i=0; i < [content count]; i++)
     {
         NSDictionary *tempDictionary = [[NSDictionary alloc] initWithDictionary:[content objectAtIndex:i]];
+        NSArray *orderedKeyArray = [[NSArray alloc] initWithArray:[self arrayOfProperlyOrderedKeys:element]];
         NSMutableArray *arrayOfOrderedKeys = [[NSMutableArray alloc] init];
-        if ([element isEqualToString:@"coding"]) //check whether to order the array
+        if ([orderedKeyArray count] != 0) //check whether to order the array
         {
-            for (int k = 0; k < [CODE_ORDERED_KEYS count]; k++)
+            for (int k = 0; k < [orderedKeyArray count]; k++)
             {
                 for (NSString *key in tempDictionary)
                 {
-                    if ([[CODE_ORDERED_KEYS objectAtIndex:k] isEqualToString:key])
+                    if ([[orderedKeyArray objectAtIndex:k] isEqualToString:key])
                     {
-                        [arrayOfOrderedKeys addObject:[CODE_ORDERED_KEYS objectAtIndex:k]];
+                        [arrayOfOrderedKeys addObject:[orderedKeyArray objectAtIndex:k]];
                     }
                 }
             }
