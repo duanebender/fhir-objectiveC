@@ -25,9 +25,9 @@
     NSMutableArray *arrayOfOrderedKeys = [[NSMutableArray alloc] init];
     if ([resourceType isEqualToString:@"Patient"])
     {
-        for (NSString *key in xmlDict2)
+        for (int i = 0; i < [PATIENT_ORDERED_KEYS count]; i++)
         {
-            for (int i = 0; i < [PATIENT_ORDERED_KEYS count]; i++)
+            for (NSString *key in xmlDict2)
             {
                 if ([[PATIENT_ORDERED_KEYS objectAtIndex:i] isEqualToString:key])
                 {
@@ -153,6 +153,25 @@
     for (int i=0; i < [content count]; i++)
     {
         NSDictionary *tempDictionary = [[NSDictionary alloc] initWithDictionary:[content objectAtIndex:i]];
+        NSMutableArray *arrayOfOrderedKeys = [[NSMutableArray alloc] init];
+        if ([element isEqualToString:@"coding"]) //check whether to order the array
+        {
+            for (int k = 0; k < [CODE_ORDERED_KEYS count]; k++)
+            {
+                for (NSString *key in tempDictionary)
+                {
+                    if ([[CODE_ORDERED_KEYS objectAtIndex:k] isEqualToString:key])
+                    {
+                        [arrayOfOrderedKeys addObject:[CODE_ORDERED_KEYS objectAtIndex:k]];
+                    }
+                }
+            }
+        }
+        else
+        {
+            [arrayOfOrderedKeys addObjectsFromArray:[tempDictionary allKeys]];
+        }
+        
         if ([tempDictionary count] > 1) //check if contains more than just single values for wrapping
         {
             [returnString appendString:[self tabber]];
@@ -160,8 +179,9 @@
             tabValue++;
         }
         
-        for (NSString *key in tempDictionary)
+        for (int j = 0; j < [arrayOfOrderedKeys count]; j++)
         {
+            NSString *key = [arrayOfOrderedKeys objectAtIndex:j];
             NSObject *value = [tempDictionary valueForKey:key];
             if ([value isKindOfClass:[NSDictionary class]])
             {
@@ -262,6 +282,10 @@
     else if ([keyToCheck isEqualToString:@"gender"] || [keyToCheck isEqualToString:@"maritalStatus"] || [keyToCheck isEqualToString:@"communication"] || [keyToCheck isEqualToString:@"relationship"] || [keyToCheck isEqualToString:@"species"] || [keyToCheck isEqualToString:@"breed"] || [keyToCheck isEqualToString:@"genderStatus"]) //all uses for patient
     {
         return CODABLECONCEPT_ORDERED_KEYS;
+    }
+    else if ([keyToCheck isEqualToString:@"coding"])
+    {
+        return CODE_ORDERED_KEYS;
     }
     else
     {

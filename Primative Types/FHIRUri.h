@@ -16,7 +16,7 @@
 @interface FHIRUri : FHIRType
 
 //value of this uri for direct influence
-@property (nonatomic, weak) NSURL *uri;
+@property (nonatomic, strong) NSURL *uri;
 
 //Public Methods
 - (NSObject *)generateAndReturnDictionary; //returns an NSDictionary containing all elements of this uri

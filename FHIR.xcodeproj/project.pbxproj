@@ -86,6 +86,7 @@
 		895AE6B41754E01F005A6D7A /* FHIROrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = 895AE6B21754E01F005A6D7A /* FHIROrganization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		895AE6B51754E01F005A6D7A /* FHIROrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 895AE6B31754E01F005A6D7A /* FHIROrganization.m */; };
 		896BD97017C7EA2C00B49F31 /* OrderedKeyDefinitions.h in Sources */ = {isa = PBXBuildFile; fileRef = 896BD96F17C7B79D00B49F31 /* OrderedKeyDefinitions.h */; };
+		896BD97117C7FA6500B49F31 /* OrderedKeyDefinitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 896BD96F17C7B79D00B49F31 /* OrderedKeyDefinitions.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		897CF6C116F0EE0200442A03 /* FHIRText.m in Sources */ = {isa = PBXBuildFile; fileRef = 897CF6C016F0EE0200442A03 /* FHIRText.m */; };
 		898684C517723151009A9C37 /* FHIRAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 898684C317723150009A9C37 /* FHIRAttachment.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		898684C617723151009A9C37 /* FHIRAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 898684C417723150009A9C37 /* FHIRAttachment.m */; };
@@ -758,6 +759,7 @@
 				8910757F177DD22600EF6F6C /* FHIRDosageInstructions.h in Headers */,
 				89107583177DE2ED00EF6F6C /* FHIRMedicationPrescriptionDispense.h in Headers */,
 				89107587177DE68D00EF6F6C /* FHIRMedicationPrescriptionSubstitution.h in Headers */,
+				896BD97117C7FA6500B49F31 /* OrderedKeyDefinitions.h in Headers */,
 				89F6E69A1720743A00595ACA /* FHIR-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

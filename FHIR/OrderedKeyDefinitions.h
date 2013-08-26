@@ -46,3 +46,6 @@
 
 //Period
 #define PERIOD_ORDERED_KEYS [NSArray arrayWithObjects:@"startDate",@"endDate", nil]
+
+//Code
+#define CODE_ORDERED_KEYS [NSArray arrayWithObjects:@"system",@"code",@"display", nil]
