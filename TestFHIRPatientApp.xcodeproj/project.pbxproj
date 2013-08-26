@@ -146,6 +146,7 @@
 		896B2780179DCD4D00608D87 /* SectionHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SectionHeader.storyboard; sourceTree = "<group>"; };
 		896B2783179DCE5900608D87 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		896B2784179DCE5900608D87 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		896BD97217C7FD1D00B49F31 /* OrderedKeyDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedKeyDefinitions.h; sourceTree = "<group>"; };
 		896C063D17B3F1E500C25D2E /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Header.png; path = images/Header.png; sourceTree = "<group>"; };
 		896C063E17B3F1E500C25D2E /* Header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Header@2x.png"; path = "images/Header@2x.png"; sourceTree = "<group>"; };
 		896C064117B3F30D00C25D2E /* Top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Top.png; path = images/Top.png; sourceTree = "<group>"; };
@@ -497,6 +498,7 @@
 				898D9D8917B2A40E00554D5D /* FHIRAccreditation.h */,
 				898D9D8A17B2A40E00554D5D /* FHIRActivity.h */,
 				898D9D8B17B2A40E00554D5D /* FHIRAddress.h */,
+				896BD97217C7FD1D00B49F31 /* OrderedKeyDefinitions.h */,
 				898D9D8C17B2A40E00554D5D /* FHIRAnimal.h */,
 				898D9D8D17B2A40E00554D5D /* FHIRAttachment.h */,
 				898D9D8E17B2A40E00554D5D /* FHIRBool.h */,

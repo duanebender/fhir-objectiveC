@@ -11,44 +11,72 @@
 
 @implementation SaveAndPushToServer
 
-+ (void)pushUpdatedPatientToServer:(FHIRPatient *)patientToPush dictionaryOfUpdates:(NSDictionary *)updatedPatientInfo
+- (void)pushUpdatedPatientToServer:(FHIRPatient *)patientToPush dictionaryOfUpdates:(NSDictionary *)updatedPatientInfo
 {
-    
+    self.patient = [[FHIRPatient alloc] init];
+    self.patient = [self returnPatientForDictionaryData:updatedPatientInfo patientToUpdate:patientToPush];
+    if ([updatedPatientInfo objectForKey:@"SSN:"])[self setDivTextForPatient:[updatedPatientInfo objectForKey:@"SSN:"]];
+    else [self setDivTextForPatient:@""];
+    [self pushXMLToServer:self.patient];
+    NSLog(@"FINAL PUSHED: %@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
 }
 
-+ (void)pushNewPatientToServer:(NSDictionary *)patientInfoToConvertAndPush
+- (void)pushNewPatientToServer:(NSDictionary *)patientInfoToConvertAndPush
 {
-    FHIRPatient *newPatient = [[FHIRPatient alloc] init];
-    newPatient = [self returnPatientForDictionaryData:patientInfoToConvertAndPush];
+    self.patient = [[FHIRPatient alloc] init];
+    self.patient = [self returnPatientForDictionaryData:patientInfoToConvertAndPush patientToUpdate:self.patient];
+    if ([patientInfoToConvertAndPush objectForKey:@"SSN:"])[self setDivTextForPatient:[patientInfoToConvertAndPush objectForKey:@"SSN:"]];
+    else [self setDivTextForPatient:@""];
+    [self pushXMLToServer:self.patient];
+    NSLog(@"FINAL PUSHED: %@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
 }
 
-+ (FHIRPatient *)returnPatientForDictionaryData:(NSDictionary *)dictionaryToConvertToPatient
+- (FHIRPatient *)returnPatientForDictionaryData:(NSDictionary *)dictionaryToConvertToPatient patientToUpdate:(FHIRPatient *)patientFromDictionary
 {
-    FHIRPatient *patientFromDictionary = [[FHIRPatient alloc] init];
-    
     for (NSString *key in dictionaryToConvertToPatient)
     {
         if ([key isEqualToString:@"Name:"]) //personal info name
         {
             NSString *nameString = [[NSString alloc] initWithString:[dictionaryToConvertToPatient objectForKey:key]];
-            NSArray *nameParts = [nameString componentsSeparatedByString:@" "];
+            NSArray *nameParts = [[NSArray alloc] initWithArray:[nameString componentsSeparatedByString:@" "]];
             FHIRHumanName *humanNameObject = [[FHIRHumanName alloc] init];
-    
-            for (int i = 0; i < [nameParts count]; i++)
+            humanNameObject.useSV.value = @"official";
+            
+            patientFromDictionary.name = [[NSMutableArray alloc] init];
+            NSLog(@"NAMEPARTS:%@",[nameParts lastObject]);
+            
+            if ([nameParts count] != 1)
             {
-                if ([nameParts objectAtIndex:i] == [nameParts lastObject])
-                {
-                    [humanNameObject.family addObject:[nameParts lastObject]];
-                }
-                else
-                {
-                    [humanNameObject.given addObject:[nameParts objectAtIndex:i]];
-                }
+                FHIRString *tempString = [[FHIRString alloc] init];
+                tempString.value = [nameParts lastObject];
+                [humanNameObject.family addObject:tempString];
+                tempString = [[FHIRString alloc] init];
+                tempString.value = [nameParts objectAtIndex:0];
+                [humanNameObject.given addObject:tempString];
             }
+            else
+            {
+                FHIRString *tempString = [[FHIRString alloc] init];
+                tempString.value = [nameParts objectAtIndex:0];
+                [humanNameObject.given addObject:tempString];
+            }
+            
             [patientFromDictionary.name addObject:humanNameObject];
+        }
+        else if ([key isEqualToString:@"SSN:"]) //personal info SSN
+        {
+            NSString *SSN = [[NSString alloc] initWithString:[dictionaryToConvertToPatient objectForKey:key]];
+            patientFromDictionary.identifier = [[NSMutableArray alloc] init];
+            FHIRIdentifier *identifierSSN = [[FHIRIdentifier alloc] init];
+            identifierSSN.iDKey.value = SSN;
+            identifierSSN.label.value = @"SSN";
+            identifierSSN.system.uri = [[NSURL alloc] initWithString:@"http://hl7.org/fhir/sid/us-ssn"];
+
+            [patientFromDictionary.identifier addObject:identifierSSN];
         }
         else if ([key isEqualToString:@"Gender:"]) //personal info gender
         {
+            patientFromDictionary.gender = [[FHIRCodeableConcept alloc] init];
             [patientFromDictionary.gender.coding addObject:[self returnGenderCode:dictionaryToConvertToPatient]];
         }
         else if ([key isEqualToString:@"Date Of Birth:"]) //personal info DOB
@@ -61,6 +89,7 @@
         }
         else if ([key isEqualToString:@"Marital Status:"]) //personal info marital Status
         {
+            patientFromDictionary.maritalStatus = [[FHIRCodeableConcept alloc] init];
             [patientFromDictionary.maritalStatus.coding addObject:[self returnMaritalStatus:dictionaryToConvertToPatient]];
         }
         else if ([key isEqualToString:@"Deceased:"]) //personal info deceased
@@ -76,7 +105,9 @@
             
             FHIRCommunication *communicationObject = [[FHIRCommunication alloc] init];
             [communicationObject.language.coding addObject:codingObject];
+            communicationObject.preference.value = true;
             
+            patientFromDictionary.communication = [[NSMutableArray alloc] init];
             [patientFromDictionary.communication addObject:communicationObject];
         }
         else if ([key isEqualToString:@"Address:"]) //contact info address
@@ -85,12 +116,15 @@
             
             NSArray *tempArray = [addressString componentsSeparatedByString:@"\n"];
             FHIRAddress *addressObject = [[FHIRAddress alloc] init];
-            
+            addressObject.useSV.value = @"home";
             for (int i = 0; i < [tempArray count]; i++)
             {
-                [addressObject.line addObject:[tempArray objectAtIndex:i]];
+                FHIRString *stringLine = [[FHIRString alloc] init];
+                stringLine.value = [tempArray objectAtIndex:i];
+                [addressObject.line addObject:stringLine];
             }
             
+            patientFromDictionary.address = [[NSMutableArray alloc] init];
             [patientFromDictionary.address addObject:addressObject];
         }
         else if ([key isEqualToString:@"Home Phone:"]) //contact info home phone
@@ -98,7 +132,9 @@
             FHIRContact *contactInfoObject = [[FHIRContact alloc] init];
             
             contactInfoObject.system = ContactSystemPhone;
+            contactInfoObject.systemSV.value = @"phone";
             contactInfoObject.use = ContactUseHome;
+            contactInfoObject.useSV.value = @"home";
             contactInfoObject.value.value = [dictionaryToConvertToPatient objectForKey:@"Home Phone:"];
             
             [patientFromDictionary.telecom addObject:contactInfoObject];
@@ -108,7 +144,9 @@
             FHIRContact *contactInfoObject = [[FHIRContact alloc] init];
             
             contactInfoObject.system = ContactSystemPhone;
+            contactInfoObject.systemSV.value = @"phone";
             contactInfoObject.use = ContactUseWork;
+            contactInfoObject.useSV.value = @"work";
             contactInfoObject.value.value = [dictionaryToConvertToPatient objectForKey:@"Work Phone:"];
             
             [patientFromDictionary.telecom addObject:contactInfoObject];
@@ -118,7 +156,9 @@
             FHIRContact *contactInfoObject = [[FHIRContact alloc] init];
             
             contactInfoObject.system = ContactSystemPhone;
+            contactInfoObject.systemSV.value = @"phone";
             contactInfoObject.use = ContactUseMobile;
+            contactInfoObject.useSV.value = @"mobile";
             contactInfoObject.value.value = [dictionaryToConvertToPatient objectForKey:@"Cell Phone:"];
             
             [patientFromDictionary.telecom addObject:contactInfoObject];
@@ -128,6 +168,7 @@
             FHIRContact *contactInfoObject = [[FHIRContact alloc] init];
             
             contactInfoObject.system = ContactSystemFax;
+            contactInfoObject.systemSV.value = @"fax";
             contactInfoObject.value.value = [dictionaryToConvertToPatient objectForKey:@"Fax:"];
             
             [patientFromDictionary.telecom addObject:contactInfoObject];
@@ -137,6 +178,7 @@
             FHIRContact *contactInfoObject = [[FHIRContact alloc] init];
             
             contactInfoObject.system = ContactSystemEmail;
+            contactInfoObject.systemSV.value = @"email";
             contactInfoObject.value.value = [dictionaryToConvertToPatient objectForKey:@"Email:"];
             
             [patientFromDictionary.telecom addObject:contactInfoObject];
@@ -164,11 +206,14 @@
         else if ([key isEqualToString:@"Linked Patients:"]) //additional info linked patients
         {
             NSArray *linkArray = [[dictionaryToConvertToPatient objectForKey:key] componentsSeparatedByString:@","];
+            patientFromDictionary.link = [[NSMutableArray alloc] init];
             
+            NSLog(@"%@",linkArray);
             for (int i = 0; i < [linkArray count]; i++)
             {
+                NSString *currentString = [[NSString alloc] initWithString:[[linkArray objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                 FHIRResourceReference *currentLink = [[FHIRResourceReference alloc] init];
-                currentLink.reference.uri = [NSURL URLWithString:[linkArray objectAtIndex:i]];
+                currentLink.reference.uri = [NSURL URLWithString:currentString];
                 [patientFromDictionary.link addObject:currentLink];
             }
         }
@@ -196,7 +241,7 @@
                 codeSpecies.code.value = @"UNK";
                 codeSpecies.display.value = @"unknown";
             }
-            
+            patientFromDictionary.animal.species = [[FHIRCodeableConcept alloc] init];
             [patientFromDictionary.animal.species.coding addObject:codeSpecies];
         }
         else if ([key isEqualToString:@"Breed:"]) //animal section breed
@@ -255,6 +300,7 @@
         }
         else if ([key rangeOfString:@"Contact"].location != NSNotFound) //create contact object
         {
+            patientFromDictionary.contact = [[NSMutableArray alloc] init];
             [patientFromDictionary.contact addObject:[self returnPatientContact:dictionaryToConvertToPatient]];
         }
         else
@@ -268,10 +314,11 @@
 
 #pragma mark - private methods
 
-+ (FHIRCoding *)returnGenderCode:(NSDictionary *)dictionary
+- (FHIRCoding *)returnGenderCode:(NSDictionary *)dictionary
 {
     NSString *genderString = [[NSString alloc] initWithString:[dictionary objectForKey:@"Gender:"]];
     FHIRCoding *codingObject = [[FHIRCoding alloc] init];
+    codingObject.system.uri = [[NSURL alloc] initWithString:@"http://hl7.org/fhir/v3/AdministrativeGender"];
     
     if ([genderString caseInsensitiveCompare:@"male"] == NSOrderedSame)
     {
@@ -297,7 +344,7 @@
     return codingObject;
 }
 
-+ (FHIRCoding *)returnMaritalStatus:(NSDictionary *)dictionary
+- (FHIRCoding *)returnMaritalStatus:(NSDictionary *)dictionary
 {
     NSString *maritalStatusString = [[NSString alloc] initWithString:[dictionary objectForKey:@"Marital Status:"]];
     FHIRCoding *codingObject = [[FHIRCoding alloc] init];
@@ -361,7 +408,7 @@
     return codingObject;
 }
 
-+ (NSObject *)returnDeceased:(NSDictionary *)dictionary
+- (NSObject *)returnDeceased:(NSDictionary *)dictionary
 {
     NSObject *deceasedObject = [[NSObject alloc] init];
     NSString *deceasedString = [[NSString alloc] initWithString:[dictionary objectForKey:@"Deceased:"]];
@@ -402,12 +449,12 @@
     return deceasedObject;
 }
 
-+ (NSObject *)returnSiblings:(NSDictionary *)dictionary
+- (NSObject *)returnSiblings:(NSDictionary *)dictionary
 {
     NSObject *multiBirthObject = [[NSObject alloc] init];
     NSString *siblingsString = [[NSString alloc] initWithString:[dictionary objectForKey:@"Siblings:"]];
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9][0-9]" options:0 error:NULL];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:0 error:NULL];
     NSTextCheckingResult *match = [regex firstMatchInString:siblingsString options:0 range:NSMakeRange(0, [siblingsString length])];
     
     if ([siblingsString caseInsensitiveCompare:@"yes"] == NSOrderedSame)
@@ -424,8 +471,8 @@
     }
     else if (match)
     {
-        NSNumber *siblingsNumber = [[NSNumber alloc] init];
-        siblingsNumber = [NSNumber numberWithInt:[siblingsString intValue]];
+        FHIRInteger *siblingsNumber = [[FHIRInteger alloc] init];
+        siblingsNumber.value = [NSNumber numberWithInt:[siblingsString intValue]];
         
         multiBirthObject = siblingsNumber;
     }
@@ -439,7 +486,7 @@
     return multiBirthObject;
 }
 
-+ (FHIRPatientContact *)returnPatientContact:(NSDictionary *)dictionary
+- (FHIRPatientContact *)returnPatientContact:(NSDictionary *)dictionary
 {
     FHIRPatientContact *contactInfo = [[FHIRPatientContact alloc] init];
     for (NSString *key in dictionary)
@@ -450,8 +497,13 @@
         
             NSArray *names = [[dictionary objectForKey:key] componentsSeparatedByString:@" "];
         
-            [contactName.given addObject:[names objectAtIndex:0]];
-            [contactName.family addObject:[names lastObject]];
+            FHIRString *fullName = [[FHIRString alloc] init];
+            fullName.value = [names objectAtIndex:0];
+            [contactName.given addObject:fullName];
+            
+            fullName = [[FHIRString alloc] init];
+            fullName.value = [names lastObject];
+            [contactName.family addObject:fullName];
             contactInfo.name = contactName;
         }
         else if ([key isEqualToString:@"Contact Gender:"])
@@ -488,25 +540,154 @@
             
             contactInfo.organization.display.value = organization;
         }
-        else if ([key isEqualToString:@"Contact Address"])
+        else if ([key isEqualToString:@"Contact Address:"])
         {
-            NSArray *seperatesLines = [[dictionary objectForKey:key] componentsSeparatedByString:@"\n"];
-            FHIRAddress *addressContact = [[FHIRAddress alloc] init];
+            NSString *addressString = [[NSString alloc] initWithString:[dictionary objectForKey:key]];
             
-            for (int i = 0; i < [seperatesLines count]; i++)
+            NSArray *tempArray = [addressString componentsSeparatedByString:@"\n"];
+            FHIRAddress *addressObject = [[FHIRAddress alloc] init];
+            
+            for (int i = 0; i < [tempArray count]; i++)
             {
-                [addressContact.line addObject:[seperatesLines objectAtIndex:i]];
+                FHIRString *stringLine = [[FHIRString alloc] init];
+                stringLine.value = [tempArray objectAtIndex:i];
+                [addressObject.line addObject:stringLine];
             }
             
-            contactInfo.address = addressContact;
+            contactInfo.address = [[FHIRAddress alloc] init];
+            contactInfo.address = addressObject;
         }
         else if ([key isEqualToString:@"Contact Home Phone:"])
         {
-    
+            FHIRContact *phoneCode = [[FHIRContact alloc] init];
+            phoneCode.use = ContactUseHome;
+            phoneCode.useSV.value = @"home";
+            phoneCode.system = ContactSystemPhone;
+            phoneCode.systemSV.value = @"phone";
+            phoneCode.value.value = [dictionary objectForKey:key];
+            
+            [contactInfo.telecom addObject:phoneCode];
+        }
+        else if ([key isEqualToString:@"Contact Work Phone:"])
+        {
+            FHIRContact *phoneCode = [[FHIRContact alloc] init];
+            phoneCode.use = ContactUseWork;
+            phoneCode.useSV.value = @"work";
+            phoneCode.system = ContactSystemPhone;
+            phoneCode.systemSV.value = @"phone";
+            phoneCode.value.value = [dictionary objectForKey:key];
+            
+            [contactInfo.telecom addObject:phoneCode];
+        }
+        else if ([key isEqualToString:@"Contact Cell Phone:"])
+        {
+            FHIRContact *phoneCode = [[FHIRContact alloc] init];
+            phoneCode.use = ContactUseMobile;
+            phoneCode.useSV.value = @"mobile";
+            phoneCode.system = ContactSystemPhone;
+            phoneCode.systemSV.value = @"phone";
+            phoneCode.value.value = [dictionary objectForKey:key];
+            
+            [contactInfo.telecom addObject:phoneCode];
+        }
+        else if ([key isEqualToString:@"Contact Fax:"])
+        {
+            FHIRContact *faxCode = [[FHIRContact alloc] init];
+            faxCode.system = ContactSystemFax;
+            faxCode.systemSV.value = @"fax";
+            faxCode.value.value = [dictionary objectForKey:key];
+            
+            [contactInfo.telecom addObject:faxCode];
+        }
+        else if ([key isEqualToString:@"Contact Email:"])
+        {
+            FHIRContact *emailCode = [[FHIRContact alloc] init];
+            emailCode.system = ContactSystemEmail;
+            emailCode.systemSV.value = @"email";
+            emailCode.value.value = [dictionary objectForKey:key];
+            
+            [contactInfo.telecom addObject:emailCode];
         }
     }
     
     return contactInfo;
+}
+
+- (void)pushXMLToServer:(FHIRPatient *)patient
+{
+    DictToXML *xmlParser = [[DictToXML alloc] init];
+    NSString *selfSavePath = [self checkFilePathForExistingFiles];
+    
+    [xmlParser generateXml:patient urlPath:selfSavePath];
+    
+    //save to documents directory
+    
+    NSString *post = xmlParser.xmlString;
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    //NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@patient?_format=xml",self.currentServerAddress]]];
+    [request setHTTPMethod:@"POST"];
+    //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    //[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",returnString);
+    
+    [xmlParser generateXml:patient urlPath:@"/Users/adamsippel/Desktop/PatientXML.xml"];
+    //DictToJSON *jsonParser = [[DictToJSON alloc] init];
+    //[jsonParser generateJson:patient urlPath:@"/Users/adamsippel/Desktop/PatientJSON.txt"];
+}
+
+- (NSString *)checkFilePathForExistingFiles
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    int i = 0; //integer for current patient ID saved
+    bool fileExistsAlready = true;
+    
+    while (fileExistsAlready)
+    {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, [NSString stringWithFormat:@"Patient%d.xml",i]];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) // if file is not exist, create it.
+        {
+            return filePath;
+            fileExistsAlready = false;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    
+    
+}
+
+- (void)setDivTextForPatient:(NSString *)SSNNumber
+{
+    NSMutableString *divContainer = [[NSMutableString alloc] initWithString:@""];
+    if ([self.patient.name count] != 0)
+    {
+        FHIRHumanName *name = [[FHIRHumanName alloc] init];
+        name = [self.patient.name objectAtIndex:0];
+        FHIRString *nameFamily = [name.family objectAtIndex:0];
+        FHIRString *nameGiven = [name.given objectAtIndex:0];
+        [divContainer appendFormat:@"%@, %@.",nameFamily.value, nameGiven.value];
+    }
+    
+    if (![SSNNumber isEqualToString:@""])
+    {
+        [divContainer appendFormat:@" SSN: %@", SSNNumber];
+    }
+    
+    self.patient.resourceTypeValue.text.div = divContainer;
+    self.patient.resourceTypeValue.text.status = NarrativeStatusGenerated;
+    self.patient.resourceTypeValue.text.statusSV.value = @"generated";
 }
 
 @end

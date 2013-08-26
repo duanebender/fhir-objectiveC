@@ -34,6 +34,14 @@
     return fullName;
 }
 
++ (NSString *)returnPatientsSSN:(FHIRPatient *)patientToCheckSSNOf
+{
+    FHIRIdentifier *SSNNumber = [[FHIRIdentifier alloc] init];
+    SSNNumber = [patientToCheckSSNOf.identifier objectAtIndex:0];
+    NSString *SSNString = [[NSString alloc] initWithString:SSNNumber.iDKey.value];
+    return SSNString;
+}
+
 + (NSString *)returnPatientsDOB:(FHIRPatient *)patientToCheckDOB
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

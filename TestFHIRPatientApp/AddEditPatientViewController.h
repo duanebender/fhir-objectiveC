@@ -25,5 +25,6 @@
 @property (strong, nonatomic) UIImage *imageOfPatient;
 
 @property (strong, nonatomic) NSDictionary *dictionaryOfUpdatedPatient;
+@property (strong, nonatomic) NSString *currentServer;
 
 @end

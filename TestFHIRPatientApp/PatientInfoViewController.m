@@ -63,6 +63,10 @@
             [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsName:self.patient]];
         }
         
+        //Display The SSN
+        [childViewController.personalCellsLabels addObject:@"SSN:"];
+        [childViewController.personalCellsContents addObject:[AllPatientItemReturnMethods returnPatientsSSN:self.patient]];
+        
         //Determine to return date of birth
         if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])
         {
@@ -218,6 +222,7 @@
         AddEditPatientViewController *editChildViewController = (AddEditPatientViewController *) [segue destinationViewController];
         
         editChildViewController.title = @"Edit Patient";
+        editChildViewController.currentServer = self.currentServer;
         
         //PersonalInfo section cells
         editChildViewController.personalInfoContents = [[NSMutableDictionary alloc] init];
@@ -227,6 +232,9 @@
         {
             [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsName:self.patient] forKey:@"Name:"];
         }
+        
+        //Display The SSN
+        [editChildViewController.personalInfoContents setObject:[AllPatientItemReturnMethods returnPatientsSSN:self.patient] forKey:@"SSN:"];
         
         //Determine if to display date of birth
         if (![[AllPatientItemReturnMethods returnPatientsDOB:self.patient] isEqualToString:@"N/A"])

@@ -37,6 +37,10 @@
     {
         self.editPatientImage.image = [UIImage imageNamed:@"profile_male.png"];
     }
+    if (!self.patient)
+    {
+        self.patient = [[FHIRPatient alloc] init];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -53,6 +57,10 @@
             if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Name:"] && [self.personalInfoContents objectForKey:@"Name:"])
             {
                 [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"Name:"]];
+            }
+            else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"SSN:"] && [self.personalInfoContents objectForKey:@"SSN:"])
+            {
+                [cellContentsArray addObject:[self.personalInfoContents objectForKey:@"SSN:"]];
             }
             else if ([[arraySizeCheck objectAtIndex:i] isEqualToString:@"Date Of Birth:"] && [self.personalInfoContents objectForKey:@"Date Of Birth:"])
             {
@@ -342,7 +350,7 @@
         [childViewController setDelegate:self];
         
         //personal info array information
-        childViewController.personalCellsLabels = [[NSMutableArray alloc] initWithObjects:@"Name:", @"Date Of Birth:", @"Gender:", @"Marital Status:", @"Deceased:", @"Language:", nil];
+        childViewController.personalCellsLabels = [[NSMutableArray alloc] initWithObjects:@"Name:", @"SSN:", @"Date Of Birth:", @"Gender:", @"Marital Status:", @"Deceased:", @"Language:", nil];
         childViewController.personalCellsContents = [[NSMutableArray alloc] initWithArray:[self generatePersonalCellContentsArray:childViewController.personalCellsLabels]];
         childViewController.personalCellsReferenceText = [[NSMutableArray alloc] initWithArray:[self generatePersonalCellReferencesArray:childViewController.personalCellsLabels]];
         
@@ -380,13 +388,15 @@
 - (IBAction)saveButtonPress:(id)sender
 {
     [self.containerForPatientData setValuesForAllCells];
+    SaveAndPushToServer *saverObject = [[SaveAndPushToServer alloc] init];
+    saverObject.currentServerAddress = self.currentServer;
     if ([self.navigationController.title isEqualToString:@"Add Patient"])
     {
-        [SaveAndPushToServer pushNewPatientToServer:self.dictionaryOfUpdatedPatient];
+        [saverObject pushNewPatientToServer:self.dictionaryOfUpdatedPatient];
     }
     else
     {
-        [SaveAndPushToServer pushUpdatedPatientToServer:self.patient dictionaryOfUpdates:self.dictionaryOfUpdatedPatient];
+        [saverObject pushUpdatedPatientToServer:self.patient dictionaryOfUpdates:self.dictionaryOfUpdatedPatient];
     }
     
 }

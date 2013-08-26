@@ -260,11 +260,13 @@
         PatientInfoViewController *target = (PatientInfoViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         target.patient = [self.patientArray objectAtIndex:indexPath.row];
+        target.currentServer = self.currentServerAddress;
     }
     else if ([segue.identifier isEqualToString:@"addPatientSegue"])
     {
         AddEditPatientViewController *target = (AddEditPatientViewController *)segue.destinationViewController;
         target.title = @"Add Patient";
+        target.currentServer = self.currentServerAddress;
     }
     else if ([segue.identifier isEqualToString:@"popoverSegue"])
     {

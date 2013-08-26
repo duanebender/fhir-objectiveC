@@ -11,6 +11,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "OrderedKeyDefinitions.h"
 
 @interface XMLWriter : NSObject
 {

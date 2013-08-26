@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *patientImageView;
 
 @property (nonatomic, strong) FHIRPatient *patient;
+@property (nonatomic, strong) NSString *currentServer;
 
 @end

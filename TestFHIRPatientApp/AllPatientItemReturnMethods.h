@@ -13,6 +13,7 @@
 
 //personal info methods
 + (NSString *)returnPatientsName:(FHIRPatient *)patientToCheckNameOf; //Patient Full Name
++ (NSString *)returnPatientsSSN:(FHIRPatient *)patientToCheckSSNOf; //Patient SSN
 + (NSString *)returnPatientsDOB:(FHIRPatient *)patientToCheckDOB; //Patient Date of Birth
 + (NSString *)returnPatientsGender:(FHIRPatient *)patientToCheckGender; //Patient Gender
 + (NSString *)returnPatientsMaritalStatus:(FHIRPatient *)patientToCheckMaritalStatus; //Patient Marital Status
