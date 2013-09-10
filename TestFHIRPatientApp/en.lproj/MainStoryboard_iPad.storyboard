@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="editPatientImage" image="profile_male.png" translatesAutoresizingMaskIntoConstraints="NO" id="N3s-4b-fOY"/>
+                            <imageView contentMode="scaleToFill" restorationIdentifier="editPatientImage" image="profile_male.png" translatesAutoresizingMaskIntoConstraints="NO" id="N3s-4b-fOY"/>
                             <pickerView hidden="YES" contentMode="scaleToFill" restorationIdentifier="optionsToPickPickerView" translatesAutoresizingMaskIntoConstraints="NO" id="eop-jo-YPW"/>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orn-4p-1OJ">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

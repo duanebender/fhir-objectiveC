@@ -153,8 +153,16 @@
 - (UIImage *)returnPatientGenderImage:(FHIRPatient *)patientToCheckImage
 {
     NSString *genderTypeString = [[NSString alloc] init];
-    FHIRCoding *codeToCheck = [patientToCheckImage.gender.coding objectAtIndex:0];
-    genderTypeString = codeToCheck.code.value;
+    
+    if ([patientToCheckImage.gender.coding count] != 0)
+    {
+        FHIRCoding *codeToCheck = [patientToCheckImage.gender.coding objectAtIndex:0];
+        genderTypeString = codeToCheck.code.value;
+    }
+    else
+    {
+        genderTypeString = @"M";
+    }
     
     UIImage *imageForProfile = [[UIImage alloc] init];
     

@@ -18,7 +18,12 @@
     if ([updatedPatientInfo objectForKey:@"SSN:"])[self setDivTextForPatient:[updatedPatientInfo objectForKey:@"SSN:"]];
     else [self setDivTextForPatient:@""];
     [self pushXMLToServer:self.patient];
-    NSLog(@"FINAL PUSHED: %@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved"
+                                                    message:@"Your patient file has been saved to the server."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)pushNewPatientToServer:(NSDictionary *)patientInfoToConvertAndPush
@@ -28,7 +33,12 @@
     if ([patientInfoToConvertAndPush objectForKey:@"SSN:"])[self setDivTextForPatient:[patientInfoToConvertAndPush objectForKey:@"SSN:"]];
     else [self setDivTextForPatient:@""];
     [self pushXMLToServer:self.patient];
-    NSLog(@"FINAL PUSHED: %@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved"
+                                                    message:@"Your patient file has been saved to the server."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (FHIRPatient *)returnPatientForDictionaryData:(NSDictionary *)dictionaryToConvertToPatient patientToUpdate:(FHIRPatient *)patientFromDictionary
