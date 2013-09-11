@@ -15,5 +15,8 @@
 
 @property (nonatomic, strong) FHIRPatient *patient;
 @property (nonatomic, strong) NSString *currentServer;
+@property (nonatomic, strong) NSString *currentPatientID;
+
+@property (weak, nonatomic) IBOutlet UIButton *historySelectorButton;
 
 @end

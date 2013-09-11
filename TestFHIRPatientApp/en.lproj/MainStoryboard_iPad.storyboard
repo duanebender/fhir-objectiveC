@@ -21,14 +21,50 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Top.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUI-gc-C2d"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubi-Sh-6Dw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="ZAh-x2-FZn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_camera.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePictureForProfileImage:" destination="b6l-70-fK6" eventType="touchUpInside" id="c2E-JK-aSE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rv-Ug-dCf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="TKj-6u-dZM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_gallery.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadPictureFromGalleryForProfileImage:" destination="b6l-70-fK6" eventType="touchUpInside" id="stp-n5-eUP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Rv-Ug-dCf" firstAttribute="top" secondItem="N3s-4b-fOY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9na-xc-4wz"/>
+                            <constraint firstItem="Ubi-Sh-6Dw" firstAttribute="top" secondItem="N3s-4b-fOY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cro-Eh-iM4"/>
                             <constraint firstItem="TUI-gc-C2d" firstAttribute="top" secondItem="Xqj-K2-cAh" secondAttribute="top" type="default" id="Dm5-eh-FRQ"/>
+                            <constraint firstItem="Ubi-Sh-6Dw" firstAttribute="leading" secondItem="Xqj-K2-cAh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="EHQ-F0-WmE"/>
                             <constraint firstAttribute="bottom" secondItem="Orn-4p-1OJ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="GgU-Fp-f15"/>
                             <constraint firstItem="Orn-4p-1OJ" firstAttribute="leading" secondItem="Xqj-K2-cAh" secondAttribute="leading" constant="292" id="Iar-Os-Frw"/>
                             <constraint firstItem="N3s-4b-fOY" firstAttribute="leading" secondItem="Xqj-K2-cAh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="J6S-qa-fhZ"/>
                             <constraint firstAttribute="trailing" secondItem="Orn-4p-1OJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="JJe-21-nOw"/>
+                            <constraint firstItem="9Rv-Ug-dCf" firstAttribute="leading" secondItem="Xqj-K2-cAh" secondAttribute="leading" constant="84" id="Jfo-4z-xhH"/>
                             <constraint firstItem="eop-jo-YPW" firstAttribute="leading" secondItem="Xqj-K2-cAh" secondAttribute="leading" type="default" id="UvH-dR-7ks"/>
                             <constraint firstItem="N3s-4b-fOY" firstAttribute="top" secondItem="Xqj-K2-cAh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="etO-8T-tOk"/>
                             <constraint firstItem="eop-jo-YPW" firstAttribute="bottom" secondItem="Xqj-K2-cAh" secondAttribute="bottom" type="default" id="jYJ-Eh-VWA"/>
@@ -45,8 +81,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraButton" destination="Ubi-Sh-6Dw" id="iwt-Pj-J9E"/>
                         <outlet property="containerForPatientData" destination="Orn-4p-1OJ" id="UiM-Vy-DRw"/>
                         <outlet property="editPatientImage" destination="N3s-4b-fOY" id="q3D-SA-2KJ"/>
+                        <outlet property="galleryButton" destination="9Rv-Ug-dCf" id="MRp-nl-BGf"/>
                         <outlet property="optionsToPickPickerView" destination="eop-jo-YPW" id="zjk-vm-9sI"/>
                     </connections>
                 </viewController>
@@ -281,14 +319,29 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Top.png" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-O1-9Sn"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlH-h7-Vv1">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_history.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="historyViewButtonPressed:" destination="9LM-yh-PQ0" eventType="touchUpInside" id="dLQ-S7-QLt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iMd-O1-9Sn" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" type="default" id="Hhq-TK-CBo"/>
                             <constraint firstItem="iMd-O1-9Sn" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" type="default" id="NCO-EP-mCf"/>
                             <constraint firstItem="dCB-Il-mW5" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" constant="20" symbolic="YES" type="default" id="REe-w6-UBI"/>
+                            <constraint firstItem="vlH-h7-Vv1" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SqT-Ux-gGI"/>
                             <constraint firstAttribute="bottom" secondItem="zMI-Ae-Mre" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Xgx-Y6-z7g"/>
                             <constraint firstItem="zMI-Ae-Mre" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="292" id="bmp-NF-Rv2"/>
+                            <constraint firstItem="vlH-h7-Vv1" firstAttribute="top" secondItem="dCB-Il-mW5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iSP-Qt-myV"/>
                             <constraint firstItem="zMI-Ae-Mre" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mXx-uz-EyA"/>
                             <constraint firstAttribute="trailing" secondItem="zMI-Ae-Mre" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mtr-u0-01u"/>
                             <constraint firstItem="dCB-Il-mW5" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="p4S-0c-6yk"/>
@@ -302,6 +355,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="historySelectorButton" destination="vlH-h7-Vv1" id="Hu5-du-a9l"/>
                         <outlet property="patientImageView" destination="dCB-Il-mW5" id="Hah-Nm-MYm"/>
                     </connections>
                 </viewController>
@@ -1277,15 +1331,181 @@
     <resources>
         <image name="Launch.png" width="768" height="1004"/>
         <image name="Top.png" width="768" height="10"/>
+        <image name="icon_camera.png" width="44" height="44"/>
+        <image name="icon_gallery.png" width="44" height="44"/>
         <image name="icon_gear.png" width="40" height="40"/>
+        <image name="icon_history.png" width="44" height="44"/>
         <image name="profile_male.png" width="250" height="250"/>
     </resources>
+    <classes>
+        <class className="AddEditPatientTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEditPatientTableViewController.h"/>
+        </class>
+        <class className="AddEditPatientViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEditPatientViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveButtonPress:"/>
+                <relationship kind="action" name="takePictureForProfileImage:"/>
+                <relationship kind="action" name="uploadPictureFromGalleryForProfileImage:"/>
+                <relationship kind="outlet" name="cameraButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="containerForPatientData" candidateClass="AddEditPatientTableViewController"/>
+                <relationship kind="outlet" name="editPatientImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="galleryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="optionsToPickPickerView" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="AddressInputTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddressInputTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="AddressViewTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddressViewTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ContactListItemTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactListItemTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="faxTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="genderTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="organizationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneCellTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneHomeTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneWorkTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="relationshipTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ContactListTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactListTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addressTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="faxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="faxText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="genderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="genderText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="organizationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="organizationText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneCellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneHomeText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneWorkText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="relationshipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="relationshipText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InitialSearchTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSearchTableViewController.h"/>
+        </class>
+        <class className="LargeTextFieldTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LargeTextFieldTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="largeTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="largeTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LinksViewTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LinksViewTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="linkedPatientsTextField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="linksViewLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PatientInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="historyViewButtonPressed:"/>
+                <relationship kind="outlet" name="historySelectorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="patientImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PatientInfoViewTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientInfoViewTableViewController.h"/>
+        </class>
+        <class className="PatientSearchTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientSearchTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="patientDOBLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientDOBText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientGenderImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="patientLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientLocationText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="patientProfileImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PhoneTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhoneTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPhoneTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="homePhoneTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="workPhoneTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PhoneViewTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhoneViewTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="homeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mobileLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneCellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneHomeText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneWorkText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="workLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ServerPopoverView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerPopoverView.h"/>
+            <relationships>
+                <relationship kind="action" name="applyButtonPressed:"/>
+                <relationship kind="outlet" name="servAdressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="serverAddressTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SingleLineInputTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleLineInputTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inputTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SingleLineViewTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleLineViewTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="loadScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/loadScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="loadScreenImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NOa-MT-121"/>
+        <segue reference="dQY-wH-AYC"/>
     </inferredMetricsTieBreakers>
 </document>

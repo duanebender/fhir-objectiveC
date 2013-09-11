@@ -237,11 +237,13 @@
         //try family name first
         NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0]]];
         self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs family names
+        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
         
         //try given names
         urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&given=%@&_format=json", self.currentServerAddress, [givenNames objectAtIndex:0]]];
         [self.patientArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs given names
-
+        [self.patientIDArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
+        
         [self.tableView reloadData];
          
     }
@@ -251,10 +253,10 @@
         
         NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&given=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0], [givenNames objectAtIndex:0]]];
         
-        [self.patientArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]];//grabs all searched names
+        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]];//grabs all searched names
+        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
         
         [self.tableView reloadData];
-        NSLog(@"%@",self.patientArray);
         
     }
 }
@@ -268,6 +270,7 @@
         PatientInfoViewController *target = (PatientInfoViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         target.patient = [self.patientArray objectAtIndex:indexPath.row];
+        target.currentPatientID = [self.patientIDArray objectAtIndex:indexPath.row];
         target.currentServer = self.currentServerAddress;
     }
     else if ([segue.identifier isEqualToString:@"addPatientSegue"])

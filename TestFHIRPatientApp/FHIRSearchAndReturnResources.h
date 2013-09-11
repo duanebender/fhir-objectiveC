@@ -12,4 +12,6 @@
 
 + (NSArray *)returnArrayOfPatientsSearched:(NSString *)urlStringOfSearch;
 
++ (NSArray *)returnArrayOfPatientIDsSearched:(NSString *)urlStringOfSearch;
+
 @end

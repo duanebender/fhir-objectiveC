@@ -44,6 +44,61 @@
 	// Do any additional setup after loading the view.
 }
 
+#pragma mark - picture buttons
+
+- (IBAction)takePictureForProfileImage:(id)sender
+{  
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        // Place image picker on the screen
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        self.popOver = [[UIPopoverController alloc] initWithContentViewController:ipc];
+        self.popOver.delegate = self;
+        
+        ipc.delegate = self;
+        ipc.editing = NO;
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:ipc.sourceType];
+        
+        [self.popOver presentPopoverFromRect:self.galleryButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:@"No camera on this device."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+- (IBAction)uploadPictureFromGalleryForProfileImage:(id)sender
+{
+    // Place image picker on the screen
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:ipc];
+    self.popOver.delegate = self;
+    
+    ipc.delegate = self;
+    ipc.editing = NO;
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:ipc.sourceType];
+    
+    [self.popOver presentPopoverFromRect:self.galleryButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+}
+
+//delegate methode will be called after picking photo either from camera or library
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [self.editPatientImage setImage:image];    // "myImageView" name of any UImageView.
+}
+
 #pragma mark - personal array generation for table, code below
 
 - (NSMutableArray *)generatePersonalCellContentsArray:(NSMutableArray *)arraySizeCheck

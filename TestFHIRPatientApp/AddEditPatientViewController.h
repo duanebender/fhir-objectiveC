@@ -10,7 +10,7 @@
 #import "AddEditPatientTableViewController.h"
 #import "FHIR.h"
 
-@interface AddEditPatientViewController : UIViewController <passValuesBack>
+@interface AddEditPatientViewController : UIViewController <passValuesBack, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *editPatientImage;
 @property (weak, nonatomic) IBOutlet UIPickerView *optionsToPickPickerView;
@@ -26,5 +26,10 @@
 
 @property (strong, nonatomic) NSDictionary *dictionaryOfUpdatedPatient;
 @property (strong, nonatomic) NSString *currentServer;
+
+@property (strong, nonatomic) UIPopoverController *popOver;
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *galleryButton;
+
 
 @end

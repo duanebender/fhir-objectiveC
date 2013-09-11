@@ -40,6 +40,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - View History Button
+
+- (IBAction)historyViewButtonPressed:(id)sender
+{
+    
+}
+
 #pragma mark - segue methods
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
