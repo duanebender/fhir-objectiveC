@@ -74,7 +74,42 @@
             }
             
         }
-        NSLog(@"ID's:%@",arrayOfSearchedPatientResults);
+        //NSLog(@"ID's:%@",arrayOfSearchedPatientResults);
+        
+        return arrayOfSearchedPatientResults;
+    }
+    else
+    {
+        NSLog(@"File does not exist at: %@", url);
+        return nil;
+    }
+}
+
++ (NSArray *)returnArrayOfCurrentPatientHistory:(NSString *)urlStringOfSearch
+{
+    NSURL *url = [NSURL URLWithString:urlStringOfSearch];
+    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
+    NSMutableArray *arrayOfSearchedPatientResults = [[NSMutableArray alloc] init];
+    
+    if (jsonString)
+    {
+        NSData *fileContent = [[NSData alloc] initWithContentsOfURL:url];
+        NSError *error;
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:fileContent options:kNilOptions error:&error];
+        
+        NSArray *entryArray = [jsonDictionary objectForKey:@"entry"];
+        
+        for (int i = 0; i < [entryArray count]; i++)
+        {
+            NSDictionary *currentDict = [[NSDictionary alloc] initWithDictionary:[entryArray objectAtIndex:i]];
+            NSArray *linkArray = [[NSArray alloc] initWithArray:[currentDict objectForKey:@"link"]];
+            NSDictionary *linkDict = [[NSDictionary alloc] initWithDictionary:[linkArray objectAtIndex:0]];
+            NSString *currentHistoryLink = [[NSString alloc] initWithString:[linkDict objectForKey:@"href"]];
+            
+            [arrayOfSearchedPatientResults addObject:currentHistoryLink];
+            
+        }
+        NSLog(@"Links:%@",arrayOfSearchedPatientResults);
         
         return arrayOfSearchedPatientResults;
     }

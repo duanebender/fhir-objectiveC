@@ -25,6 +25,7 @@
 		895A925E17DF6C4D00D2FFFE /* icon_gallery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925A17DF6C4D00D2FFFE /* icon_gallery@2x.png */; };
 		895A926117E0ADC700D2FFFE /* icon_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925F17E0ADC700D2FFFE /* icon_history.png */; };
 		895A926217E0ADC700D2FFFE /* icon_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A926017E0ADC700D2FFFE /* icon_history@2x.png */; };
+		895A926517E0BF4000D2FFFE /* HistorySelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */; };
 		8962C88017A6F67000ED4893 /* AddressViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */; };
 		89694718171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
 		8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
@@ -132,6 +133,8 @@
 		895A925A17DF6C4D00D2FFFE /* icon_gallery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gallery@2x.png"; sourceTree = "<group>"; };
 		895A925F17E0ADC700D2FFFE /* icon_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_history.png; sourceTree = "<group>"; };
 		895A926017E0ADC700D2FFFE /* icon_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_history@2x.png"; sourceTree = "<group>"; };
+		895A926317E0BF4000D2FFFE /* HistorySelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistorySelectorTableViewController.h; sourceTree = "<group>"; };
+		895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySelectorTableViewController.m; sourceTree = "<group>"; };
 		8962C87E17A6F67000ED4893 /* AddressViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewTableViewCell.h; sourceTree = "<group>"; };
 		8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewTableViewCell.m; sourceTree = "<group>"; };
 		89694713171D99D10072A3CD /* TestFHIRPatientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFHIRPatientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,6 +339,8 @@
 				8992432917B946EF00296BEA /* PatientInfoViewController.m */,
 				89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */,
 				89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */,
+				895A926317E0BF4000D2FFFE /* HistorySelectorTableViewController.h */,
+				895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */,
 			);
 			name = PatientViewer;
 			sourceTree = "<group>";
@@ -894,6 +899,7 @@
 				8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */,
 				8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */,
 				89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */,
+				895A926517E0BF4000D2FFFE /* HistorySelectorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

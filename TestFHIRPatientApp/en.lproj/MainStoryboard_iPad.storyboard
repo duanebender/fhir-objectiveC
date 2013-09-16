@@ -298,6 +298,51 @@
             </objects>
             <point key="canvasLocation" x="-2696" y="-228"/>
         </scene>
+        <!--History Selector Table View Controller-->
+        <scene sceneID="l7s-qW-fRw">
+            <objects>
+                <tableViewController id="8qk-aL-6Iz" customClass="HistorySelectorTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8tA-4r-rlj">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="versionCell" textLabel="uNl-jG-3ln" detailTextLabel="swr-Qg-evF" style="IBUITableViewCellStyleValue1" id="vyi-bc-pxf">
+                                <rect key="frame" x="0.0" y="22" width="400" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="380" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-jG-3ln">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swr-Qg-evF">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8qk-aL-6Iz" id="6iR-Zo-ce4"/>
+                            <outlet property="delegate" destination="8qk-aL-6Iz" id="KL7-Tf-n46"/>
+                        </connections>
+                    </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qg-y9-zzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1306" y="-728"/>
+        </scene>
         <!--Patient Info View Controller - Patient Data-->
         <scene sceneID="bPr-Wv-JZx">
             <objects>
@@ -319,7 +364,10 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Top.png" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-O1-9Sn"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlH-h7-Vv1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4w-DW-7ky">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="XRc-ij-oGB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="icon_history.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -329,7 +377,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="historyViewButtonPressed:" destination="9LM-yh-PQ0" eventType="touchUpInside" id="dLQ-S7-QLt"/>
+                                    <segue destination="8qk-aL-6Iz" kind="popover" identifier="historyVersionSegue" popoverAnchorView="k4w-DW-7ky" id="3PM-U8-2Zp">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -337,11 +387,11 @@
                         <constraints>
                             <constraint firstItem="iMd-O1-9Sn" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" type="default" id="Hhq-TK-CBo"/>
                             <constraint firstItem="iMd-O1-9Sn" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" type="default" id="NCO-EP-mCf"/>
+                            <constraint firstItem="k4w-DW-7ky" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Q38-u0-IGR"/>
                             <constraint firstItem="dCB-Il-mW5" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" constant="20" symbolic="YES" type="default" id="REe-w6-UBI"/>
-                            <constraint firstItem="vlH-h7-Vv1" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SqT-Ux-gGI"/>
                             <constraint firstAttribute="bottom" secondItem="zMI-Ae-Mre" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Xgx-Y6-z7g"/>
+                            <constraint firstItem="k4w-DW-7ky" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" constant="273" id="Xi9-qa-hMX"/>
                             <constraint firstItem="zMI-Ae-Mre" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="292" id="bmp-NF-Rv2"/>
-                            <constraint firstItem="vlH-h7-Vv1" firstAttribute="top" secondItem="dCB-Il-mW5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iSP-Qt-myV"/>
                             <constraint firstItem="zMI-Ae-Mre" firstAttribute="top" secondItem="HaV-Ov-z1J" secondAttribute="top" constant="20" symbolic="YES" type="default" id="mXx-uz-EyA"/>
                             <constraint firstAttribute="trailing" secondItem="zMI-Ae-Mre" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mtr-u0-01u"/>
                             <constraint firstItem="dCB-Il-mW5" firstAttribute="leading" secondItem="HaV-Ov-z1J" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="p4S-0c-6yk"/>
@@ -355,7 +405,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="historySelectorButton" destination="vlH-h7-Vv1" id="Hu5-du-a9l"/>
                         <outlet property="patientImageView" destination="dCB-Il-mW5" id="Hah-Nm-MYm"/>
                     </connections>
                 </viewController>
@@ -1407,6 +1456,9 @@
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="HistorySelectorTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistorySelectorTableViewController.h"/>
+        </class>
         <class className="InitialSearchTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSearchTableViewController.h"/>
         </class>
@@ -1430,7 +1482,6 @@
         <class className="PatientInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientInfoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="historyViewButtonPressed:"/>
                 <relationship kind="outlet" name="historySelectorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="patientImageView" candidateClass="UIImageView"/>
             </relationships>

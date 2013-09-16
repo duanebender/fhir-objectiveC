@@ -11,6 +11,7 @@
 #import "AllPatientItemReturnMethods.h"
 #import "PatientInfoViewTableViewController.h"
 #import "AddEditPatientViewController.h"
+#import "FHIRSearchAndReturnResources.h"
 
 @interface PatientInfoViewController ()
 
@@ -40,11 +41,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - View History Button
-
-- (IBAction)historyViewButtonPressed:(id)sender
+#pragma mark - generate version list
+- (NSArray *)generateHistoryIDs
 {
+    NSMutableArray *historyIdArray = [[NSMutableArray alloc] init];
     
+    for (int i=0; i < [self.currentHistoryArray count]; i++)
+    {
+        NSArray *stringSeperatedArray = [[self.currentHistoryArray objectAtIndex:i] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@"]];
+        
+        [historyIdArray addObject:[stringSeperatedArray lastObject]];
+    }
+    
+    return historyIdArray;
 }
 
 #pragma mark - segue methods
@@ -364,6 +373,27 @@
         
     }
     //end edit button segue
+    
+    //history button segue
+    if ([segueName isEqualToString: @"historyVersionSegue"])
+    {
+        HistorySelectorTableViewController *historyViewController = (HistorySelectorTableViewController *) [segue destinationViewController];
+        
+        self.currentHistoryArray = [[NSArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfCurrentPatientHistory:[NSString stringWithFormat:@"%@patient/@%@/history?_format=json",self.currentServer, self.currentPatientID]]];
+        
+        historyViewController.historyList = [[NSArray alloc] initWithArray:[self generateHistoryIDs]];
+        [[segue destinationViewController] setDelegate:self];
+    }
+    //end history button segue
+}
+
+#pragma mark - protocol arguments
+
+- (void)iDSelectionToPassBack:(NSInteger *)selectedHistory
+{
+    NSURL *url = [ [ NSURL alloc ] initWithString:[self.currentHistoryArray objectAtIndex:selectedHistory]];
+    
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end
