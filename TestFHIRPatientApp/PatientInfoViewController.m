@@ -12,6 +12,7 @@
 #import "PatientInfoViewTableViewController.h"
 #import "AddEditPatientViewController.h"
 #import "FHIRSearchAndReturnResources.h"
+#import "HistoryWebViewController.h"
 
 @interface PatientInfoViewController ()
 
@@ -385,15 +386,33 @@
         [[segue destinationViewController] setDelegate:self];
     }
     //end history button segue
+    
+    //history web view segue
+    if ([segueName isEqualToString: @"historyWebSegue"])
+    {
+        HistoryWebViewController *historyViewController = (HistoryWebViewController *) [segue destinationViewController];
+        
+        //NSURLRequest *requestObj = [NSURLRequest requestWithURL:self.urlForHistory];
+        //[historyViewController.historyWebView setDelegate:self];
+        historyViewController.title = [NSString stringWithFormat:@"History Version %d",[self.currentHistoryID integerValue]];
+        historyViewController.urlToDisplay = self.urlForHistory;
+        //[[segue destinationViewController] setDelegate:self];
+    }
+    //end history web view segue
 }
 
 #pragma mark - protocol arguments
 
 - (void)iDSelectionToPassBack:(NSInteger *)selectedHistory
 {
-    NSURL *url = [ [ NSURL alloc ] initWithString:[self.currentHistoryArray objectAtIndex:selectedHistory]];
+    self.urlForHistory = [[NSURL alloc] initWithString:[self.currentHistoryArray objectAtIndex:selectedHistory]];
     
-    [[UIApplication sharedApplication] openURL:url];
+    NSArray *tempIDHolder = [[NSArray alloc] initWithArray:[self generateHistoryIDs]];
+    self.currentHistoryID = [tempIDHolder objectAtIndex:selectedHistory];
+    
+    [self performSegueWithIdentifier:@"historyWebSegue" sender:self];
+    
+    //[[UIApplication sharedApplication] openURL:url];
 }
 
 @end

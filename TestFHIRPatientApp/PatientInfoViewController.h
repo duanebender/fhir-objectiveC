@@ -10,7 +10,7 @@
 #import "FHIR.h"
 #import "HistorySelectorTableViewController.h"
 
-@interface PatientInfoViewController : UIViewController <passSelectedIDBack>
+@interface PatientInfoViewController : UIViewController <passSelectedIDBack, UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *patientImageView;
 
@@ -20,5 +20,7 @@
 @property (nonatomic, strong) NSArray *currentHistoryArray;
 
 @property (nonatomic, weak) UIPopoverController *historyPopover;
+@property (nonatomic, strong) NSURL *urlForHistory;
+@property (nonatomic, strong) NSNumber *currentHistoryID;
 
 @end

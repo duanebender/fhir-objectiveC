@@ -343,6 +343,35 @@
             </objects>
             <point key="canvasLocation" x="-1306" y="-728"/>
         </scene>
+        <!--History Web View Controller - History Version ?-->
+        <scene sceneID="4b0-wj-W4a">
+            <objects>
+                <viewController id="QKi-iV-MhG" customClass="HistoryWebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8D-SO-3Z3">
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKm-EH-2ef">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XKm-EH-2ef" firstAttribute="trailing" secondItem="J8D-SO-3Z3" secondAttribute="trailing" type="default" id="4Gd-JX-HXu"/>
+                            <constraint firstItem="XKm-EH-2ef" firstAttribute="bottom" secondItem="J8D-SO-3Z3" secondAttribute="bottom" type="default" id="Z5w-Wl-R96"/>
+                            <constraint firstItem="XKm-EH-2ef" firstAttribute="leading" secondItem="J8D-SO-3Z3" secondAttribute="leading" type="default" id="mFC-za-qkG"/>
+                            <constraint firstItem="XKm-EH-2ef" firstAttribute="top" secondItem="J8D-SO-3Z3" secondAttribute="top" type="default" id="rQa-Cc-wcn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="History Version ?" id="TVI-zI-j0K"/>
+                    <connections>
+                        <outlet property="historyWebView" destination="XKm-EH-2ef" id="2Tg-FS-A8J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydn-rs-N1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-620" y="-1368"/>
+        </scene>
         <!--Patient Info View Controller - Patient Data-->
         <scene sceneID="bPr-Wv-JZx">
             <objects>
@@ -406,11 +435,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="patientImageView" destination="dCB-Il-mW5" id="Hah-Nm-MYm"/>
+                        <segue destination="QKi-iV-MhG" kind="push" identifier="historyWebSegue" id="9PK-oP-rta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNz-eP-C4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1674" y="-228"/>
+            <point key="canvasLocation" x="-1714" y="-228"/>
         </scene>
         <!--Patient Info View Table View Controller-->
         <scene sceneID="W9R-eH-HoV">
@@ -1459,6 +1489,12 @@
         <class className="HistorySelectorTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HistorySelectorTableViewController.h"/>
         </class>
+        <class className="HistoryWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryWebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="historyWebView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
         <class className="InitialSearchTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSearchTableViewController.h"/>
         </class>
@@ -1482,7 +1518,6 @@
         <class className="PatientInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PatientInfoViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="historySelectorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="patientImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -1525,7 +1560,6 @@
         <class className="ServerPopoverView" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ServerPopoverView.h"/>
             <relationships>
-                <relationship kind="action" name="applyButtonPressed:"/>
                 <relationship kind="outlet" name="servAdressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="serverAddressTextField" candidateClass="UITextField"/>
             </relationships>

@@ -60,6 +60,7 @@
 		8992432E17B948E200296BEA /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432617B946D000296BEA /* InitialSearchTableViewController.m */; };
 		8992432F17B948EB00296BEA /* ServerPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432C17B946F800296BEA /* ServerPopoverView.m */; };
 		8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */; };
+		89A716A617E74E8500E28627 /* HistoryWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A716A517E74E8500E28627 /* HistoryWebViewController.m */; };
 		89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */; };
 		89BB1CC617AAF1BC00C8267F /* ContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB1CC517AAF1BC00C8267F /* ContactListTableViewCell.m */; };
 		89C82A4D179EDA6400D147EF /* AddressInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C82A4C179EDA6400D147EF /* AddressInputTableViewCell.m */; };
@@ -261,6 +262,8 @@
 		8992432C17B946F800296BEA /* ServerPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPopoverView.m; sourceTree = "<group>"; };
 		8992433117B9670E00296BEA /* FHIRSearchAndReturnResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSearchAndReturnResources.h; sourceTree = "<group>"; };
 		8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHIRSearchAndReturnResources.m; sourceTree = "<group>"; };
+		89A716A417E74E8500E28627 /* HistoryWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryWebViewController.h; sourceTree = "<group>"; };
+		89A716A517E74E8500E28627 /* HistoryWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryWebViewController.m; sourceTree = "<group>"; };
 		89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadScreenViewController.h; sourceTree = "<group>"; };
 		89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadScreenViewController.m; sourceTree = "<group>"; };
 		89BB1CC417AAF1BC00C8267F /* ContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTableViewCell.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */,
 				895A926317E0BF4000D2FFFE /* HistorySelectorTableViewController.h */,
 				895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */,
+				89A716A417E74E8500E28627 /* HistoryWebViewController.h */,
+				89A716A517E74E8500E28627 /* HistoryWebViewController.m */,
 			);
 			name = PatientViewer;
 			sourceTree = "<group>";
@@ -900,6 +905,7 @@
 				8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */,
 				89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */,
 				895A926517E0BF4000D2FFFE /* HistorySelectorTableViewController.m in Sources */,
+				89A716A617E74E8500E28627 /* HistoryWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
