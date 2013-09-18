@@ -168,15 +168,19 @@
     
     if ([patientToCheckImage.gender class] == [NSNull class]) //patient is human male
     {
-        imageForProfile = [UIImage imageNamed:@""];
+        imageForProfile = [UIImage imageNamed:@"icon_gender_unknown.png"];
     }
     else if ([genderTypeString isEqualToString:@"M"])
     {
         imageForProfile = [UIImage imageNamed:@"icon_male.png"];
     }
-    else
+    else if ([genderTypeString isEqualToString:@"F"])
     {
         imageForProfile = [UIImage imageNamed:@"icon_female.png"];
+    }
+    else
+    {
+        imageForProfile = [UIImage imageNamed:@"icon_gender_undiff.png"];
     }
     
     return imageForProfile;

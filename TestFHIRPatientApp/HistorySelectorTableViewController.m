@@ -64,6 +64,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
     [[self delegate] iDSelectionToPassBack:indexPath.row];
 }
 

@@ -370,7 +370,6 @@
         //return default image to be displayed in editing
         editChildViewController.imageOfPatient = [[UIImage alloc] init];
         editChildViewController.imageOfPatient = [AllPatientItemReturnMethods returnPatientDefaultImage:self.patient];
-        NSLog(@"%@",[AllPatientItemReturnMethods returnPatientDefaultImage:self.patient]);
         
     }
     //end edit button segue
@@ -392,11 +391,8 @@
     {
         HistoryWebViewController *historyViewController = (HistoryWebViewController *) [segue destinationViewController];
         
-        //NSURLRequest *requestObj = [NSURLRequest requestWithURL:self.urlForHistory];
-        //[historyViewController.historyWebView setDelegate:self];
         historyViewController.title = [NSString stringWithFormat:@"History Version %d",[self.currentHistoryID integerValue]];
         historyViewController.urlToDisplay = self.urlForHistory;
-        //[[segue destinationViewController] setDelegate:self];
     }
     //end history web view segue
 }
@@ -411,8 +407,6 @@
     self.currentHistoryID = [tempIDHolder objectAtIndex:selectedHistory];
     
     [self performSegueWithIdentifier:@"historyWebSegue" sender:self];
-    
-    //[[UIApplication sharedApplication] openURL:url];
 }
 
 @end

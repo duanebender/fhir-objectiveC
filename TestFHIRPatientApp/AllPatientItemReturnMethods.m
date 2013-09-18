@@ -41,7 +41,14 @@
     if ([patientToCheckSSNOf.identifier count] != 0)
     {
         SSNNumber = [patientToCheckSSNOf.identifier objectAtIndex:0];
-        SSNString = [[NSString alloc] initWithString:SSNNumber.iDKey.value];
+        if (SSNNumber.iDKey.value)
+        {
+            SSNString = [[NSString alloc] initWithString:SSNNumber.iDKey.value];
+        }
+        else
+        {
+            SSNString = @"";
+        }
     }
     else
     {
@@ -282,7 +289,7 @@
             
             //check for home phone
             NSMutableString *homePhone = [[NSMutableString alloc] init];
-            if (contactLine.use == ContactUseHome)
+            if (contactLine.use == ContactUseHome && contactLine.value.value)
             {
                 [homePhone setString:contactLine.value.value];
             }
@@ -650,7 +657,7 @@
         
         //if Patient is an organization
         NSMutableString *organizationString = [[NSMutableString alloc] init];
-        if ([contact.organization class] != [NSNull class])
+        if ([contact.organization class] != [NSNull class] && contact.organization.display.value)
         {
             [organizationString setString:contact.organization.display.value];
         }
