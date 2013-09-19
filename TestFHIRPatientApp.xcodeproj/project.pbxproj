@@ -1,0 +1,1128 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		890EFFE5179731E6007ADF5C /* AddEditPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890EFFE4179731E6007ADF5C /* AddEditPatientViewController.m */; };
+		891DB52E17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891DB52D17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m */; };
+		891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F3A90172593A10091D782 /* PatientViewWriter.m */; };
+		891F3A981725C5C70091D782 /* PatientEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F3A971725C5C70091D782 /* PatientEditViewController.m */; };
+		8934346517A000D6007EFE18 /* LargeTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934346417A000D6007EFE18 /* LargeTextFieldTableViewCell.m */; };
+		8934346817A02168007EFE18 /* ContactListItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934346717A02168007EFE18 /* ContactListItemTableViewCell.m */; };
+		8934346B17A05083007EFE18 /* PatientSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */; };
+		89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89403EDF172819E100EDDF8A /* NameListTableViewController.m */; };
+		895A925317DF6B9900D2FFFE /* icon_gender_undiff.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A924F17DF6B9900D2FFFE /* icon_gender_undiff.png */; };
+		895A925417DF6B9900D2FFFE /* icon_gender_undiff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925017DF6B9900D2FFFE /* icon_gender_undiff@2x.png */; };
+		895A925517DF6B9900D2FFFE /* icon_gender_unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925117DF6B9900D2FFFE /* icon_gender_unknown.png */; };
+		895A925617DF6B9900D2FFFE /* icon_gender_unknown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925217DF6B9900D2FFFE /* icon_gender_unknown@2x.png */; };
+		895A925B17DF6C4D00D2FFFE /* icon_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925717DF6C4D00D2FFFE /* icon_camera.png */; };
+		895A925C17DF6C4D00D2FFFE /* icon_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925817DF6C4D00D2FFFE /* icon_camera@2x.png */; };
+		895A925D17DF6C4D00D2FFFE /* icon_gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925917DF6C4D00D2FFFE /* icon_gallery.png */; };
+		895A925E17DF6C4D00D2FFFE /* icon_gallery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925A17DF6C4D00D2FFFE /* icon_gallery@2x.png */; };
+		895A926117E0ADC700D2FFFE /* icon_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A925F17E0ADC700D2FFFE /* icon_history.png */; };
+		895A926217E0ADC700D2FFFE /* icon_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A926017E0ADC700D2FFFE /* icon_history@2x.png */; };
+		895A926517E0BF4000D2FFFE /* HistorySelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */; };
+		8962C88017A6F67000ED4893 /* AddressViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */; };
+		89694718171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
+		8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
+		8969471C171D99D10072A3CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8969471B171D99D10072A3CD /* CoreGraphics.framework */; };
+		89694722171D99D10072A3CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89694720171D99D10072A3CD /* InfoPlist.strings */; };
+		89694724171D99D10072A3CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694723171D99D10072A3CD /* main.m */; };
+		89694728171D99D10072A3CD /* TestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694727171D99D10072A3CD /* TestAppDelegate.m */; };
+		8969472A171D99D10072A3CD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 89694729171D99D10072A3CD /* Default.png */; };
+		8969472C171D99D10072A3CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8969472B171D99D10072A3CD /* Default@2x.png */; };
+		8969472E171D99D10072A3CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8969472D171D99D10072A3CD /* Default-568h@2x.png */; };
+		89694731171D99D10072A3CD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8969472F171D99D10072A3CD /* MainStoryboard_iPhone.storyboard */; };
+		89694734171D99D10072A3CD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */; };
+		8969473F171D99D10072A3CD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8969473E171D99D10072A3CD /* SenTestingKit.framework */; };
+		89694740171D99D10072A3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694717171D99D10072A3CD /* UIKit.framework */; };
+		89694741171D99D10072A3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89694719171D99D10072A3CD /* Foundation.framework */; };
+		89694749171D99D10072A3CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89694747171D99D10072A3CD /* InfoPlist.strings */; };
+		8969474C171D99D10072A3CD /* TestFHIRPatientAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8969474B171D99D10072A3CD /* TestFHIRPatientAppTests.m */; };
+		89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */; };
+		89694766171DAE550072A3CD /* PatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89694765171DAE550072A3CD /* PatientViewController.m */; };
+		896B277C179DC6E700608D87 /* SingleLineInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 896B277B179DC6E700608D87 /* SingleLineInputTableViewCell.m */; };
+		896B277F179DC79000608D87 /* AddEditPatientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896B277E179DC79000608D87 /* AddEditPatientTableViewController.m */; };
+		896B2781179DCD4D00608D87 /* SectionHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896B2780179DCD4D00608D87 /* SectionHeader.storyboard */; };
+		896B2785179DCE5900608D87 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 896B2784179DCE5900608D87 /* SectionHeaderView.m */; };
+		896C066717B5584500C25D2E /* icon_fhir_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066617B5584500C25D2E /* icon_fhir_57px.png */; };
+		896C066B17B558BE00C25D2E /* icon_fhir_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 896C066A17B558BE00C25D2E /* icon_fhir_114px.png */; };
+		898D9DC217B2A40E00554D5D /* libFHIR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 898D9DC117B2A40E00554D5D /* libFHIR.a */; };
+		898F79F817A8523F00BE90B0 /* LinksViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */; };
+		8992432417B9469A00296BEA /* AllPatientItemReturnMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */; };
+		8992432717B946D000296BEA /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432617B946D000296BEA /* InitialSearchTableViewController.m */; };
+		8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432917B946EF00296BEA /* PatientInfoViewController.m */; };
+		8992432D17B946F800296BEA /* ServerPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432C17B946F800296BEA /* ServerPopoverView.m */; };
+		8992432E17B948E200296BEA /* InitialSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432617B946D000296BEA /* InitialSearchTableViewController.m */; };
+		8992432F17B948EB00296BEA /* ServerPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992432C17B946F800296BEA /* ServerPopoverView.m */; };
+		8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */; };
+		89A716A617E74E8500E28627 /* HistoryWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A716A517E74E8500E28627 /* HistoryWebViewController.m */; };
+		89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */; };
+		89BB1CC617AAF1BC00C8267F /* ContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB1CC517AAF1BC00C8267F /* ContactListTableViewCell.m */; };
+		89C82A4D179EDA6400D147EF /* AddressInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C82A4C179EDA6400D147EF /* AddressInputTableViewCell.m */; };
+		89C82A50179EFF8600D147EF /* PhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C82A4F179EFF8600D147EF /* PhoneTableViewCell.m */; };
+		89CD452117D91B5F00C2647D /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89CD451E17D91B5F00C2647D /* background.jpg */; };
+		89CD452217D91B5F00C2647D /* defaultAnimalProfileImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89CD451F17D91B5F00C2647D /* defaultAnimalProfileImage.jpg */; };
+		89CD452317D91B5F00C2647D /* profile_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452017D91B5F00C2647D /* profile_female.png */; };
+		89CD452517D91B7C00C2647D /* fhirlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452417D91B7C00C2647D /* fhirlogo.png */; };
+		89CD453117D91B9300C2647D /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452617D91B9300C2647D /* Header.png */; };
+		89CD453217D91B9300C2647D /* Header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452717D91B9300C2647D /* Header@2x.png */; };
+		89CD453317D91B9300C2647D /* icon_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452817D91B9300C2647D /* icon_female.png */; };
+		89CD453417D91B9300C2647D /* icon_female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452917D91B9300C2647D /* icon_female@2x.png */; };
+		89CD453517D91B9300C2647D /* icon_fhir_57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452A17D91B9300C2647D /* icon_fhir_57px.png */; };
+		89CD453617D91B9300C2647D /* icon_fhir_114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452B17D91B9300C2647D /* icon_fhir_114px.png */; };
+		89CD453717D91B9300C2647D /* icon_fhir_512px.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452C17D91B9300C2647D /* icon_fhir_512px.png */; };
+		89CD453817D91B9300C2647D /* icon_gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452D17D91B9300C2647D /* icon_gear.png */; };
+		89CD453917D91B9300C2647D /* icon_gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452E17D91B9300C2647D /* icon_gear@2x.png */; };
+		89CD453A17D91B9300C2647D /* icon_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD452F17D91B9300C2647D /* icon_male.png */; };
+		89CD453B17D91B9300C2647D /* icon_male@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD453017D91B9300C2647D /* icon_male@2x.png */; };
+		89CD453E17D91BCD00C2647D /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD453C17D91BCD00C2647D /* Launch.png */; };
+		89CD453F17D91BCD00C2647D /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD453D17D91BCD00C2647D /* Launch@2x.png */; };
+		89CD454617D91BDA00C2647D /* profile_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454017D91BD900C2647D /* profile_female.png */; };
+		89CD454717D91BDA00C2647D /* profile_female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454117D91BD900C2647D /* profile_female@2x.png */; };
+		89CD454817D91BDA00C2647D /* profile_male.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454217D91BD900C2647D /* profile_male.png */; };
+		89CD454917D91BDA00C2647D /* profile_male@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454317D91BD900C2647D /* profile_male@2x.png */; };
+		89CD454A17D91BDA00C2647D /* profile_pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454417D91BD900C2647D /* profile_pet.png */; };
+		89CD454B17D91BDA00C2647D /* profile_pet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454517D91BD900C2647D /* profile_pet@2x.png */; };
+		89CD454E17D91BE400C2647D /* Top.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454C17D91BE400C2647D /* Top.png */; };
+		89CD454F17D91BE400C2647D /* Top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CD454D17D91BE400C2647D /* Top@2x.png */; };
+		89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E2EE3017270E260005CC5A /* DetailsEditViewController.m */; };
+		89E3000617A1732900F29B29 /* SingleLineViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */; };
+		89E3000917A173E000F29B29 /* PatientInfoViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */; };
+		89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89694742171D99D10072A3CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8969470A171D99D10072A3CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89694712171D99D10072A3CD;
+			remoteInfo = TestFHIRPatientApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		890EFFE01796E4E6007ADF5C /* PatientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewController.h; sourceTree = "<group>"; };
+		890EFFE3179731E6007ADF5C /* AddEditPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditPatientViewController.h; sourceTree = "<group>"; };
+		890EFFE4179731E6007ADF5C /* AddEditPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditPatientViewController.m; sourceTree = "<group>"; };
+		891DB52C17B3CB2200C3E1E8 /* PhoneViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneViewTableViewCell.h; sourceTree = "<group>"; };
+		891DB52D17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneViewTableViewCell.m; sourceTree = "<group>"; };
+		891F3A8F172593A10091D782 /* PatientViewWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientViewWriter.h; sourceTree = "<group>"; };
+		891F3A90172593A10091D782 /* PatientViewWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientViewWriter.m; sourceTree = "<group>"; };
+		891F3A961725C5C70091D782 /* PatientEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientEditViewController.h; sourceTree = "<group>"; };
+		891F3A971725C5C70091D782 /* PatientEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientEditViewController.m; sourceTree = "<group>"; };
+		8934346317A000D6007EFE18 /* LargeTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeTextFieldTableViewCell.h; sourceTree = "<group>"; };
+		8934346417A000D6007EFE18 /* LargeTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargeTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		8934346617A02168007EFE18 /* ContactListItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListItemTableViewCell.h; sourceTree = "<group>"; };
+		8934346717A02168007EFE18 /* ContactListItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListItemTableViewCell.m; sourceTree = "<group>"; };
+		8934346917A05083007EFE18 /* PatientSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientSearchTableViewCell.h; sourceTree = "<group>"; };
+		8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientSearchTableViewCell.m; sourceTree = "<group>"; };
+		89403EDE172819E100EDDF8A /* NameListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameListTableViewController.h; sourceTree = "<group>"; };
+		89403EDF172819E100EDDF8A /* NameListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameListTableViewController.m; sourceTree = "<group>"; };
+		895A924F17DF6B9900D2FFFE /* icon_gender_undiff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gender_undiff.png; sourceTree = "<group>"; };
+		895A925017DF6B9900D2FFFE /* icon_gender_undiff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gender_undiff@2x.png"; sourceTree = "<group>"; };
+		895A925117DF6B9900D2FFFE /* icon_gender_unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gender_unknown.png; sourceTree = "<group>"; };
+		895A925217DF6B9900D2FFFE /* icon_gender_unknown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gender_unknown@2x.png"; sourceTree = "<group>"; };
+		895A925717DF6C4D00D2FFFE /* icon_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_camera.png; sourceTree = "<group>"; };
+		895A925817DF6C4D00D2FFFE /* icon_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@2x.png"; sourceTree = "<group>"; };
+		895A925917DF6C4D00D2FFFE /* icon_gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gallery.png; sourceTree = "<group>"; };
+		895A925A17DF6C4D00D2FFFE /* icon_gallery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gallery@2x.png"; sourceTree = "<group>"; };
+		895A925F17E0ADC700D2FFFE /* icon_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_history.png; sourceTree = "<group>"; };
+		895A926017E0ADC700D2FFFE /* icon_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_history@2x.png"; sourceTree = "<group>"; };
+		895A926317E0BF4000D2FFFE /* HistorySelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistorySelectorTableViewController.h; sourceTree = "<group>"; };
+		895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySelectorTableViewController.m; sourceTree = "<group>"; };
+		8962C87E17A6F67000ED4893 /* AddressViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewTableViewCell.h; sourceTree = "<group>"; };
+		8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewTableViewCell.m; sourceTree = "<group>"; };
+		89694713171D99D10072A3CD /* TestFHIRPatientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestFHIRPatientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89694717171D99D10072A3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		89694719171D99D10072A3CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8969471B171D99D10072A3CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8969471F171D99D10072A3CD /* TestFHIRPatientApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestFHIRPatientApp-Info.plist"; sourceTree = "<group>"; };
+		89694721171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		89694723171D99D10072A3CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89694725171D99D10072A3CD /* TestFHIRPatientApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestFHIRPatientApp-Prefix.pch"; sourceTree = "<group>"; };
+		89694726171D99D10072A3CD /* TestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAppDelegate.h; sourceTree = "<group>"; };
+		89694727171D99D10072A3CD /* TestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAppDelegate.m; sourceTree = "<group>"; };
+		89694729171D99D10072A3CD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8969472B171D99D10072A3CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8969472D171D99D10072A3CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		89694730171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		89694733171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		8969473D171D99D10072A3CD /* TestFHIRPatientAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestFHIRPatientAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8969473E171D99D10072A3CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		89694746171D99D10072A3CD /* TestFHIRPatientAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestFHIRPatientAppTests-Info.plist"; sourceTree = "<group>"; };
+		89694748171D99D10072A3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8969474A171D99D10072A3CD /* TestFHIRPatientAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFHIRPatientAppTests.h; sourceTree = "<group>"; };
+		8969474B171D99D10072A3CD /* TestFHIRPatientAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFHIRPatientAppTests.m; sourceTree = "<group>"; };
+		89694761171D9B600072A3CD /* PatientLoaderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientLoaderTableViewController.h; sourceTree = "<group>"; };
+		89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientLoaderTableViewController.m; sourceTree = "<group>"; };
+		89694764171DAE550072A3CD /* PatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientViewController.h; sourceTree = "<group>"; };
+		89694765171DAE550072A3CD /* PatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientViewController.m; sourceTree = "<group>"; };
+		896B277A179DC6E700608D87 /* SingleLineInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineInputTableViewCell.h; sourceTree = "<group>"; };
+		896B277B179DC6E700608D87 /* SingleLineInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineInputTableViewCell.m; sourceTree = "<group>"; };
+		896B277D179DC79000608D87 /* AddEditPatientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditPatientTableViewController.h; sourceTree = "<group>"; };
+		896B277E179DC79000608D87 /* AddEditPatientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditPatientTableViewController.m; sourceTree = "<group>"; };
+		896B2780179DCD4D00608D87 /* SectionHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SectionHeader.storyboard; sourceTree = "<group>"; };
+		896B2783179DCE5900608D87 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		896B2784179DCE5900608D87 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		896BD97217C7FD1D00B49F31 /* OrderedKeyDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedKeyDefinitions.h; sourceTree = "<group>"; };
+		896C066617B5584500C25D2E /* icon_fhir_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_57px.png; sourceTree = "<group>"; };
+		896C066A17B558BE00C25D2E /* icon_fhir_114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_114px.png; sourceTree = "<group>"; };
+		898D9D7117B2A40E00554D5D /* DictToJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToJSON.h; sourceTree = "<group>"; };
+		898D9D7217B2A40E00554D5D /* DictToXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictToXML.h; sourceTree = "<group>"; };
+		898D9D7317B2A40E00554D5D /* FHIR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIR.h; sourceTree = "<group>"; };
+		898D9D7417B2A40E00554D5D /* FHIRAdverseReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAdverseReaction.h; sourceTree = "<group>"; };
+		898D9D7517B2A40E00554D5D /* FHIRAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAlert.h; sourceTree = "<group>"; };
+		898D9D7617B2A40E00554D5D /* FHIRAllergyIntolerance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAllergyIntolerance.h; sourceTree = "<group>"; };
+		898D9D7717B2A40E00554D5D /* FHIRCarePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCarePlan.h; sourceTree = "<group>"; };
+		898D9D7817B2A40E00554D5D /* FHIRCoverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCoverage.h; sourceTree = "<group>"; };
+		898D9D7917B2A40E00554D5D /* FHIRMedication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedication.h; sourceTree = "<group>"; };
+		898D9D7A17B2A40E00554D5D /* FHIRMedicationAdministration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationAdministration.h; sourceTree = "<group>"; };
+		898D9D7B17B2A40E00554D5D /* FHIRMedicationDispense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationDispense.h; sourceTree = "<group>"; };
+		898D9D7C17B2A40E00554D5D /* FHIRMedicationPrescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationPrescription.h; sourceTree = "<group>"; };
+		898D9D7D17B2A40E00554D5D /* FHIRMedicationStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationStatement.h; sourceTree = "<group>"; };
+		898D9D7E17B2A40E00554D5D /* FHIROrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIROrganization.h; sourceTree = "<group>"; };
+		898D9D7F17B2A40E00554D5D /* FHIRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPatient.h; sourceTree = "<group>"; };
+		898D9D8017B2A40E00554D5D /* FHIRResourceDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceDictionary.h; sourceTree = "<group>"; };
+		898D9D8117B2A40E00554D5D /* JSONToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONToDict.h; sourceTree = "<group>"; };
+		898D9D8217B2A40E00554D5D /* XMLToDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLToDict.h; sourceTree = "<group>"; };
+		898D9D8517B2A40E00554D5D /* Base64Binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Binary.h; sourceTree = "<group>"; };
+		898D9D8617B2A40E00554D5D /* Base64Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Decoder.h; sourceTree = "<group>"; };
+		898D9D8717B2A40E00554D5D /* Base64Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Encoder.h; sourceTree = "<group>"; };
+		898D9D8817B2A40E00554D5D /* FHIR-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FHIR-Prefix.pch"; sourceTree = "<group>"; };
+		898D9D8917B2A40E00554D5D /* FHIRAccreditation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAccreditation.h; sourceTree = "<group>"; };
+		898D9D8A17B2A40E00554D5D /* FHIRActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRActivity.h; sourceTree = "<group>"; };
+		898D9D8B17B2A40E00554D5D /* FHIRAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAddress.h; sourceTree = "<group>"; };
+		898D9D8C17B2A40E00554D5D /* FHIRAnimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAnimal.h; sourceTree = "<group>"; };
+		898D9D8D17B2A40E00554D5D /* FHIRAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRAttachment.h; sourceTree = "<group>"; };
+		898D9D8E17B2A40E00554D5D /* FHIRBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRBool.h; sourceTree = "<group>"; };
+		898D9D8F17B2A40E00554D5D /* FHIRChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRChoice.h; sourceTree = "<group>"; };
+		898D9D9017B2A40E00554D5D /* FHIRChoiceOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRChoiceOption.h; sourceTree = "<group>"; };
+		898D9D9117B2A40E00554D5D /* FHIRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCode.h; sourceTree = "<group>"; };
+		898D9D9217B2A40E00554D5D /* FHIRCodeableConcept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCodeableConcept.h; sourceTree = "<group>"; };
+		898D9D9317B2A40E00554D5D /* FHIRCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCoding.h; sourceTree = "<group>"; };
+		898D9D9417B2A40E00554D5D /* FHIRCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRCommunication.h; sourceTree = "<group>"; };
+		898D9D9517B2A40E00554D5D /* FHIRContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContact.h; sourceTree = "<group>"; };
+		898D9D9617B2A40E00554D5D /* FHIRContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContactEntity.h; sourceTree = "<group>"; };
+		898D9D9717B2A40E00554D5D /* FHIRContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRContent.h; sourceTree = "<group>"; };
+		898D9D9817B2A40E00554D5D /* FHIRDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRDate.h; sourceTree = "<group>"; };
+		898D9D9917B2A40E00554D5D /* FHIRDispense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRDispense.h; sourceTree = "<group>"; };
+		898D9D9A17B2A40E00554D5D /* FHIRDosage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRDosage.h; sourceTree = "<group>"; };
+		898D9D9B17B2A40E00554D5D /* FHIRDosageInstructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRDosageInstructions.h; sourceTree = "<group>"; };
+		898D9D9C17B2A40E00554D5D /* FHIRElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRElement.h; sourceTree = "<group>"; };
+		898D9D9D17B2A40E00554D5D /* FHIRExistanceChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExistanceChecker.h; sourceTree = "<group>"; };
+		898D9D9E17B2A40E00554D5D /* FHIRExposure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExposure.h; sourceTree = "<group>"; };
+		898D9D9F17B2A40E00554D5D /* FHIRExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRExtension.h; sourceTree = "<group>"; };
+		898D9DA017B2A40E00554D5D /* FHIRGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRGoal.h; sourceTree = "<group>"; };
+		898D9DA117B2A40E00554D5D /* FHIRHumanName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRHumanName.h; sourceTree = "<group>"; };
+		898D9DA217B2A40E00554D5D /* FHIRIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRIdentifier.h; sourceTree = "<group>"; };
+		898D9DA317B2A40E00554D5D /* FHIRImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRImage.h; sourceTree = "<group>"; };
+		898D9DA417B2A40E00554D5D /* FHIRIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRIngredient.h; sourceTree = "<group>"; };
+		898D9DA517B2A40E00554D5D /* FHIRInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRInteger.h; sourceTree = "<group>"; };
+		898D9DA617B2A40E00554D5D /* FHIRMedicationPrescriptionDispense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationPrescriptionDispense.h; sourceTree = "<group>"; };
+		898D9DA717B2A40E00554D5D /* FHIRMedicationPrescriptionSubstitution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRMedicationPrescriptionSubstitution.h; sourceTree = "<group>"; };
+		898D9DA817B2A40E00554D5D /* FHIRNarrative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRNarrative.h; sourceTree = "<group>"; };
+		898D9DA917B2A40E00554D5D /* FHIRNodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRNodeType.h; sourceTree = "<group>"; };
+		898D9DAA17B2A40E00554D5D /* FHIRPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPackage.h; sourceTree = "<group>"; };
+		898D9DAB17B2A40E00554D5D /* FHIRParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRParticipant.h; sourceTree = "<group>"; };
+		898D9DAC17B2A40E00554D5D /* FHIRPatientContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPatientContact.h; sourceTree = "<group>"; };
+		898D9DAD17B2A40E00554D5D /* FHIRPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRPeriod.h; sourceTree = "<group>"; };
+		898D9DAE17B2A40E00554D5D /* FHIRProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRProduct.h; sourceTree = "<group>"; };
+		898D9DAF17B2A40E00554D5D /* FHIRQuantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRQuantity.h; sourceTree = "<group>"; };
+		898D9DB017B2A40E00554D5D /* FHIRRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRRange.h; sourceTree = "<group>"; };
+		898D9DB117B2A40E00554D5D /* FHIRRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRRatio.h; sourceTree = "<group>"; };
+		898D9DB217B2A40E00554D5D /* FHIRResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResource.h; sourceTree = "<group>"; };
+		898D9DB317B2A40E00554D5D /* FHIRResourceContained.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceContained.h; sourceTree = "<group>"; };
+		898D9DB417B2A40E00554D5D /* FHIRResourceReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceReference.h; sourceTree = "<group>"; };
+		898D9DB517B2A40E00554D5D /* FHIRResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRResourceType.h; sourceTree = "<group>"; };
+		898D9DB617B2A40E00554D5D /* FHIRSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSchedule.h; sourceTree = "<group>"; };
+		898D9DB717B2A40E00554D5D /* FHIRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRString.h; sourceTree = "<group>"; };
+		898D9DB817B2A40E00554D5D /* FHIRSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSubscriber.h; sourceTree = "<group>"; };
+		898D9DB917B2A40E00554D5D /* FHIRSubstitution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSubstitution.h; sourceTree = "<group>"; };
+		898D9DBA17B2A40E00554D5D /* FHIRSymptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSymptom.h; sourceTree = "<group>"; };
+		898D9DBB17B2A40E00554D5D /* FHIRText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRText.h; sourceTree = "<group>"; };
+		898D9DBC17B2A40E00554D5D /* FHIRType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRType.h; sourceTree = "<group>"; };
+		898D9DBD17B2A40E00554D5D /* FHIRUri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRUri.h; sourceTree = "<group>"; };
+		898D9DBE17B2A40E00554D5D /* XhtmlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XhtmlNode.h; sourceTree = "<group>"; };
+		898D9DBF17B2A40E00554D5D /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		898D9DC017B2A40E00554D5D /* XMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLWriter.h; sourceTree = "<group>"; };
+		898D9DC117B2A40E00554D5D /* libFHIR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFHIR.a; sourceTree = "<group>"; };
+		898F79F617A8523F00BE90B0 /* LinksViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinksViewTableViewCell.h; sourceTree = "<group>"; };
+		898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinksViewTableViewCell.m; sourceTree = "<group>"; };
+		8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllPatientItemReturnMethods.m; sourceTree = "<group>"; };
+		8992432517B946D000296BEA /* InitialSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSearchTableViewController.h; sourceTree = "<group>"; };
+		8992432617B946D000296BEA /* InitialSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSearchTableViewController.m; sourceTree = "<group>"; };
+		8992432917B946EF00296BEA /* PatientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewController.m; sourceTree = "<group>"; };
+		8992432B17B946F800296BEA /* ServerPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerPopoverView.h; sourceTree = "<group>"; };
+		8992432C17B946F800296BEA /* ServerPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPopoverView.m; sourceTree = "<group>"; };
+		8992433117B9670E00296BEA /* FHIRSearchAndReturnResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHIRSearchAndReturnResources.h; sourceTree = "<group>"; };
+		8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHIRSearchAndReturnResources.m; sourceTree = "<group>"; };
+		89A716A417E74E8500E28627 /* HistoryWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryWebViewController.h; sourceTree = "<group>"; };
+		89A716A517E74E8500E28627 /* HistoryWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryWebViewController.m; sourceTree = "<group>"; };
+		89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadScreenViewController.h; sourceTree = "<group>"; };
+		89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadScreenViewController.m; sourceTree = "<group>"; };
+		89BB1CC417AAF1BC00C8267F /* ContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTableViewCell.h; sourceTree = "<group>"; };
+		89BB1CC517AAF1BC00C8267F /* ContactListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTableViewCell.m; sourceTree = "<group>"; };
+		89C82A4B179EDA6400D147EF /* AddressInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressInputTableViewCell.h; sourceTree = "<group>"; };
+		89C82A4C179EDA6400D147EF /* AddressInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressInputTableViewCell.m; sourceTree = "<group>"; };
+		89C82A4E179EFF8600D147EF /* PhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneTableViewCell.h; sourceTree = "<group>"; };
+		89C82A4F179EFF8600D147EF /* PhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneTableViewCell.m; sourceTree = "<group>"; };
+		89CD451E17D91B5F00C2647D /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		89CD451F17D91B5F00C2647D /* defaultAnimalProfileImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultAnimalProfileImage.jpg; sourceTree = "<group>"; };
+		89CD452017D91B5F00C2647D /* profile_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_female.png; sourceTree = "<group>"; };
+		89CD452417D91B7C00C2647D /* fhirlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fhirlogo.png; sourceTree = "<group>"; };
+		89CD452617D91B9300C2647D /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
+		89CD452717D91B9300C2647D /* Header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Header@2x.png"; sourceTree = "<group>"; };
+		89CD452817D91B9300C2647D /* icon_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_female.png; sourceTree = "<group>"; };
+		89CD452917D91B9300C2647D /* icon_female@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_female@2x.png"; sourceTree = "<group>"; };
+		89CD452A17D91B9300C2647D /* icon_fhir_57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_57px.png; sourceTree = "<group>"; };
+		89CD452B17D91B9300C2647D /* icon_fhir_114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_114px.png; sourceTree = "<group>"; };
+		89CD452C17D91B9300C2647D /* icon_fhir_512px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_fhir_512px.png; sourceTree = "<group>"; };
+		89CD452D17D91B9300C2647D /* icon_gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gear.png; sourceTree = "<group>"; };
+		89CD452E17D91B9300C2647D /* icon_gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gear@2x.png"; sourceTree = "<group>"; };
+		89CD452F17D91B9300C2647D /* icon_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_male.png; sourceTree = "<group>"; };
+		89CD453017D91B9300C2647D /* icon_male@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_male@2x.png"; sourceTree = "<group>"; };
+		89CD453C17D91BCD00C2647D /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
+		89CD453D17D91BCD00C2647D /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
+		89CD454017D91BD900C2647D /* profile_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_female.png; sourceTree = "<group>"; };
+		89CD454117D91BD900C2647D /* profile_female@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_female@2x.png"; sourceTree = "<group>"; };
+		89CD454217D91BD900C2647D /* profile_male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_male.png; sourceTree = "<group>"; };
+		89CD454317D91BD900C2647D /* profile_male@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_male@2x.png"; sourceTree = "<group>"; };
+		89CD454417D91BD900C2647D /* profile_pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_pet.png; sourceTree = "<group>"; };
+		89CD454517D91BD900C2647D /* profile_pet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_pet@2x.png"; sourceTree = "<group>"; };
+		89CD454C17D91BE400C2647D /* Top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Top.png; sourceTree = "<group>"; };
+		89CD454D17D91BE400C2647D /* Top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Top@2x.png"; sourceTree = "<group>"; };
+		89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEditViewController.h; sourceTree = "<group>"; };
+		89E2EE3017270E260005CC5A /* DetailsEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEditViewController.m; sourceTree = "<group>"; };
+		89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllPatientItemReturnMethods.h; sourceTree = "<group>"; };
+		89E3000417A1732900F29B29 /* SingleLineViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineViewTableViewCell.h; sourceTree = "<group>"; };
+		89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineViewTableViewCell.m; sourceTree = "<group>"; };
+		89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewTableViewController.h; sourceTree = "<group>"; };
+		89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewTableViewController.m; sourceTree = "<group>"; };
+		89F886EA17BBCCC200444530 /* SaveAndPushToServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveAndPushToServer.h; sourceTree = "<group>"; };
+		89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveAndPushToServer.m; sourceTree = "<group>"; };
+		89F886ED17BC26E900444530 /* CellTextPasserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellTextPasserDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89694710171D99D10072A3CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89694718171D99D10072A3CD /* UIKit.framework in Frameworks */,
+				8969471A171D99D10072A3CD /* Foundation.framework in Frameworks */,
+				8969471C171D99D10072A3CD /* CoreGraphics.framework in Frameworks */,
+				898D9DC217B2A40E00554D5D /* libFHIR.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89694739171D99D10072A3CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8969473F171D99D10072A3CD /* SenTestingKit.framework in Frameworks */,
+				89694740171D99D10072A3CD /* UIKit.framework in Frameworks */,
+				89694741171D99D10072A3CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		890EFFDF1796E412007ADF5C /* PatientViewer */ = {
+			isa = PBXGroup;
+			children = (
+				89E3000317A172FF00F29B29 /* Cells */,
+				890EFFE01796E4E6007ADF5C /* PatientInfoViewController.h */,
+				8992432917B946EF00296BEA /* PatientInfoViewController.m */,
+				89E3000717A173DF00F29B29 /* PatientInfoViewTableViewController.h */,
+				89E3000817A173DF00F29B29 /* PatientInfoViewTableViewController.m */,
+				895A926317E0BF4000D2FFFE /* HistorySelectorTableViewController.h */,
+				895A926417E0BF4000D2FFFE /* HistorySelectorTableViewController.m */,
+				89A716A417E74E8500E28627 /* HistoryWebViewController.h */,
+				89A716A517E74E8500E28627 /* HistoryWebViewController.m */,
+			);
+			name = PatientViewer;
+			sourceTree = "<group>";
+		};
+		8934346C17A0509A007EFE18 /* Patient Search */ = {
+			isa = PBXGroup;
+			children = (
+				8992432817B946D400296BEA /* Cells/Popover */,
+				8992432517B946D000296BEA /* InitialSearchTableViewController.h */,
+				8992432617B946D000296BEA /* InitialSearchTableViewController.m */,
+			);
+			name = "Patient Search";
+			sourceTree = "<group>";
+		};
+		8959F4351794836E00AE586D /* Add/Edit */ = {
+			isa = PBXGroup;
+			children = (
+				896B2782179DCE3400608D87 /* Section Header */,
+				896B2779179DC6AC00608D87 /* Cells */,
+				890EFFE3179731E6007ADF5C /* AddEditPatientViewController.h */,
+				890EFFE4179731E6007ADF5C /* AddEditPatientViewController.m */,
+				896B277D179DC79000608D87 /* AddEditPatientTableViewController.h */,
+				896B277E179DC79000608D87 /* AddEditPatientTableViewController.m */,
+			);
+			name = Add/Edit;
+			sourceTree = "<group>";
+		};
+		89694708171D99D10072A3CD = {
+			isa = PBXGroup;
+			children = (
+				896C066A17B558BE00C25D2E /* icon_fhir_114px.png */,
+				896C066617B5584500C25D2E /* icon_fhir_57px.png */,
+				89B78A47178F2AE5004F4C0D /* FHIRlib */,
+				8969471D171D99D10072A3CD /* TestFHIRPatientApp */,
+				89694744171D99D10072A3CD /* TestFHIRPatientAppTests */,
+				89694716171D99D10072A3CD /* Frameworks */,
+				89694714171D99D10072A3CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89694714171D99D10072A3CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89694713171D99D10072A3CD /* TestFHIRPatientApp.app */,
+				8969473D171D99D10072A3CD /* TestFHIRPatientAppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89694716171D99D10072A3CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89694717171D99D10072A3CD /* UIKit.framework */,
+				89694719171D99D10072A3CD /* Foundation.framework */,
+				8969471B171D99D10072A3CD /* CoreGraphics.framework */,
+				8969473E171D99D10072A3CD /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8969471D171D99D10072A3CD /* TestFHIRPatientApp */ = {
+			isa = PBXGroup;
+			children = (
+				89B78AF3178F30A3004F4C0D /* images */,
+				89B78AF2178F2ED4004F4C0D /* Old App */,
+				89B78AEE178F2E74004F4C0D /* iPadDemo */,
+				8969471E171D99D10072A3CD /* Supporting Files */,
+			);
+			path = TestFHIRPatientApp;
+			sourceTree = "<group>";
+		};
+		8969471E171D99D10072A3CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8969471F171D99D10072A3CD /* TestFHIRPatientApp-Info.plist */,
+				89694720171D99D10072A3CD /* InfoPlist.strings */,
+				89694723171D99D10072A3CD /* main.m */,
+				89694725171D99D10072A3CD /* TestFHIRPatientApp-Prefix.pch */,
+				89694729171D99D10072A3CD /* Default.png */,
+				8969472B171D99D10072A3CD /* Default@2x.png */,
+				8969472D171D99D10072A3CD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89694744171D99D10072A3CD /* TestFHIRPatientAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				8969474A171D99D10072A3CD /* TestFHIRPatientAppTests.h */,
+				8969474B171D99D10072A3CD /* TestFHIRPatientAppTests.m */,
+				89694745171D99D10072A3CD /* Supporting Files */,
+			);
+			path = TestFHIRPatientAppTests;
+			sourceTree = "<group>";
+		};
+		89694745171D99D10072A3CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89694746171D99D10072A3CD /* TestFHIRPatientAppTests-Info.plist */,
+				89694747171D99D10072A3CD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		896B2779179DC6AC00608D87 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				896B277A179DC6E700608D87 /* SingleLineInputTableViewCell.h */,
+				896B277B179DC6E700608D87 /* SingleLineInputTableViewCell.m */,
+				89C82A4B179EDA6400D147EF /* AddressInputTableViewCell.h */,
+				89C82A4C179EDA6400D147EF /* AddressInputTableViewCell.m */,
+				89C82A4E179EFF8600D147EF /* PhoneTableViewCell.h */,
+				89C82A4F179EFF8600D147EF /* PhoneTableViewCell.m */,
+				8934346317A000D6007EFE18 /* LargeTextFieldTableViewCell.h */,
+				8934346417A000D6007EFE18 /* LargeTextFieldTableViewCell.m */,
+				8934346617A02168007EFE18 /* ContactListItemTableViewCell.h */,
+				8934346717A02168007EFE18 /* ContactListItemTableViewCell.m */,
+				89F886ED17BC26E900444530 /* CellTextPasserDelegate.h */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		896B2782179DCE3400608D87 /* Section Header */ = {
+			isa = PBXGroup;
+			children = (
+				896B2780179DCD4D00608D87 /* SectionHeader.storyboard */,
+				896B2783179DCE5900608D87 /* SectionHeaderView.h */,
+				896B2784179DCE5900608D87 /* SectionHeaderView.m */,
+			);
+			name = "Section Header";
+			sourceTree = "<group>";
+		};
+		896C066117B5414B00C25D2E /* LoadScreen */ = {
+			isa = PBXGroup;
+			children = (
+				89B78AEF178F2EAF004F4C0D /* loadScreenViewController.h */,
+				89B78AF0178F2EAF004F4C0D /* loadScreenViewController.m */,
+			);
+			name = LoadScreen;
+			sourceTree = "<group>";
+		};
+		898D9D7017B2A40E00554D5D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				898D9D7117B2A40E00554D5D /* DictToJSON.h */,
+				898D9D7217B2A40E00554D5D /* DictToXML.h */,
+				898D9D7317B2A40E00554D5D /* FHIR.h */,
+				898D9D7417B2A40E00554D5D /* FHIRAdverseReaction.h */,
+				898D9D7517B2A40E00554D5D /* FHIRAlert.h */,
+				898D9D7617B2A40E00554D5D /* FHIRAllergyIntolerance.h */,
+				898D9D7717B2A40E00554D5D /* FHIRCarePlan.h */,
+				898D9D7817B2A40E00554D5D /* FHIRCoverage.h */,
+				898D9D7917B2A40E00554D5D /* FHIRMedication.h */,
+				898D9D7A17B2A40E00554D5D /* FHIRMedicationAdministration.h */,
+				898D9D7B17B2A40E00554D5D /* FHIRMedicationDispense.h */,
+				898D9D7C17B2A40E00554D5D /* FHIRMedicationPrescription.h */,
+				898D9D7D17B2A40E00554D5D /* FHIRMedicationStatement.h */,
+				898D9D7E17B2A40E00554D5D /* FHIROrganization.h */,
+				898D9D7F17B2A40E00554D5D /* FHIRPatient.h */,
+				898D9D8017B2A40E00554D5D /* FHIRResourceDictionary.h */,
+				898D9D8117B2A40E00554D5D /* JSONToDict.h */,
+				898D9D8217B2A40E00554D5D /* XMLToDict.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		898D9D8317B2A40E00554D5D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				898D9D8417B2A40E00554D5D /* private */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		898D9D8417B2A40E00554D5D /* private */ = {
+			isa = PBXGroup;
+			children = (
+				898D9D8517B2A40E00554D5D /* Base64Binary.h */,
+				898D9D8617B2A40E00554D5D /* Base64Decoder.h */,
+				898D9D8717B2A40E00554D5D /* Base64Encoder.h */,
+				898D9D8817B2A40E00554D5D /* FHIR-Prefix.pch */,
+				898D9D8917B2A40E00554D5D /* FHIRAccreditation.h */,
+				898D9D8A17B2A40E00554D5D /* FHIRActivity.h */,
+				898D9D8B17B2A40E00554D5D /* FHIRAddress.h */,
+				896BD97217C7FD1D00B49F31 /* OrderedKeyDefinitions.h */,
+				898D9D8C17B2A40E00554D5D /* FHIRAnimal.h */,
+				898D9D8D17B2A40E00554D5D /* FHIRAttachment.h */,
+				898D9D8E17B2A40E00554D5D /* FHIRBool.h */,
+				898D9D8F17B2A40E00554D5D /* FHIRChoice.h */,
+				898D9D9017B2A40E00554D5D /* FHIRChoiceOption.h */,
+				898D9D9117B2A40E00554D5D /* FHIRCode.h */,
+				898D9D9217B2A40E00554D5D /* FHIRCodeableConcept.h */,
+				898D9D9317B2A40E00554D5D /* FHIRCoding.h */,
+				898D9D9417B2A40E00554D5D /* FHIRCommunication.h */,
+				898D9D9517B2A40E00554D5D /* FHIRContact.h */,
+				898D9D9617B2A40E00554D5D /* FHIRContactEntity.h */,
+				898D9D9717B2A40E00554D5D /* FHIRContent.h */,
+				898D9D9817B2A40E00554D5D /* FHIRDate.h */,
+				898D9D9917B2A40E00554D5D /* FHIRDispense.h */,
+				898D9D9A17B2A40E00554D5D /* FHIRDosage.h */,
+				898D9D9B17B2A40E00554D5D /* FHIRDosageInstructions.h */,
+				898D9D9C17B2A40E00554D5D /* FHIRElement.h */,
+				898D9D9D17B2A40E00554D5D /* FHIRExistanceChecker.h */,
+				898D9D9E17B2A40E00554D5D /* FHIRExposure.h */,
+				898D9D9F17B2A40E00554D5D /* FHIRExtension.h */,
+				898D9DA017B2A40E00554D5D /* FHIRGoal.h */,
+				898D9DA117B2A40E00554D5D /* FHIRHumanName.h */,
+				898D9DA217B2A40E00554D5D /* FHIRIdentifier.h */,
+				898D9DA317B2A40E00554D5D /* FHIRImage.h */,
+				898D9DA417B2A40E00554D5D /* FHIRIngredient.h */,
+				898D9DA517B2A40E00554D5D /* FHIRInteger.h */,
+				898D9DA617B2A40E00554D5D /* FHIRMedicationPrescriptionDispense.h */,
+				898D9DA717B2A40E00554D5D /* FHIRMedicationPrescriptionSubstitution.h */,
+				898D9DA817B2A40E00554D5D /* FHIRNarrative.h */,
+				898D9DA917B2A40E00554D5D /* FHIRNodeType.h */,
+				898D9DAA17B2A40E00554D5D /* FHIRPackage.h */,
+				898D9DAB17B2A40E00554D5D /* FHIRParticipant.h */,
+				898D9DAC17B2A40E00554D5D /* FHIRPatientContact.h */,
+				898D9DAD17B2A40E00554D5D /* FHIRPeriod.h */,
+				898D9DAE17B2A40E00554D5D /* FHIRProduct.h */,
+				898D9DAF17B2A40E00554D5D /* FHIRQuantity.h */,
+				898D9DB017B2A40E00554D5D /* FHIRRange.h */,
+				898D9DB117B2A40E00554D5D /* FHIRRatio.h */,
+				898D9DB217B2A40E00554D5D /* FHIRResource.h */,
+				898D9DB317B2A40E00554D5D /* FHIRResourceContained.h */,
+				898D9DB417B2A40E00554D5D /* FHIRResourceReference.h */,
+				898D9DB517B2A40E00554D5D /* FHIRResourceType.h */,
+				898D9DB617B2A40E00554D5D /* FHIRSchedule.h */,
+				898D9DB717B2A40E00554D5D /* FHIRString.h */,
+				898D9DB817B2A40E00554D5D /* FHIRSubscriber.h */,
+				898D9DB917B2A40E00554D5D /* FHIRSubstitution.h */,
+				898D9DBA17B2A40E00554D5D /* FHIRSymptom.h */,
+				898D9DBB17B2A40E00554D5D /* FHIRText.h */,
+				898D9DBC17B2A40E00554D5D /* FHIRType.h */,
+				898D9DBD17B2A40E00554D5D /* FHIRUri.h */,
+				898D9DBE17B2A40E00554D5D /* XhtmlNode.h */,
+				898D9DBF17B2A40E00554D5D /* XMLReader.h */,
+				898D9DC017B2A40E00554D5D /* XMLWriter.h */,
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
+		8992432817B946D400296BEA /* Cells/Popover */ = {
+			isa = PBXGroup;
+			children = (
+				8992432B17B946F800296BEA /* ServerPopoverView.h */,
+				8992432C17B946F800296BEA /* ServerPopoverView.m */,
+				8934346917A05083007EFE18 /* PatientSearchTableViewCell.h */,
+				8934346A17A05083007EFE18 /* PatientSearchTableViewCell.m */,
+			);
+			name = Cells/Popover;
+			sourceTree = "<group>";
+		};
+		8992433017B966D700296BEA /* searchServerCode */ = {
+			isa = PBXGroup;
+			children = (
+				8992433117B9670E00296BEA /* FHIRSearchAndReturnResources.h */,
+				8992433217B9670E00296BEA /* FHIRSearchAndReturnResources.m */,
+			);
+			name = searchServerCode;
+			sourceTree = "<group>";
+		};
+		89B78A47178F2AE5004F4C0D /* FHIRlib */ = {
+			isa = PBXGroup;
+			children = (
+				898D9D7017B2A40E00554D5D /* Headers */,
+				898D9D8317B2A40E00554D5D /* include */,
+				898D9DC117B2A40E00554D5D /* libFHIR.a */,
+			);
+			name = FHIRlib;
+			sourceTree = "<group>";
+		};
+		89B78AEE178F2E74004F4C0D /* iPadDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8992433017B966D700296BEA /* searchServerCode */,
+				896C066117B5414B00C25D2E /* LoadScreen */,
+				89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */,
+				89E3000017A1706000F29B29 /* AllPatientItemReturnMethods.h */,
+				8992432317B9469A00296BEA /* AllPatientItemReturnMethods.m */,
+				89F886EA17BBCCC200444530 /* SaveAndPushToServer.h */,
+				89F886EB17BBCCC200444530 /* SaveAndPushToServer.m */,
+				8934346C17A0509A007EFE18 /* Patient Search */,
+				890EFFDF1796E412007ADF5C /* PatientViewer */,
+				8959F4351794836E00AE586D /* Add/Edit */,
+			);
+			name = iPadDemo;
+			sourceTree = "<group>";
+		};
+		89B78AF2178F2ED4004F4C0D /* Old App */ = {
+			isa = PBXGroup;
+			children = (
+				891F3A8F172593A10091D782 /* PatientViewWriter.h */,
+				891F3A90172593A10091D782 /* PatientViewWriter.m */,
+				89694726171D99D10072A3CD /* TestAppDelegate.h */,
+				89694727171D99D10072A3CD /* TestAppDelegate.m */,
+				8969472F171D99D10072A3CD /* MainStoryboard_iPhone.storyboard */,
+				89694761171D9B600072A3CD /* PatientLoaderTableViewController.h */,
+				89694762171D9B600072A3CD /* PatientLoaderTableViewController.m */,
+				89694764171DAE550072A3CD /* PatientViewController.h */,
+				89694765171DAE550072A3CD /* PatientViewController.m */,
+				89E2EE3217270E2C0005CC5A /* Edit Views */,
+			);
+			name = "Old App";
+			sourceTree = "<group>";
+		};
+		89B78AF3178F30A3004F4C0D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				895A925F17E0ADC700D2FFFE /* icon_history.png */,
+				895A926017E0ADC700D2FFFE /* icon_history@2x.png */,
+				895A925717DF6C4D00D2FFFE /* icon_camera.png */,
+				895A925817DF6C4D00D2FFFE /* icon_camera@2x.png */,
+				895A925917DF6C4D00D2FFFE /* icon_gallery.png */,
+				895A925A17DF6C4D00D2FFFE /* icon_gallery@2x.png */,
+				895A924F17DF6B9900D2FFFE /* icon_gender_undiff.png */,
+				895A925017DF6B9900D2FFFE /* icon_gender_undiff@2x.png */,
+				895A925117DF6B9900D2FFFE /* icon_gender_unknown.png */,
+				895A925217DF6B9900D2FFFE /* icon_gender_unknown@2x.png */,
+				89CD452417D91B7C00C2647D /* fhirlogo.png */,
+				89CD451E17D91B5F00C2647D /* background.jpg */,
+				89CD451F17D91B5F00C2647D /* defaultAnimalProfileImage.jpg */,
+				89CD452017D91B5F00C2647D /* profile_female.png */,
+				89CD452617D91B9300C2647D /* Header.png */,
+				89CD452717D91B9300C2647D /* Header@2x.png */,
+				89CD453C17D91BCD00C2647D /* Launch.png */,
+				89CD453D17D91BCD00C2647D /* Launch@2x.png */,
+				89CD452817D91B9300C2647D /* icon_female.png */,
+				89CD452917D91B9300C2647D /* icon_female@2x.png */,
+				89CD452A17D91B9300C2647D /* icon_fhir_57px.png */,
+				89CD452B17D91B9300C2647D /* icon_fhir_114px.png */,
+				89CD452C17D91B9300C2647D /* icon_fhir_512px.png */,
+				89CD452D17D91B9300C2647D /* icon_gear.png */,
+				89CD452E17D91B9300C2647D /* icon_gear@2x.png */,
+				89CD452F17D91B9300C2647D /* icon_male.png */,
+				89CD453017D91B9300C2647D /* icon_male@2x.png */,
+				89CD454017D91BD900C2647D /* profile_female.png */,
+				89CD454117D91BD900C2647D /* profile_female@2x.png */,
+				89CD454217D91BD900C2647D /* profile_male.png */,
+				89CD454317D91BD900C2647D /* profile_male@2x.png */,
+				89CD454417D91BD900C2647D /* profile_pet.png */,
+				89CD454517D91BD900C2647D /* profile_pet@2x.png */,
+				89CD454C17D91BE400C2647D /* Top.png */,
+				89CD454D17D91BE400C2647D /* Top@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		89E2EE3217270E2C0005CC5A /* Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				891F3A961725C5C70091D782 /* PatientEditViewController.h */,
+				891F3A971725C5C70091D782 /* PatientEditViewController.m */,
+				89E2EE2F17270E260005CC5A /* DetailsEditViewController.h */,
+				89E2EE3017270E260005CC5A /* DetailsEditViewController.m */,
+				89403EDE172819E100EDDF8A /* NameListTableViewController.h */,
+				89403EDF172819E100EDDF8A /* NameListTableViewController.m */,
+			);
+			name = "Edit Views";
+			sourceTree = "<group>";
+		};
+		89E3000317A172FF00F29B29 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				89E3000417A1732900F29B29 /* SingleLineViewTableViewCell.h */,
+				89E3000517A1732900F29B29 /* SingleLineViewTableViewCell.m */,
+				8962C87E17A6F67000ED4893 /* AddressViewTableViewCell.h */,
+				8962C87F17A6F67000ED4893 /* AddressViewTableViewCell.m */,
+				898F79F617A8523F00BE90B0 /* LinksViewTableViewCell.h */,
+				898F79F717A8523F00BE90B0 /* LinksViewTableViewCell.m */,
+				89BB1CC417AAF1BC00C8267F /* ContactListTableViewCell.h */,
+				89BB1CC517AAF1BC00C8267F /* ContactListTableViewCell.m */,
+				891DB52C17B3CB2200C3E1E8 /* PhoneViewTableViewCell.h */,
+				891DB52D17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89694712171D99D10072A3CD /* TestFHIRPatientApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8969474F171D99D10072A3CD /* Build configuration list for PBXNativeTarget "TestFHIRPatientApp" */;
+			buildPhases = (
+				8969470F171D99D10072A3CD /* Sources */,
+				89694710171D99D10072A3CD /* Frameworks */,
+				89694711171D99D10072A3CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestFHIRPatientApp;
+			productName = TestFHIRPatientApp;
+			productReference = 89694713171D99D10072A3CD /* TestFHIRPatientApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8969473C171D99D10072A3CD /* TestFHIRPatientAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89694752171D99D10072A3CD /* Build configuration list for PBXNativeTarget "TestFHIRPatientAppTests" */;
+			buildPhases = (
+				89694738171D99D10072A3CD /* Sources */,
+				89694739171D99D10072A3CD /* Frameworks */,
+				8969473A171D99D10072A3CD /* Resources */,
+				8969473B171D99D10072A3CD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89694743171D99D10072A3CD /* PBXTargetDependency */,
+			);
+			name = TestFHIRPatientAppTests;
+			productName = TestFHIRPatientAppTests;
+			productReference = 8969473D171D99D10072A3CD /* TestFHIRPatientAppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8969470A171D99D10072A3CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Test;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Adam Sippel";
+			};
+			buildConfigurationList = 8969470D171D99D10072A3CD /* Build configuration list for PBXProject "TestFHIRPatientApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 89694708171D99D10072A3CD;
+			productRefGroup = 89694714171D99D10072A3CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89694712171D99D10072A3CD /* TestFHIRPatientApp */,
+				8969473C171D99D10072A3CD /* TestFHIRPatientAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89694711171D99D10072A3CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89694722171D99D10072A3CD /* InfoPlist.strings in Resources */,
+				8969472A171D99D10072A3CD /* Default.png in Resources */,
+				8969472C171D99D10072A3CD /* Default@2x.png in Resources */,
+				8969472E171D99D10072A3CD /* Default-568h@2x.png in Resources */,
+				89694731171D99D10072A3CD /* MainStoryboard_iPhone.storyboard in Resources */,
+				89694734171D99D10072A3CD /* MainStoryboard_iPad.storyboard in Resources */,
+				896B2781179DCD4D00608D87 /* SectionHeader.storyboard in Resources */,
+				896C066717B5584500C25D2E /* icon_fhir_57px.png in Resources */,
+				896C066B17B558BE00C25D2E /* icon_fhir_114px.png in Resources */,
+				89CD452117D91B5F00C2647D /* background.jpg in Resources */,
+				89CD452217D91B5F00C2647D /* defaultAnimalProfileImage.jpg in Resources */,
+				89CD452317D91B5F00C2647D /* profile_female.png in Resources */,
+				89CD452517D91B7C00C2647D /* fhirlogo.png in Resources */,
+				89CD453117D91B9300C2647D /* Header.png in Resources */,
+				89CD453217D91B9300C2647D /* Header@2x.png in Resources */,
+				89CD453317D91B9300C2647D /* icon_female.png in Resources */,
+				89CD453417D91B9300C2647D /* icon_female@2x.png in Resources */,
+				89CD453517D91B9300C2647D /* icon_fhir_57px.png in Resources */,
+				89CD453617D91B9300C2647D /* icon_fhir_114px.png in Resources */,
+				89CD453717D91B9300C2647D /* icon_fhir_512px.png in Resources */,
+				89CD453817D91B9300C2647D /* icon_gear.png in Resources */,
+				89CD453917D91B9300C2647D /* icon_gear@2x.png in Resources */,
+				89CD453A17D91B9300C2647D /* icon_male.png in Resources */,
+				89CD453B17D91B9300C2647D /* icon_male@2x.png in Resources */,
+				89CD453E17D91BCD00C2647D /* Launch.png in Resources */,
+				89CD453F17D91BCD00C2647D /* Launch@2x.png in Resources */,
+				89CD454617D91BDA00C2647D /* profile_female.png in Resources */,
+				89CD454717D91BDA00C2647D /* profile_female@2x.png in Resources */,
+				89CD454817D91BDA00C2647D /* profile_male.png in Resources */,
+				89CD454917D91BDA00C2647D /* profile_male@2x.png in Resources */,
+				89CD454A17D91BDA00C2647D /* profile_pet.png in Resources */,
+				89CD454B17D91BDA00C2647D /* profile_pet@2x.png in Resources */,
+				89CD454E17D91BE400C2647D /* Top.png in Resources */,
+				89CD454F17D91BE400C2647D /* Top@2x.png in Resources */,
+				895A925317DF6B9900D2FFFE /* icon_gender_undiff.png in Resources */,
+				895A925417DF6B9900D2FFFE /* icon_gender_undiff@2x.png in Resources */,
+				895A925517DF6B9900D2FFFE /* icon_gender_unknown.png in Resources */,
+				895A925617DF6B9900D2FFFE /* icon_gender_unknown@2x.png in Resources */,
+				895A925B17DF6C4D00D2FFFE /* icon_camera.png in Resources */,
+				895A925C17DF6C4D00D2FFFE /* icon_camera@2x.png in Resources */,
+				895A925D17DF6C4D00D2FFFE /* icon_gallery.png in Resources */,
+				895A925E17DF6C4D00D2FFFE /* icon_gallery@2x.png in Resources */,
+				895A926117E0ADC700D2FFFE /* icon_history.png in Resources */,
+				895A926217E0ADC700D2FFFE /* icon_history@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8969473A171D99D10072A3CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89694749171D99D10072A3CD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8969473B171D99D10072A3CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8969470F171D99D10072A3CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8992432F17B948EB00296BEA /* ServerPopoverView.m in Sources */,
+				8992432E17B948E200296BEA /* InitialSearchTableViewController.m in Sources */,
+				89694724171D99D10072A3CD /* main.m in Sources */,
+				89694728171D99D10072A3CD /* TestAppDelegate.m in Sources */,
+				89694763171D9B600072A3CD /* PatientLoaderTableViewController.m in Sources */,
+				89694766171DAE550072A3CD /* PatientViewController.m in Sources */,
+				891F3A91172593A10091D782 /* PatientViewWriter.m in Sources */,
+				891F3A981725C5C70091D782 /* PatientEditViewController.m in Sources */,
+				89E2EE3117270E260005CC5A /* DetailsEditViewController.m in Sources */,
+				89403EE0172819E100EDDF8A /* NameListTableViewController.m in Sources */,
+				89B78AF1178F2EAF004F4C0D /* loadScreenViewController.m in Sources */,
+				890EFFE5179731E6007ADF5C /* AddEditPatientViewController.m in Sources */,
+				896B277C179DC6E700608D87 /* SingleLineInputTableViewCell.m in Sources */,
+				896B277F179DC79000608D87 /* AddEditPatientTableViewController.m in Sources */,
+				896B2785179DCE5900608D87 /* SectionHeaderView.m in Sources */,
+				89C82A4D179EDA6400D147EF /* AddressInputTableViewCell.m in Sources */,
+				89C82A50179EFF8600D147EF /* PhoneTableViewCell.m in Sources */,
+				8934346517A000D6007EFE18 /* LargeTextFieldTableViewCell.m in Sources */,
+				8934346817A02168007EFE18 /* ContactListItemTableViewCell.m in Sources */,
+				8934346B17A05083007EFE18 /* PatientSearchTableViewCell.m in Sources */,
+				89E3000617A1732900F29B29 /* SingleLineViewTableViewCell.m in Sources */,
+				89E3000917A173E000F29B29 /* PatientInfoViewTableViewController.m in Sources */,
+				8962C88017A6F67000ED4893 /* AddressViewTableViewCell.m in Sources */,
+				898F79F817A8523F00BE90B0 /* LinksViewTableViewCell.m in Sources */,
+				89BB1CC617AAF1BC00C8267F /* ContactListTableViewCell.m in Sources */,
+				891DB52E17B3CB2200C3E1E8 /* PhoneViewTableViewCell.m in Sources */,
+				8992432417B9469A00296BEA /* AllPatientItemReturnMethods.m in Sources */,
+				8992432A17B946EF00296BEA /* PatientInfoViewController.m in Sources */,
+				8992433317B9670E00296BEA /* FHIRSearchAndReturnResources.m in Sources */,
+				89F886EC17BBCCC200444530 /* SaveAndPushToServer.m in Sources */,
+				895A926517E0BF4000D2FFFE /* HistorySelectorTableViewController.m in Sources */,
+				89A716A617E74E8500E28627 /* HistoryWebViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89694738171D99D10072A3CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8969474C171D99D10072A3CD /* TestFHIRPatientAppTests.m in Sources */,
+				8992432717B946D000296BEA /* InitialSearchTableViewController.m in Sources */,
+				8992432D17B946F800296BEA /* ServerPopoverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89694743171D99D10072A3CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89694712171D99D10072A3CD /* TestFHIRPatientApp */;
+			targetProxy = 89694742171D99D10072A3CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89694720171D99D10072A3CD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89694721171D99D10072A3CD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8969472F171D99D10072A3CD /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89694730171D99D10072A3CD /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		89694732171D99D10072A3CD /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89694733171D99D10072A3CD /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		89694747171D99D10072A3CD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89694748171D99D10072A3CD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8969474D171D99D10072A3CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8969474E171D99D10072A3CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89694750171D99D10072A3CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestFHIRPatientApp/TestFHIRPatientApp-Prefix.pch";
+				INFOPLIST_FILE = "TestFHIRPatientApp/TestFHIRPatientApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Desktop\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../fhirapp/fhirapp/libFHIR\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv6 armv7 i386";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		89694751171D99D10072A3CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestFHIRPatientApp/TestFHIRPatientApp-Prefix.pch";
+				INFOPLIST_FILE = "TestFHIRPatientApp/TestFHIRPatientApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Desktop\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../fhirapp/fhirapp/libFHIR\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv6 armv7 i386";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		89694753171D99D10072A3CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestFHIRPatientApp.app/TestFHIRPatientApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestFHIRPatientApp/TestFHIRPatientApp-Prefix.pch";
+				INFOPLIST_FILE = "TestFHIRPatientAppTests/TestFHIRPatientAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		89694754171D99D10072A3CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestFHIRPatientApp.app/TestFHIRPatientApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TestFHIRPatientApp/TestFHIRPatientApp-Prefix.pch";
+				INFOPLIST_FILE = "TestFHIRPatientAppTests/TestFHIRPatientAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8969470D171D99D10072A3CD /* Build configuration list for PBXProject "TestFHIRPatientApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8969474D171D99D10072A3CD /* Debug */,
+				8969474E171D99D10072A3CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8969474F171D99D10072A3CD /* Build configuration list for PBXNativeTarget "TestFHIRPatientApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89694750171D99D10072A3CD /* Debug */,
+				89694751171D99D10072A3CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89694752171D99D10072A3CD /* Build configuration list for PBXNativeTarget "TestFHIRPatientAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89694753171D99D10072A3CD /* Debug */,
+				89694754171D99D10072A3CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8969470A171D99D10072A3CD /* Project object */;
+}
