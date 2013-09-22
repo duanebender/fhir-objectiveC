@@ -10,7 +10,7 @@
 
 @protocol PopupPassData <NSObject>
 @required
-- (void) returnFromPopup:(NSString*) popupData;
+- (void) returnFromPopup:(NSString*)popupData xmlorjson:(NSNumber *)indexSelected;
 @end
 
 @interface ServerPopoverView : UIViewController <UITextFieldDelegate>
@@ -19,7 +19,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *servAdressLabel;
 @property (weak, nonatomic) IBOutlet UITextField *serverAddressTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *jsonXmlSwitch;
 
 @property (strong, nonatomic) NSString *serverURLText;
+@property (strong, nonatomic) NSNumber *switchSelected;
 
 @end

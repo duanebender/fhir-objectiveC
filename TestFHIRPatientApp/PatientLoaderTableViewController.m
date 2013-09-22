@@ -112,7 +112,6 @@
             NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
             if (jsonString)
             {
-                NSLog(@"%@",tempURLString);
                 patientJSON = [jsonDict convertJsonToDictionary:tempURLString];
                 [self.patientArray addObject:patientJSON];
             }
@@ -136,7 +135,6 @@
     [alert show];
     }
     [self.tableView reloadData];
-    NSLog(@"%@",self.patientArray);
 }
 /*
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar

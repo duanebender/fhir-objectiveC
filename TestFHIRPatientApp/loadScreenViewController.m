@@ -49,7 +49,6 @@
 {
     if ([[segue identifier] isEqualToString:@"loadScreenSegue"]) {
         //pass values
-        NSLog(@"The sender is %@",sender);
         
         //InitialSearchTableViewController *dest = segue.destinationViewController;
         //[dest setTitle:@"Patient Search"];

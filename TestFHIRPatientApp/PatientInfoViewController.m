@@ -136,7 +136,6 @@
         if ([self.patient.telecom count] != 0)
         {
             NSDictionary *telecomDict = [[NSDictionary alloc] initWithDictionary:[AllPatientItemReturnMethods returnPatientsTelecom:self.patient]];
-            NSLog(@"telecomDict:%@",telecomDict);
             for (NSString *key in telecomDict)
             {
                 if ([key isEqualToString:@"Phone:"])
@@ -159,7 +158,6 @@
                     }
                 }
             }
-            NSLog(@"tele:%@",childViewController.contactCellLabels);
         }
             
         //Additional Info section cells
@@ -184,7 +182,6 @@
         if (![self.patient.provider.type.value isEqualToString:@""])
         {
             [childViewController.addCellLabels addObject:@"Provider:"];
-            NSLog(@"%@",[[self.patient generateAndReturnResourceDictionary] dataForResource]);
             [childViewController.addCellContents addObject:[AllPatientItemReturnMethods returnPatientsProvider:self.patient]];
         }
         

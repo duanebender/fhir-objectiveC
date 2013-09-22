@@ -18,25 +18,6 @@
 
 @implementation InitialSearchTableViewController
 
-- (void)exampleGrab //delete after servers are updated
-{
-    JSONToDict *jsonDict = [[JSONToDict alloc] init];
-    
-    //check if file exists at path
-    NSObject *patientJSON = [[NSObject alloc] init];
-    self.patientArray = [[NSMutableArray alloc] init];
-    NSURL *tempUrl = [[NSURL alloc] initWithString:URL_STRING_TEST];
-    NSString *jsonString = [NSString stringWithContentsOfURL:tempUrl encoding:NSASCIIStringEncoding error:nil];
-    if (jsonString)
-    {
-        NSLog(@"%@",URL_STRING_TEST);
-        patientJSON = [jsonDict convertJsonToDictionary:URL_STRING_TEST];
-        [self.patientArray addObject:patientJSON];
-    }
-    
-    [self.tableView reloadData];
-}
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -87,12 +68,10 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"%@",searchBar.text);
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
     self.tableView.allowsSelection = YES;
     self.tableView.scrollEnabled = YES;
-    //[self exampleGrab];
     [self grabFromServerUsingName:searchBar.text];
 }
 
@@ -207,6 +186,17 @@
     NSMutableArray *familyNames = [[NSMutableArray alloc] init];
     Boolean *singleName = false;
     
+    //check if xml or json search
+    NSString *formatType = @"";
+    if ([self.jsonOrXMLselected intValue] == 1)
+    {
+        formatType = @"xml";
+    }
+    else
+    {
+        formatType = @"json";
+    }
+    
     if ([searchString rangeOfString:@","].location != NSNotFound && [namesSeperated count] == 2) //if using "lastName, firstName" format
     {
         NSMutableArray *nameArrayWithoutCommas = [[NSMutableArray alloc] init];
@@ -223,11 +213,10 @@
         {
             [givenNames addObject:[namesSeperated objectAtIndex:i]];
         }
-        [familyNames addObject:[namesSeperated objectAtIndex:[namesSeperated count]-1]];
+        [familyNames addObject:[namesSeperated objectAtIndex:[namesSeperated count] -1]];
     }
     else //single search word is provided "name"
     {
-        NSLog(@"SINGLE");
         singleName = true;
         [familyNames addObject:searchString];
         [givenNames addObject:searchString];
@@ -238,15 +227,22 @@
     {
         self.patientArray = [[NSMutableArray alloc] init];
         
+        /*
+        //use name perameter
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_name=%@&_format=%@", self.currentServerAddress, [familyNames objectAtIndex:0], formatType]];
+        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString formatType:formatType]]; //grabs family names
+        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString formatType:formatType]];
+        */
+        
         //try family name first
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0]]];
-        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs family names
-        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&_format=%@", self.currentServerAddress, [familyNames objectAtIndex:0], formatType]];
+        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString formatType:formatType]]; //grabs family names
+        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString formatType:formatType]];
         
         //try given names
-        urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&given=%@&_format=json", self.currentServerAddress, [givenNames objectAtIndex:0]]];
-        [self.patientArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]]; //grabs given names
-        [self.patientIDArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
+        urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&given=%@&_format=%@", self.currentServerAddress, [givenNames objectAtIndex:0], formatType]];
+        [self.patientArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString formatType:formatType]]; //grabs given names
+        [self.patientIDArray addObjectsFromArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString formatType:formatType]];
         
         [self.tableView reloadData];
          
@@ -255,10 +251,10 @@
     {
         self.patientArray = [[NSMutableArray alloc] init];
         
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_&family=%@&given=%@&_format=json", self.currentServerAddress, [familyNames objectAtIndex:0], [givenNames objectAtIndex:0]]];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:[NSMutableString stringWithFormat:@"%@patient?_family=%@&given=%@&_format=%@", self.currentServerAddress, [familyNames objectAtIndex:0], [givenNames objectAtIndex:0], formatType]];
         
-        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString]];//grabs all searched names
-        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString]];
+        self.patientArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientsSearched:urlString formatType:formatType]];//grabs all searched names
+        self.patientIDArray = [[NSMutableArray alloc] initWithArray:[FHIRSearchAndReturnResources returnArrayOfPatientIDsSearched:urlString formatType:formatType]];
         
         [self.tableView reloadData];
         
@@ -288,6 +284,7 @@
         self.serverPopover = [(UIStoryboardPopoverSegue*)segue popoverController];
         [[segue destinationViewController] setDelegate:self];
         [[segue destinationViewController] setServerURLText:self.currentServerAddress];
+        [[segue destinationViewController] setSwitchSelected:self.jsonOrXMLselected];
     }
     else
     {
@@ -308,9 +305,10 @@
 }
 
 #pragma mark -popup protocol functions
-- (void) returnFromPopup:(NSString *)popupData
+- (void) returnFromPopup:(NSString *)popupData xmlorjson:(NSNumber *)indexSelected
 {
-    self.currentServerAddress = popupData;
+    self.currentServerAddress = [[NSString alloc] initWithString:popupData];
+    self.jsonOrXMLselected = indexSelected;
     [self.serverPopover dismissPopoverAnimated:YES];
 }
 

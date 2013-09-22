@@ -301,7 +301,7 @@
             
             //check for work phone
             NSMutableString *workPhone = [[NSMutableString alloc] init];
-            if (contactLine.use == ContactUseWork)
+            if (contactLine.use == ContactUseWork && contactLine.value.value)
             {
                 [workPhone setString:contactLine.value.value];
             }
@@ -670,7 +670,6 @@
     
         //add contact to the array
         [arrayOfPatientContactItems addObject:currentContactDictionary];
-        NSLog(@"%@",arrayOfPatientContactItems);
         
     } //end for loop
 

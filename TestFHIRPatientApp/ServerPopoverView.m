@@ -28,6 +28,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.serverAddressTextField.text = self.serverURLText;
+    self.jsonXmlSwitch.selectedSegmentIndex = [self.switchSelected integerValue];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -38,7 +39,8 @@
 }
 - (IBAction)applyButtonPressed:(id)sender
 {
-    [[self delegate] returnFromPopup:self.serverURLText];
+    self.serverURLText = self.serverAddressTextField.text;
+    [[self delegate] returnFromPopup:self.serverURLText xmlorjson:[NSNumber numberWithInteger:[self.jsonXmlSwitch selectedSegmentIndex]]];
 }
 
 @end

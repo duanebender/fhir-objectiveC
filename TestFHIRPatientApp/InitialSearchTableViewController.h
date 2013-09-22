@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *patientArray;
 @property (nonatomic, strong) NSMutableArray *patientIDArray;
 @property (nonatomic, strong) NSString *currentServerAddress;
+@property (nonatomic, strong) NSNumber *jsonOrXMLselected;
 
 @property (nonatomic, weak) UIPopoverController *serverPopover;
 

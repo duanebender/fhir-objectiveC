@@ -10,9 +10,9 @@
 
 @interface FHIRSearchAndReturnResources : NSObject
 
-+ (NSArray *)returnArrayOfPatientsSearched:(NSString *)urlStringOfSearch;
++ (NSArray *)returnArrayOfPatientsSearched:(NSString *)urlStringOfSearch formatType:(NSString *)jsonOrXml;
 
-+ (NSArray *)returnArrayOfPatientIDsSearched:(NSString *)urlStringOfSearch;
++ (NSArray *)returnArrayOfPatientIDsSearched:(NSString *)urlStringOfSearch formatType:(NSString *)jsonOrXml;
 
 + (NSArray *)returnArrayOfCurrentPatientHistory:(NSString *)urlStringOfSearch;
 

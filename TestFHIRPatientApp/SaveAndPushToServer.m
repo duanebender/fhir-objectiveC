@@ -53,7 +53,6 @@
             humanNameObject.useSV.value = @"official";
             
             patientFromDictionary.name = [[NSMutableArray alloc] init];
-            NSLog(@"NAMEPARTS:%@",[nameParts lastObject]);
             
             if ([nameParts count] != 1)
             {
@@ -97,7 +96,7 @@
             NSDate *date = [dateFormatter dateFromString:[dictionaryToConvertToPatient objectForKey:key]];
             patientFromDictionary.birthDate.value = date;
         }
-        else if ([key isEqualToString:@"Marital Status:"]) //personal info marital Status
+        else if ([key isEqualToString:@"Marital Status:"] || true) //personal info marital Status
         {
             patientFromDictionary.maritalStatus = [[FHIRCodeableConcept alloc] init];
             [patientFromDictionary.maritalStatus.coding addObject:[self returnMaritalStatus:dictionaryToConvertToPatient]];
@@ -127,6 +126,7 @@
             NSArray *tempArray = [addressString componentsSeparatedByString:@"\n"];
             FHIRAddress *addressObject = [[FHIRAddress alloc] init];
             addressObject.useSV.value = @"home";
+            addressObject.use = AddressUseHome;
             for (int i = 0; i < [tempArray count]; i++)
             {
                 FHIRString *stringLine = [[FHIRString alloc] init];
@@ -209,16 +209,22 @@
                 patientFromDictionary.active.value = false;
             }
         }
-        else if ([key isEqualToString:@"Provider:"]) //additional info provider
+        else if ([key isEqualToString:@"Provider:"] || true) //additional info provider
         {
-            patientFromDictionary.provider.type.value = [dictionaryToConvertToPatient objectForKey:key];
+            if ([[dictionaryToConvertToPatient objectForKey:@"Provider"] class] != [NSNull class])
+            {
+                patientFromDictionary.provider.type.value = [dictionaryToConvertToPatient objectForKey:key];
+            }
+            else
+            {
+                patientFromDictionary.provider.type.value = @"iDeaworks";
+            }
         }
         else if ([key isEqualToString:@"Linked Patients:"]) //additional info linked patients
         {
             NSArray *linkArray = [[dictionaryToConvertToPatient objectForKey:key] componentsSeparatedByString:@","];
             patientFromDictionary.link = [[NSMutableArray alloc] init];
             
-            NSLog(@"%@",linkArray);
             for (int i = 0; i < [linkArray count]; i++)
             {
                 NSString *currentString = [[NSString alloc] initWithString:[[linkArray objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
@@ -356,7 +362,15 @@
 
 - (FHIRCoding *)returnMaritalStatus:(NSDictionary *)dictionary
 {
-    NSString *maritalStatusString = [[NSString alloc] initWithString:[dictionary objectForKey:@"Marital Status:"]];
+    NSString *maritalStatusString = [[NSString alloc] init];
+    if ([dictionary objectForKey:@"Marital Status:"])
+    {
+        maritalStatusString = [dictionary objectForKey:@"Marital Status:"];
+    }
+    else //go to default
+    {
+        maritalStatusString = @"unknown";
+    }
     FHIRCoding *codingObject = [[FHIRCoding alloc] init];
     
     if ([maritalStatusString caseInsensitiveCompare:@"unmarried"] == NSOrderedSame)
@@ -646,7 +660,6 @@
     
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",returnString);
     
     [xmlParser generateXml:patient urlPath:@"/Users/adamsippel/Desktop/PatientXML.xml"];
     //DictToJSON *jsonParser = [[DictToJSON alloc] init];

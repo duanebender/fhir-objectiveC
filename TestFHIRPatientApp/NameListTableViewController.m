@@ -79,8 +79,6 @@
 {
     [super viewDidLoad];
     [self setUpNamesForTable];
-    NSLog(@"%d", [self.sectionArray count]);
-    NSLog(@"%@", self.nameArray);
 }
 
 - (void)didReceiveMemoryWarning

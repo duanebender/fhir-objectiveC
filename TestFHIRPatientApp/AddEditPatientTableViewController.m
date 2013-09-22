@@ -344,7 +344,6 @@
     {
         [self.tableReturnableDictionary setObject:[dictionaryOfStringsTextFromCell objectForKey:key] forKey:key];
     }
-    NSLog(@"DIct:%@",self.tableReturnableDictionary);
 }
 
 - (void)setValuesForAllCells

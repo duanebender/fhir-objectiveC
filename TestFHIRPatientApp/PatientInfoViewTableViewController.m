@@ -137,11 +137,8 @@
     }
     else if (indexPath.section == [self.sectionsTitleArray indexOfObject:@"Contact List"])
     {
-        NSLog(@"HERE");
         //contactListViewCell = [tableView dequeueReusableCellWithIdentifier:@"contactListViewCell" forIndexPath:indexPath];
-        NSLog(@"HERE?");
         NSDictionary *currentContactItem = [[NSDictionary alloc] initWithDictionary:[self.contactListCells objectAtIndex:indexPath.row]];
-        NSLog(@"%@",currentContactItem);
         [contactListViewCell.nameText setText:[currentContactItem objectForKey:@"nameText"]];
         [contactListViewCell.genderText setText:[currentContactItem objectForKey:@"genderText"]];
         [contactListViewCell.relationshipText setText:[currentContactItem objectForKey:@"relationshipText"]];

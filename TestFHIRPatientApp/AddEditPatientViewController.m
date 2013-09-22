@@ -459,7 +459,6 @@
 - (void)valuesToPassBack:(NSDictionary *)dictionaryToPass
 {
     self.dictionaryOfUpdatedPatient = dictionaryToPass;
-    NSLog(@"MAINDICT:%@",dictionaryToPass);
 }
 
 @end
